@@ -7,7 +7,7 @@ let connection = mysql.createConnection({
 	host: process.env.DB_HOST,
 	user: process.env.DB_USER,
 	password: process.env.DB_PASSWORD,
-	database: "row_fruit_db",
+	database:  process.env.DB_NAME,
 });
 
 connection = Promise.promisifyAll(connection);
