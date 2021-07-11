@@ -4,12 +4,11 @@ require("dotenv").config();
 //console.log(process.env.DB_USER);
 
 let connection = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
-    port: process.env.DB_PORT,
-  });
+	host: process.env.DB_HOST,
+	user: process.env.DB_USER,
+	password: process.env.DB_PASSWORD,
+	database: "row_fruit_db",
+});
 
 connection = Promise.promisifyAll(connection);
 
