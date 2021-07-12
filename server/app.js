@@ -32,8 +32,9 @@ app.use("/api/farmer", farmerRouter);
 let postRouter = require("./routes/Blog/post");
 app.use("/api/post", postRouter);
 
-let customerRouter = require("./routes/Customer/customerProduct");
-app.use("/api/customer",customerRouter)
+
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
