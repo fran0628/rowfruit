@@ -17,7 +17,7 @@ router.get("/", async (req, res) => {
 	// }
 	
     
-	res.json(farmerUser);
+	res.status(200).json(farmerUser);
 	
 });
 // 單個小農
@@ -28,7 +28,7 @@ router.get("/:id", async (req, res) => {
 	);
     const {password,...others}=farmerUser[0]
 	
-	res.json(others);
+	res.status(200).json(others);
 	
 });
 
