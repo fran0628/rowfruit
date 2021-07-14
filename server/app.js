@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const connection = require("./utilities/db");
 const Promise = require("bluebird");
+const multer = require("multer")
 require("dotenv").config();
 
 var indexRouter = require('./routes/index');
@@ -16,6 +17,8 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+app.use("/images", express.static(path.join(__dirname, "/images")));
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -24,6 +27,22 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+const storage = multer.diskStorage({
+	destination: (req, file, cb) => {
+		cb(null, "images");
+	},
+	filename: (req, file, cb) => {
+    const ext = file.originalname.split(".").pop();
+		cb(null, `${file.fieldname}-${Date.now()}.${ext}`);
+    
+	},
+});
+
+const upload = multer({ storage: storage });
+app.post("/api/upload", upload.single("file"), (req, res) => {
+	res.status(200).json("檔案已上傳");
+});
 
 
 let farmerRouter = require("./routes/Blog/farmerUser");
