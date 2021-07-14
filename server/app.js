@@ -41,6 +41,9 @@ app.use("/api/Map/Map",MapRouter);
 let FruitRouter = require("./routes/Map/Fruit");
 app.use("/api/Map/Fruit",FruitRouter);
 
+let mainRouter = require("./routes/MainProduct/MainProduct");
+app.use("/api/mainproduct", mainRouter)
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
