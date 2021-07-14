@@ -1,0 +1,6 @@
+// 其它要覆蓋掉原本的預設bootstrap樣式-變數
+@import './variables.scss';
+
+// 導入bootstrap所有樣式與預設變數
+@import '~bootstrap/scss/bootstrap.scss';
+
