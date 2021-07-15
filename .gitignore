@@ -1,3 +1,5 @@
 node_modules
 .vscode
 server/.env
+
+client-react/public/Mainphotos
