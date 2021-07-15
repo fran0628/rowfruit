@@ -5,16 +5,17 @@ const connection = require("../../utilities/db");
 // 全部產品
 router.get("/", async (req, res) => {
 	const products = await connection.queryAsync(
-		"SELECT * FROM main_product;"
+		"SELECT * FROM product;"
 	);
 	
 	res.json(products);
 });
 
 // 單樣產品
-router.get("/:id", async (req, res) => {
+router.get("/:id", async (req, res) => {
+	console.log(req.params.id);
 	const product = await connection.queryAsync(
-		"SELECT * FROM main_product WHERE id = ?;",
+		"SELECT * FROM product WHERE id = ?;",
 		req.params.id
 	);
 	
