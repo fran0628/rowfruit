@@ -5,7 +5,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const connection = require("./utilities/db");
 const Promise = require("bluebird");
-const multer = require("multer")
+const multer = require("multer");
+const cors = require("cors")
 require("dotenv").config();
 
 var indexRouter = require('./routes/index');
@@ -13,6 +14,7 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+app.use(cors());
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
