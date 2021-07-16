@@ -3,25 +3,25 @@ import MainFruitboxProductItem from './MainFruitboxProductItem'
 
 
 function MainFruitbox(props) {
-    const {nameList,priceList,pictureList} = props
+    const {fruitboxnameList,fruitboxpriceList,fruitboxpictureList} = props
     return(
       <>
         <div className="container">
             <div className="fruitlist row">
                 <MainFruitboxProductItem
-                    name={nameList.FruitboxOne}
-                    price={priceList.FruitboxOne}
-                    picture={pictureList.FruitboxOne}
+                    name={fruitboxnameList.FruitboxOne}
+                    price={fruitboxpriceList.FruitboxOne}
+                    picture={fruitboxpictureList.FruitboxOne}
                 />
                 <MainFruitboxProductItem
-                    name={nameList.FruitboxTwo}
-                    price={priceList.FruitboxTwo}
-                    picture={pictureList.FruitboxTwo}
+                    name={fruitboxnameList.FruitboxTwo}
+                    price={fruitboxpriceList.FruitboxTwo}
+                    picture={fruitboxpictureList.FruitboxTwo}
                 />
                 <MainFruitboxProductItem
-                    name={nameList.FruitboxThree}
-                    price={priceList.FruitboxThree}
-                    picture={pictureList.FruitboxThree}
+                    name={fruitboxnameList.FruitboxThree}
+                    price={fruitboxpriceList.FruitboxThree}
+                    picture={fruitboxpictureList.FruitboxThree}
                 />     
             </div>
         </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import "./MainProductDetail.scss";
 
-function MainProductWhitening() {
+function MainProduct() {
   return (
     <>
       <main>
@@ -18,7 +18,7 @@ function MainProductWhitening() {
                   <a href="#/">主打水果盒選單</a>
                 </li>
                 <li className="breadcrumb-item active" aria-current="page">
-                  美白水果盒
+                  健身水果盒
                 </li>
               </ol>
             </nav>
@@ -56,7 +56,7 @@ function MainProductWhitening() {
                 <span> &nbsp; </span>
                 <span>4.8 / 5</span>
                 <span> &nbsp; </span>
-                <a href="#/">21則評論</a>
+                <a href="#/">30則評論</a>
 
                 <h5>商品內容</h5>
                 <ul>
@@ -67,10 +67,10 @@ function MainProductWhitening() {
                     <span>珍珠芭樂約2份</span>
                   </li>
                   <li>
-                    <span>秀女番茄約2份</span>
+                    <span>秀女番茄約8顆裝</span>
                   </li>
                   <li>
-                    <span>綠色奇異果約2份</span>
+                    <span>綠色奇異果約2顆</span>
                   </li>
                 </ul>
                 <h5>出貨日期</h5>
@@ -93,12 +93,12 @@ function MainProductWhitening() {
                 <h5>購買方案</h5>
                 <div className="row">
                   <div className="col-lg-12 col-md-9">
-                    <button className="product-btn active me-1">
+                    {/* <button className="product-btn active me-1">
                       體驗一箱
                     </button>
                     <button className="product-btn">月訂閱制</button>
                     <button className="product-btn me-1">季訂閱制</button>
-                    <button className="product-btn">半年訂閱制</button>
+                    <button className="product-btn">半年訂閱制</button> */}
                   </div>
                   <div className="col-lg-12">
                     <span className="account">數量：</span>
@@ -112,8 +112,8 @@ function MainProductWhitening() {
                     <span className="fs-4 text-danger">$500</span>
                   </div>
                   <div className="col-lg-12">
-                    <button className="buy-btn">加入購物車</button>
-                    <button className="sub-btn">了解訂閱方案</button>
+                    <button className="buy-btn">單買加入購物車</button>
+                    <button className="sub-btn">選擇訂閱方案</button>
                   </div>
                 </div>
               </div>
@@ -156,7 +156,7 @@ function MainProductWhitening() {
                 <div className="productarticle">
                   <h4 className="text-center">砂糖橘</h4>
                   <p>
-                    砂糖橘果實扁圓形，頂部有瘤狀突起，蒂臍端凹陷，色澤橙黃，皮薄肉脆，果壁薄易剝離，果瓣為10瓣左右，無核或少核。果形指數0.78，單果重62－86克，可食率71%，可含溶性固形物11%，每100毫升含全糖10.55克，果酸0.35克。果肉爽脆
+                  砂糖橘果實扁圓形，頂部有瘤狀突起，蒂臍端凹陷，色澤橙黃，皮薄肉脆，果壁薄易剝離，果瓣為10瓣左右，無核或少核。果形指數0.78，單果重62－86克，可食率71%，可含溶性固形物11%，每100毫升含全糖10.55克，果酸0.35克。果肉爽脆
                   </p>
                 </div>
               </div>
@@ -181,8 +181,8 @@ function MainProductWhitening() {
                 <div className="productarticle">
                   <h4 className="text-center">秀女番茄</h4>
                   <p>
-                    特色︰果實顏色比聖女略淡一些、形狀為橢圓形。皮薄汁多、甜中略帶有酸味。
-                    果實硬，耐長時間的運輸和儲存
+                  特色︰果實顏色比聖女略淡一些、形狀為橢圓形。皮薄汁多、甜中略帶有酸味。
+                  果實硬，耐長時間的運輸和儲存
                   </p>
                 </div>
               </div>
@@ -193,7 +193,7 @@ function MainProductWhitening() {
                 <div className="productarticle">
                   <h4 className="text-center">綠色奇異果</h4>
                   <p>
-                    鮮綠色果肉、白色果心、芝麻般的黑色種籽以及濃郁清香氣息，富含膳食纖維與奇異酵素，為體內注入健康活力，酸甜可口的滋味讓人耳目一新。
+                  鮮綠色果肉、白色果心、芝麻般的黑色種籽以及濃郁清香氣息，富含膳食纖維與奇異酵素，為體內注入健康活力，酸甜可口的滋味讓人耳目一新。
                   </p>
                 </div>
               </div>
@@ -547,4 +547,4 @@ function MainProductWhitening() {
   );
 }
 
-export default MainProductWhitening;
+export default MainProduct;
