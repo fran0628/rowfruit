@@ -5,13 +5,13 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const connection = require("./utilities/db");
 const Promise = require("bluebird");
-const multer = require("multer")
 require("dotenv").config();
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -28,40 +28,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-const storage = multer.diskStorage({
-	destination: (req, file, cb) => {
-		cb(null, "images");
-	},
-	filename: (req, file, cb) => {
-    const ext = file.originalname.split(".").pop();
-		cb(null, `${file.fieldname}-${Date.now()}.${ext}`);
-    
-	},
-});
-
-const upload = multer({ storage: storage });
-app.post("/api/upload", upload.single("file"), (req, res) => {
-	res.status(200).json("檔案已上傳");
-});
-
 
 let farmerRouter = require("./routes/Blog/farmerUser");
 app.use("/api/farmer", farmerRouter);
 
 let postRouter = require("./routes/Blog/post");
-app.use("/api/post", postRouter);
-
-let customerRouter = require("./routes/Customer/customerProduct");
-app.use("/api/customer",customerRouter);
-
-let MapRouter = require("./routes/Map/Map");
-app.use("/api/Map/Map",MapRouter);
-
-let FruitRouter = require("./routes/Map/Fruit");
-app.use("/api/Map/Fruit",FruitRouter);
-
-let mainRouter = require("./routes/MainProduct/MainProduct");
-app.use("/api/mainproduct", mainRouter)
+app.use("/api/posts", postRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
