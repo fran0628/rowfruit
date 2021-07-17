@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 const express = require("express");
 const router = express.Router();
 const connection = require("../../utilities/db");
@@ -26,4 +24,3 @@ router.get("/:id", async (req, res) => {
 	
 
 module.exports = router;
->>>>>>> a5b1c1ce7b5afb7b22c7d91e3a86d175e6714045
