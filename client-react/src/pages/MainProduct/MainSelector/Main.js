@@ -1,30 +1,47 @@
 import React from 'react'
 import './Main.scss'
 import MainFruitbox from './MainFruitbox/MainFruitbox'
-
+import Subscribe from './Subscribe/Subscribe'
 
 function Main(){
-  
+
+  // MainFruitbox
   // 每個產品的名稱
-  const nameList = {
+  const fruitboxnameList = {
     FruitboxOne: '美白水果盒',
     FruitboxTwo: '健身水果盒',
     FruitboxThree: '輕盈水果盒',
   }
 
   // 代表每個產品的單價
-  const priceList = {
+  const fruitboxpriceList = {
     FruitboxOne: 500,
     FruitboxTwo: 500,
     FruitboxThree: 500,
   }
 
   // 每個產品的圖片
-  const pictureList = {
+  const fruitboxpictureList = {
     FruitboxOne: '/Mainphotos/1.jpg',
     FruitboxTwo: '/Mainphotos/2.jpg',
     FruitboxThree: '/Mainphotos/3.jpg',
   }
+
+  //Subscribe
+  const subscribeList = {
+    SubscribeOne: '體驗一箱',
+    SubscribeTwo: '月訂閱制',
+    SubscribeThree: '季訂閱制',
+    SubscribeFour: '半年訂閱制',
+  }
+
+  const subscribePrice = {
+    SubscribeOne: 500,
+    SubscribeTwo: 1800,
+    SubscribeThree: 4800,
+    SubscribeFour: 8400,
+  }
+
 
 
   return (
@@ -63,13 +80,13 @@ function Main(){
         </div>
         {/*水果盒*/}
         <MainFruitbox
-          priceList={priceList}
-          nameList={nameList}
-          pictureList={pictureList}
+          fruitboxpriceList={fruitboxpriceList}
+          fruitboxnameList={fruitboxnameList}
+          fruitboxpictureList={fruitboxpictureList}
         />
         {/*訂閱方案說明文*/}
         <div className="container">
-            <h1 className="display-6 fw-normal text-center">選擇適合自己的訂閱方案</h1>
+            <h1 className="display-6 fw-normal text-center">選擇適合自己的購買方案</h1>
             <p className="text-center">
                 現在下訂會收到『 六月ROWFRUIT水果箱 』<br />
                 本次出貨時間為 2021 / 6 / 26 <br />
@@ -78,42 +95,10 @@ function Main(){
             </p>
         </div> 
         {/*訂閱方案介紹*/} 
-        <div className="container">
-            <div className="subscribe row">
-                <div className="col-lg-3 col-md-6 g-2">
-                    <div className="figure"><a href="#/"><img src="/Mainphotos/5.jpeg" className="card-img-top" alt="..." /></a></div>
-                    <div className="card-body">
-                      <h3 className="card-title">體驗一箱</h3>
-                      <p className="card-text">NT $2580</p>
-                      <p className="card-text">精選4-6種水果<br />嚴選在地小農</p>
-                    </div>
-                </div>
-                <div className="col-lg-3 col-md-6 g-2">
-                    <div className="figure"><a href="#/"><img src="/Mainphotos/5.jpeg" className="card-img-top" alt="..." /></a></div>
-                    <div className="card-body">
-                      <h3 className="card-title">月訂閱制</h3>
-                      <p className="card-text">NT $3380</p>
-                      <p className="card-text">精選4-6種水果<br />嚴選在地小農</p>
-                    </div>
-                </div>
-                <div className="col-lg-3 col-md-6 g-2">
-                    <div className="figure"><a href="#/"><img src="/Mainphotos/5.jpeg" className="card-img-top" alt="..." /></a></div>
-                    <div className="card-body">
-                      <h3 className="card-title">季訂閱制</h3>
-                      <p className="card-text">NT $3780</p>
-                      <p className="card-text">精選4-6種水果<br />嚴選在地小農</p>
-                    </div>
-                </div>
-                <div className="col-lg-3 col-md-6 g-2">
-                    <div className="figure"><a href="#/"><img src="/Mainphotos/5.jpeg" className="card-img-top" alt="..." /></a></div>
-                    <div className="card-body">
-                      <h3 className="card-title">半年訂閱制</h3>
-                      <p className="card-text">NT $4080</p>
-                      <p className="card-text">精選4-6種水果<br />嚴選在地小農</p>
-                    </div>      
-                </div>         
-            </div>
-        </div>
+        <Subscribe
+          subscribeList={subscribeList}
+          subscribePrice={subscribePrice}
+        />
       </main>
     </>
     ) 
