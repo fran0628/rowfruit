@@ -51,6 +51,9 @@ app.use("/api/farmer", farmerRouter);
 let postRouter = require("./routes/Blog/post");
 app.use("/api/post", postRouter);
 
+let memberRouter = require("./routes/member/member");
+app.use("/api/member", memberRouter);
+
 let customerRouter = require("./routes/Customer/customerProduct");
 app.use("/api/customer", customerRouter);
 
