@@ -4,6 +4,7 @@ import './blogpage.css'
 import axios from "axios";
 import PostBlock from "./PostBlock/PostBlock";
 
+
  function BlogPage() {
     const [posts, setPosts] = useState([]);
     const [hotArticle,setHotArticle]=useState([])
@@ -25,6 +26,7 @@ import PostBlock from "./PostBlock/PostBlock";
 
     return (
 			<>
+				
 				<div className="container mt-2">
 					<div className="section-hero row">
 						<div

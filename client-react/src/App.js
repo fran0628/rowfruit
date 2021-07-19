@@ -5,16 +5,14 @@ import MainProductFitness from './pages/MainProduct/MainProductDetail/MainProduc
 import Main from './pages/MainProduct/MainSelector/Main'
 import Home from './pages/Home'
 import FarmList from './pages/Blog/FarmList/FarmList'
+import TopNav from './component/TopNav/TopNav'
 
 
 function App() {
   return (
 		<Router>
 			<>
-				<Link to="/">Home</Link>
-				<Link to="/Main">Main</Link>
-				<Link to="/MainProduct">MainProduct</Link>
-				<Link to="/farmerlist">小農部落</Link>
+				<TopNav/>				
 
 				<Switch>
 					<Route path="/farmerlist">
