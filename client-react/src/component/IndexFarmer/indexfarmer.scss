@@ -1,0 +1,30 @@
+.fr-list{
+    .card-track{
+        position: relative;
+        .sliderArrow{
+            width: 100px;
+            height: 100%;
+            // background-color: rgba(46, 45, 45, 0.452);
+            color: #7b9c85;
+            position: absolute;
+            z-index: 10;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            cursor: pointer;
+            &.left{
+                left: 0;
+            }
+            &.right{
+                right: 0;
+            }
+        }
+        .farmer-cards{
+            margin-left: 100px;
+            display: flex;
+            width: max-content;
+            transform: translateX(0px);
+            transition: all 1s ease;
+        }
+    }
+}

@@ -10,7 +10,7 @@ function Footer() {
 
     return (
 			<>
-				<footer className="container-fluid ">
+				<footer className="container-fluid mt-5">
 					<div className="row d-flex">
 						<div className="col-lg-3">
 							<MapContainer
