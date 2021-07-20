@@ -1,5 +1,5 @@
 import React from 'react';
-import  './Login.scss';
+import  './MemberLogin.scss';
 // import Background from '../../../banner.png';
 
 
@@ -15,18 +15,18 @@ const banner = {
 export default function MemberLogin() {
   return (  
   <div>
-  <div style= {banner}>
+  <div className="MemberBanner" style= {banner}>
   {/* Login  Form */}
   <div className="container" >
     <div className="row justify-content-center">
       <div className="col-lg-4 col-sm-8 my-3">
         <div className="card shadow">
-          <div className="card-title text-center border-bottom">
-            {/* <h2 class="p-3">ROWFRUIT</h2> */}
+          <div className="MemberCardLogo text-center border-bottom">
+            {/* ROWFRUIT*/}
             <img className="logo p-3" src="MemberPhoto/logo.svg" alt="" />
           </div>
-          <div className="card-body">
-            <h3 className="title d-flex justify-content-center mb-3">
+          <div className="MemberBody">
+            <h3 className="NormalMemberLogin d-flex justify-content-center mb-3">
                 一般會員登入
             </h3>
             <form>
@@ -51,15 +51,15 @@ export default function MemberLogin() {
               </div>
               <div className="d-flex justify-content-center mt-3">
                 <label className="sign-up mx-4">
-                  <a className="sign-up" href="member_singup.html">
+                  <a className="MemberSignup" href="member_singup.html">
                     立即註冊</a></label>
                 <label className>|</label>
-                <label className="forgot mx-4">
-                  <a className="forgot" href="member_forgotpassword.html">忘記密碼</a>
+                <label className="ForgotPWD mx-4">
+                  <a  href="member_forgotpassword.html">忘記密碼</a>
                 </label>
               </div>
               <div className="d-flex justify-content-center mb-1">
-                <h5 className="fast-login">快速登入</h5>
+                <h5 className="FastDoLogin">快速登入</h5>
               </div>
               <div className="d-flex justify-content-center mb-2">
                 <img className="mx-3" src="MemberPhoto/GOOGLE.png" alt="" />
@@ -67,7 +67,7 @@ export default function MemberLogin() {
               </div>
               <div className="d-flex justify-content-center mb-2">
                 <a className="back-farmerlogin" href="farmer_login.html">
-                  <h5 className="back-farmerlogin">切換為小農登入頁面</h5>
+                  <h5 className="BackFarmerlogin">切換為小農登入頁面</h5>
                 </a>
               </div>
             </form>
