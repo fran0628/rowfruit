@@ -5,18 +5,22 @@ import MainProductFitness from './pages/MainProduct/MainProductDetail/MainProduc
 import Main from './pages/MainProduct/MainSelector/Main'
 import Home from './pages/Home'
 import FarmList from './pages/Blog/FarmList/FarmList'
+import TopNav from './component/TopNav/TopNav'
+import Footer from './component/Footer/Footer'
+import MemberLogin from './pages/Login/MemberLogin'
+
 
 
 function App() {
   return (
 		<Router>
 			<>
-				<Link to="/">Home</Link>
-				<Link to="/Main">Main</Link>
-				<Link to="/MainProduct">MainProduct</Link>
-				<Link to="/farmerlist">小農部落</Link>
-
+				<TopNav/>
+					
 				<Switch>
+					<Route path="/MemberLogin">
+						<MemberLogin />
+					</Route>
 					<Route path="/farmerlist">
 						<FarmList />
 					</Route>
@@ -30,6 +34,8 @@ function App() {
 						<Home />
 					</Route>
 				</Switch>
+
+				<Footer/>
 			</>
 		</Router>
 	);

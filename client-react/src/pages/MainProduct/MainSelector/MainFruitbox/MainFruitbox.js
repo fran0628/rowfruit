@@ -3,34 +3,28 @@ import MainFruitboxProductItem from './MainFruitboxProductItem'
 
 
 function MainFruitbox(props) {
-    const {fruitboxnameList,fruitboxpriceList,fruitboxpictureList} = props
+    const {data} = props
     return(
       <>
-        <div className="container">
-            <div className="fruitlist row">
+      <div className="container">
+        <div className="fruitlist row">
+            {data.map((item) => {
+                const { id, product_name, price, images} = item;
+                return (
                 <MainFruitboxProductItem
-                    name={fruitboxnameList.FruitboxOne}
-                    price={fruitboxpriceList.FruitboxOne}
-                    picture={fruitboxpictureList.FruitboxOne}
+                    key={id}
+                    id={id}
+                    product_name={product_name}
+                    price={price}
+                    images={images}
                 />
-                <MainFruitboxProductItem
-                    name={fruitboxnameList.FruitboxTwo}
-                    price={fruitboxpriceList.FruitboxTwo}
-                    picture={fruitboxpictureList.FruitboxTwo}
-                />
-                <MainFruitboxProductItem
-                    name={fruitboxnameList.FruitboxThree}
-                    price={fruitboxpriceList.FruitboxThree}
-                    picture={fruitboxpictureList.FruitboxThree}
-                />     
-            </div>
+                );
+            })}
         </div>
+      </div>
       </>
   )
 }
-
-
-
 
 
 export default MainFruitbox

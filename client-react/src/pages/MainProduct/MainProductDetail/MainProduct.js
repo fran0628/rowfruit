@@ -1,7 +1,56 @@
-import React from "react";
-import "./MainProductDetail.scss";
+import React, { useState, useEffect } from 'react'
+import { apiMainProduct } from '../../../global/API'
+import "./MainProductDetail.scss"
+import MainContent from './MainContent/MainContent'
+import Aside from './Aside/Aside'
+
+async function productdetailData(set) {
+  const res = await fetch(apiMainProduct)
+  const apidata  = await res.json()
+  set(apidata);
+}
 
 function MainProduct() {
+  
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    productdetailData(setData)
+  }, []) 
+
+
+  
+  /* Aside */
+  const fruitboxname = {
+    FruitboxOne: '多纖輕盈水果盒',
+    FruitboxTwo: '健身水果盒',
+  }
+  const fruitboxcontent = {
+    FruitcontentOne: '木瓜、芭樂、火龍果、蘋果、葡萄柚、百香果',
+    FruitcontentTwo: '香蕉、芭樂、蘋果、酪梨、鳳梨',
+  }
+  /* MainContent */
+  const fruitnameList = {
+    FruitOne: '砂糖橘',
+    FruitTwo: '珍珠芭樂',
+    FruitThree: '秀女番茄',
+    FruitFour: '綠色奇異果',
+  }
+  const fruitcontent = {
+    FruitOne: '砂糖橘果實扁圓形，頂部有瘤狀突起，蒂臍端凹陷，色澤橙黃，皮薄肉脆，果壁薄易剝離，果瓣為10瓣左右，無核或少核。果形指數0.78，單果重62－86克，可食率71%，可含溶性固形物11%，每100毫升含全糖10.55克，果酸0.35克。果肉爽脆',
+    FruitTwo: '珍珠芭樂的果型接近梨形，果肉白中帶黃，芭樂籽較多，香氣足且甜度高，是目前芭樂品種中最甜的，品質風味俱佳而廣受好評，從此成為市場主流！珍珠芭樂最佳品嚐時機是在秋冬，果肉較厚且肉質細緻，夏季雖然一樣香甜，但因高溫較容易變軟。',
+    FruitThree: '特色︰果實顏色比聖女略淡一些、形狀為橢圓形。皮薄汁多、甜中略帶有酸味。果實硬，耐長時間的運輸和儲存。',
+    FruitFour: '鮮綠色果肉、白色果心、芝麻般的黑色種籽以及濃郁清香氣息，富含膳食纖維與奇異酵素，為體內注入健康活力，酸甜可口的滋味讓人耳目一新。',
+  }
+  const fruitpicture = {
+    FruitOne: '/Mainphotos/17.jpg',
+    FruitTwo: '/Mainphotos/18.jpg',
+    FruitThree: '/Mainphotos/19.jpg',
+    FruitFour: '/Mainphotos/8.jpg',
+  }
+   
+
+
   return (
     <>
       <main>
@@ -77,7 +126,7 @@ function MainProduct() {
                 <ul>
                   <li>
                     <span className="text-danger">
-                      07 /24 - 08 / 27，假日不可以收貨者請先備註。
+                      單買約 1 - 3 周時間寄出，假日不可以收貨者請先備註。
                     </span>
                   </li>
                   <li>
@@ -92,14 +141,6 @@ function MainProduct() {
                 </ul>
                 <h5>購買方案</h5>
                 <div className="row">
-                  <div className="col-lg-12 col-md-9">
-                    {/* <button className="product-btn active me-1">
-                      體驗一箱
-                    </button>
-                    <button className="product-btn">月訂閱制</button>
-                    <button className="product-btn me-1">季訂閱制</button>
-                    <button className="product-btn">半年訂閱制</button> */}
-                  </div>
                   <div className="col-lg-12">
                     <span className="account">數量：</span>
                     <select className="accountselect">
@@ -112,94 +153,25 @@ function MainProduct() {
                     <span className="fs-4 text-danger">$500</span>
                   </div>
                   <div className="col-lg-12">
-                    <button className="buy-btn">單買加入購物車</button>
+                    <button className="buy-btn" onClick="add">單買加入購物車</button>
                     <button className="sub-btn">選擇訂閱方案</button>
                   </div>
                 </div>
               </div>
             </div>
             {/*側欄推薦其它產品*/}
-            <div className="otherproducts col-xl-2">
-              <div className="ms-4 mb-2">
-                <h5 className="ms-3 text-center">
-                  瀏覽其它商品 &nbsp;<i className="fas fa-caret-down"></i>
-                </h5>
-              </div>
-              <div className="asidecard card mb-4" style={{ width: "16rem" }}>
-                <img src="/Mainphotos/2.jpg" className="card-img-top" alt="" />
-                <div className="asidecardcontent card-body">
-                  <h5 className="card-title text-center">【輕盈水果盒】</h5>
-                  <p className="card-text">
-                    木瓜、芭樂、火龍果、蘋果、葡萄柚、百香果
-                  </p>
-                </div>
-              </div>
-              <div className="asidecard card" style={{ width: "16rem" }}>
-                <img src="/Mainphotos/1.jpg" className="card-img-top" alt="" />
-                <div className="asidecardcontent card-body">
-                  <h5 className="card-title text-center">【健身水果盒】</h5>
-                  <p className="card-text">香蕉、芭樂、蘋果、酪梨、鳳梨</p>
-                </div>
-              </div>
-            </div>
+            <Aside
+              fruitboxname={fruitboxname}
+              fruitboxcontent={fruitboxcontent}
+            />
           </div>
         </div>
         {/*產品水果內容介紹*/}
-        <div className="container">
-          <div className="container">
-            <h2 className="text-center my-5">美白水果盒內容簡介</h2>
-            <div className="row">
-              <div className="col-xl-6 col-lg-12">
-                <div className="productpic">
-                  <img src="/Mainphotos/17.jpg" alt="" />
-                </div>
-                <div className="productarticle">
-                  <h4 className="text-center">砂糖橘</h4>
-                  <p>
-                  砂糖橘果實扁圓形，頂部有瘤狀突起，蒂臍端凹陷，色澤橙黃，皮薄肉脆，果壁薄易剝離，果瓣為10瓣左右，無核或少核。果形指數0.78，單果重62－86克，可食率71%，可含溶性固形物11%，每100毫升含全糖10.55克，果酸0.35克。果肉爽脆
-                  </p>
-                </div>
-              </div>
-              <div className="col-xl-6 col-lg-12">
-                <div className="productpic">
-                  <img src="/Mainphotos/18.jpg" alt="" />
-                </div>
-                <div className="productarticle">
-                  <h4 className="text-center">珍珠芭樂</h4>
-                  <p>
-                    珍珠芭樂的果型接近梨形，果肉白中帶黃，芭樂籽較多，香氣足且甜度高，是目前芭樂品種中最甜的，品質風味俱佳而廣受好評，從此成為市場主流！
-                    珍珠芭樂最佳品嚐時機是在秋冬，果肉較厚且肉質細緻，夏季雖然一樣香甜，但因高溫較容易變軟。
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-xl-6 col-lg-12">
-                <div className="productpic">
-                  <img src="/Mainphotos/19.jpg" alt="" />
-                </div>
-                <div className="productarticle">
-                  <h4 className="text-center">秀女番茄</h4>
-                  <p>
-                  特色︰果實顏色比聖女略淡一些、形狀為橢圓形。皮薄汁多、甜中略帶有酸味。
-                  果實硬，耐長時間的運輸和儲存
-                  </p>
-                </div>
-              </div>
-              <div className="col-xl-6 col-lg-12">
-                <div className="productpic">
-                  <img src="/Mainphotos/8.jpg" alt="" />
-                </div>
-                <div className="productarticle">
-                  <h4 className="text-center">綠色奇異果</h4>
-                  <p>
-                  鮮綠色果肉、白色果心、芝麻般的黑色種籽以及濃郁清香氣息，富含膳食纖維與奇異酵素，為體內注入健康活力，酸甜可口的滋味讓人耳目一新。
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <MainContent
+          fruitnameList={fruitnameList}
+          fruitcontent={fruitcontent}
+          fruitpicture={fruitpicture}
+        />
         {/*訂閱方案*/}
         <div className="container">
           <div className="row">

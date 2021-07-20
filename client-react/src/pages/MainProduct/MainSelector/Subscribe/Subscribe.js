@@ -2,7 +2,7 @@ import React from 'react'
 import SubscribeItem from './SubscribeItem'
 
 function Subscribe(props) {
-    const {subscribeList,subscribePrice} = props
+    const {subscribeList, subscribePrice} = props
     return (
         <>
           <div className="container">

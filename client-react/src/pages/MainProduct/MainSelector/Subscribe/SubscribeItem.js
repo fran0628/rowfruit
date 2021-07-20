@@ -1,7 +1,7 @@
 import React from 'react'
 
 function SubscribeItem(props) {
-    const {subname,subprice} = props
+    const {subname, subprice} = props
     
     return (
         <>
