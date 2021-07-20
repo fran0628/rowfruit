@@ -58,8 +58,8 @@ let customerRouter = require("./routes/Customer/customerProduct");
 app.use("/api/customer", customerRouter);
 
 
-// let MapRouter = require("./routes/Map/Map");
-// app.use("/api/Map/Map", MapRouter);
+let MapRouter = require("./routes/Map/Map");
+app.use("/api/Map/Map", MapRouter);
 
 let FruitRouter = require("./routes/Map/Fruit");
 app.use("/api/Map/Fruit", FruitRouter);
