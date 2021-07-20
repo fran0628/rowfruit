@@ -60,3 +60,6 @@ ul{
 .accordion-button::after{
 	color: white;
 }
+dt{
+	font-size: 18px;
+}

@@ -48,7 +48,7 @@ function Footer() {
 											<Link>多纖輕盈水果盒</Link>
 										</dd>
 									</dl>
-									<dl className="h5 ms-3">
+									<dl className="h5 ms-3 mt-5">
 										<dt className="h5 border-bottom mt-4 mb-3 pb-2">
 											客製水果盒
 										</dt>
@@ -79,6 +79,14 @@ function Footer() {
 										</dd>
 										<dd>
 											<Link>文章總覽</Link>
+										</dd>
+									</dl>
+									<dl className="h5 ms-3 mt-5">
+										<dt className="h5 border-bottom mt-4 mb-3 pb-2">
+											關於我們
+										</dt>
+										<dd>
+											<Link>關於我們</Link>
 										</dd>
 									</dl>
 								</div>
@@ -118,6 +126,15 @@ function Footer() {
 										<ListGroup variant="flush">
 											<ListGroup.Item action>水果總覽</ListGroup.Item>
 											<ListGroup.Item action>文章總覽</ListGroup.Item>
+										</ListGroup>
+									</Accordion.Body>
+								</Accordion.Item>
+								<Accordion.Item eventKey="4">
+									<Accordion.Header>關於我們</Accordion.Header>
+									<Accordion.Body>
+										<ListGroup variant="flush">
+											<ListGroup.Item action>關於我們</ListGroup.Item>
+											
 										</ListGroup>
 									</Accordion.Body>
 								</Accordion.Item>
