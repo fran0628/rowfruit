@@ -34,4 +34,6 @@ router.get("/:cat", async (req, res) => {
 	res.json(aticleCat);
 });
 
+
+
 module.exports = router;

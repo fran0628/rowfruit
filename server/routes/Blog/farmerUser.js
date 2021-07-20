@@ -8,16 +8,16 @@ router.get("/", async (req, res) => {
 	const farmerUser = await connection.queryAsync(
 		"SELECT * FROM farmer_member;"
 	);
-	// let farmList=[]
-	// for(i=0;i<farmerUser.length;i++){
+	let farmList=[]
+	for(i=0;i<farmerUser.length;i++){
 		
-	// 	let { password, ...others } = farmerUser[i];
-	// 	farmList += others;
+		let { password, ...others } = farmerUser[i];
+		farmList.push(others)
 		
-	// }
+	}
 	
     
-	res.status(200).json(farmerUser);
+	res.status(200).json(farmList);
 	
 });
 // 單個小農

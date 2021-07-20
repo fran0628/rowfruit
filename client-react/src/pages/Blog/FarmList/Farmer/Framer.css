@@ -1,0 +1,44 @@
+.object-fit {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.profile {
+	width: 100%;
+	height: 390px;
+	background-color: #fafcec;
+}
+.bg-change:nth-of-type(2n) > .profile{
+	background-color: #F0F5F0;
+}
+.bg-change:nth-of-type(3n) > .profile{
+	background-color: #F6F7F2;
+}
+.bg-change:nth-of-type(4n) > .profile{
+	background-color: #E8EAE1;
+}
+.rating {
+	color: #f6b900;
+	font-size: 18px;
+	top: 45px;
+}
+.grey {
+	color: #707070;
+}
+.avatar {
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	overflow: hidden;
+}
+.m-offset {
+	margin: 0;
+}
+.connect-icon {
+	color: #838080;
+	font-size: 35px;
+	margin-right: 15px;
+}
+.farm-content {
+	height: 100px;
+}
