@@ -1,33 +1,29 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { apiMain } from '../../../global/API'
 import './Main.scss'
 import MainFruitbox from './MainFruitbox/MainFruitbox'
 import Subscribe from './Subscribe/Subscribe'
 
-function Main(){
+async function productData(set) {
+  const res = await fetch(apiMain)
+  const info  = await res.json()
+  set(info);
+}
 
-  // MainFruitbox
-  // 每個產品的名稱
-  const fruitboxnameList = {
-    FruitboxOne: '美白水果盒',
-    FruitboxTwo: '健身水果盒',
-    FruitboxThree: '輕盈水果盒',
-  }
+function Main() {
+  
+  const [data, setData] = useState([]);
 
-  // 代表每個產品的單價
-  const fruitboxpriceList = {
-    FruitboxOne: 500,
-    FruitboxTwo: 500,
-    FruitboxThree: 500,
-  }
+  useEffect(() => {
+    productData(setData)
+  }, []) 
 
-  // 每個產品的圖片
-  const fruitboxpictureList = {
-    FruitboxOne: '/Mainphotos/1.jpg',
-    FruitboxTwo: '/Mainphotos/2.jpg',
-    FruitboxThree: '/Mainphotos/3.jpg',
-  }
-
-  //Subscribe
+  // console.log(data)
+  // for(let i=0 ;i<data.length; i++){
+  //   console.log(data[i].items)
+  // }
+  // console.log(data.length)
+  /* Subscribe */
   const subscribeList = {
     SubscribeOne: '體驗一箱',
     SubscribeTwo: '月訂閱制',
@@ -42,7 +38,7 @@ function Main(){
     SubscribeFour: 8400,
   }
 
-
+  
 
   return (
     <>
@@ -80,9 +76,7 @@ function Main(){
         </div>
         {/*水果盒*/}
         <MainFruitbox
-          fruitboxpriceList={fruitboxpriceList}
-          fruitboxnameList={fruitboxnameList}
-          fruitboxpictureList={fruitboxpictureList}
+          data = {data} 
         />
         {/*訂閱方案說明文*/}
         <div className="container">
