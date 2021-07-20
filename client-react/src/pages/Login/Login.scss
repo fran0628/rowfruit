@@ -1,0 +1,209 @@
+body{
+    /* background-color: var(--main-bg); */
+    // background-image: url(MemberPhoto/6.png);
+            // background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+    background-color: #F6F7F2;
+
+    font-family:'Source Han Sans TW', 
+                'PingFang TC', 
+                'Heiti TC',
+                '微軟正黑體', sans-serif;
+    
+}
+/* rowfruit 背景色 */
+.card-title{
+    background-color: #eeeeee;
+}
+.card-body{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+/* nav */
+.offcanvasbtn{
+    border-radius: 5px;
+    padding: 10px 15px;
+    border: 0;
+    background:#f5f5f5;
+    
+  }
+  .fa-bars{
+    color: rgb(137, 137, 139);
+  }
+  .navbox{
+    height: 90px;
+  }
+  .navbar {
+    background: #f5f5f5;
+    height: 90px;
+    margin-bottom: 30px;
+  }
+  .nav-link{
+    color: #7b9c85;
+  }
+  .nav-link:hover{
+    color: #b1ddbe;
+  }
+  .nav-icon{
+    color: #4c534e;
+  }
+  .nav-icon:hover{
+    color: #b5b8b6;
+  }
+/* 主標題 */
+.title{
+    /* margin-top: 1em;
+    margin-bottom: .6em; */
+    color:#625F5F;
+    font-weight:500;
+}
+/* 次標題 */
+.sub_title{
+    text-align: center;
+}
+
+/* 按鈕 */
+.normal-btn {
+  display: block;
+  width: 150px;
+  max-width: 100%;
+  padding: 20px 10px;
+  background-color: #fcfdf5;
+  color: #e79737;
+  border: 2px solid #838080;
+  border-radius: 5px;
+  font-size: 1.125em;
+  box-shadow: 2px 2px 3px rgba(59, 59, 59, 0.16);
+  text-align: center;
+  margin: auto;
+}
+.normal-btn:hover {
+  display: block;
+  width: 150px;
+  max-width: 100%;
+  padding: 20px 10px;
+  background-color: #fcfdea;
+  color: #e79737;
+  border: 2px solid #838080;
+  border-radius: 5px;
+  font-size: 1.125em;
+  box-shadow: 0px 1px 2px rgba(59, 59, 59, 0.16);
+  text-align: center;
+  margin: auto;
+  transition: transform 0.2s;
+}
+.rwd-btn{
+  display: block;
+  width: 300px;        
+  max-width: 100%;
+  padding: 20px 10px;
+  background-color: #FCFDF5;
+  color: #F5c184;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  text-align:center;
+  margin: auto;
+}
+/* 立即註冊&忘記密碼 */
+.sign-up{    
+    color:#B4D1BE;
+    text-decoration: none;
+}
+.sign-up:hover{    
+  color:#F5C184;
+  text-decoration: none;
+}
+.forgot{
+    color:#B4D1BE;
+    text-decoration: none;
+}
+.forgot:hover{
+  color:#F5C184;
+  text-decoration: none;
+}
+/* 快速登入 */
+.fast-login{
+    color: #717171;;
+}
+/* 返回登入畫面 */
+.back-login{
+    text-decoration: none;
+    color: #625F5F;;
+}
+/* 返回小農登入畫面 */
+.back-farmerlogin{
+    text-decoration: none;
+    color: #717171;;
+}
+/* footer */
+footer{
+  background: #66816e;
+  padding: 50px;
+}
+footer h5,footer a{
+  color: rgb(250, 253, 247);
+  font-weight: 400;
+}
+footer a:hover{
+  color: #b1ddbe;
+}
+.info h5,.info span{
+  color: #7b9c85;
+}
+footer .fas{
+  color: #7b9c85;
+  margin-left: 40px;
+}
+footer .info{
+  max-width: 320px;
+  background: #f3f3f3;
+  padding: 1px 0;
+}
+footer .icon{
+  max-width: 320px;
+}
+.companyinfo{
+  margin-left: 70px;
+}
+#map {
+  height: 250px;
+  width: 100%;
+  margin-top: 30px;
+}
+
+
+@media screen and (max-width: 768px){
+    .card-title,.logo{
+        background: none;
+        display: none;
+    }
+}
+/* nav rwd */
+@media screen and (max-width: 992px){
+
+    .navbar ul{
+        display: none;
+    }
+
+    }
+    @media screen and (max-width: 576px){
+
+    .navbar-brand img{
+      margin-top: 10px;
+      margin-left: 10px;
+      width: 160px;
+      height: 70px;
+    }
+
+    }
+    @media screen and (min-width: 992px){
+
+    .offcanvasbtn{
+      display: none;
+    }
+
+    }

@@ -7,6 +7,8 @@ import Home from './pages/Home'
 import FarmList from './pages/Blog/FarmList/FarmList'
 import TopNav from './component/TopNav/TopNav'
 import Footer from './component/Footer/Footer'
+import MemberLogin from './pages/Login/MemberLogin'
+
 
 
 function App() {
@@ -16,6 +18,9 @@ function App() {
 				<TopNav/>
 					
 				<Switch>
+					<Route path="/MemberLogin">
+						<MemberLogin />
+					</Route>
 					<Route path="/farmerlist">
 						<FarmList />
 					</Route>
