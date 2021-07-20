@@ -1,0 +1,62 @@
+footer {
+	background: #66816e;
+	padding: 50px;
+}
+footer .h5,
+footer a {
+	color: rgb(250, 253, 247);
+	font-weight: 400;
+	text-decoration: none;
+}
+footer a:hover {
+	color: #b1ddbe;
+}
+.info h5,
+.info dd,.info dt,.info dt>span {
+	color: #7b9c85;
+}
+footer .fas {
+	color: #7b9c85;
+	
+}
+footer .info {
+	
+	background: #f3f3f3;
+	padding: 1px 0;
+}
+
+
+#map {
+	height: 100%;
+	width: 100%;
+	
+}
+ul{
+	list-style: none;
+}
+.accordion-button{
+	background: #66816e;
+	color: white;
+	
+}
+
+.accordion-item{
+	border: none;
+	border-bottom: 1px solid #fff;
+}
+.accordion-button:not(.collapsed) {
+    color: #fff;
+    background-color: #66816e;
+    box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);
+}
+.list-group-item{
+	background: #f3f3f3;
+	color: #7b9c85;
+	
+}
+.accordion-body {
+	background: #f3f3f3;
+}
+.accordion-button::after{
+	color: white;
+}

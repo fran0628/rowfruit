@@ -6,14 +6,15 @@ import Main from './pages/MainProduct/MainSelector/Main'
 import Home from './pages/Home'
 import FarmList from './pages/Blog/FarmList/FarmList'
 import TopNav from './component/TopNav/TopNav'
+import Footer from './component/Footer/Footer'
 
 
 function App() {
   return (
 		<Router>
 			<>
-				<TopNav/>				
-
+				<TopNav/>
+					
 				<Switch>
 					<Route path="/farmerlist">
 						<FarmList />
@@ -28,6 +29,8 @@ function App() {
 						<Home />
 					</Route>
 				</Switch>
+
+				<Footer/>
 			</>
 		</Router>
 	);
