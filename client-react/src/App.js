@@ -9,7 +9,11 @@ import TopNav from './component/TopNav/TopNav'
 import Footer from './component/Footer/Footer'
 import MemberLogin from './pages/Login/MemberLogin'
 import FruitMapMain from './pages/Map/FruitMapMain'
+<<<<<<< HEAD
 import Customized from './pages/Customized/Customized'
+=======
+import MemberRegister from './pages/Register/MemberRegister'
+>>>>>>> f07ac9da604e082640b93b5ee8485ccc97aff78c
 
 
 function App() {
@@ -19,8 +23,11 @@ function App() {
 				<TopNav/>
 					
 				<Switch>
-					<Route path="/MemberLogin">
+					<Route path="/memberlogin">
 						<MemberLogin />
+					</Route>
+					<Route path="/memberegister">
+						<MemberRegister />
 					</Route>
 					<Route path="/farmerlist">
 						<FarmList />

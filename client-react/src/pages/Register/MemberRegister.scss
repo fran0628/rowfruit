@@ -21,10 +21,16 @@
     padding-left: 1rem;
 }
 
-/* 主標題 */
+/* 主標題 登入 */
 .NormalMemberLogin{
     color:#625F5F;
     font-weight:500;
+}
+
+// 主標題 註冊
+.MemberRegister{
+    color: #625f5f;
+    font-weight: 500;
 }
 
 /* 按鈕 */
@@ -106,7 +112,7 @@
 
 
 @media screen and (max-width: 768px){
-    .logo{
+    .MemberCardLogo{
         background: none;
         display: none;
     }
