@@ -3,17 +3,21 @@ export const devUrl = 'http:/localhost:3000'
 export const prodUrl = 'https://mycom.tw'
 
 export const pathnameList = [
-  '/about',
-  '/login',
-  '/product',
-  '/product/baby',
-  '/product/baby/cart',
+  '/memberlogin',
+  '/memberegister',
+  '/farmerlist',
+  '/FruitMapMain',
+  '/MainProduct',
+  '/customized',
+  '/Main',
 ]
 
 export const pathnameTextList = [
-  '/關於我們',
   '/會員登入',
-  '/商品',
-  '/商品/嬰幼兒',
-  '/商品/嬰幼兒/購物車',
+  '/會員註冊',
+  '/小農部落',
+  '/水果地圖',
+  '/主打商品',
+  '/客製化商品',
+  '/主打水果盒選單',
 ]
