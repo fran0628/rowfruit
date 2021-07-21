@@ -53,7 +53,7 @@ import logoImg from './logo.png'
 									</NavDropdown.Item>
 								</NavDropdown>
 
-								<Nav.Link href="#">客製水果盒</Nav.Link>
+								<Nav.Link href="/customized">客製水果盒</Nav.Link>
 								<Nav.Link href="/FruitMapMain">水果地圖</Nav.Link>
 								<NavDropdown title="小農部落" id="basic-nav-dropdown">
 									<NavDropdown.Item href="/farmerlist">

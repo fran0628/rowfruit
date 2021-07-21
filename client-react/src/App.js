@@ -9,6 +9,7 @@ import TopNav from './component/TopNav/TopNav'
 import Footer from './component/Footer/Footer'
 import MemberLogin from './pages/Login/MemberLogin'
 import FruitMapMain from './pages/Map/FruitMapMain'
+import Customized from './pages/Customized/Customized'
 
 
 function App() {
@@ -32,6 +33,9 @@ function App() {
 					</Route>
 					<Route path="/Main">
 						<Main />
+					</Route>
+					<Route path="/customized">
+						<Customized />
 					</Route>
 					<Route exact path="/">
 						<Home />
