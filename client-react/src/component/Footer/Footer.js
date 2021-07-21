@@ -152,14 +152,14 @@ function Footer() {
 								</dl>
 								<dl className="ms-5">
 									<dt>
-										<i class="fas fa-envelope fa-lg"></i>
+										<i class="fas fa-map-marker-alt fa-lg"></i>
 										<span class="m-2">信箱 :</span>
 									</dt>
 									<dd className="mt-2">rowfruit@test.com</dd>
 								</dl>
 								<dl className="ms-5">
 									<dt>
-										<i class="fas fa-phone-alt fa-lg"></i>
+										<i class="fas fa-map-marker-alt fa-lg"></i>
 										<span class="m-2">電話 :</span>
 									</dt>
 									<dd className="mt-2">0931-000-000</dd>

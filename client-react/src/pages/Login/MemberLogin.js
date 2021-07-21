@@ -1,7 +1,14 @@
-import React from 'react';
+import React ,{useState,useEffect}from 'react';
 import  './MemberLogin.scss';
 // import Background from '../../../banner.png';
+// const [member,setMember]=useState()
 
+// useEffect(()=>{
+//   async function member(set) {
+//     const res = await fetch('localhost:/5000/api/member')
+//     const apidata  = await res.json()
+//     set(apidata);
+// },[])
 
 const banner = {
   backgroundImage: `url(${'MemberPhoto/banner.png'})`,

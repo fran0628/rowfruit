@@ -8,7 +8,7 @@ import FarmList from './pages/Blog/FarmList/FarmList'
 import TopNav from './component/TopNav/TopNav'
 import Footer from './component/Footer/Footer'
 import MemberLogin from './pages/Login/MemberLogin'
-
+import FruitMapMain from './pages/Map/FruitMapMain'
 
 
 function App() {
@@ -23,6 +23,9 @@ function App() {
 					</Route>
 					<Route path="/farmerlist">
 						<FarmList />
+					</Route>
+					<Route path="/FruitMapMain">
+						<FruitMapMain />
 					</Route>
 					<Route path="/MainProduct">
 						<MainProductFitness />
