@@ -9,6 +9,7 @@ import TopNav from './component/TopNav/TopNav'
 import Footer from './component/Footer/Footer'
 import MemberLogin from './pages/Login/MemberLogin'
 import FruitMapMain from './pages/Map/FruitMapMain'
+import MemberRegister from './pages/Register/MemberRegister'
 
 
 function App() {
@@ -18,8 +19,11 @@ function App() {
 				<TopNav/>
 					
 				<Switch>
-					<Route path="/MemberLogin">
+					<Route path="/memberlogin">
 						<MemberLogin />
+					</Route>
+					<Route path="/memberegister">
+						<MemberRegister />
 					</Route>
 					<Route path="/farmerlist">
 						<FarmList />
