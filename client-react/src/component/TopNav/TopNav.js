@@ -65,7 +65,7 @@ import logoImg from './logo.png'
 									</NavDropdown.Item>
 								</NavDropdown>
 								<Nav.Link href="#">關於我們</Nav.Link>
-								<Nav.Link href="#">
+								<Nav.Link href="memberlogin">
 									<i class="fas fa-user fa-lg nav-icon" />
 								</Nav.Link>
 								<Nav.Link href="#">
@@ -85,8 +85,8 @@ import logoImg from './logo.png'
 							<Offcanvas.Header closeButton>
 								<Offcanvas.Title>
 									<div class="d-flex mt-3">
-										<Nav.Link href="#" className="nav-icon">
-											<i class="fas fa-user fa-lg nav-icon" />
+										<Nav.Link href="/memberlogin" className="nav-icon ">
+										<i class="fas fa-user fa-lg nav-icon" />
 										</Nav.Link>
 										<Nav.Link href="#" className="nav-icon">
 											<i class="fas fa-shopping-cart fa-lg nav-icon" />
