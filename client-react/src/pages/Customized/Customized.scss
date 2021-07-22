@@ -4,11 +4,15 @@
  'PingFang TC',
  'Heiti TC',
  '微軟正黑體', sans-serif;
-}
 
-#root::after {
+ 
+}
+.customizedTitle{
+   
+}
+.customizedTitle::after {
   content: "";
-  background: url("https://images.pexels.com/photos/1128678/pexels-photo-1128678.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background: url("https://images.pexels.com/photos/890507/pexels-photo-890507.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
   background-size: cover;
   opacity: 0.5;
   filter: blur(8px);
@@ -19,6 +23,7 @@
   right: 0;
   position: absolute;
   z-index: -1;
+  ;
 }
 
 img {
@@ -31,12 +36,15 @@ img {
 
 .tag-all{
   background: #B1B19D;
+  margin-top: 0;
+  margin-bottom: 10px;
 }
 
 .tag-whitening {
   color: #f5c184;
   background: white;
   border: 1px solid black;
+  margin: 0;
 }
 
 .tag-whitening:hover {
@@ -125,7 +133,7 @@ img {
 
 
 .customizedProduct {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.4);
   position: relative;
   height: 700px;
   margin-bottom: 5px;
@@ -374,6 +382,7 @@ ul {
 }
 
 .removeFruit {
+    background:#E9AFAF ;
   position: absolute;
   right: 30%;
   bottom: 20%;
@@ -382,107 +391,4 @@ ul {
   transform: rotate(-3deg);
 }
 
-#canvas {
-  position: absolute;
-  bottom: 10%;
-  width: 100%;
-  max-height: 45%;
-}
-.removeFruit{
-  background:#E9AFAF ;
-}
-.boxImage1 {
-  position: absolute;
-  bottom: 10%;
-  left: 20%;
-}
 
-.boxImage2 {
-  position: absolute;
-  bottom: 10%;
-  left: 30%;
-}
-
-.boxImage3 {
-  position: absolute;
-  bottom: 10%;
-  left: 40%;
-}
-
-.boxImage4 {
-  position: absolute;
-  bottom: 10%;
-  left: 50%;
-}
-
-.boxImage5 {
-  position: absolute;
-  bottom: 15%;
-  left: 20%;
-}
-
-.boxImage6 {
-  position: absolute;
-  bottom: 15%;
-  left: 30%;
-}
-
-.boxImage7 {
-  position: absolute;
-  bottom: 15%;
-  left: 40%;
-}
-
-.boxImage8 {
-  position: absolute;
-  bottom: 15%;
-  left: 50%;
-}
-
-.boxImage9 {
-  position: absolute;
-  bottom: 20%;
-  left: 20%;
-}
-
-.boxImage10 {
-  position: absolute;
-  bottom: 20%;
-  left: 30%;
-}
-
-.boxImage11 {
-  position: absolute;
-  bottom: 20%;
-  left: 40%;
-}
-
-.boxImage12 {
-  position: absolute;
-  bottom: 20%;
-  left: 50%;
-}
-
-.boxImage13 {
-  position: absolute;
-  bottom: 25%;
-  left: 20%;
-}
-
-.boxImage14 {
-  position: absolute;
-  bottom: 25%;
-  left: 30%;
-}
-
-.boxImage15 {
-  position: absolute;
-  bottom: 25%;
-  left: 40%;
-}
-
-.boxImage16 {
-  position: absolute;
-  bottom: 25%;
-  left: 50%;
-}

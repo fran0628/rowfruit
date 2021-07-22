@@ -17,27 +17,27 @@ import './Customized.scss'
 
     
     return (
-        <>
-          <div className="container">
+        <div className="customizedTitle">
+          <div className="container ">
             <h1 className="display-4 text-center fw-bold">客製化水果盒</h1>
           </div>
           <div className="container">
             <div className="row">
-              <aside className="col-md-2 d-none d-lg-block">
+              <aside className="col-md-2 d-none d-lg-block ">
                 <div className="taggroup ms-4">
-                  <span className="btn d-block mb-1 text-center tag-all">
+                  <span className="btn d-block text-center tag-all">
                     全部商品
                   </span>
-                  <span className="btn d-block mb-1 text-center tag-whitening">
+                  <span className="btn d-block text-center tag-whitening">
                     美白
                   </span>
-                  <span className="btn d-block mb-1 text-center tag-slimming">
+                  <span className="btn d-block text-center tag-slimming">
                     瘦身
                   </span>
-                  <span className="btn d-block mb-1 text-center tag-silverHair">
+                  <span className="btn d-block text-center tag-silverHair">
                     銀髮族
                   </span>
-                  <span className="btn d-block mb-1 text-center tag-vision">
+                  <span className="btn d-block text-center tag-vision">
                     顧眼睛
                   </span>
                 </div>
@@ -225,7 +225,7 @@ import './Customized.scss'
               </aside>
             </div>
           </div>
-        </>
+        </div>
       )
 }
 export default Customized
