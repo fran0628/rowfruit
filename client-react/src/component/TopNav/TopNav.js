@@ -53,8 +53,8 @@ import logoImg from './logo.png'
 									</NavDropdown.Item>
 								</NavDropdown>
 
-								<Nav.Link href="#">客製水果盒</Nav.Link>
-								<Nav.Link href="#">水果地圖</Nav.Link>
+								<Nav.Link href="/customized">客製水果盒</Nav.Link>
+								<Nav.Link href="/FruitMapMain">水果地圖</Nav.Link>
 								<NavDropdown title="小農部落" id="basic-nav-dropdown">
 									<NavDropdown.Item href="/farmerlist">
 										小農總覽
@@ -65,7 +65,7 @@ import logoImg from './logo.png'
 									</NavDropdown.Item>
 								</NavDropdown>
 								<Nav.Link href="#">關於我們</Nav.Link>
-								<Nav.Link href="#">
+								<Nav.Link href="memberlogin">
 									<i class="fas fa-user fa-lg nav-icon" />
 								</Nav.Link>
 								<Nav.Link href="#">
@@ -85,8 +85,8 @@ import logoImg from './logo.png'
 							<Offcanvas.Header closeButton>
 								<Offcanvas.Title>
 									<div class="d-flex mt-3">
-										<Nav.Link href="#" className="nav-icon">
-											<i class="fas fa-user fa-lg nav-icon" />
+										<Nav.Link href="/memberlogin" className="nav-icon ">
+										<i class="fas fa-user fa-lg nav-icon" />
 										</Nav.Link>
 										<Nav.Link href="#" className="nav-icon">
 											<i class="fas fa-shopping-cart fa-lg nav-icon" />
