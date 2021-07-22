@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom"
+import { BrowserRouter as Router, Route, Link, Switch} from "react-router-dom"
 import MainProductFitness from './pages/MainProduct/MainProductDetail/MainProduct'
 import Main from './pages/MainProduct/MainSelector/Main'
 import Home from './pages/Home'
@@ -19,7 +19,7 @@ function App() {
 					<Route path="/farmerlist">
 						<FarmList />
 					</Route>
-					<Route path="/MainProduct">
+					<Route path="/MainProduct/:id?">
 						<MainProductFitness />
 					</Route>
 					<Route path="/Main">
