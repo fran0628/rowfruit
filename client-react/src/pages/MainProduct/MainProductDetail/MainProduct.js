@@ -7,20 +7,20 @@ import { withRouter } from 'react-router-dom'
 
 
 function MainProduct(props) {
-  
-const [data, setData] = useState([]);
-useEffect(() => {
-  (async function productdetailData() {
-    const res = await fetch(apiMainProduct)
-    const apidata  = await res.json()
-    const productId = +props.match.params.id
-    const product = apidata.find((v, i) => {
-    return v.id === productId
-    })
-
-    if (product) setData (product)
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    (async function productdetailData() {
+      const res = await fetch(apiMainProduct)
+      const apidata  = await res.json()
+      const productId = +props.match.params.id
+      const product = apidata.find((v, i) => {
+        return v.id === productId
+      })
+      
+      if (product) setData (product)
     })();
-}, []) 
+  }, []) 
+
 
 // const idList = Object.values(data).forEach(item => Object.values(item)[0])
 // const dataList = Object.values(data).map(item =>(item))
