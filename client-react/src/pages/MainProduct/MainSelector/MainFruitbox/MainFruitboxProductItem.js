@@ -1,8 +1,11 @@
 import React from 'react'
-import { BrowserRouter as Link } from "react-router-dom"
+// import { BrowserRouter as Link } from "react-router-dom"
+import { Link, withRouter } from 'react-router-dom'
+
 
 function MainFruitboxProductItem(props) {
-    const { product_name, price, images} = props
+    console.log(props)
+    const { product_name, price, images } = props
 
     return (
         <>
@@ -19,4 +22,4 @@ function MainFruitboxProductItem(props) {
 
 }
 
-export default MainFruitboxProductItem
+export default withRouter(MainFruitboxProductItem)

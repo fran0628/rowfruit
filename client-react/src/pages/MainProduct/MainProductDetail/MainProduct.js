@@ -3,23 +3,33 @@ import { apiMainProduct } from '../../../global/API'
 import "./MainProductDetail.scss"
 import MainContent from './MainContent/MainContent'
 import Aside from './Aside/Aside'
+import { withRouter } from 'react-router-dom'
 
-async function productdetailData(set) {
-  const res = await fetch(apiMainProduct)
-  const apidata  = await res.json()
-  set(apidata);
-}
 
-function MainProduct() {
+function MainProduct(props) {
   
-  const [data, setData] = useState([]);
+const [data, setData] = useState([]);
+useEffect(() => {
+  (async function productdetailData() {
+    const res = await fetch(apiMainProduct)
+    const apidata  = await res.json()
+    const productId = +props.match.params.id
+    const product = apidata.find((v, i) => {
+    return v.id === productId
+    })
 
-  useEffect(() => {
-    productdetailData(setData)
-  }, []) 
+    if (product) setData (product)
+    })();
+}, []) 
+
+// const idList = Object.values(data).forEach(item => Object.values(item)[0])
+// const dataList = Object.values(data).map(item =>(item))
+// const idList = data.map(item => Object.values(item)[0]); 
+// const dataList = Object.values(data)
+// console.log(data.items)
+// console.log(dataList)
 
 
-  
   /* Aside */
   const fruitboxname = {
     FruitboxOne: '多纖輕盈水果盒',
@@ -168,9 +178,16 @@ function MainProduct() {
         </div>
         {/*產品水果內容介紹*/}
         <MainContent
-          fruitnameList={fruitnameList}
-          fruitcontent={fruitcontent}
-          fruitpicture={fruitpicture}
+          // fruitnameList={fruitnameList}
+          // fruitcontent={fruitcontent}
+          // fruitpicture={fruitpicture}
+          // id = {data.id}
+          // fruit_item = {data.fruit_item}
+          // product_name = {data.product_name}
+          // price = {data.price}
+          // images = {data.images}
+
+          datacontent = {data.items}
         />
         {/*訂閱方案*/}
         <div className="container">
@@ -519,4 +536,4 @@ function MainProduct() {
   );
 }
 
-export default MainProduct;
+export default withRouter(MainProduct);
