@@ -9,7 +9,7 @@ function MainFruitbox(props) {
       <div className="container">
         <div className="fruitlist row">
             {data.map((item) => {
-                const { id, product_name, price, images} = item;
+                const { id, product_name, price, images } = item;
                 return (
                 <MainFruitboxProductItem
                     key={id}

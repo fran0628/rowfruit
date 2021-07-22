@@ -1,16 +1,16 @@
 import React from 'react'
 
 function MainEachContent(props) {
-    const {name, content, picture} = props
+    const { fruitname, content, images } = props
 
     return (
         <>
             <div className="col-xl-6 col-lg-12">
                 <div className="productpic">
-                  <img src={picture} alt="" />
+                  <img src={images} alt="" />
                 </div>
                 <div className="productarticle">
-                  <h4 className="text-center">{name}</h4>
+                  <h4 className="text-center">{fruitname}</h4>
                   <p>
                   {content}
                   </p>

@@ -4,25 +4,25 @@ import './Main.scss'
 import MainFruitbox from './MainFruitbox/MainFruitbox'
 import Subscribe from './Subscribe/Subscribe'
 
-async function productData(set) {
+async function productData(setData) {
   const res = await fetch(apiMain)
-  const info  = await res.json()
-  set(info);
+  const apidata  = await res.json()
+  setData(apidata);
 }
 
 function Main() {
   
   const [data, setData] = useState([]);
-
   useEffect(() => {
     productData(setData)
   }, []) 
 
-  // console.log(data)
+  console.log(data)
   // for(let i=0 ;i<data.length; i++){
   //   console.log(data[i].items)
   // }
   // console.log(data.length)
+  
   /* Subscribe */
   const subscribeList = {
     SubscribeOne: '體驗一箱',
