@@ -69,7 +69,7 @@ function MultiLevelBreadcrumb(props) {
   }
 
   return (
-    <>
+    <div className="container">
       <nav aria-label="breadcrumb">
         <ol className="breadcrumb">
           <li className="breadcrumb-item">
@@ -78,7 +78,7 @@ function MultiLevelBreadcrumb(props) {
           {formatText(findPathnameIndex(location.pathname))}
         </ol>
       </nav>
-    </>
+    </div>
   )
 }
 
