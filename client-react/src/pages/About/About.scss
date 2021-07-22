@@ -1,0 +1,135 @@
+
+.offcanvasbtn {
+  border-radius: 5px;
+  padding: 10px 15px;
+  border: 0;
+  background: #f5f5f5;
+}
+@media screen and (min-width: 992px) {
+  .offcanvasbtn {
+    display: none;
+  }
+}
+.fa-bars {
+  color: rgb(137, 137, 139);
+}
+.navbox {
+  height: 90px;
+}
+.navbar {
+  background: #f5f5f5;
+  height: 90px;
+  margin-bottom: 30px;
+}
+@media screen and (max-width: 992px) {
+  .navbar ul {
+    display: none;
+  }
+}
+.nav-link {
+  color: #7b9c85;
+}
+.nav-link:hover {
+  color: #b1ddbe;
+}
+.nav-icon {
+  color: #4c534e;
+}
+.nav-icon:hover {
+  color: #b5b8b6;
+}
+@media screen and (max-width: 576px) {
+  .navbar-brand img {
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 160px;
+    height: 70px;
+  }
+}
+.fa-bars {
+color: rgb(137, 137, 139);
+}
+.navbox {
+height: 90px;
+}
+.navbar {
+background: #f5f5f5;
+height: 90px;
+margin-bottom: 30px;
+}
+.nav-link {
+color: #7b9c85;
+}
+.nav-link:hover {
+color: #b1ddbe;
+}
+.nav-icon {
+color: #4c534e;
+}
+.nav-icon:hover {
+color: #b5b8b6;
+}
+.banner {
+padding-top: 10rem;
+padding-bottom: 10rem;
+background-image: url("./banner\ papaya.png");
+}
+.banner .mbr-text,
+.banner .mbr-section-btn {
+text-align: right;
+}
+#mobiriseBanner.container-banner {
+height: 8rem;
+-webkit-animation: 4s linear animationHeight;
+-moz-animation: 4s linear animationHeight;
+-o-animation: 4s linear animationHeight;
+ animation: 4s linear animationHeight;
+}
+#mobiriseBanner .banner {
+min-height: 8rem;
+position:fixed;
+top: 0;
+left: 0;
+right: 0;
+background: #fff;
+padding: 10px;
+opacity:1;
+-webkit-animation: 4s linear animationBanner;
+-moz-animation: 4s linear animationBanner;
+-o-animation: 4s linear animationBanner;
+ animation: 4s linear animationBanner;
+z-index: 1031;
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+#mobiriseBanner .banner p {
+overflow: hidden;
+display: -webkit-box;
+-webkit-line-clamp: 4;
+-webkit-box-orient: vertical;
+animation: none;
+visibility: visible;
+}
+#mobiriseBanner .buy-license {
+text-decoration: underline;
+}
+#mobiriseBanner .banner .btn {
+margin: 0.3rem 0.5rem;
+animation: none;
+visibility: visible;
+}
+.navbar.opened {
+z-index: 1032;
+}
+.COLOR{
+background: #e79737;
+}
+@-webkit-keyframes animationBanner { 0% { opacity: 0; top: -8rem; } 75% { opacity: 0; top: -8rem; } 100% { opacity: 1; top: 0; } }
+@-moz-keyframes animationBanner { 0% { opacity: 0; top: -8rem; } 75% { opacity: 0; top: -8rem; } 100% { opacity: 1; top: 0; } }
+@-o-keyframes animationBanner { 0% { opacity: 0; top: -8rem; } 75% { opacity: 0; top: -8rem; } 100% { opacity: 1; top: 0; } }
+@keyframes animationBanner { 0% { opacity: 0; top: -8rem; } 75% { opacity: 0; top: -8rem; } 100% { opacity: 1; top: 0; } }
+@-webkit-keyframes animationHeight { 0% { height: 0; } 75% { height: 0; } 100% { height: 8rem; } }
+@-moz-keyframes animationHeight { 0% { height: 0; } 75% { height: 0; } 100% { height: 8rem; } }
+@-o-keyframes animationHeight { 0% { height: 0; } 75% { height: 0; } 100% { height: 8rem; } }
+@keyframes animationHeight { 0% { height: 0; } 75% { height: 0; } 100% { height: 8rem; } }

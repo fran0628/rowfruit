@@ -12,8 +12,7 @@ import MemberLogin from './pages/Login/MemberLogin'
 import FruitMapMain from './pages/Map/FruitMapMain'
 import Customized from './pages/Customized/Customized'
 import MemberRegister from './pages/Register/MemberRegister'
-
-
+import About from './pages/About/about'
 
 function App() {
   return (
@@ -43,6 +42,9 @@ function App() {
 					<Route path="/customized">
 						<Customized />
 					</Route>
+					<Route path="/About">
+           			 <About />
+          			</Route>
 					<Route exact path="/">
 						<Home />
 					</Route>
