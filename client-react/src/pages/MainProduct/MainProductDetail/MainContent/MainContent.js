@@ -1,10 +1,15 @@
 import React from 'react'
 import MainEachContent from './MainEachContent'
 
+
+
+        
 function MainContent(props) {
     // const {fruitnameList, fruitcontent, fruitpicture} = props
     const { datacontent } = props
-    console.log(datacontent)
+    
+
+    
     return (
         <>
           <div className="container">
