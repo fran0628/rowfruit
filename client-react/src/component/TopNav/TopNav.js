@@ -65,6 +65,15 @@ import logoImg from './logo.png'
 									</NavDropdown.Item>
 								</NavDropdown>
 								<Nav.Link href="/about">關於我們</Nav.Link>
+								<NavDropdown title="會員中心" id="basic-nav-dropdown">
+									<NavDropdown.Item href="/memberdashboard">
+										修改會員資料
+									</NavDropdown.Item>
+
+									<NavDropdown.Item href="/orderlist">
+										訂單資訊
+									</NavDropdown.Item>
+								</NavDropdown>
 								<Nav.Link href="memberlogin">
 									<i class="fas fa-user fa-lg nav-icon" />
 								</Nav.Link>
@@ -86,7 +95,7 @@ import logoImg from './logo.png'
 								<Offcanvas.Title>
 									<div class="d-flex mt-3">
 										<Nav.Link href="/memberlogin" className="nav-icon ">
-										<i class="fas fa-user fa-lg nav-icon" />
+											<i class="fas fa-user fa-lg nav-icon" />
 										</Nav.Link>
 										<Nav.Link href="#" className="nav-icon">
 											<i class="fas fa-shopping-cart fa-lg nav-icon" />

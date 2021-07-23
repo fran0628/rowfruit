@@ -12,15 +12,23 @@ import MemberLogin from './pages/Login/MemberLogin'
 import FruitMapMain from './pages/Map/FruitMapMain'
 import Customized from './pages/Customized/Customized'
 import MemberRegister from './pages/Register/MemberRegister'
+import UserDashboard from './pages/UserDashboard/UserDashboard'
+import OrderList from './pages/OrderList/OrderList'
 import About from './pages/About/about'
 
 function App() {
   return (
 		<Router>
 			<>
-				<TopNav/>
-				<MultiLevelBreadcrumb/>
+				<TopNav />
+				<MultiLevelBreadcrumb />
 				<Switch>
+					<Route path="/orderlist">
+						<OrderList />
+					</Route>
+					<Route path="/memberdashboard">
+						<UserDashboard />
+					</Route>
 					<Route path="/memberlogin">
 						<MemberLogin />
 					</Route>
@@ -43,14 +51,14 @@ function App() {
 						<Customized />
 					</Route>
 					<Route path="/About">
-           			 <About />
-          			</Route>
+						<About />
+					</Route>
 					<Route exact path="/">
 						<Home />
 					</Route>
 				</Switch>
 
-				<Footer/>
+				<Footer />
 			</>
 		</Router>
 	);

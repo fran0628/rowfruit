@@ -6,8 +6,11 @@
 // let API_HOST = config.debug ? config.devUrl : config.prodUrl
 // export { API_HOST }
 export const API_HOST = "http://localhost:5000"
+
+
 export const API_GET_API = `${API_HOST}/api`
 export const getCustomizeProductData = `${API_GET_API}/customer`
+
 
 
 

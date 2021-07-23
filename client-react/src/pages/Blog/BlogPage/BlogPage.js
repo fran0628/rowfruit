@@ -97,7 +97,7 @@ import PostBlock from "./PostBlock/PostBlock";
 													<i class="fa grey fa-star" aria-hidden="true"></i>
 												</div>
 											</div>
-											<div class="avatar">
+											<div class="k-avatar">
 												<img
 													class="object-fit"
 													src="images/image1.jpg"
