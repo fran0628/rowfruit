@@ -6,8 +6,8 @@ function ProductImages(props) {
     const {ProductImages} = props
     console.log(ProductImages)
     console.log(typeof (ProductImages))
-    // const Imageurl = ProductImages.split(/\s+/);
-    // console.log(Imageurl)
+    const Imageurl = ProductImages&& ProductImages.split(/\s+/);
+    console.log(Imageurl)
 
     return (
         <>  

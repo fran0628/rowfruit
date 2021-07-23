@@ -8,7 +8,7 @@
 }
 .customizedTitle{
    position: relative;
-   top: -30px;
+   top: -130px;
 }
 .customizedTitle::after {
   content: "";
@@ -17,7 +17,7 @@
   opacity: 0.5;
   filter: blur(8px);
   -webkit-filter: blur(8px);
-  top: 0;
+  top: -130px;
   left: 0;
   bottom: 0;
   right: 0;
@@ -137,6 +137,9 @@
   position: relative;
   height: 700px;
   margin-bottom: 5px;
+  padding: 0;
+  overflow: auto;
+  border: 2px solid rgba(255, 255, 255, 0.6);
 }
 .title{
   height: 38px;
@@ -199,6 +202,7 @@
 }
 
 
+
 .shadow {
   position: relative;
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3), 0px 0px 20px rgba(0, 0, 0, 0.1) inset;
@@ -242,6 +246,8 @@
   transform: rotate(3deg);
 }
 
+
+
 .productItem {
   height: 100px;
   border: #bdbdbd solid 2px;
@@ -256,7 +262,20 @@
   border: 0;
   opacity: 0;
 }
-
+.imageLarge{
+  transition: .4s;
+}
+.productItem:hover .imageLarge{
+  transform: scale(1.5);
+}
+.addCart{
+  margin: 0;
+  box-shadow:2px 2px 5px #000;
+  transition: .4s;
+}
+.addCart:hover{
+  box-shadow:inset 1px 1px 3px  #000
+}
 
 .price{
   color: #E9AFAF;
@@ -292,12 +311,10 @@
   }
 }
 
-.cartListContainer {
+.cartLIstContainer {
   max-height: 220px;
   overflow-y: scroll;
-  background: rgba(255, 255, 255, 0.8);
-  -webkit-transition: .4s;
-  transition: .4s;
+  background: rgba(255, 255, 255, 0.6);
 }
 .customerCartList{
   margin-top: 0px;
@@ -306,6 +323,10 @@
 .unSelected {
   width: 100%;
 }
+.introduction{
+  color: #A5A59E;
+  text-align: center;
+}
 
 .cartList {
   height: 70px;
@@ -313,14 +334,25 @@
 }
 
 .cartListImage {
-  height: 70px;
-  width: 70px;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  width: 60px;
 }
-
-.introduction{
-  color: #A5A59E;
+.itemName{
+  text-align: center;
+  width: 100px;
+}
+.itemQuantity{
+  width: 20px;
+  display: inline-block;
   text-align: center;
 }
+.itemPrice{
+  color: #000;
+  width: 40px;
+}
+
 .totalPriceTable {
   background: rgba(255, 255, 255, 0.6);
 }

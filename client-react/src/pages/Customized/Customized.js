@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getCustomizeProductData } from "../../config";
 import "./Customized.scss";
-import {data} from './data/'//假裝資料
+import { data } from "./data/"; //假裝資料
 
 //伺服器fetch
 // async function fetchData(setProducts) {
@@ -14,7 +14,7 @@ function Customized() {
   console.log(products);
 
   useEffect(() => {
-    setProducts(data)//假裝資料
+    setProducts(data); //假裝資料
     //伺服器資料
     // fetchData(setProducts);
   }, []);
@@ -72,7 +72,7 @@ function Customized() {
               <p className="text-center my-0">鉀</p>
             </div>
           </aside>
-          <main className="col-12 col-lg-6 overflow-auto p-0 border position-relative customizedProduct">
+          <main className="col-12 col-lg-6 customizedProduct">
             <div className="sticky-top title title-all">
               <a className="text-white fs-3 prevbutton" role="button">
                 <i className="fas fa-caret-left"></i>
@@ -93,7 +93,8 @@ function Customized() {
                 <div>
                   <div className="fruitMenu shadow">
                     <div className="smallImageBox">
-                      <img className="productImage" 
+                      <img
+                        className="productImage"
                         src="https://images.pexels.com/photos/2134037/pexels-photo-2134037.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                         alt=""
                       />
@@ -104,7 +105,8 @@ function Customized() {
                   <div className="row productItem">
                     <div className="col-2 h-100 d-flex justify-content-center align-items-center productItemImage">
                       <div className="smallImageBox ">
-                        <img className="productImage"
+                        <img
+                          className="productImage imageLarge"
                           src="https://images.pexels.com/photos/5945840/pexels-photo-5945840.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                           alt=""
                         />
@@ -113,99 +115,92 @@ function Customized() {
                     <div className="col-3 h-100 d-flex align-items-center justify-content-center">
                       <p className="fs-4 ">珍珠芭樂</p>
                     </div>
-                    <div className="col-2 h-100 d-flex align-items-center justify-content-end">
+                    <div className="col-2 h-100 d-flex align-items-center">
                       <p className="price">
                         <i className="fas fa-dollar-sign"></i>50
                       </p>
                       <p className="d-block">/顆</p>
                     </div>
                     <div className="col-1 h-100 d-flex align-items-center justify-content-end">
-                      <p className="btn btn-lg addCart ">
+                      <p className="btn addCart ">
                         <i className="far fa-plus-square"></i>
                       </p>
                     </div>
                     <div className="col-2 h-100 d-flex align-items-center">
                       <div className="smallImageBox">
-                        <img className="productImage"
+                        <img
+                          className="productImage"
                           src="https://images.pexels.com/photos/935756/pexels-photo-935756.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                           alt=""
                         />
                       </div>
                     </div>
-                    <div className="col-2 h-100 d-flex align-items-center  ">
+                    <div className="col-2 h-100 d-flex align-items-center">
                       <div>
-                        <p className="mb-0">Josh</p>
-                        <p>
-                          4.5
-                          <span className="text-warning">
-                            <i className="fas fa-star"></i>
-                          </span>
+                        <p className="my-0">Josh</p>
+                        <p className="my-0">
+                          4.5<i className="fas fa-star"></i>
                         </p>
                       </div>
                     </div>
                   </div>
                 </div>
-               
               </article>
             </div>
           </main>
+          {/* 右側 */}
           <aside className="col-md-4 d-none d-lg-block position-relative">
             <h2 className="text-center customerCartList">客製化列表</h2>
             <p className="text-center unSelected">尚未選取商品</p>
-            <div className="cartList row text-center border border-2">
-                  <div className="col-2">
-                    <div className="cartListImage">
-                      <img className="productImage" src="https://images.pexels.com/photos/8723308/pexels-photo-8723308.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt=""/>
-                    </div>
-                  </div>
-                  <div className="col-3 d-flex align-items-center justify-content-end">
-                  珍珠芭樂
-                  </div>
-                  <div className="col-2 d-flex align-items-center justify-content-between">
-                    <span className="px-1 minus" role="button">
-                      <i className="fas fa-minus"></i>
-                    </span>
-                    <span className="number">1</span>
-                    <span className="px-1 plus" role="button">
-                      <i className="fas fa-plus"></i>
-                    </span>
-                  </div>
-                  <div className="col-2 d-flex align-items-center justify-content-start text-價格字">
-                    <div>$</div>
-                    <div className="itemPrice">50</div>
-                  </div>
-                  <div className="col-2 d-flex align-items-center">
-                  <div>
-                    <div>分量</div>
-                    <div className="itemWight">4</div>
-                  </div>
-                  </div>
-                  <div className="col-1 d-flex align-items-center justify-content-end delete"role="button">
-                    <i className="fas fa-trash-alt"></i>
-                  </div>
+            <div className="cartLIstContainer">
+              {/* 客製化列表明細 */}
+              <div className="cartList d-flex align-items-center justify-content-between border border-3">
+                <div class="cartListImage">
+                  <img
+                    className="productImage"
+                    src="https://images.pexels.com/photos/8723308/pexels-photo-8723308.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                    alt=""
+                  />
                 </div>
-            <div className="cartListContainer"></div>
+                <div className="itemName">
+                  <p>珍珠芭樂</p>
+                </div>
+                <div>
+                  <i className="fas fa-minus"></i>
+                  <span className="itemQuantity">1</span>
+                  <i className="fas fa-plus"></i>
+                </div>
+                <div className="itemPrice">
+                  <span>$</span>
+                  <span>100</span>
+                </div>
+                <div>
+                  <span>分量</span>
+                  <span>4</span>
+                </div>
+                <i className="pe-2 fas fa-trash-alt"></i>
+              </div>
+              
+            </div>
+           
             <div className="d-flex justify-content-between">
               <div className="d-flex">
                 <p className="px-3">份量</p>
-                <p id="cartTotal">0</p>
+                <p>0</p>
               </div>
+              <div><p>每周所需分量為40份</p></div>
               <div className="d-flex">
                 <p className="px-3">總金額</p>
                 <p>$</p>
-                <span id="totalPrice">0</span>
+                <p>0</p>
               </div>
             </div>
-
             <div className="d-flex justify-content-around">
               <button className="buy-btn">
                 <i className="fas fa-shopping-cart"></i>加入購物車
               </button>
               <button className="sub">立即結帳</button>
             </div>
-            <canvas id="canvas">
-              Hopefully you don't see this. If you do, get Google Chrome.
-            </canvas>
             <button className="btn removeFruit">Remove All</button>
             <div className="fruitbox"></div>
           </aside>
