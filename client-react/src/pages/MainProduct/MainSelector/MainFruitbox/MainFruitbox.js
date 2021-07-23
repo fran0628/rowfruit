@@ -1,7 +1,6 @@
 import React from 'react'
 import MainFruitboxProductItem from './MainFruitboxProductItem'
 
-
 function MainFruitbox(props) {
     const {data} = props
     return(

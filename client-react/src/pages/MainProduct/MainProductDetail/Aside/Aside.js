@@ -2,7 +2,8 @@ import React from 'react'
 import AsideProduct from './AsideProduct'
 
 function Aside(props) {
-    const {fruitboxname, fruitboxcontent} = props
+    const {asidedata} = props
+    
     return (
         <>
            <div className="otherproducts col-xl-2">
@@ -11,14 +12,17 @@ function Aside(props) {
                   瀏覽其它商品 &nbsp;<i className="fas fa-caret-down"></i>
                 </h5>
               </div>
-              <AsideProduct
-                name={fruitboxname.FruitboxOne}
-                content={fruitboxcontent.FruitcontentOne}
+              {asidedata.map((item) => {
+                const { id, product_name, images } = item;
+                return (
+                <AsideProduct
+                    key={id}
+                    id={id}
+                    name={product_name}
+                    images={images}
                 />
-              <AsideProduct
-                name={fruitboxname.FruitboxTwo}
-                content={fruitboxcontent.FruitcontentTwo}
-                />
+                );
+                })}
             </div>
         </>
     )
