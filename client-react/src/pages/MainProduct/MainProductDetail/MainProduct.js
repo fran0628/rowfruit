@@ -24,7 +24,8 @@ useEffect(() => {
 
     if (product) setData (product)
     })();
-}, []) 
+  }, []) 
+
 
 console.log(data)
 // useEffect(() => {

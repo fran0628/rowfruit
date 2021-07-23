@@ -64,7 +64,7 @@ import logoImg from './logo.png'
 										文章總覽
 									</NavDropdown.Item>
 								</NavDropdown>
-								<Nav.Link href="#">關於我們</Nav.Link>
+								<Nav.Link href="/about">關於我們</Nav.Link>
 								<Nav.Link href="memberlogin">
 									<i class="fas fa-user fa-lg nav-icon" />
 								</Nav.Link>

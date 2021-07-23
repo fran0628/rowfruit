@@ -1,6 +1,15 @@
-export const debug = true
-export const devUrl = 'http:/localhost:3000'
-export const prodUrl = 'https://mycom.tw'
+// const config = {
+//   debug: true,
+//   devUrl: 'http:/localhost:5000',
+//   prodUrl: 'https://mycom.tw',
+// }
+// let API_HOST = config.debug ? config.devUrl : config.prodUrl
+// export { API_HOST }
+export const API_HOST = "http://localhost:5000"
+export const API_GET_API = `${API_HOST}/api`
+export const getCustomizeProductData = `${API_GET_API}/customer`
+
+
 
 export const pathnameList = [
   '/memberlogin',

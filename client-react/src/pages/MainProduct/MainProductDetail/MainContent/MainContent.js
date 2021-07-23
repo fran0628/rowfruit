@@ -1,8 +1,17 @@
 import React from 'react'
 import MainEachContent from './MainEachContent'
 
+
+
+        
 function MainContent(props) {
     const { datacontent } = props
+<<<<<<< HEAD
+=======
+    
+
+    
+>>>>>>> 17b007cf5c4ba5bac091a7c235980e9babf6d623
     return (
         <>
           <div className="container">

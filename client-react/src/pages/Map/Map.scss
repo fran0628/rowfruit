@@ -1,30 +1,9 @@
-body {
-  font-family: "Noto Sans TC", sans-serif;
-  transition: 0.5s;
-}
 header {
   background: #b1b19d;
   opacity: 0.9;
   max-height: 70px;
 }
-a:link {
-  text-decoration: none;
-  color: #fafcec;
-}
-
-.breadcrumb {
-  background-color: transparent;
-}
-
 @media screen and (max-width: 800px) {
-  body {
-    font-family: "Noto Sans TC", sans-serif;
-    transition: 0.5s;
-  }
-  .logo {
-    margin: 0 auto;
-    cursor: pointer;
-  }
   .head_nav {
     display: none;
   }
@@ -76,23 +55,21 @@ a:link {
 /* main{
           background: coral;
       } */
-aside {
-  background: crimson;
-}
-.btn {
-  width: 150px;
-  /* height: 40px; */
-  max-width: 100%;
-  padding: 20px 10px;
-  background: #fcfdf5;
-  font-size: 1.125em;
-  color: #e79737;
-  border: none;
-  margin: 10px;
-  padding: 8px 16px;
-  border: 2px solid #838080;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
-}
+
+// .btn {
+//   width: 150px;
+//   /* height: 40px; */
+//   max-width: 100%;
+//   padding: 20px 10px;
+//   background: #fcfdf5;
+//   font-size: 1.125em;
+//   color: #e79737;
+//   border: none;
+//   margin: 10px;
+//   padding: 8px 16px;
+//   border: 2px solid #838080;
+//   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+// }
 /* .btn:hover{
           width: 100px;
           height: 40px;
@@ -102,20 +79,20 @@ aside {
           margin: 10px;
           padding: 8px 16px;
       } */
-.offcanvasbtn {
-  border-radius: 5px;
-  padding: 10px 15px;
-  border: 0;
-  background: #f5f5f5;
-}
-.navbox {
-  height: 90px;
-}
-.navbar {
-  background: #f5f5f5;
-  height: 90px;
-  margin-bottom: 30px;
-}
+// .offcanvasbtn {
+//   border-radius: 5px;
+//   padding: 10px 15px;
+//   border: 0;
+//   background: #f5f5f5;
+// }
+// .navbox {
+//   height: 90px;
+// }
+// .navbar {
+//   background: #f5f5f5;
+//   height: 90px;
+//   margin-bottom: 30px;
+// }
 @media screen and (max-width: 992px) {
   .navbar ul {
     display: none;
