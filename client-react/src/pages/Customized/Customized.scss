@@ -4,11 +4,11 @@
  'PingFang TC',
  'Heiti TC',
  '微軟正黑體', sans-serif;
-
  
 }
 .customizedTitle{
-   
+   position: relative;
+   top: -30px;
 }
 .customizedTitle::after {
   content: "";
@@ -26,13 +26,12 @@
   ;
 }
 
-img {
+.productImage {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
   object-fit: cover;
-  vertical-align: middle;
 }
+
 
 .tag-all{
   background: #B1B19D;
@@ -45,6 +44,7 @@ img {
   background: white;
   border: 1px solid black;
   margin: 0;
+
 }
 
 .tag-whitening:hover {
@@ -133,7 +133,7 @@ img {
 
 
 .customizedProduct {
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.8);
   position: relative;
   height: 700px;
   margin-bottom: 5px;
@@ -163,16 +163,16 @@ img {
 
 .smallImageBox {
   height: 80px;
-  max-width: 80px;
+  width: 80px;
   border-radius: 50%;
   overflow: hidden;
+
 }
 
-ul {
-  -webkit-margin-after: 0;
-  margin-block-end: 0;
-}
 
+.progressgroup{
+  margin-top: 50px;
+}
 .progress-bar {
   border-radius: 0 10px 10px 0;
 }
@@ -189,23 +189,18 @@ ul {
 .fruitMenu {
   width: 96%;
   height: 98px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   background: #ccc;
   border-radius: 10px;
   margin: 10px;
+  transition: .4s;
 }
+
 
 .shadow {
   position: relative;
-  -webkit-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3), 0px 0px 20px rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3), 0px 0px 20px rgba(0, 0, 0, 0.1) inset;
 }
 
@@ -236,9 +231,7 @@ ul {
   left: 10px;
   width: 50%;
   height: 20%;
-  -webkit-box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
-  box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
-  -webkit-transform: rotate(-3deg);
+  box-shadow: 0 15px 10px rgb(211, 104, 33);
   transform: rotate(-3deg);
 }
 
@@ -263,6 +256,8 @@ ul {
   border: 0;
   opacity: 0;
 }
+
+
 .price{
   color: #E9AFAF;
   font-size: 20px;
@@ -271,8 +266,6 @@ ul {
 @media screen and (max-width: 768px) {
   .pageTitle {
     font-size: 18px;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: left;
         -ms-flex-pack: left;
@@ -307,6 +300,7 @@ ul {
   transition: .4s;
 }
 .customerCartList{
+  margin-top: 0px;
   background: #f5c184;
 }
 .unSelected {
@@ -382,7 +376,7 @@ ul {
 }
 
 .removeFruit {
-    background:#E9AFAF ;
+  background:#E9AFAF ;
   position: absolute;
   right: 30%;
   bottom: 20%;
@@ -390,5 +384,3 @@ ul {
   -webkit-transform: rotate(-3deg);
   transform: rotate(-3deg);
 }
-
-

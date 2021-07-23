@@ -17,7 +17,7 @@ function MainContent(props) {
             <h2 className="text-center my-5">美白水果盒內容簡介</h2>
             <div className="row"> 
             
-            {datacontent.map((item) => {
+            {datacontent&& datacontent.map((item) => {
                 const { id, fruitname, images, content } = item;
                 return (
                 <MainEachContent
