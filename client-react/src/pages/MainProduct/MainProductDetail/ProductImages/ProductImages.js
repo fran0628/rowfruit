@@ -2,13 +2,10 @@ import React from 'react'
 
 function ProductImages(props) {
     const {ProductImages} = props
-    console.log(ProductImages)
-    console.log(typeof (ProductImages))
-    // const Imageurl = ProductImages.split(/\s+/);
-    // console.log(Imageurl)
     const Imageurl = ProductImages && ProductImages.split(/\s+/);
     console.log(Imageurl)
-
+    console.log(typeof(Imageurl))
+  
     return (
         <>  
             <div className="col-xl-5 col-lg-6 mt-2">
@@ -20,21 +17,9 @@ function ProductImages(props) {
                   <li className="active">
                     <img src={Imageurl} alt="" />
                   </li>
-                  {/* <li>
-                    <img src="/Mainphotos/14.jpg" alt="" />
-                  </li>
-                  <li>
-                    <img src="/Mainphotos/13.jpg" alt="" />
-                  </li>
-                  <li>
-                    <img src="/Mainphotos/12.jpg" alt="" />
-                  </li> */}
                 </ul>
               </div>
             </div>
-
-
-
 
             {/* <div className="col-xl-5 col-lg-6 mt-2">
               <div className="mainpic">

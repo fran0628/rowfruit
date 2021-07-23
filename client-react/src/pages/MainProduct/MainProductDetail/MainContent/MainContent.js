@@ -1,7 +1,6 @@
 import React from 'react'
 import MainEachContent from './MainEachContent'
-
-        
+  
 function MainContent(props) {
     const { datacontent } = props
     return (

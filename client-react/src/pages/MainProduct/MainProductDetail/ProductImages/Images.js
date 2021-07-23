@@ -3,7 +3,6 @@ import ProductImages from './ProductImages'
 
 function Images(props) {
     const {images} = props
-    console.log(images)
     return (
         <>
             <ProductImages
