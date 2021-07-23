@@ -40,15 +40,15 @@ import logoImg from './logo.png'
 										主打水果盒選單
 									</NavDropdown.Item>
 									<NavDropdown.Divider />
-									<NavDropdown.Item href="/MainProduct">
+									<NavDropdown.Item href="/MainProduct/1">
 										美白水果盒
 									</NavDropdown.Item>
 
-									<NavDropdown.Item href="/MainProduct">
+									<NavDropdown.Item href="/MainProduct/2">
 										健身水果盒
 									</NavDropdown.Item>
 
-									<NavDropdown.Item href="/MainProduct">
+									<NavDropdown.Item href="/MainProduct/3">
 										輕盈水果盒
 									</NavDropdown.Item>
 								</NavDropdown>
