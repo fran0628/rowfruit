@@ -19,7 +19,7 @@
 .navbar-light .navbar-nav .nav-link {
 	color: #7b9c85;
 }
-.navbar-light .navbar-nav .nav-link:hover {
+.navbar-light .navbar-nav .nav-link:hover .nav-link:active{
 	color: #b1ddbe;
 }
 .navbar-light .navbar-nav .nav-link .nav-icon {
