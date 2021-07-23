@@ -72,6 +72,8 @@ function Customized() {
               <p className="text-center my-0">鉀</p>
             </div>
           </aside>
+
+          {/* 商品區塊 */}
           <main className="col-12 col-lg-6 customizedProduct">
             <div className="sticky-top title title-all">
               <a className="text-white fs-3 prevbutton" role="button">
@@ -147,7 +149,9 @@ function Customized() {
                 </div>
               </article>
             </div>
+            
           </main>
+          
           {/* 右側 */}
           <aside className="col-md-4 d-none d-lg-block position-relative">
             <h2 className="text-center customerCartList">客製化列表</h2>
