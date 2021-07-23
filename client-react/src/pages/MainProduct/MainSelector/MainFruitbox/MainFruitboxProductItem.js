@@ -5,7 +5,11 @@ import { Link, withRouter } from 'react-router-dom'
 
 function MainFruitboxProductItem(props) {
     console.log(props)
-    const { product_name, price, images } = props
+    const { id, product_name, price, images } = props
+    console.log(typeof (id))
+    const urlid = String(id)
+    const url = "Mainproduct/"+ urlid
+
 
     return (
         <>
@@ -14,7 +18,9 @@ function MainFruitboxProductItem(props) {
                 <div className="card-body">
                 <h3 className="card-title">{product_name}水果盒</h3>
                 <p className="card-text">NT $ {price}</p>
-                <Link to="/Mainproduct"><button className="normal-btn">點此購買</button></Link>
+                <Link to={url}>
+                    <button className="normal-btn">點此購買</button>
+                </Link>
                 </div>
             </div>
         </>

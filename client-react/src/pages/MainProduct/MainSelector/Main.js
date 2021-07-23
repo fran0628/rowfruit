@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { apiMain } from '../../../global/API'
+import { apiMain } from '../../../config/API'
 import './Main.scss'
 import MainFruitbox from './MainFruitbox/MainFruitbox'
 import Subscribe from './Subscribe/Subscribe'
@@ -11,17 +11,16 @@ async function productData(setData) {
 }
 
 function Main() {
-  
+
   const [data, setData] = useState([]);
   useEffect(() => {
     productData(setData)
   }, []) 
-
-  console.log(data)
-  // for(let i=0 ;i<data.length; i++){
-  //   console.log(data[i].items)
-  // }
-  // console.log(data.length)
+  // console.log(data)
+  
+  const filterdata = data.filter(function(item, index, array){
+    return item.id < 10 ;
+  });
   
   /* Subscribe */
   const subscribeList = {
@@ -43,30 +42,17 @@ function Main() {
   return (
     <>
       <main>
-        {/*麵包屑*/}
-        <div className="container">
-          <div className="container mx-3 my-5">
-            <nav aria-label="breadcrumb">
-              <ol className="breadcrumb">
-                <li className="breadcrumb-item"><a href="#/">首頁</a></li>
-                <li className="breadcrumb-item active" aria-current="page">
-                  主打水果盒選單
-                </li>
-              </ol>
-            </nav>
-          </div>
-        </div> 
         {/*視覺圖*/} 
         <div className="container">
             <div className="container row m-0">
                 <div className="rwd_slider_container_wrapper  col-lg-7 col-md-7 p-0">
                     <div className="rwd_slider_container">    
                         <div className="slider_container">
-                            <div><img src="/Mainphotos/1.jpg" alt="" /></div>
-                            <div><img src="/Mainphotos/2.jpg" alt="" /></div>
-                            <div><img src="/Mainphotos/3.jpg" alt="" /></div>
+                            <div><img src="/Mainphotos/28.jpg" alt="" /></div>
+                            <div><img src="/Mainphotos/20.jpg" alt="" /></div>
+                            <div><img src="/Mainphotos/16.jpg" alt="" /></div>
                             <div><img src="/Mainphotos/4.jpg" alt="" /></div>
-                            <div><img src="/Mainphotos/6.jpeg" alt="" /></div>
+                            <div><img src="/Mainphotos/7.jpg" alt="" /></div>
                         </div>
                     </div>
                 </div>
@@ -76,7 +62,7 @@ function Main() {
         </div>
         {/*水果盒*/}
         <MainFruitbox
-          data = {data} 
+          data = {filterdata} 
         />
         {/*訂閱方案說明文*/}
         <div className="container">
