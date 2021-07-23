@@ -60,8 +60,8 @@ function BuyContent(props) {
                     <span className="fs-4 text-danger">${boxprice}</span>
                   </div>
                   <div className="col-lg-12">
-                    <button className="buy-btn" onClick="add">單買加入購物車</button>
-                    <button className="sub-btn">選擇訂閱方案</button>
+                    <button className="buy-btnbuy" onClick="add">單買加入購物車</button>
+                    <button className="sub-btnbuy">選擇訂閱方案</button>
                   </div>
                 </div>
               </div>

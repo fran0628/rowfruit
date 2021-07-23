@@ -11,7 +11,7 @@ import { withRouter } from 'react-router-dom'
 function MainProduct(props) {
 
 const [data, setData] = useState({items:[]});
-// const [asidedata, setAsidedata] = useState([]); 
+const [asidedata, setAsidedata] = useState([]); 
 
 useEffect(() => {
   (async function productdetailData() {
@@ -26,28 +26,20 @@ useEffect(() => {
     })();
   }, []) 
 
+// console.log(data)
+useEffect(() => {
+  (async function productsData() {
+    const res = await fetch(apiMain)
+    const apidata  = await res.json()
+    const productId = +props.match.params.id
+    const asideproduct = apidata.filter((v, i) => {
+      return v.id !== productId && v.id < 10
+    })
 
-console.log(data)
-// useEffect(() => {
-//   (async function productsData() {
-//     const res = await fetch(apiMain)
-//     const apidata  = await res.json()
-//     console.log(apidata)
-//     // setAsideData(apidata);
-//   })()
-// }, []) 
+    if (asideproduct) setAsidedata (asideproduct)
+    })();
+}, [])
 
-
-
-/* Aside */
-// const fruitboxname = {
-//   FruitboxOne: '多纖輕盈水果盒',
-//   FruitboxTwo: '健身水果盒',
-// }
-// const fruitboxcontent = {
-//   FruitcontentOne: '木瓜、芭樂、火龍果、蘋果、葡萄柚、百香果',
-//   FruitcontentTwo: '香蕉、芭樂、蘋果、酪梨、鳳梨',
-// }
    
 
 
@@ -71,9 +63,7 @@ return (
             />
             {/*側欄推薦其它產品*/}
             <Aside
-              // fruitboxname={fruitboxname}
-              // fruitboxcontent={fruitboxcontent}
-              // asidedata={asidedata}
+              asidedata = {asidedata}
             />
           </div>
         </div>
@@ -214,18 +204,18 @@ return (
         <div className="container mt-5">
           <div className="row">
             <div className="col-lg-5">
-              <div className="asidepic">
+              <div className="phoneasidepic">
                 <img src="/Mainphotos/33.png" alt="" />
               </div>
             </div>
             <div className="col-lg-5">
-              <div className="phone">
-                <div className="phonetop"></div>
-                <div className="screen">
+              <div className="cellphone">
+                <div className="cellphonetop"></div>
+                <div className="cellphonescreen">
                   <div className="m-4">
                     <h2 style={{display:'inline'}}>評價</h2>
                     <h5 style={{display:'inline'}}>(21則評論)</h5>
-                    <button id="screenbtn" className="screen-btn">我要留言</button>
+                    <button id="screenbtn" className="phonescreen-btn">我要留言</button>
                     <hr />
                     {/*評價-1*/}
                     <div className="mb-4 screen-evaluation">

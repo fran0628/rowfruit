@@ -4,6 +4,10 @@ import React from 'react'
 
 function ProductImages(props) {
     const {ProductImages} = props
+    console.log(ProductImages)
+    console.log(typeof (ProductImages))
+    // const Imageurl = ProductImages.split(/\s+/);
+    // console.log(Imageurl)
 
     return (
         <>  
@@ -14,7 +18,7 @@ function ProductImages(props) {
               <div className="photoslist">
                 <ul className="photos list-unstyled d-flex mt-5">
                   <li className="active">
-                    <img src="/Mainphotos/10.jpg" alt="" />
+                    <img src={ProductImages} alt="" />
                   </li>
                   {/* <li>
                     <img src="/Mainphotos/14.jpg" alt="" />

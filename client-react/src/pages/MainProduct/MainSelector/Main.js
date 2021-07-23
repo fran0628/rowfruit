@@ -50,7 +50,7 @@ function Main() {
                         <div className="slider_container">
                             <div><img src="/Mainphotos/28.jpg" alt="" /></div>
                             <div><img src="/Mainphotos/20.jpg" alt="" /></div>
-                            <div><img src="/Mainphotos/16.jpg" alt="" /></div>
+                            <div><img src="/Mainphotos/33.jpg" alt="" /></div>
                             <div><img src="/Mainphotos/4.jpg" alt="" /></div>
                             <div><img src="/Mainphotos/7.jpg" alt="" /></div>
                         </div>
