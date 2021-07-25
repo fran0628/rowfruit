@@ -1,0 +1,65 @@
+//   @media screen and (max-width: 576px) {
+//    .section{
+//        margin: 0 auto;
+//    }
+//    .hand{
+//        display: none;
+//    }
+//    .thebox{
+//        display: none;
+//    }
+//    .fruit_ball{
+//        display: none;
+//    }
+//   }
+  .gotocustombtn {
+    width: 150px;
+    /* height: 40px; */
+    max-width: 100%;
+    padding: 20px 10px;
+    background: #fcfdf5;
+    font-size: 1.125em;
+    color: #e79737;
+    border: none;
+    margin: 10px;
+    padding: 8px 16px;
+    border: 2px solid #838080;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  }
+  .box {
+    /* display:block; */
+    width: 84px;
+    height: 84px;
+    border-radius: 15px;
+    /* position: absolute; */
+  }
+  .orange {
+    border: transparent;
+    position: absolute;
+    right: 0;
+  }
+  .hand {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 50px;
+  }
+  .all_ball {
+    display: inline-flex;
+  }
+  .fruit_ball img {
+    width: 55px;
+    height: auto;
+    
+  }
+  .section {
+    text-align: center;
+    color: #f5bb77;
+  }
+  .thebox {
+    margin-top: 250px;
+    width: 210px;
+    height: 180px;
+    position: absolute;
+    right: -15px;
+  }
