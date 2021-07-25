@@ -1,11 +1,12 @@
 import React from 'react'
+import FruitMapIcon from '../FruitMapIcon/apple.png'
 
 function FruitBallItem(props) {
-  const { picture } = props
+  // const { FruitMapIcon } = props
   return (
     <>
       <div className="fruit_ball shake-slow" id="clickMe">
-        <img src={picture} alt="..." />
+        <img src={FruitMapIcon} alt="..." />
       </div>
     </>
   )

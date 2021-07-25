@@ -17,7 +17,7 @@ function FruitMapFarmer(props) {
   const featureList = {
     featureListOne: '口碑第一',
     featureListTwo: '有機無毒',
-    featureListThree: '',
+    featureListThree: '口碑第一',
   }
 
   return (
@@ -38,7 +38,7 @@ function FruitMapFarmer(props) {
               />
               <Marker position={position}>
                 <Popup>
-                  A pretty CSS3 popup. <br /> Easily customizable.
+                陳伯伯果園 <br /> 最天然方式栽種每顆水果 <br /> 口碑第一
                 </Popup>
               </Marker>
             </MapContainer>

@@ -1,28 +1,24 @@
 
-#root {
-  font-family: 'Source Han Sans TW',
- 'PingFang TC',
- 'Heiti TC',
- '微軟正黑體', sans-serif;
- 
-}
 .customizedTitle{
    position: relative;
    top: -130px;
+   margin-bottom: -130px;
+  //  z-index:-1
 }
 .customizedTitle::after {
   content: "";
-  background: url("https://images.pexels.com/photos/890507/pexels-photo-890507.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background: url("https://images.pexels.com/photos/160751/breeze-summer-girl-model-160751.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
   background-size: cover;
   opacity: 0.5;
   filter: blur(8px);
   -webkit-filter: blur(8px);
-  top: -130px;
+  top: 0;
   left: 0;
   bottom: 0;
   right: 0;
   position: absolute;
   z-index: -1;
+
   ;
 }
 
@@ -139,27 +135,56 @@
   margin-bottom: 5px;
   padding: 0;
   overflow: auto;
-  border: 2px solid rgba(255, 255, 255, 0.6);
+  // border: 2px solid rgba(255, 255, 255, 0.6);
 }
-.title{
+.title-all{
   height: 38px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-.title-all,.allButton{
   background: #B1B19D;
 }
-.title-whitening,.whiteningButton{
+.allButton{
+  background: #B1B19D;
+}
+.title-whitening{
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   background: #f5c184;
 }
-.title-slimming,.slimmingButton{
+.whiteningButton{
+  background: #f5c184;
+}
+.title-slimming{
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   background: #D05656;
 }
-.title-silverHair,.silverHairButton{
+.slimmingButton{
+  background: #D05656;
+}
+.title-silverHair{
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   background: #BFBF70;
 }
-.title-vision,.visionButton{
+.silverHairButton{
+  background: #BFBF70;
+}
+.title-vision{
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #BEA1A1;
+}
+.visionButton{
   background: #BEA1A1;
 }
 
@@ -266,7 +291,7 @@
   transition: .4s;
 }
 .productItem:hover .imageLarge{
-  transform: scale(1.5);
+  transform: scale(1.2);
 }
 .addCart{
   margin: 0;
@@ -312,12 +337,13 @@
 }
 
 .cartLIstContainer {
-  max-height: 220px;
+  max-height: 280px;
   overflow-y: scroll;
   background: rgba(255, 255, 255, 0.6);
 }
 .customerCartList{
   margin-top: 0px;
+  margin-bottom: 0px;
   background: #f5c184;
 }
 .unSelected {
@@ -352,6 +378,10 @@
   color: #000;
   width: 40px;
 }
+.deleteItem,.ItemMinus,.ItemPlus{
+  cursor: pointer;
+}
+
 
 .totalPriceTable {
   background: rgba(255, 255, 255, 0.6);
