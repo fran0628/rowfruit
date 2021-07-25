@@ -1,7 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function BuyContent(props) {
     const {name, fruit_item, boxprice} = props
+    // const fruitcontent = fruit_item.split(/\s+/);
+    // console.log(typeof(fruit_item))
+    const [total, setTotal] = useState(1)
+    const [price, setPrice] = useState(boxprice)
+
+    // 購買方案按鈕＋-
+    function plus() {
+      setTotal(total + 1)
+      setPrice(function (prev){
+        return prev + boxprice
+      })
+    }
+    function minus() {
+    if (total > 1) 
+    setTotal(total - 1)
+    if (total > 1) 
+    setPrice(function (prev){
+        return prev - boxprice
+    })
+    }
+
+    
+    function addCart() {
+      
+    }
+  
     // const boxcontent = fruit_item.split(' ');
     // console.log(boxcontent)
     // for (var i = 0; i < boxcontent.length; i++) {
@@ -33,7 +59,7 @@ function BuyContent(props) {
                 <ul>
                   <li>
                     <span className="text-danger">
-                      單買約 1 - 3 周時間寄出，假日不可以收貨者請先備註。
+                      單買約 1-2 周時間寄出，假日不可以收貨者請先備註
                     </span>
                   </li>
                   <li>
@@ -50,17 +76,14 @@ function BuyContent(props) {
                 <div className="row">
                   <div className="col-lg-12">
                     <span className="account">數量：</span>
-                    <select className="accountselect">
-                      <option selected>1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                    </select>
+                    <button className="btn-minus" onClick={minus}><i class="fas fa-minus"></i></button>
+                    <span className="fs-4"> {total} </span>
+                    <button className="btn-plus" onClick={plus}><i class="fas fa-plus"></i></button>
                     <span className="ms-4">售價：</span>
-                    <span className="fs-4 text-danger">${boxprice}</span>
+                    <span className="fs-4 text-danger">${price}</span>
                   </div>
                   <div className="col-lg-12">
-                    <button className="buy-btnbuy" onClick="add">單買加入購物車</button>
+                    <button className="buy-btnbuy" onClick={addCart}>單買加入購物車</button>
                     <button className="sub-btnbuy">選擇訂閱方案</button>
                   </div>
                 </div>

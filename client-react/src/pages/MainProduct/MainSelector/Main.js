@@ -12,31 +12,16 @@ async function productData(setData) {
 
 function Main() {
 
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    productData(setData)
-  }, []) 
-  // console.log(data)
-  
-  const filterdata = data.filter(function(item, index, array){
-    return item.id < 10 ;
-  });
-  
-  /* Subscribe */
-  const subscribeList = {
-    SubscribeOne: '體驗一箱',
-    SubscribeTwo: '月訂閱制',
-    SubscribeThree: '季訂閱制',
-    SubscribeFour: '半年訂閱制',
-  }
+const [data, setData] = useState([]);
+useEffect(() => {
+  productData(setData)
+}, []) 
 
-  const subscribePrice = {
-    SubscribeOne: 500,
-    SubscribeTwo: 1800,
-    SubscribeThree: 4800,
-    SubscribeFour: 8400,
-  }
+const filterdata = data.filter(function(item, index, array){
+  return item.id < 10 ;
+});
 
+console.log(filterdata)
   
 
   return (
@@ -60,24 +45,23 @@ function Main() {
                 </div>
             </div>
         </div>
+        {/*訂閱方案說明文*/}
+        <div className="container">
+            <h3 className="fw-normal text-center">選擇適合自己的購買方案</h3>
+            <p className="text-center fs-6">
+                體驗一箱僅配送一次 單買約 1 - 2 周時間寄出，假日不可以收貨者請先備註
+            </p>
+            <p className="text-center fs-6">
+                訂閱制(月訂閱制/季訂閱制/半年訂閱制)之後為每週一至週三出貨( 週一至週四間配送 )
+            </p>
+        </div> 
         {/*水果盒*/}
         <MainFruitbox
           data = {filterdata} 
         />
-        {/*訂閱方案說明文*/}
-        <div className="container">
-            <h1 className="display-6 fw-normal text-center">選擇適合自己的購買方案</h1>
-            <p className="text-center">
-                現在下訂會收到『 六月ROWFRUIT水果箱 』<br />
-                本次出貨時間為 2021 / 6 / 26 <br />
-                體驗一箱僅配送一次 <br />
-                訂閱制(月訂閱制/季訂閱制/半年訂閱制)之後為每月10日出貨(遇假日順延) <br />
-            </p>
-        </div> 
         {/*訂閱方案介紹*/} 
         <Subscribe
-          subscribeList={subscribeList}
-          subscribePrice={subscribePrice}
+          data = {filterdata} 
         />
       </main>
     </>

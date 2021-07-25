@@ -2,9 +2,12 @@ import React from 'react'
 
 function ProductImages(props) {
     const {ProductImages} = props
-    const Imageurl = ProductImages && ProductImages.split(/\s+/);
-    console.log(Imageurl)
-    console.log(typeof(Imageurl))
+    // const Imageurl = ProductImages && ProductImages.split(/\s+/);
+    // console.log(ProductImages)
+    // console.log(typeof(ProductImages))
+    // console.log(typeof(Imageurl))
+    // const Image = Imageurl.toString
+  
   
     return (
         <>  
@@ -15,7 +18,7 @@ function ProductImages(props) {
               <div className="photoslist">
                 <ul className="photos list-unstyled d-flex mt-5">
                   <li className="active">
-                    <img src={Imageurl} alt="" />
+                    <img src={ProductImages} alt="" />
                   </li>
                 </ul>
               </div>
