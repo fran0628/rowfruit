@@ -337,12 +337,13 @@
 }
 
 .cartLIstContainer {
-  max-height: 220px;
+  max-height: 280px;
   overflow-y: scroll;
   background: rgba(255, 255, 255, 0.6);
 }
 .customerCartList{
   margin-top: 0px;
+  margin-bottom: 0px;
   background: #f5c184;
 }
 .unSelected {
@@ -377,6 +378,10 @@
   color: #000;
   width: 40px;
 }
+.deleteItem,.ItemMinus,.ItemPlus{
+  cursor: pointer;
+}
+
 
 .totalPriceTable {
   background: rgba(255, 255, 255, 0.6);

@@ -1,7 +1,6 @@
 import React from "react";
 
-function Progress(props) {
-    const {className,chineseName}=props
+function Progress({className,chineseName}) {
     const newName = className+"progress-bar"
   return (
     <>

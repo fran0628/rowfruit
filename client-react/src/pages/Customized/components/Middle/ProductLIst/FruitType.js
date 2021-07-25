@@ -1,8 +1,8 @@
 import React from 'react'
 import FruitVariety from './FruitVariety'
 function FruitType(props) {
-    console.log("type",props)
-    const {fruit_name,fruit_image,items}=props
+    // console.log("type",props)
+    const {fruit_name,fruit_image,items,addCart}=props
     // console.log(items)
     const imageUrl = "http://localhost:3000/images/CustomizedPhotos/"+fruit_name+"/"+fruit_image
     return (
@@ -22,13 +22,12 @@ function FruitType(props) {
               {/* 水果項目 */}
               {
                 items.map((item)=>{
-                  return <FruitVariety id={item.id} fruitname={item.fruitname} price={item.price} unit={item.unit} wight={item.wight} images={item.images} fram_name={item.fram_name} avatar={item.avatar} imageFront={fruit_name}/>
+                  const {id,fruitname,price,unit,wight,images,fram_name,avatar}=item
+                  return <FruitVariety key={id} id={id} fruitname={fruitname} price={price} unit={unit} wight={wight} images={images} fram_name={fram_name} avatar={avatar} imageFront={fruit_name}
+                    addCart={addCart}
+                  />
                 })
               }
-
-
-
-              {/* <FruitVariety/> */}
             </div>
           </article>
         </>

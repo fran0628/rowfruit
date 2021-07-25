@@ -1,12 +1,28 @@
-import React from 'react'
-
+import React,{useState} from 'react'
+import { API_HOST } from "../../../../../config";
 function FruitVariety(props) {
-  console.log(props)
-  const{id,fruitname,price,unit,wight,images,fram_name,avator,imageFront}=props
+  // console.log(props)
+  const{id,fruitname,price,unit,wight,images,fram_name,avatar,imageFront,addCart}=props
 
   const newImageUrl = "http://localhost:3000/images/CustomizedPhotos/"+imageFront+"/"+images
+  const farmerImageUrl =API_HOST+"/images/"+avatar
 
-  console.log(newImageUrl)
+  const [quantity,setQuantity]=useState(1)
+
+  function addItem(){
+    addCart(function(prevData){
+      // console.log("prevData",prevData)
+      if(prevData.length === 0){
+        return [{
+          id,fruitname,price,wight,images,imageFront,quantity
+        },...prevData]
+      }
+      return [{
+        id,fruitname,price,wight,images,imageFront,quantity
+      },...prevData]
+    })
+  }
+ 
     return (
         <>
             <div className="row productItem">
@@ -29,7 +45,7 @@ function FruitVariety(props) {
                   <p className="d-block">/{unit}</p>
                 </div>
                 <div className="col-1 h-100 d-flex align-items-center justify-content-end">
-                  <p className="btn addCart ">
+                  <p className="btn addCart" onClick={addItem} >
                     <i className="far fa-plus-square"></i>
                   </p>
                 </div>
@@ -37,12 +53,12 @@ function FruitVariety(props) {
                   <div className="smallImageBox">
                     <img
                       className="productImage"
-                      src="https://images.pexels.com/photos/935756/pexels-photo-935756.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                      src={farmerImageUrl}
                       alt=""
                     />
                   </div>
                 </div>
-                <div className="col-2 h-100 d-flex align-items-center">
+                <div className="col-2 h-100 d-flex align-items-center px-0 ">
                   <div>
                     <p className="my-0">{fram_name}</p>
                     <p className="my-0">
