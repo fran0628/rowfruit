@@ -84,7 +84,7 @@ return (
               <h2 className="m-0">訂閱方案</h2>
               <ul className="ms-2">
                 <li className="mb-4"><i className="far fa-check-circle fa-2x"></i><h5 className="h4 m-2" style={{display: 'inline'}}>一鍵購買就能在家享受</h5></li>
-                <li className="mb-4"><i className="far fa-check-circle fa-2x"></i><h5 className="h4 m-2" style={{display: 'inline'}}>每週提供4~6種水果</h5></li>
+                <li className="mb-4"><i className="far fa-check-circle fa-2x"></i><h5 className="h4 m-2" style={{display: 'inline'}}>每週提供6種水果</h5></li>
                 <li className="mb-4"><i className="far fa-check-circle fa-2x"></i><h5 className="h4 m-2" style={{display: 'inline'}}>嚴選在地水果</h5></li>
                 <li className="mb-4"><i className="far fa-check-circle fa-2x"></i><h5 className="h4
                 m-2" style={{display: 'inline'}}>通過有機認證</h5></li>

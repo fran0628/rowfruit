@@ -42,8 +42,24 @@ console.log(filterdata)
                     </div>
                 </div>
                 <div className="sliderword col-lg-4 col-md-4">
+                  <img src="/Mainphotos/18.png" alt="" />
+                  <p className="text-center fs-5">
+                    全新水果生活
+                  </p>
+                  <p className="text-center fs-5">
+                    ROWFRUIT為您配送
+                  </p>
+                  <p className="text-center fs-5">
+                    訂閱制水果盒
+                  </p>
+                  <p className="text-center fs-6">
+                  每週各式新鮮水果 ｜｜ 貼心到府服務
+                  </p>
                 </div>
             </div>
+        </div>
+        <div className="orange">
+          <img src="/Mainphotos/orange.png" alt="" />
         </div>
         {/*訂閱方案說明文*/}
         <div className="container">

@@ -165,6 +165,22 @@ li {
     animation-play-state: paused;
 } */
 
+/* 側欄 */
+
+.sliderword img{
+  width: 250px;
+  height: 250px;
+  margin: 30px 30px 20px 20px; 
+}
+
+.orange img{
+  width: 230px;
+  height: 230px;
+  transform: skew(20deg, -20deg);
+  // animation: shake .6s linear infinite alternate;
+}
+
+
 /* 水果盒 */
 
 .fruitlist {
@@ -188,10 +204,6 @@ li {
   .subleftimg{
     margin-top: 30px;
   }
-}
-
-@media screen and (max-width: 1200px) {
-  
 }
 
 @media screen and (max-width: 992px) {

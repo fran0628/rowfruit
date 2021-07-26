@@ -26,7 +26,7 @@ function SubscribeItem(props) {
                             {/* <h3 className="card-title fs-6">{fruit_item}</h3> */}
                         </div> 
                     </div>
-                    <div className="col-xl-5 ms-lg-5">
+                    <div className="col-xl-5 ms-lg-5 mt-5">
                             <h3 className="card-title fs-5">{product_name}水果盒</h3>
                             <p className="card-title" style={{fontSize: "17px"}}>{fruitcontent[0]} &nbsp; {fruitcontent[1]} &nbsp; {fruitcontent[2]}</p>
                             <p className="card-title" style={{fontSize: "17px"}}>{fruitcontent[3]} &nbsp; {fruitcontent[4]} &nbsp; {fruitcontent[5]}</p>
