@@ -43,8 +43,8 @@ li {
   margin-bottom: 1em;
   line-height: 1.5em;
 }
-.normal-btn {
-  display: block;
+.normal-buy-btn {
+  display: inline-block;
   width: 150px;
   max-width: 100%;
   padding: 20px 10px;
@@ -57,64 +57,12 @@ li {
   text-align: center;
   margin: auto;
 }
-.normal-btn:hover {
+.normal-buy-btn:hover {
   background-color: #fcfdea;
   box-shadow: 0px 1px 2px rgba(59, 59, 59, 0.16);
   transition: transform 0.2s;
 }
-.sub-btn {
-  display: inline-block;
-  width: 150px;
-  max-width: 100%;
-  padding: 20px 10px;
-  background-color: #a5a59e;
-  color: #fff;
-  border: 2px solid #838080;
-  border-radius: 5px;
-  font-size: 1.125em;
-  box-shadow: 2px 2px 3px rgba(59, 59, 59, 0.16);
-  text-align: center;
-  margin: 15px 5px 0px 0px;
-}
-.sub-btn:hover {
-  background-color: #bdbeb1;
-  box-shadow: 0px 1px 2px rgba(59, 59, 59, 0.16);
-  transition: transform 0.2s;
-}
 
-// /* 導覽列 */
-
-// .offcanvasbtn {
-//   /* border: 3px solid rgb(182, 177, 177); */
-//   border-radius: 5px;
-//   padding: 10px 15px;
-//   border: 0;
-//   background: #f5f5f5;
-// }
-// .fa-bars {
-//   color: rgb(137, 137, 139);
-// }
-// .navbox {
-//   height: 90px;
-// }
-// .navbar {
-//   background: #f5f5f5;
-//   height: 90px;
-//   margin-bottom: 30px;
-//   /* box-shadow: 3px 0px 5px rgb(0 0 0 / 20%); */
-// }
-// .nav-link {
-//   color: #7b9c85;
-// }
-// .nav-link:hover {
-//   color: #b1ddbe;
-// }
-// .nav-icon {
-//   color: #4c534e;
-// }
-// .nav-icon:hover {
-//   color: #b5b8b6;
-// }
 
 /* 視覺圖 */
 
@@ -217,6 +165,22 @@ li {
     animation-play-state: paused;
 } */
 
+/* 側欄 */
+
+.sliderword img{
+  width: 250px;
+  height: 250px;
+  margin: 30px 30px 20px 20px; 
+}
+
+.orange img{
+  width: 230px;
+  height: 230px;
+  transform: skew(20deg, -20deg);
+  // animation: shake .6s linear infinite alternate;
+}
+
+
 /* 水果盒 */
 
 .fruitlist {
@@ -233,54 +197,16 @@ li {
   text-align: center;
 }
 
-/* footer */
-
-// footer {
-//   background: #66816e;
-//   padding: 50px;
-// }
-// footer h5,
-// footer a {
-//   color: rgb(250, 253, 247);
-//   font-weight: 400;
-// }
-// footer a:hover {
-//   color: #b1ddbe;
-// }
-// .info h5,
-// .info span {
-//   color: #7b9c85;
-// }
-// footer .fas {
-//   color: #7b9c85;
-//   margin-left: 40px;
-// }
-// footer .info {
-//   max-width: 320px;
-//   background: #f3f3f3;
-//   padding: 1px 0;
-// }
-// footer .icon {
-//   max-width: 320px;
-// }
-// .companyaddress {
-//   margin-left: 65px;
-// }
-// .companyinfo {
-//   margin-left: 70px;
-// }
-// #map {
-//   height: 250px;
-//   width: 100%;
-//   margin-top: 30px;
-// }
 
 /* RWD */
 
+@media screen and (max-width: 1400px) {
+  .subleftimg{
+    margin-top: 30px;
+  }
+}
+
 @media screen and (max-width: 992px) {
-  // .navbar ul {
-  //   display: none;
-  // }
   .rwd_slider_container_wrapper {
     max-width: 100%;
     padding: 20px;
@@ -319,16 +245,10 @@ li {
     overflow: hidden;
   }
 }
-// @media screen and (max-width: 576px) {
-//   .navbar-brand img {
-//     margin-top: 10px;
-//     margin-left: 10px;
-//     width: 160px;
-//     height: 70px;
-//   }
-// }
-// @media screen and (min-width: 992px) {
-//   .offcanvasbtn {
-//     display: none;
-//   }
-// }
+@media screen and (max-width: 576px) {
+  .normal-buy-btn {
+    width: 120px;
+    padding: 15px 10px;
+    font-size: 13px;
+  }
+}

@@ -3,9 +3,10 @@ import { Link, withRouter } from 'react-router-dom'
 
 function AsideProduct(props) {
     const {id, name, images} = props
+
+    // button 連結
     const urlid = String(id)
     const urlaside = "/MainProduct/"+ urlid
-    // console.log(urlaside);
 
     return (
         <>
@@ -14,7 +15,7 @@ function AsideProduct(props) {
                 <div className="asidecardcontent card-body">
                   <h5 className="card-title text-center">{name}水果盒</h5>
                   <a href={urlaside}>
-                    <button className="normal-btn">點此查看</button>
+                    <button className="aside-btn">點此查看</button>
                   </a>
                 </div>
             </div>
