@@ -38,9 +38,18 @@ function Customized() {
     setProducts(data); //假裝資料
     // fetchData(setProducts);    //伺服器資料
   }, []);
-
+  //加到購物車列表資料
+  // cartData=
+  // [{fruitname: ""
+  // id: 0
+  // imageFront: ""
+  // images: ""
+  // nutrients: ""
+  // price: 0
+  // wight: 0}]
   const [cartData, setCartData] = useState([]);
-  const [counts,setCounts] =useState([])
+  //控制數量的陣列  counts=[Number,Number]
+  const [counts, setCounts] = useState([]);
   console.log("最上面cartData", cartData);
   console.log("最上面counts", counts);
 
@@ -48,18 +57,16 @@ function Customized() {
   const totalWight = () => {
     let sum = 0;
     for (let i = 0; i < cartData.length; i++) {
-      sum += cartData[i].quantity * cartData[i].wight;
+      sum += cartData[i].wight*counts[i];
     }
     return sum;
   };
 
-
-  
   //計算價格加總
   const totalPrice = () => {
     let sum = 0;
     for (let i = 0; i < cartData.length; i++) {
-      sum += cartData[i].quantity * cartData[i].price;
+      sum += cartData[i].price*counts[i];
     }
     return sum;
   };
@@ -72,9 +79,14 @@ function Customized() {
       <div className="container">
         <div className="row">
           {/* 左側邊 */}
-          <LeftAside />
+          <LeftAside cartData={cartData} />
           {/* 商品區塊 */}
-          <Middle data={products} addCart={setCartData} counts={counts} setCounts={setCounts} />
+          <Middle
+            data={products}
+            cartData={cartData}
+            addCart={setCartData}
+            setCounts={setCounts}
+          />
           {/* 右側 */}
           <RightAside
             data={products}

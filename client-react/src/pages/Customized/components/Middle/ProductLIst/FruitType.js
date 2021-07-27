@@ -2,7 +2,7 @@ import React from "react";
 import FruitVariety from "./FruitVariety";
 function FruitType(props) {
   // console.log("type",props)
-  const { fruit_name, fruit_image, items,nutrients, addCart,counts,setCounts } = props;
+  const { fruit_name, fruit_image, items,nutrients,cartData ,addCart,setCounts } = props;
   // console.log(items)
   const imageUrl =
     "http://localhost:3000/images/CustomizedPhotos/" +
@@ -43,10 +43,10 @@ function FruitType(props) {
                 fram_name={fram_name}
                 avatar={avatar}
                 imageFront={fruit_name}
+                cartData={cartData}
                 addCart={addCart}
                 nutrients={nutrients}
                 setCounts={setCounts}
-                counts={counts}
               />
             );
           })}

@@ -3,7 +3,7 @@ import TitleTag from "./TitleTag";
 import { v4 } from "uuid";
 import FruitType from "./ProductLIst/FruitType";
 function Middle(props) {
-  const { data, addCart, counts, setCounts } = props;
+  const { data,cartData, addCart,setCounts } = props;
   const whiteningData = data.filter((item) => {
     return item.tag.indexOf("whitening") > -1;
   });
@@ -56,6 +56,7 @@ function Middle(props) {
             return (
               <FruitType
                 key={id}
+                cartData={cartData}
                 addCart={addCart}
                 id={id}
                 fruit_name={fruit_name}
@@ -63,7 +64,6 @@ function Middle(props) {
                 items={items}
                 nutrients={nutrients}
                 setCounts={setCounts}
-                counts={counts}
               />
             );
           })}
@@ -78,6 +78,7 @@ function Middle(props) {
             return (
               <FruitType
                 key={id}
+                cartData={cartData}
                 addCart={addCart}
                 id={id}
                 fruit_name={fruit_name}
@@ -85,7 +86,6 @@ function Middle(props) {
                 items={items}
                 nutrients={nutrients}
                 setCounts={setCounts}
-                counts={counts}
               />
             );
           })}
@@ -100,6 +100,7 @@ function Middle(props) {
             return (
               <FruitType
                 key={id}
+                cartData={cartData}
                 addCart={addCart}
                 id={id}
                 fruit_name={fruit_name}
@@ -107,7 +108,6 @@ function Middle(props) {
                 items={items}
                 nutrients={nutrients}
                 setCounts={setCounts}
-                counts={counts}
               />
             );
           })}
@@ -122,6 +122,7 @@ function Middle(props) {
             return (
               <FruitType
                 key={id}
+                cartData={cartData}
                 addCart={addCart}
                 id={id}
                 fruit_name={fruit_name}
@@ -129,7 +130,6 @@ function Middle(props) {
                 items={items}
                 nutrients={nutrients}
                 setCounts={setCounts}
-                counts={counts}
               />
             );
           })}
@@ -144,6 +144,7 @@ function Middle(props) {
             return (
               <FruitType
                 key={id}
+                cartData={cartData}
                 addCart={addCart}
                 id={id}
                 fruit_name={fruit_name}
@@ -151,7 +152,6 @@ function Middle(props) {
                 items={items}
                 nutrients={nutrients}
                 setCounts={setCounts}
-                counts={counts}
               />
             );
           })}

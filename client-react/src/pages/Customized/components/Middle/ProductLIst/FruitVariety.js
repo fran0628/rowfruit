@@ -13,34 +13,59 @@ function FruitVariety(props) {
     fram_name,
     avatar,
     imageFront,
+    cartData,
     addCart,
     nutrients,
     setCounts,
-    counts
   } = props;
-  
+  const nutrientsArray = nutrients.split(",");
   const newImageUrl =
     "http://localhost:3000/images/CustomizedPhotos/" +
     imageFront +
     "/" +
     images;
   const farmerImageUrl = API_HOST + "/images/" + avatar;
-  
 
-  function addItem() {
-    //物件放進右側客製化列表
-    setCounts(function(prevCounts){
-      const newCounts = [1,...prevCounts]
-      return newCounts
-    })
+
+  function addCartDataAndCounts(){
+    //把控制數量的值丟進去初始為1
+    setCounts(function (prevCounts) {
+      const newCounts = [1, ...prevCounts];
+      return newCounts;
+    });
+    //資料加到cartData裡面
     addCart(function (prevData) {
-      return [
-        { id, fruitname, price, wight, images, imageFront, nutrients },
+      const newCartData = [
+        { id, fruitname, price, wight, images, imageFront, nutrientsArray },
         ...prevData,
-      ];
+      ]
+      return newCartData
+    })
+  }
+  function sweetAlert(){
+    Swal.fire({
+      title: `${fruitname}已經有了!`,
+      text: "可以點擊列表增加數量",
+      imageUrl: newImageUrl,
+      imageHeight: 200,
+      imageAlt: "Custom image",
+      animation: false,
+      confirmButtonText: "關閉",
     });
   }
- 
+  function addItem() {
+    if(cartData.length===0){
+      addCartDataAndCounts()
+    }else{
+      for(let i = 0;i<cartData.length;i++){
+        if(cartData[i].id === id){
+          sweetAlert()
+          return
+        }
+      }
+      addCartDataAndCounts()
+    }
+  }
 
   return (
     <>

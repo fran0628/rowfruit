@@ -14,7 +14,7 @@ function CartListContent(props) {
     index,
     data,
   } = props;
-
+  // console.log(data)
 
   //   const allProduct = []
   //  data.forEach((product)=>{
@@ -22,6 +22,7 @@ function CartListContent(props) {
   //     allProduct.push(item)
   //   })
   //  })
+  
   //  const thisProduct = allProduct.find((item)=>{
   //    return item.id=id
   //  })
