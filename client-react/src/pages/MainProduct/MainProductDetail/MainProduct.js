@@ -3,7 +3,7 @@ import { apiMainProduct, apiMain } from '../../../config/API'
 import "./MainProductDetail.scss"
 import MainContent from './MainContent/MainContent'
 import Aside from './Aside/Aside'
-import Buy from './BuyContent/Buy'
+import Buy from './buyContent/Buy'
 import Images from './ProductImages/Images'
 import { withRouter } from 'react-router-dom'
 
