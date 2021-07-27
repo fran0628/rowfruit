@@ -40,8 +40,30 @@ function Customized() {
   }, []);
 
   const [cartData, setCartData] = useState([]);
+  const [counts,setCounts] =useState([])
+  console.log("最上面cartData", cartData);
+  console.log("最上面counts", counts);
+
+  //計算分量加總
+  const totalWight = () => {
+    let sum = 0;
+    for (let i = 0; i < cartData.length; i++) {
+      sum += cartData[i].quantity * cartData[i].wight;
+    }
+    return sum;
+  };
+
+
   
-  console.log(cartData)
+  //計算價格加總
+  const totalPrice = () => {
+    let sum = 0;
+    for (let i = 0; i < cartData.length; i++) {
+      sum += cartData[i].quantity * cartData[i].price;
+    }
+    return sum;
+  };
+
   return (
     <div className="customizedTitle">
       <div className="container ">
@@ -52,9 +74,17 @@ function Customized() {
           {/* 左側邊 */}
           <LeftAside />
           {/* 商品區塊 */}
-          <Middle data={products} addCart={setCartData} />
+          <Middle data={products} addCart={setCartData} counts={counts} setCounts={setCounts} />
           {/* 右側 */}
-          <RightAside cartData={cartData} deleteCart={setCartData} />
+          <RightAside
+            data={products}
+            cartData={cartData}
+            setCartData={setCartData}
+            totalPrice={totalPrice()}
+            totalWight={totalWight()}
+            counts={counts}
+            setCounts={setCounts}
+          />
         </div>
       </div>
     </div>
