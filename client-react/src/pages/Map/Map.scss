@@ -1,8 +1,8 @@
-header {
-  background: #b1b19d;
-  opacity: 0.9;
-  max-height: 70px;
-}
+// header {
+//   background: #b1b19d;
+//   opacity: 0.9;
+//   max-height: 70px;
+// }
 @media screen and (max-width: 800px) {
   .head_nav {
     display: none;
@@ -12,6 +12,10 @@ header {
   }
   .fruit_ball {
     display: none;
+  }
+  .map {
+    width: 100%;
+    height: 100%;
   }
 }
 .fruit_ball {
@@ -52,10 +56,6 @@ header {
   height: 80px;
   border-radius: 50%;
 }
-/* main{
-          background: coral;
-      } */
-
 .knowfarmbtn {
   display: block;
   width: 150px;
