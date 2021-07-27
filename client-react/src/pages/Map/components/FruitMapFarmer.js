@@ -1,24 +1,25 @@
-import React from 'react'
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
-import FruitMapFarmerItem from './FruitMapFarmerItem'
+import React, { useEffect } from "react";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import FruitMapFarmerItem from "./FruitMapFarmerItem";
 
 function FruitMapFarmer(props) {
   const position = [24.93, 121.38];
+  // const [FruitMapFarmerItem, setFruitMapFarmerItem] = useState();
   const farmNameList = {
-    farmNameOne: '陳伯伯果園',
-    farmNameTwo: '發財果園',
-    farmNameThree: '小玉新鮮果園',
-  }
+    farmNameOne: "陳伯伯果園",
+    farmNameTwo: "發財果園",
+    farmNameThree: "小玉新鮮果園",
+  };
   const descriptionList = {
-    descriptionListOne: '最天然方式栽種每顆水果',
-    descriptionListTwo: '吃得新鮮，吃得好。有機種植沒煩惱!',
-    descriptionListThree: '歡迎來參觀我們的果園，新鮮能看得見!',
-  }
-  const featureList = {
-    featureListOne: '口碑第一',
-    featureListTwo: '有機無毒',
-    featureListThree: '口碑第一',
-  }
+    descriptionListOne: "最天然方式栽種每顆水果",
+    descriptionListTwo: "吃得新鮮，吃得好。有機種植沒煩惱!",
+    descriptionListThree: "歡迎來參觀我們的果園，新鮮能看得見!",
+  };
+  // const featureList = {
+  //   featureListOne: "口碑第一",
+  //   featureListTwo: "有機無毒",
+  //   featureListThree: "口碑第一",
+  // };
 
   return (
     <>
@@ -30,7 +31,6 @@ function FruitMapFarmer(props) {
               zoom={13}
               scrollWheelZoom={false}
               className="map"
-                           
             >
               <TileLayer
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -38,31 +38,31 @@ function FruitMapFarmer(props) {
               />
               <Marker position={position}>
                 <Popup>
-                陳伯伯果園 <br /> 最天然方式栽種每顆水果 <br /> 口碑第一
+                  陳伯伯果園 <br /> 最天然方式栽種每顆水果 <br /> 口碑第一
                 </Popup>
               </Marker>
             </MapContainer>
           </div>
           <div class="col-md-5 px-1">
             <FruitMapFarmerItem
-              farmNameList={farmNameList.farmNameOne}
-              descriptionList={descriptionList.descriptionListOne}
-              featureList={featureList.featureListOne}
+            farmNameList={farmNameList.farmNameOne}
+            descriptionList={descriptionList.descriptionListOne}
+           
             />
             <FruitMapFarmerItem
-              farmNameList={farmNameList.farmNameTwo}
-              descriptionList={descriptionList.descriptionListTwo}
-              featureList={featureList.featureListTwo}
+              // farmNameList={farmNameList.farmNameTwo}
+              // descriptionList={descriptionList.descriptionListTwo}
+              // featureList={featureList.featureListTwo}
             />
             <FruitMapFarmerItem
-              farmNameList={farmNameList.farmNameThree}
-              descriptionList={descriptionList.descriptionListThree}
-              featureList={featureList.featureListThree}
+              // farmNameList={farmNameList.farmNameThree}
+              // descriptionList={descriptionList.descriptionListThree}
+              // featureList={featureList.featureListThree}
             />
           </div>
         </div>
       </div>
     </>
-  )
+  );
 }
-export default FruitMapFarmer
+export default FruitMapFarmer;
