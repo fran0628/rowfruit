@@ -2,8 +2,9 @@ import React from "react";
 import CartListContent from "./CartListContent";
 
 function RightAside(props) {
-  const { cartData, deleteCart } = props;
-  // console.log("cartData", cartData);
+  const { data,cartData,setCartData,totalWight,totalPrice,counts,setCounts} = props;
+  // console.log("rightSideCartData", cartData);
+
   return (
     <>
       <aside className="col-md-4 d-none d-lg-block position-relative">
@@ -12,8 +13,8 @@ function RightAside(props) {
         
         <div className="cartLIstContainer">
           {/* 客製化列表明細 */}
-          {cartData.map((item) => {
-            const { id, fruitname, imageFront, images, price, wight,quantity } = item;
+          {cartData.map((item,index) => {
+            const { id, fruitname, imageFront, images, price, wight,nutrients } = item;
             return (
               <CartListContent
                 key={id}
@@ -23,19 +24,21 @@ function RightAside(props) {
                 images={images}
                 price={price}
                 wight={wight}
-                quantity={quantity}
-                deleteCart={deleteCart}
+                nutrients={nutrients}
+                setCartData={setCartData}
+                cartData={cartData}
+                index={index}
+                data={data}
               />
             );
           })}
 
-          {/* <CartListContent/> */}
         </div>
 
         <div className="d-flex justify-content-between">
           <div className="d-flex">
             <p className="px-3">份量</p>
-            <p>0</p>
+            <p>{totalWight}</p>
           </div>
           <div>
             <p>每周所需分量為40份</p>
@@ -43,7 +46,7 @@ function RightAside(props) {
           <div className="d-flex">
             <p className="px-3">總金額</p>
             <p>$</p>
-            <p>0</p>
+            <p>{totalPrice}</p>
           </div>
         </div>
         <div className="d-flex justify-content-around">

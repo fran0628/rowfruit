@@ -1,16 +1,18 @@
 import React from "react";
 
-function Progress({className,chineseName}) {
-    const newName = className+"progress-bar"
+function Progress({className,chineseName,width}) {
+  
+    const newName = className+" progress-bar"
+    console.log(newName)
   return (
     <>
       <div className="progress">
         <div
           className={newName}
-          style={{ width: "0%" }}
+          style={{ width: `${width}%` }}
           role="progressbar"
         >
-          0%
+         {width}%
         </div>
       </div>
       <p className="text-center my-0">{chineseName}</p>
