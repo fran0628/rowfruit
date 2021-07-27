@@ -3,14 +3,18 @@ import { apiMainProduct, apiMain } from '../../../config/API'
 import "./MainProductDetail.scss"
 import MainContent from './MainContent/MainContent'
 import Aside from './Aside/Aside'
-import Buy from './buyContent/Buy'
+import Buy from './BuyContent/Buy'
 import Images from './ProductImages/Images'
 import { withRouter } from 'react-router-dom'
 
 
 function MainProduct(props) {
 
-const [data, setData] = useState({items:[]});
+const [data, setData] = useState({
+  fruit_item:"",
+  product_images:"",
+  items:[]
+});
 const [asidedata, setAsidedata] = useState([]); 
 
 useEffect(() => {
@@ -39,8 +43,7 @@ useEffect(() => {
     if (asideproduct) setAsidedata (asideproduct)
     })();
 }, [])
-
-   
+// console.log(asidedata)
 
 
 return (

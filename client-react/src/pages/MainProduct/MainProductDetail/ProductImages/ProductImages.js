@@ -1,25 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Smallimage from './Smallimage'
 
 function ProductImages(props) {
-    const {ProductImages} = props
-    // const Imageurl = ProductImages && ProductImages.split(/\s+/);
-    // console.log(ProductImages)
-    // console.log(typeof(ProductImages))
-    // console.log(typeof(Imageurl))
-    // const Image = Imageurl.toString
-  
-  
+    const {Images} = props
+    // const Imageurl = (Images) ? Images.split(' ') : []
+    const Imageurl = Images.split(' ');
+    const [image,setImage] = useState(Imageurl[0]);
+    // console.log(Imageurl[0])
+    // console.log(typeof(Imageurl[0]))
+
     return (
         <>  
             <div className="col-xl-5 col-lg-6 mt-2">
               <div className="mainpic">
-                <img id="mainproduct" src="/Mainphotos/10.jpg" alt="" />
+                <img id="mainproduct" src={image} alt=""/>
               </div>
               <div className="photoslist">
                 <ul className="photos list-unstyled d-flex mt-5">
-                  <li className="active">
-                    <img src={ProductImages} alt="" />
-                  </li>
+                  {Imageurl.map((item,index) => {
+                    return <li><Smallimage key={index} data={item} setImage={setImage} /></li>
+                  })}
+                  {/* <li><img onClick={chosePic} src={Imageurl[0]} alt="" /></li>
+                  <li><img onClick={chosePic} src={Imageurl[1]} alt="" /></li>
+                  <li><img onClick={chosePic} src={Imageurl[2]} alt="" /></li>
+                  <li><img onClick={chosePic} src={Imageurl[3]} alt="" /></li> */}
                 </ul>
               </div>
             </div>

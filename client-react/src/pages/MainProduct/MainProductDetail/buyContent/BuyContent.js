@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 
 function BuyContent(props) {
     const {name, fruit_item, boxprice} = props
-    // const fruitcontent = fruit_item.split(/\s+/);
-    // console.log(typeof(fruit_item))
+    const fruitcontent = fruit_item.split(/\s+/);
     const [total, setTotal] = useState(1)
     const [price, setPrice] = useState(boxprice)
 
@@ -51,11 +50,10 @@ function BuyContent(props) {
 
                 <h5>商品內容</h5>
                 <ul>
-                  <li>
-                    <span>{fruit_item}</span>
-                  </li>
+                  <li><span>{fruitcontent[0]}&nbsp;&nbsp;{fruitcontent[1]}&nbsp;&nbsp;{fruitcontent[2]}<br/></span></li>
+                  <li><span>{fruitcontent[3]}&nbsp;&nbsp;{fruitcontent[4]}&nbsp;&nbsp;{fruitcontent[5]}</span></li>
                 </ul>
-                <h5>出貨日期</h5>
+                <h5>出貨日期</h5> 
                 <ul>
                   <li>
                     <span className="text-danger">

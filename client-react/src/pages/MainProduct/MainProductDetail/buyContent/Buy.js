@@ -1,5 +1,5 @@
 import React from 'react'
-import BuyContent from './BuyContent.js'
+import BuyContent from './BuyContent'
 
 function Buy(props) {
     const {id, product_name, fruit_item, price, images} = props
