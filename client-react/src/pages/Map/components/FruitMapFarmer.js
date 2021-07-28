@@ -3,7 +3,9 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import FruitMapFarmerItem from "./FruitMapFarmerItem";
 
 function FruitMapFarmer(props) {
-  const position = [24.93, 121.38];
+  const {data}=props
+  console.log(data)
+  const position = [24.96,121.192];
   // const [FruitMapFarmerItem, setFruitMapFarmerItem] = useState();
   const farmNameList = {
     farmNameOne: "陳伯伯果園",
@@ -28,20 +30,24 @@ function FruitMapFarmer(props) {
           <div className="container-fluid col-md-7">
             <MapContainer
               center={position}
-              zoom={13}
-              scrollWheelZoom={false}
+              zoom={8}
+              scrollWheelZoom={true}
               className="map"
             >
               <TileLayer
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
-              <Marker position={position}>
+             {data.map(item=>(
+              <Marker position={[item.latitude,item.longitude]}>
                 <Popup>
-                  陳伯伯果園 <br /> 最天然方式栽種每顆水果 <br /> 口碑第一
+                  <h4> {item.fram_name}</h4>
+                 {item.address} <br /> {item.content}口碑第一
                 </Popup>
               </Marker>
-            </MapContainer>
+            
+             ))}
+            </MapContainer>  
           </div>
           <div class="col-md-5 px-1">
             <FruitMapFarmerItem

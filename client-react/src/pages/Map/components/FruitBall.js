@@ -1,7 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import FruitBallItem from './FruitBallItem'
 // import FruitMapIcon from "../indexCustomAniIcon/avocado.png";
 function FruitBall(props) {
+  const fruitBallImg = [
+    'apple.png','avocado.png','banana.png','guava.png','pineapple.png','kiwi.png','mango.png','orange.png','papaya.png','watermelon.png'
+  ];
   // const picturesList = {
   //   fruitBallOne: '芭樂',
   //   fruitBallTwo: '蘋果',
@@ -17,6 +20,10 @@ function FruitBall(props) {
   return (
     <>
       <div className="container d-flex justify-content-between mt-3 mb-3 all_ball">
+      {fruitBallImg.map((Img)=>{ 
+        return <FruitBallItem Img={Img}/>
+      })}
+        {/* <FruitBallItem  />
         <FruitBallItem  />
         <FruitBallItem  />
         <FruitBallItem  />
@@ -27,8 +34,7 @@ function FruitBall(props) {
         <FruitBallItem  />
         <FruitBallItem  />
         <FruitBallItem  />
-        <FruitBallItem  />
-        <FruitBallItem  />
+        <FruitBallItem  /> */}
       </div>
     </>
   )

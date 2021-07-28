@@ -18,22 +18,26 @@ function CartListContent(props) {
     cartItem,
     setCartItem,
   } = props;
-  // console.log(cartItem)
 
-  //   const allProduct = []
-  //  data.forEach((product)=>{
-  //   product.items.forEach(item=>{
-  //     allProduct.push(item)
-  //   })
-  //  })
   
-  //  const thisProduct = allProduct.find((item)=>{
-  //    return item.id=id
-  //  })
-  // const productPrice = thisProduct.price
-  // const productWight = thisProduct.wight
-  // const productNutrients = thisProduct.nutrients
-  
+  data.forEach(product => {
+    let nutrients = product.nutrients.split(",");
+    product.items.forEach(item => {
+      item.nutrients = nutrients;
+    });
+  });
+    const allProduct = []
+   data.forEach((product)=>{
+    product.items.forEach(item=>{
+      allProduct.push(item)
+    })
+   })
+  const thisProduct = {...cartItem}
+  const productPrice = thisProduct.price
+  const productWight = thisProduct.wight
+  const productNutrients = thisProduct.nutrients
+  //  console.log(productPrice)
+  // console.log(cartItem)
 
 
   const newImageUrl =
@@ -56,11 +60,20 @@ function CartListContent(props) {
 
   function minus(){
     setCount(count-1)
+    setCartItem(()=>{
+      cartItem.price=productPrice*(count-1)
+      cartItem.wight=productWight*(count-1)
+      cartItem.nutrientsArray=productNutrients*(count-1)
+    })
     
   }
   function plus(){
     setCount(count+1)
-   
+    setCartItem(()=>{
+      cartItem.price=productPrice*(count+1)
+      cartItem.wight=productWight*(count+1)
+      cartItem.nutrientsArray=productNutrients*(count+1)
+    })
   }
   return (
     <>
