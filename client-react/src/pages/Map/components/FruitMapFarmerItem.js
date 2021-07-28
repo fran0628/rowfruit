@@ -14,17 +14,17 @@ function FruitMapFarmerItem(props) {
   const PF = "http://localhost:5000/images";
   
   // 抓果園名稱與果園介紹
-  const [FruitMapFarmerItem, setFruitMapFarmerItem] = useState([]);
-  useEffect(() => {
-    const fetchFruitMapFarmerItem = async () => {
-      const res = await axios.get("/farmer");
-      console.log(res);
-      setFruitMapFarmerItem(res.data);
-      console.log(res.data);
-    };
+  // const [FruitMapFarmerItem, setFruitMapFarmerItem] = useState([]);
+  // useEffect(() => {
+  //   const fetchFruitMapFarmerItem = async () => {
+  //     const res = await axios.get("/farmer");
+  //     console.log(res);
+  //     setFruitMapFarmerItem(res.data);
+  //     console.log(res.data);
+  //   };
 
-    fetchFruitMapFarmerItem();
-  }, []);
+  //   fetchFruitMapFarmerItem();
+  // }, []);
 
   return (
     <>
@@ -46,9 +46,9 @@ function FruitMapFarmerItem(props) {
         <div className="vertical align-items-center">
           <h4 className="mt-4">
             {/* 名稱{FruitMapFarmerItem.fram_Name} */}
-            {FruitMapFarmerItem.map((f, i) => {
+            {/* {FruitMapFarmerItem.map((f, i) => {
               return <FruitMapFarmerItem farmer={f} key={i} />;
-            })}
+            })} */}
           </h4>
           <h6>{FruitMapFarmerItem.content}</h6>
           <div className="mt-5 px-3">
