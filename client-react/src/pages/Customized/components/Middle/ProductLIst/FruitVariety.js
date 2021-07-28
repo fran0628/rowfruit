@@ -94,8 +94,8 @@ function FruitVariety(props) {
           <div className="smallImageBox">
             <img
               className="productImage"
-              src="https://images.pexels.com/photos/8828132/pexels-photo-8828132.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-              // src={farmerImageUrl}
+              // src="https://images.pexels.com/photos/8828132/pexels-photo-8828132.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+              src={farmerImageUrl}
               alt=""
             />
           </div>

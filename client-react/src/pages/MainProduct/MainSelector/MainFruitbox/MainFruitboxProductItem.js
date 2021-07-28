@@ -9,7 +9,6 @@ function MainFruitboxProductItem(props) {
     const urlid = String(id)
     const url = "/Mainproduct/"+ urlid
 
-
     return (
         <>
             <div className="col-lg-4 col-md-6 g-5">

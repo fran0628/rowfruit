@@ -35,8 +35,8 @@ console.log(filterdata)
                         <div className="slider_container">
                             <div><img src="/Mainphotos/28.jpg" alt="" /></div>
                             <div><img src="/Mainphotos/20.jpg" alt="" /></div>
-                            <div><img src="/Mainphotos/6.jpg" alt="" /></div>
-                            <div><img src="/Mainphotos/4.jpg" alt="" /></div>
+                            <div><img src="/Mainphotos/13.jpg" alt="" /></div>
+                            <div><img src="/Mainphotos/55.jpg" alt="" /></div>
                             <div><img src="/Mainphotos/17.jpg" alt="" /></div>
                         </div>
                     </div>
