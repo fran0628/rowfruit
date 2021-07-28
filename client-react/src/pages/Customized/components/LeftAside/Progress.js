@@ -3,7 +3,6 @@ import React from "react";
 function Progress({className,chineseName,width}) {
   
     const newName = className+" progress-bar"
-    console.log(newName)
   return (
     <>
       <div className="progress">
