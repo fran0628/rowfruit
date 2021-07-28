@@ -15,7 +15,7 @@ function LeftAside(props) {
     dietary_fiber += +cartData[i].nutrientsArray[1];
     vitamin_A += +cartData[i].nutrientsArray[2];
     vitamin_C += +cartData[i].nutrientsArray[3];
-    Potassium += +cartData[i].nutrientsArray[3];
+    Potassium += +cartData[i].nutrientsArray[4];
   }
   const tag = [
     { className: "tag-all", tagName: "全部商品" },

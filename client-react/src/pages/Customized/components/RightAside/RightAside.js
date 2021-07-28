@@ -47,11 +47,6 @@ function RightAside(props) {
                 index={index}
                 setCartData={setCartData}
                 cartItem={cartData[index]}
-                setCartItem={(newCartItem)=>{
-                  const newCartData = [...cartData]
-                  newCartData[index]=newCartItem
-                  setCartData(newCartData)
-                }}
                 setCounts={setCounts}
                 count={counts[index]}
                 setCount={(newCount)=>{

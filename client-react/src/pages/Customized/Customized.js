@@ -51,15 +51,13 @@ function Customized() {
   //控制數量的陣列  counts=[Number,Number]
   const [counts, setCounts] = useState([]);
   console.log("最上面cartData", cartData);
-  console.log("最上面counts", counts);
-  useEffect(()=>{
-    
-  },[])
+  // console.log("最上面counts", counts);
+  // console.log("最上面data",data)
   //計算分量加總
   const totalWight = () => {
     let sum = 0;
     for (let i = 0; i < cartData.length; i++) {
-      sum += cartData[i].wight*counts[i];
+      sum += cartData[i].wight
     }
     return sum;
   };
@@ -68,7 +66,7 @@ function Customized() {
   const totalPrice = () => {
     let sum = 0;
     for (let i = 0; i < cartData.length; i++) {
-      sum += cartData[i].price*counts[i];
+      sum += cartData[i].price
     }
     return sum;
   };
