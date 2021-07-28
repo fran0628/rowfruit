@@ -77,7 +77,7 @@ import logoImg from './logo.png'
 								<Nav.Link href="memberlogin">
 									<i class="fas fa-user fa-lg nav-icon" />
 								</Nav.Link>
-								<Nav.Link href="#">
+								<Nav.Link href="cart">
 									<i class="fas fa-shopping-cart fa-lg nav-icon" />
 								</Nav.Link>
 							</Nav>
@@ -97,7 +97,7 @@ import logoImg from './logo.png'
 										<Nav.Link href="/memberlogin" className="nav-icon ">
 											<i class="fas fa-user fa-lg nav-icon" />
 										</Nav.Link>
-										<Nav.Link href="#" className="nav-icon">
+										<Nav.Link href="cart" className="nav-icon">
 											<i class="fas fa-shopping-cart fa-lg nav-icon" />
 										</Nav.Link>
 									</div>
@@ -112,7 +112,7 @@ import logoImg from './logo.png'
 										主打水果盒
 									</ListGroup.Item>
 									<ListGroup.Item action className="p-3">
-										客製水果和
+										客製水果盒
 									</ListGroup.Item>
 									<ListGroup.Item action className="p-3">
 										水果地圖

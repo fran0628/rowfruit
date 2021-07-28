@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="94" viewBox="0 0 240 94">
+  <g id="logo" transform="translate(-0.228 -101)">
+    <rect id="Rectangle_1" data-name="Rectangle 1" width="91" height="22" transform="translate(0.228 134)" fill="#c9d9d9" opacity="0.9"/>
+    <text id="R_WFRUIT" data-name="R   WFRUIT" transform="translate(8.228 152)" fill="#707070" font-size="52" font-family="KhmerMN, Khmer MN"><tspan x="0" y="0" xml:space="preserve">R   WFRUIT</tspan></text>
+    <path id="Path_1" data-name="Path 1" d="M20.376,0c16.332.242,20.5,9.953,20.5,22.23S31.7,38.439,20.376,38.439-.25,32.785-.25,20.508,4.044-.247,20.376,0Z" transform="translate(36.408 122.052)" fill="#f4a72d"/>
+    <g id="Path_2" data-name="Path 2" transform="translate(60.641 129.266) rotate(-172)" fill="none">
+      <path d="M4.258,0A4.825,4.825,0,0,1,7.467,1.13L0,.771A15.117,15.117,0,0,1,4.258,0Z" stroke="none"/>
+      <path d="M 4.258358478546143 -2.026557922363281e-06 C 6.305408477783203 -2.026557922363281e-06 7.466738224029541 1.130218029022217 7.466738224029541 1.130218029022217 L -1.430511474609375e-06 0.7711080312728882 C -1.430511474609375e-06 0.7711080312728882 2.211308479309082 -2.026557922363281e-06 4.258358478546143 -2.026557922363281e-06 Z" stroke="none" fill="#707070"/>
+    </g>
+    <line id="Line_1" data-name="Line 1" y1="10.918" x2="3.639" transform="translate(57.083 117.125)" fill="none" stroke="#707070" stroke-width="1"/>
+    <path id="Path_4" data-name="Path 4" d="M1.875.018c3.079-.582,1.79,12.913,1.79,12.913L.437,6.783S-1.2.6,1.875.018Z" transform="matrix(0.208, 0.978, -0.978, 0.208, 70.892, 116.56)" fill="#486f27"/>
+    <path id="Path_10" data-name="Path 10" d="M3.993,0C6.354,0,9.448,1.915,9.448,1.915A22.084,22.084,0,0,0,4.481,1.2c-2.361,0-4.609.951-4.476.712A5.22,5.22,0,0,1,3.993,0Z" transform="matrix(-0.588, 0.809, -0.809, -0.588, 75.442, 148.334)" fill="#fad787" opacity="0.712"/>
+  </g>
+</svg>

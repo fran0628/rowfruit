@@ -2,37 +2,67 @@ import React from "react";
 import CartListContent from "./CartListContent";
 
 function RightAside(props) {
-  const { data,cartData,setCartData,totalWight,totalPrice,counts,setCounts} = props;
+  const {
+    data,
+    cartData,
+    setCartData,
+    totalWight,
+    totalPrice,
+    counts,
+    setCounts,
+  } = props;
   // console.log("rightSideCartData", cartData);
 
   return (
     <>
       <aside className="col-md-4 d-none d-lg-block position-relative">
         <h2 className="text-center customerCartList">客製化列表</h2>
-        {cartData.length===0 && <p className="text-center unSelected">尚未選取商品</p>}
-        
+        {cartData.length === 0 && (
+          <p className="text-center unSelected">尚未選取商品</p>
+        )}
+
         <div className="cartLIstContainer">
           {/* 客製化列表明細 */}
-          {cartData.map((item,index) => {
-            const { id, fruitname, imageFront, images, price, wight,nutrients } = item;
+          {cartData.map((item, index) => {
+            const {
+              id,
+              fruitname,
+              imageFront,
+              images,
+              price,
+              wight,
+              nutrients,
+            } = item;
             return (
               <CartListContent
                 key={id}
                 id={id}
+                data={data}
                 fruitname={fruitname}
                 imageFront={imageFront}
                 images={images}
                 price={price}
                 wight={wight}
                 nutrients={nutrients}
-                setCartData={setCartData}
-                cartData={cartData}
                 index={index}
-                data={data}
+                setCartData={setCartData}
+                cartItem={cartData[index]}
+                setCartItem={(newCartItem)=>{
+                  const newCartData = [...cartData]
+                  newCartData[index]=newCartItem
+                  setCartData(newCartData)
+                }}
+                setCounts={setCounts}
+                count={counts[index]}
+                setCount={(newCount)=>{
+                  const newCounts = [...counts]
+                  newCounts[index]=newCount<1 ? 1:newCount
+                  setCounts(newCounts)
+
+                }}
               />
             );
           })}
-
         </div>
 
         <div className="d-flex justify-content-between">

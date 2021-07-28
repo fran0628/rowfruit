@@ -4,7 +4,6 @@ import Progress from "./Progress";
 
 function LeftAside(props) {
   const { cartData } = props;
-  console.log(cartData);
 
   let carbon_water = 0;
   let dietary_fiber = 0;
@@ -18,9 +17,6 @@ function LeftAside(props) {
     vitamin_C += +cartData[i].nutrientsArray[3];
     Potassium += +cartData[i].nutrientsArray[3];
   }
-  console.log()
-  console.log(`${carbon_water}....${dietary_fiber}....${vitamin_A}....${vitamin_C}...${Potassium}`)
-
   const tag = [
     { className: "tag-all", tagName: "全部商品" },
     { className: "tag-whitening", tagName: "美白" },

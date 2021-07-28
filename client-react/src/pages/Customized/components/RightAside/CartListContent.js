@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, {useEffect } from "react";
 
 function CartListContent(props) {
   const {
@@ -10,11 +10,15 @@ function CartListContent(props) {
     wight,
     nutrients,
     setCartData,
-    cartData,
     index,
     data,
+    setCounts,
+    count,
+    setCount,
+    cartItem,
+    setCartItem,
   } = props;
-  // console.log(data)
+  // console.log(cartItem)
 
   //   const allProduct = []
   //  data.forEach((product)=>{
@@ -29,7 +33,7 @@ function CartListContent(props) {
   // const productPrice = thisProduct.price
   // const productWight = thisProduct.wight
   // const productNutrients = thisProduct.nutrients
-
+  
 
 
   const newImageUrl =
@@ -39,11 +43,25 @@ function CartListContent(props) {
     images;
   //刪除
   function deleteItem() {
-    setCartData(function (prev) {
-      return prev.filter((item) => item.id !== id);
+    setCartData(function (cartData) {
+      return cartData.filter((item) => item.id !== id);
     });
+    setCounts(function (prev) {
+      const newPr = [...prev]
+      newPr.splice(index,1)
+      return newPr
+    })
   }
+  
 
+  function minus(){
+    setCount(count-1)
+    
+  }
+  function plus(){
+    setCount(count+1)
+   
+  }
   return (
     <>
       <div className="cartLIstContainer"></div>
@@ -55,9 +73,9 @@ function CartListContent(props) {
           <p>{fruitname}</p>
         </div>
         <div>
-          <i className="fas fa-minus ItemMinus"></i>
-          <span className="itemQuantity">1</span>
-          <i className="fas fa-plus ItemPlus"></i>
+          <i onClick={minus} className="fas fa-minus ItemMinus"></i>
+          <span className="itemQuantity">{count}</span>
+          <i onClick={plus} className="fas fa-plus ItemPlus"></i>
         </div>
         <div className="itemPrice">
           <span>$</span>

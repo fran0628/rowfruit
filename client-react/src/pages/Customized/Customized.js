@@ -52,7 +52,9 @@ function Customized() {
   const [counts, setCounts] = useState([]);
   console.log("最上面cartData", cartData);
   console.log("最上面counts", counts);
-
+  useEffect(()=>{
+    
+  },[])
   //計算分量加總
   const totalWight = () => {
     let sum = 0;
