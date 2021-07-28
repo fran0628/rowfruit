@@ -46,9 +46,10 @@ function CartListContent(props) {
     setCartData(function (cartData) {
       return cartData.filter((item) => item.id !== id);
     });
-    setCounts(function(prev){
-      prev.splice(index,1)
-      return prev
+    setCounts(function (prev) {
+      const newPr = [...prev]
+      newPr.splice(index,1)
+      return newPr
     })
   }
   
