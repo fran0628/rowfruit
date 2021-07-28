@@ -15,56 +15,59 @@ import UserDashboard from "./pages/UserDashboard/UserDashboard";
 import OrderList from "./pages/OrderList/OrderList";
 import About from "./pages/About/about";
 import Cart from "./pages/Cart/cart";
+import ScrollToTop from "./component/ScrollToTop";
 
 function App() {
   return (
-    <Router>
-      <>
-        <TopNav />
-        <MultiLevelBreadcrumb />
-        <Switch>
-          <Route path="/cart">
-            <Cart />
-          </Route>
-          <Route path="/orderlist">
-            <OrderList />
-          </Route>
-          <Route path="/memberdashboard">
-            <UserDashboard />
-          </Route>
-          <Route path="/memberlogin">
-            <MemberLogin />
-          </Route>
-          <Route path="/memberegister">
-            <MemberRegister />
-          </Route>
-          <Route path="/farmerlist">
-            <FarmList />
-          </Route>
-          <Route path="/FruitMapMain">
-            <FruitMapMain />
-          </Route>
-          <Route path="/MainProduct/:id?">
-            <MainProductFitness />
-          </Route>
-          <Route path="/Main">
-            <Main />
-          </Route>
-          <Route path="/customized">
-            <Customized />
-          </Route>
-          <Route path="/About">
-            <About />
-          </Route>
-          <Route exact path="/">
-            <Home />
-          </Route>
-        </Switch>
+		<Router>
+			<>
+				<ScrollToTop>
+					<TopNav />
+					<MultiLevelBreadcrumb />
 
-        <Footer />
-      </>
-    </Router>
-  );
+					<Switch>
+						<Route path="/cart">
+							<Cart />
+						</Route>
+						<Route path="/orderlist">
+							<OrderList />
+						</Route>
+						<Route path="/memberdashboard">
+							<UserDashboard />
+						</Route>
+						<Route path="/memberlogin">
+							<MemberLogin />
+						</Route>
+						<Route path="/memberegister">
+							<MemberRegister />
+						</Route>
+						<Route path="/farmerlist">
+							<FarmList />
+						</Route>
+						<Route path="/FruitMapMain">
+							<FruitMapMain />
+						</Route>
+						<Route path="/MainProduct/:id?">
+							<MainProductFitness />
+						</Route>
+						<Route path="/Main">
+							<Main />
+						</Route>
+						<Route path="/customized">
+							<Customized />
+						</Route>
+						<Route path="/About">
+							<About />
+						</Route>
+						<Route exact path="/">
+							<Home />
+						</Route>
+					</Switch>
+					<Footer />
+				</ScrollToTop>
+			</>
+		</Router>
+	);
 }
 
 export default App;
