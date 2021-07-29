@@ -1,0 +1,57 @@
+.subbackground {
+    background-image: url(./subbg/subbybg.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    opacity: .9;
+}
+.subcard {
+    margin: 0 auto;
+}
+
+.selectbox {
+    margin: 50px;
+    border-radius: 2px;
+    width: 280px;
+}
+
+.selectbox img {
+    width: 100%;
+    height: 270px;
+    border-radius: 2px;
+}
+
+.subselect {
+    width: 130px;
+    height: 32px;
+    border: 1px solid rgb(167, 166, 166);
+    border-radius: 2px;
+    font-size: 14px;
+    padding-left: 16px;
+}
+
+.subscribe-btn {
+    display: inline-block;
+    width: 100px;				
+    max-width: 100%;
+    padding: 10px 5px;
+    background-color: #fcfdf5;
+    color: #E79737;
+    border: 2px solid #838080;
+    border-radius: 5px;
+    font-size: 1em;
+    /* box-shadow: 2px 2px 3px rgba(59, 59, 59, 0.16); */
+    text-align: center;
+    margin: auto;
+}
+
+.subscribe-btn:hover {
+   background-color: #fcfdea;
+   box-shadow: 0px 1px 2px rgba(59, 59, 59, 0.16);
+  transition: transform 0.2s;
+}
+.labelbox {
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
