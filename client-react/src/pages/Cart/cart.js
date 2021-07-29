@@ -1,9 +1,10 @@
 import React from "react";
-import productItem from "./components/productItem";
+import Item from "./components/Item";
 import summary from "./components/summary";
 import buyer from "./components/buyer";
 
-function cart() {
+function cart(props) {
+  const { cart } = props;
   const background = {
     backgroundImage: `url(${""})`,
     backgroundRepeat: "no-repeat",
@@ -11,35 +12,46 @@ function cart() {
     backgroundPosition: "center",
     backgroundSize: "cover",
   };
+  console.log(cart);
 
   return (
     <>
       <h3 className="text-center">購物車清單</h3>
       <div className="container" style={background}>
         <div className="row">
-          <productItem />
           <table className="table table-success table-striped table-hover container">
             <thead>
               <tr>
                 <th>商品圖片</th>
                 <th>商品名稱</th>
+                <th>商品內容</th>
                 <th>商品價格</th>
                 <th>商品數量</th>
                 <th>商品小計</th>
-                <th>商品總價</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">2</th>
-                <td>美白水果盒</td>
-                <td>$500</td>
-                <td>
-                  <input type="number" min="1"></input>
-                </td>
-                <td>x</td>
-                <td>x</td>
-              </tr>
+              {cart.map((item) => {
+                const {
+                  productId,
+                  productName,
+                  count,
+                  amount,
+                  price,
+                  imageUrl,
+                } = item;
+                return (
+                  <Item
+                    productId={productId}
+                    productName={productName}
+                    count={count}
+                    amount={amount}
+                    price={price}
+                    imageUrl={imageUrl}
+                  />
+                );
+              })}
+              {/* <Item/> */}
             </tbody>
           </table>
           <h3 className="text-center">付款摘要</h3>

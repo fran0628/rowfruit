@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import MainProductFitness from "./pages/MainProduct/MainProductDetail/MainProduct";
 import Main from "./pages/MainProduct/MainSelector/Main";
@@ -16,8 +16,20 @@ import OrderList from "./pages/OrderList/OrderList";
 import About from "./pages/About/about";
 import Cart from "./pages/Cart/cart";
 import ScrollToTop from "./component/ScrollToTop";
+import cart from "./pages/Cart/cart";
 
 function App() {
+
+	const [cart,setCart]=useState([{
+		productId: 1,
+		productName: "美白水果盒",
+		count:1,
+		amount: "不知道要說什麼反正美白水果盒很好吃",
+		price: 500,
+		imageUrl:""
+	  }])
+	console.log(cart)
+
   return (
 		<Router>
 			<>
@@ -27,7 +39,7 @@ function App() {
 
 					<Switch>
 						<Route path="/cart">
-							<Cart />
+							<Cart cart={cart} />
 						</Route>
 						<Route path="/orderlist">
 							<OrderList />
@@ -54,7 +66,7 @@ function App() {
 							<Main />
 						</Route>
 						<Route path="/customized">
-							<Customized />
+							<Customized setTotalCart={setCart} />
 						</Route>
 						<Route path="/About">
 							<About />
