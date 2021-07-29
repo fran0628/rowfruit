@@ -1,23 +1,22 @@
 import React from 'react'
 import './Framer.css'
+import {Rate} from 'antd'
+
 
 function Farmer(props) {
 	 const {farmer}=props
 	 const PF = "http://localhost:5000/images/";
     return (
 			<>
+				{/* <Rate disabled defaultValue={farmer.rating} /> */}
 				<div className="col-lg-4 col-md-6 bg-change">
 					<div className="profile p-4 mx-auto">
 						<div className="farm-top">
 							<div className="farm d-flex justify-content-between align-items-center">
 								<div className="farm-name position-relative">
 									<h4 className="m-offset">{farmer.fram_name}</h4>
-									<div className="rating position-absolute">
-										<i className="fa fa-star" aria-hidden="true"></i>
-										<i className="fa fa-star" aria-hidden="true"></i>
-										<i className="fa fa-star" aria-hidden="true"></i>
-										<i className="fa fa-star" aria-hidden="true"></i>
-										<i className="fa grey fa-star" aria-hidden="true"></i>
+									<div className="rating ">
+										
 									</div>
 								</div>
 								<div className="avatar">
