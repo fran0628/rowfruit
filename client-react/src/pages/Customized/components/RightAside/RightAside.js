@@ -12,40 +12,39 @@ function RightAside(props) {
     setCounts,
     setTotalCart,
   } = props;
-
-  // const customizedProduct={productId:99,productName:"客製化水果盒",amount:"",price:totalPrice}
-  // const amount=[]
-  // for(let i =0;i<cartData.length;i++){
-  //   amount.push(`${cartData[i].fruitname}*${counts[i]}`)
-  // }
-  // customizedProduct.amount=amount.join(',')
-  // console.log(customizedProduct)
-
-  function addTotalCart() {
-    const customizedProduct = {
-      productId: 99,
-      productName: "客製化水果盒",
-      count:1,
-      amount: "",
-      price: totalPrice,
-      imageUrl:"http://localhost:3000/images/CustomizedPhotos/customized.jpeg"
-    };
-    const amount = [];
-    for (let i = 0; i < cartData.length; i++) {
-      amount.push(`${cartData[i].fruitname}*${counts[i]}`);
-    }
-    customizedProduct.amount = amount.join(",");
-    console.log(customizedProduct)
-    setTotalCart(function (prevData) {
-      const newTotalCart = [...prevData];
-      console.log(newTotalCart);
-      newTotalCart.push(customizedProduct)
-      return newTotalCart;
-    });
-    setCartData([])
-    setCounts([])
+    
+  const customizedProduct = {
+    productId: 99,
+    productName: "客製化水果盒",
+    count:1,
+    amount: "",
+    price: totalPrice,
+    imageUrl:"http://localhost:3000/images/CustomizedPhotos/customized.jpeg"
+  };
+  const amount = [];
+  for (let i = 0; i < cartData.length; i++) {
+    amount.push(`${cartData[i].fruitname}*${counts[i]}`);
   }
-  return (
+  customizedProduct.amount = amount.join(",");
+
+
+const updateCartToLocalStorage = () => {
+  const currentCart = JSON.parse(localStorage.getItem('cart')) || []
+  currentCart.push(customizedProduct)
+  localStorage.setItem('cart', JSON.stringify(currentCart))
+
+  setTotalCart(function (prevData) {
+    const newTotalCart = [...prevData];
+    newTotalCart.push(customizedProduct)
+    return newTotalCart;
+  });
+  setCartData([])
+  setCounts([])
+
+}
+
+
+return (
     <>
       <aside className="col-md-4 d-none d-lg-block position-relative">
         <h2 className="text-center customerCartList">客製化列表</h2>
@@ -106,7 +105,7 @@ function RightAside(props) {
           </div>
         </div>
         <div className="d-flex justify-content-around">
-          <button onClick={addTotalCart} className="buy-btn">
+          <button onClick={updateCartToLocalStorage} className="buy-btn">
             <i  className="fas fa-shopping-cart"></i>
             加入購物車
           </button>

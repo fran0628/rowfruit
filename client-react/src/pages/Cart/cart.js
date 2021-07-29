@@ -1,10 +1,10 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import Item from "./components/Item";
 import summary from "./components/summary";
 import buyer from "./components/buyer";
 
-function cart(props) {
-  const { cart } = props;
+function Cart() {
+  const[myCart,setMyCart]=useState([])
   const background = {
     backgroundImage: `url(${""})`,
     backgroundRepeat: "no-repeat",
@@ -12,7 +12,15 @@ function cart(props) {
     backgroundPosition: "center",
     backgroundSize: "cover",
   };
-  console.log(cart);
+  function getCartFromLocalStorage() {
+    const newCart = localStorage.getItem('cart') || '[]'
+    console.log("JSON.parse(newCart)",JSON.parse(newCart))
+    setMyCart(JSON.parse(newCart))
+  }
+
+  useEffect(()=>{
+    getCartFromLocalStorage()
+  },[])
 
   return (
     <>
@@ -31,7 +39,7 @@ function cart(props) {
               </tr>
             </thead>
             <tbody>
-              {cart.map((item) => {
+              {myCart.map((item) => {
                 const {
                   productId,
                   productName,
@@ -117,4 +125,4 @@ function cart(props) {
     </>
   );
 }
-export default cart;
+export default Cart;
