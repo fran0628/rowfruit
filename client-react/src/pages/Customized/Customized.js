@@ -11,7 +11,8 @@ import RightAside from "./components/RightAside/RightAside";
 //   const products = await res.json();
 //   setProducts(products);
 // }
-function Customized() {
+function Customized(props) {
+  const {setTotalCart}=props
   const [products, setProducts] = useState([
     {
       id: 0,
@@ -50,7 +51,7 @@ function Customized() {
   const [cartData, setCartData] = useState([]);
   //控制數量的陣列  counts=[Number,Number]
   const [counts, setCounts] = useState([]);
-  console.log("最上面cartData", cartData);
+  // console.log("最上面cartData", cartData);
   // console.log("最上面counts", counts);
   // console.log("最上面data",data)
   //計算分量加總
@@ -96,6 +97,7 @@ function Customized() {
             totalWight={totalWight()}
             counts={counts}
             setCounts={setCounts}
+            setTotalCart={setTotalCart}
           />
         </div>
       </div>
