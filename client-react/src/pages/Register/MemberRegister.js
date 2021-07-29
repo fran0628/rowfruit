@@ -1,5 +1,8 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "./MemberRegister.scss";
+import axios from 'axios'
+
+
 
 const banner = {
   backgroundImage: `url(${"MemberPhoto/banner.png"})`,
@@ -10,6 +13,7 @@ const banner = {
 };
 
 export default function MemberRegister() {
+
   const [fields, setFields] = useState({
     fullname: "",
     account: "",
@@ -85,6 +89,15 @@ export default function MemberRegister() {
 
     setFieldErrors(updatedFieldErrors);
   };
+
+  // let Api = axios({
+  //   method: 'post',
+  //   baseURL: 'http://localhost:5000',
+  //   url: '/api/member',
+  //   'Content-Type': 'application/json',
+  // })
+    // .then((result) => { console.log(result.data) })
+    // .catch((err) => { console.error(err) })
 
   return (
     <div className="MemberBanner" style={banner}>
@@ -187,12 +200,14 @@ export default function MemberRegister() {
                     )}
                   </div>
                   <div className="d-none d-sm-flex justify-content-center  my-4">
-                    <button type="submit" className="btn normal-btn">
+                    <button type="submit" className="btn normal-btn"
+                    >
                       送出
                     </button>
                   </div>
                   <div className=" d-sm-none my-4">
-                    <button type="submit" className="btn rwd-btn">
+                    <button type="submit" className="btn rwd-btn"
+                    >
                       送出
                     </button>
                   </div>
