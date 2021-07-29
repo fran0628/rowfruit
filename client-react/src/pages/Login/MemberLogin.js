@@ -1,4 +1,6 @@
-import React, { useState} from "react";
+import axios from "axios";
+import React, { useState } from "react";
+import { withRouter } from "react-router-dom";
 import "./MemberLogin.scss";
 
 // import Background from '../../../banner.png';
@@ -19,10 +21,23 @@ const banner = {
   backgroundSize: "cover",
 };
 
-export default function MemberLogin(props) {
+  function MemberLogin(props) {
   const {setAuth}=props
   const [account, setAccount] = useState("");
+
+  function accountChange(e) {
+    setAccount(e.target.value)
+  }
   const [password, setPassword] = useState("");
+
+  function passwordChange(e) {
+    setPassword(e.target.value)
+  }
+  const [login, setLogin] = useState("");
+
+  function loginChange(e) {
+    setLogin(e.target.value)
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -36,6 +51,28 @@ export default function MemberLogin(props) {
   };
   function changeLogin(){
     setAuth("Steven")
+  }
+
+  function loginApi (){
+    let data = {"account":666666,"password":666666};
+
+    // let data = {
+    //   account=this.account,
+    //   password=this.password
+    // };
+    axios.post(`http://localhost:5000/api/login`,data)
+  
+    .then(res=>{
+        localStorage.setItem('token',res.data.data.token);
+        // token解析
+        const token =  res.data.data.token.split(' ')[1];
+        
+        let payload =JSON.parse(atob(token.split('.')[1]));
+  
+        console.log('res=>',payload);
+        console.log(res.data.data.name);            
+    })
+  
   }
 
   return (
@@ -64,11 +101,9 @@ export default function MemberLogin(props) {
                         className="form-control"
                         type="text"
                         name="account"
-                        value={account}
                         placeholder="Account"
-                        onChange={(e) => {
-                        setAccount(e.target.value);
-                      }}
+                        value={account}
+                        onChange={accountChange}
                         required
                       />
                     </div>
@@ -80,11 +115,9 @@ export default function MemberLogin(props) {
                         className="form-control"
                         type="password"
                         name="password"
-                        value={password}
                         placeholder="Password"
-                        onChange={(e) => {
-                        setPassword(e.target.value);
-                      }}
+                        value={password}
+                        onChange={passwordChange}
                         required
                       />
                     </div>
@@ -97,12 +130,16 @@ export default function MemberLogin(props) {
                       <label htmlFor="remember">Remeber Me</label>
                     </div>
                     <div className="d-none d-sm-flex justify-content-center">
-                      <button type="submit" className="btn normal-btn">
+                      <button type="submit" className="btn normal-btn"
+                      //  onChange={loginChange}
+                       onClick={loginApi}>
                         登入
                       </button>
                     </div>
                     <div className=" d-sm-none my-2">
-                      <button type="submit" className="btn rwd-btn">
+                      <button type="submit" className="btn rwd-btn"
+                      //  onChange={loginChange}
+                       onClick={loginApi}>
                         登入
                       </button>
                     </div>
@@ -139,3 +176,4 @@ export default function MemberLogin(props) {
     </div>
   );
 }
+export default withRouter(MemberLogin);
