@@ -31,20 +31,12 @@ function CartListContent(props) {
     })
    })
    const thisProduct= allProduct.find((item)=>{
-    return item.id=id
+    return item.id===id
   })
- 
   const productPrice=thisProduct.price
   const productWight=thisProduct.wight
   const productNutrients=thisProduct.nutrients
-  // console.log(productNutrients)
-  console.log("data",data)
-  console.log("allProduct",allProduct)
-  console.log("thisProduct",thisProduct)
-  console.log("id",id)
-
-
-
+  
 
   const newImageUrl =
     "http://localhost:3000/images/CustomizedPhotos/" +
@@ -68,7 +60,6 @@ function CartListContent(props) {
     setCount(count-1)
     setCartData(function (prev) {
       const modifyData = [...prev]
-      
       modifyData[index].price=productPrice*(count-1 ===0? 1:count-1)
       modifyData[index].wight=productWight*(count-1 ===0? 1:count-1)
       modifyData[index].nutrientsArray=productNutrients.map(item=>item*(count-1 ===0? 1:count-1))

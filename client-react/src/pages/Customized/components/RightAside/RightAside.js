@@ -11,7 +11,6 @@ function RightAside(props) {
     counts,
     setCounts,
   } = props;
-  // console.log("rightSideCartData", cartData);
 
   return (
     <>

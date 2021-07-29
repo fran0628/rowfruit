@@ -6,11 +6,11 @@ import LeftAside from "./components/LeftAside/LeftAside";
 import Middle from "./components/Middle/Middle";
 import RightAside from "./components/RightAside/RightAside";
 // 伺服器fetch
-async function fetchData(setProducts) {
-  const res = await fetch(`${getCustomizeProductData}`);
-  const products = await res.json();
-  setProducts(products);
-}
+// async function fetchData(setProducts) {
+//   const res = await fetch(`${getCustomizeProductData}`);
+//   const products = await res.json();
+//   setProducts(products);
+// }
 function Customized() {
   const [products, setProducts] = useState([
     {
@@ -35,8 +35,8 @@ function Customized() {
     },
   ]);
   useEffect(() => {
-    // setProducts(data); //假裝資料
-    fetchData(setProducts);    //伺服器資料
+    setProducts(data); //假裝資料
+    // fetchData(setProducts);    //伺服器資料
   }, []);
   //加到購物車列表資料
   // cartData=
