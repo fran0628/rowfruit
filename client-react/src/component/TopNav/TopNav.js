@@ -14,7 +14,8 @@ import { LinkContainer } from "react-router-bootstrap";
 
 
 
- function TopNav() {
+ function TopNav(props) {
+	 const{auth}=props
    const [show, setShow] = useState(false);
 
 		const handleClose = () => setShow(false);
@@ -84,7 +85,7 @@ import { LinkContainer } from "react-router-bootstrap";
 								</NavDropdown>
 								<LinkContainer to="memberlogin">
 									<Nav.Link>
-										<i class="fas fa-user fa-lg nav-icon" />
+										{auth? auth:<i class="fas fa-user fa-lg nav-icon" />}
 									</Nav.Link>
 								</LinkContainer>
 								<LinkContainer to="cart">

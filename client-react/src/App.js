@@ -16,7 +16,6 @@ import OrderList from "./pages/OrderList/OrderList";
 import About from "./pages/About/about";
 import Cart from "./pages/Cart/cart";
 import ScrollToTop from "./component/ScrollToTop";
-import cart from "./pages/Cart/cart";
 
 function App() {
 
@@ -29,12 +28,13 @@ function App() {
 		imageUrl:""
 	  }])
 	console.log(cart)
+	const [auth,setAuth]=useState("Carl")
 
   return (
 		<Router>
 			<>
 				<ScrollToTop>
-					<TopNav />
+					<TopNav auth={auth} />
 					<MultiLevelBreadcrumb />
 
 					<Switch>
