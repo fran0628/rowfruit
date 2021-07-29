@@ -1,11 +1,14 @@
 import React from 'react'
 import './Framer.css'
+import {Link} from 'react-router-dom'
+import ReactStars from "react-rating-stars-component";
 
 function Farmer(props) {
 	 const {farmer}=props
 	 const PF = "http://localhost:5000/images/";
     return (
 			<>
+				{/* <Rate disabled defaultValue={farmer.rating} /> */}
 				<div className="col-lg-4 col-md-6 bg-change">
 					<div className="profile p-4 mx-auto">
 						<div className="farm-top">
@@ -13,11 +16,7 @@ function Farmer(props) {
 								<div className="farm-name position-relative">
 									<h4 className="m-offset">{farmer.fram_name}</h4>
 									<div className="rating position-absolute">
-										<i className="fa fa-star" aria-hidden="true"></i>
-										<i className="fa fa-star" aria-hidden="true"></i>
-										<i className="fa fa-star" aria-hidden="true"></i>
-										<i className="fa fa-star" aria-hidden="true"></i>
-										<i className="fa grey fa-star" aria-hidden="true"></i>
+										<ReactStars size={20} edit={false} value={farmer.rating} />
 									</div>
 								</div>
 								<div className="avatar">
@@ -31,15 +30,15 @@ function Farmer(props) {
 						<div className="farm-connect">
 							<p>聯絡我</p>
 							<div className="">
-								<a href="">
+								<Link >
 									<i className="fas fa-envelope  connect-icon"></i>
-								</a>
-								<a href="">
+								</Link>
+								<Link >
 									<i className="fab fa-line connect-icon"></i>
-								</a>
-								<a href="">
+								</Link>
+								<Link >
 									<i className="fas fa-phone-alt connect-icon"></i>
-								</a>
+								</Link>
 							</div>
 						</div>
 					</div>

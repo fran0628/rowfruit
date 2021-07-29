@@ -59,7 +59,7 @@ function Middle(props) {
         </p>
         {/* 全部商品 */}
 
-        <div className="all">
+        <div id="all" name="all">
           {data.map((item,index) => {
             const { id, fruit_name, fruit_image, items, nutrients } = item;
             return (
@@ -76,6 +76,7 @@ function Middle(props) {
               />
             );
           })}
+          <div id="whitening">
           <TitleTag
             key={v4()}
             className={title[1].className}
@@ -98,6 +99,8 @@ function Middle(props) {
               />
             );
           })}
+          </div>
+          <div id="slimming" name="slimming" >
           <TitleTag
             key={v4()}
             className={title[2].className}
@@ -120,6 +123,8 @@ function Middle(props) {
               />
             );
           })}
+          </div>
+          <div id="silverHair" name="silverHair">
           <TitleTag
             key={v4()}
             className={title[3].className}
@@ -142,7 +147,9 @@ function Middle(props) {
               />
             );
           })}
-          <TitleTag
+          </div>
+         <div id="vision" name="vision">
+         <TitleTag
             key={v4()}
             className={title[4].className}
             title={title[4].title}
@@ -164,6 +171,8 @@ function Middle(props) {
               />
             );
           })}
+         </div>
+          
         </div>
       </main>
     </>

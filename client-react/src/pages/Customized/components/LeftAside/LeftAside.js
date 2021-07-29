@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import Tag from "./Tag";
 import Progress from "./Progress";
-
+import { Link } from 'react-scroll'
 function LeftAside(props) {
   const { cartData } = props;
 
@@ -17,13 +16,7 @@ function LeftAside(props) {
     vitamin_C += +cartData[i].nutrientsArray[3];
     Potassium += +cartData[i].nutrientsArray[4];
   }
-  const tag = [
-    { className: "tag-all", tagName: "全部商品" },
-    { className: "tag-whitening", tagName: "美白" },
-    { className: "tag-slimming", tagName: "瘦身" },
-    { className: "tag-silverHair", tagName: "銀髮族" },
-    { className: "tag-vision", tagName: "銀髮族" },
-  ];
+  
   const nutrients = [
     {
       className: "carbon_water",
@@ -44,16 +37,11 @@ function LeftAside(props) {
     <>
       <aside className="col-md-2 d-none d-lg-block ">
         <div className="tagGroup ms-4">
-          {tag.map((item, index) => {
-            const { className, tagName } = item;
-            return (
-              <Tag
-                key={index}
-                tagName={tagName}
-                className={className}
-              />
-            );
-          })}
+        <span className="btn d-block text-center tag-all">全部商品</span>
+        <span className="btn d-block text-center tag-whitening">美白</span>
+        <span className="btn d-block text-center tag-slimming">瘦身</span>
+        <span className="btn d-block text-center tag-silverHair">銀髮族</span>
+        <span className="btn d-block text-center tag-vision">顧眼睛</span>
         </div>
         <div className="progressgroup">
           <p className="h4 text-center">每周營養所需</p>

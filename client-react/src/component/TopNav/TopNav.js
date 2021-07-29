@@ -10,11 +10,12 @@ import {
 	ListGroup,
 } from "react-bootstrap";
 import logoImg from './logo.png'
+import { LinkContainer } from "react-router-bootstrap";
 
 
 
-
- function TopNav() {
+ function TopNav(props) {
+	 const{auth}=props
    const [show, setShow] = useState(false);
 
 		const handleClose = () => setShow(false);
@@ -26,9 +27,11 @@ import logoImg from './logo.png'
 				<Navbar className="myNavbar"></Navbar>
 				<Navbar fixed="top" className="myNavbar">
 					<Container expand="lg">
-						<Navbar.Brand href="/">
-							<img src={logoImg} alt="" width="190" height="80" />
-						</Navbar.Brand>
+						<LinkContainer to="/">
+							<Navbar.Brand>
+								<img src={logoImg} alt="" width="190" height="80" />
+							</Navbar.Brand>
+						</LinkContainer>
 						<Navbar.Toggle aria-controls="basic-navbar-nav" />
 						<Navbar.Collapse
 							id="basic-navbar-nav"
@@ -36,50 +39,60 @@ import logoImg from './logo.png'
 						>
 							<Nav className="justify-content-end lgnav">
 								<NavDropdown title="主打水果盒" id="basic-nav-dropdown">
-									<NavDropdown.Item href="/Main">
-										主打水果盒選單
-									</NavDropdown.Item>
+									<LinkContainer to="/Main">
+										<NavDropdown.Item>主打水果盒選單</NavDropdown.Item>
+									</LinkContainer>
 									<NavDropdown.Divider />
-									<NavDropdown.Item href="/MainProduct/1">
-										美白水果盒
-									</NavDropdown.Item>
+									<LinkContainer to="/MainProduct/1">
+										<NavDropdown.Item>美白水果盒</NavDropdown.Item>
+									</LinkContainer>
 
-									<NavDropdown.Item href="/MainProduct/2">
-										健身水果盒
-									</NavDropdown.Item>
+									<LinkContainer to="/MainProduct/2">
+										<NavDropdown.Item>健身水果盒</NavDropdown.Item>
+									</LinkContainer>
 
-									<NavDropdown.Item href="/MainProduct/3">
-										輕盈水果盒
-									</NavDropdown.Item>
+									<LinkContainer to="/MainProduct/3">
+										<NavDropdown.Item>輕盈水果盒</NavDropdown.Item>
+									</LinkContainer>
 								</NavDropdown>
 
-								<Nav.Link href="/customized">客製水果盒</Nav.Link>
-								<Nav.Link href="/FruitMapMain">水果地圖</Nav.Link>
+								<LinkContainer to="/customized">
+									<Nav.Link>客製水果盒</Nav.Link>
+								</LinkContainer>
+								<LinkContainer to="/FruitMapMain">
+									<Nav.Link>水果地圖</Nav.Link>
+								</LinkContainer>
 								<NavDropdown title="小農部落" id="basic-nav-dropdown">
-									<NavDropdown.Item href="/farmerlist">
-										小農總覽
-									</NavDropdown.Item>
+									<LinkContainer to="/farmerlist">
+										<NavDropdown.Item>小農總覽</NavDropdown.Item>
+									</LinkContainer>
 
-									<NavDropdown.Item href="#action/3.2">
-										文章總覽
-									</NavDropdown.Item>
+									<LinkContainer to="/blog">
+										<NavDropdown.Item>文章總覽</NavDropdown.Item>
+									</LinkContainer>
 								</NavDropdown>
-								<Nav.Link href="/about">關於我們</Nav.Link>
+								<LinkContainer to="/about">
+									<Nav.Link>關於我們</Nav.Link>
+								</LinkContainer>
 								<NavDropdown title="會員中心" id="basic-nav-dropdown">
-									<NavDropdown.Item href="/memberdashboard">
-										修改會員資料
-									</NavDropdown.Item>
+									<LinkContainer to="/memberdashboard">
+										<NavDropdown.Item>修改會員資料</NavDropdown.Item>
+									</LinkContainer>
 
-									<NavDropdown.Item href="/orderlist">
-										訂單資訊
-									</NavDropdown.Item>
+									<LinkContainer to="/orderlist">
+										<NavDropdown.Item>訂單資訊</NavDropdown.Item>
+									</LinkContainer>
 								</NavDropdown>
-								<Nav.Link href="memberlogin">
-									<i class="fas fa-user fa-lg nav-icon" />
-								</Nav.Link>
-								<Nav.Link href="cart">
-									<i class="fas fa-shopping-cart fa-lg nav-icon" />
-								</Nav.Link>
+								<LinkContainer to="memberlogin">
+									<Nav.Link>
+										{auth? auth:<i class="fas fa-user fa-lg nav-icon" />}
+									</Nav.Link>
+								</LinkContainer>
+								<LinkContainer to="cart">
+									<Nav.Link>
+										<i class="fas fa-shopping-cart fa-lg nav-icon" />
+									</Nav.Link>
+								</LinkContainer>
 							</Nav>
 						</Navbar.Collapse>
 						<Button
@@ -94,12 +107,16 @@ import logoImg from './logo.png'
 							<Offcanvas.Header closeButton>
 								<Offcanvas.Title>
 									<div class="d-flex mt-3">
-										<Nav.Link href="/memberlogin" className="nav-icon ">
-											<i class="fas fa-user fa-lg nav-icon" />
-										</Nav.Link>
-										<Nav.Link href="cart" className="nav-icon">
-											<i class="fas fa-shopping-cart fa-lg nav-icon" />
-										</Nav.Link>
+										<LinkContainer to="/memberlogin">
+											<Nav.Link className="nav-icon ">
+												<i class="fas fa-user fa-lg nav-icon" />
+											</Nav.Link>
+										</LinkContainer>
+										<LinkContainer to="cart">
+											<Nav.Link className="nav-icon">
+												<i class="fas fa-shopping-cart fa-lg nav-icon" />
+											</Nav.Link>
+										</LinkContainer>
 									</div>
 								</Offcanvas.Title>
 							</Offcanvas.Header>

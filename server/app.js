@@ -54,6 +54,10 @@ app.use("/api/farmer", farmerRouter);
 let postRouter = require("./routes/Blog/post");
 app.use("/api/post", postRouter);
 
+let loginRouter = require("./routes/login/login");
+app.use("/api/login", loginRouter);
+
+
 let memberRouter = require("./routes/member/member");
 app.use("/api/member", memberRouter);
 
