@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import MainProductFitness from "./pages/MainProduct/MainProductDetail/MainProduct";
 import Main from "./pages/MainProduct/MainSelector/Main";
@@ -16,7 +16,6 @@ import OrderList from "./pages/OrderList/OrderList";
 import About from "./pages/About/about";
 import Cart from "./pages/Cart/cart";
 import ScrollToTop from "./component/ScrollToTop";
-import cart from "./pages/Cart/cart";
 
 function App() {
 
@@ -29,12 +28,17 @@ function App() {
 		imageUrl:""
 	  }])
 	console.log(cart)
+	const [auth,setAuth]=useState("hi 我登入囉")
+
+	useEffect(()=>{
+		setAuth("嗨嗨嗨嗨")
+	},[])
 
   return (
 		<Router>
 			<>
 				<ScrollToTop>
-					<TopNav />
+					<TopNav auth={auth} />
 					<MultiLevelBreadcrumb />
 
 					<Switch>
@@ -48,7 +52,7 @@ function App() {
 							<UserDashboard />
 						</Route>
 						<Route path="/memberlogin">
-							<MemberLogin />
+							<MemberLogin setAuth={setAuth} />
 						</Route>
 						<Route path="/memberegister">
 							<MemberRegister />

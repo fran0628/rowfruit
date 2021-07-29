@@ -5,7 +5,7 @@ function Item(props) {
   return (
     <>
       <tr>
-        <th><img src={imageUrl} alt="" /></th>
+        <th ><img style={{width:"100px"}} src={imageUrl} alt="" /></th>
         <td>{productName}</td>
         <td>{amount}</td>
         <td>${price}</td>
