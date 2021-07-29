@@ -19,7 +19,8 @@ const banner = {
   backgroundSize: "cover",
 };
 
-export default function MemberLogin() {
+export default function MemberLogin(props) {
+  const {setAuth}=props
   const [account, setAccount] = useState("");
   const [password, setPassword] = useState("");
 
@@ -33,9 +34,13 @@ export default function MemberLogin() {
 
     // ex. 送到伺服器
   };
+  function changeLogin(){
+    setAuth("Steven")
+  }
 
   return (
     <div>
+      <button onClick={changeLogin}>我會改變login</button>
       <div className="MemberBanner" style={banner}>
         {/* Login  Form */}
         <div className="container">

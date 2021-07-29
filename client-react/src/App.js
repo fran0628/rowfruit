@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import MainProductFitness from "./pages/MainProduct/MainProductDetail/MainProduct";
 import Main from "./pages/MainProduct/MainSelector/Main";
@@ -28,7 +28,11 @@ function App() {
 		imageUrl:""
 	  }])
 	console.log(cart)
-	const [auth,setAuth]=useState("Carl")
+	const [auth,setAuth]=useState("hi 我登入囉")
+
+	useEffect(()=>{
+		setAuth("嗨嗨嗨嗨")
+	},[])
 
   return (
 		<Router>
@@ -48,7 +52,7 @@ function App() {
 							<UserDashboard />
 						</Route>
 						<Route path="/memberlogin">
-							<MemberLogin />
+							<MemberLogin setAuth={setAuth} />
 						</Route>
 						<Route path="/memberegister">
 							<MemberRegister />
