@@ -13,42 +13,43 @@ function SubscribeCart() {
     
     // const total = [boxOption,timeOption]
     // console.log(total) 
-    
-  var boxPrice;
-  var boxTime; 
-
+  
+  var subboxPrice;
+  var subboxTime; 
+  
   switch (boxOption) {
     case '美白水果盒':
-      boxPrice = 400;
+      subboxPrice = 400;
       break;
     case '健身水果盒':
-      boxPrice = 500;
+      subboxPrice = 500;
       break;
     case '多纖輕盈水果盒':
-      boxPrice = 600;
+      subboxPrice = 600;
       break;
     default:
-      boxPrice = 0;
+      subboxPrice = 0;
   }
 
   switch (timeOption) {
     case '月訂閱製':
-      boxTime = boxPrice * 4;
+      subboxTime = subboxPrice * 4;
       break;
     case '季訂閱製':
-      boxTime = boxPrice * 4 * 0.9;
+      subboxTime = subboxPrice * 4 * 0.9;
       break;
     case '年訂閱製':
-      boxTime = boxPrice * 4 * 0.8;
+      subboxTime = subboxPrice * 4 * 0.8;
       break;
     default:
-      boxTime = 0;
+      subboxTime = 0;
   }
   
+  
 
-  function totalPrice(){
-    console.log(boxTime)
-  }
+  // function totalPrice(){
+  //   console.log(subboxTime)
+  // }
 
     return (
       <>  
@@ -68,7 +69,7 @@ function SubscribeCart() {
                           />
                         )
                       })} 
-                      <h5 class="account">水果盒單盒價格：<span class="text-danger">＄{boxPrice}</span></h5>   
+                      <h5 class="account">水果盒單盒原價：<span class="text-danger">＄{subboxPrice}</span></h5>   
                       <h5 class="account">選擇訂閱方案</h5> 
                       {timeList.map((v, i) => {
                         return (
@@ -81,7 +82,7 @@ function SubscribeCart() {
                         )
                       })} 
                       {/* <button className="btn btn-light" onClick={totalPrice}>點我查詢</button> */}
-                      <h5 class="account">搭配方案每月：<span class="text-danger">＄{boxTime}</span></h5>    
+                      <h5 class="account">搭配方案每月：<span class="text-danger">＄{subboxTime}</span></h5>    
                   </div>
                   <div class="col-3">
                       <div class="selectbox card">
