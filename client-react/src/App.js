@@ -16,6 +16,7 @@ import OrderList from "./pages/OrderList/OrderList";
 import About from "./pages/About/about";
 import Cart from "./pages/Cart/Cart";
 import ScrollToTop from "./component/ScrollToTop";
+import SubscribeCart from './pages/SubscribeCart/SubscribeCart'
 
 function App() {
 
@@ -44,6 +45,9 @@ function App() {
 					<Switch>
 						<Route path="/cart">
 							<Cart cart={cart} />
+						</Route>
+						<Route path="/subscribecart">
+							<SubscribeCart />
 						</Route>
 						<Route path="/orderlist">
 							<OrderList />
