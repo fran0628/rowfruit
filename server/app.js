@@ -48,6 +48,9 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
 let farmerRouter = require("./routes/Blog/farmerUser");
 app.use("/api/farmer", farmerRouter);
 
+    let indexFarmerRouter = require("./routes/Blog/indexFarmer");
+		app.use("/api/indexfarmer", indexFarmerRouter);
+
 let postRouter = require("./routes/Blog/post");
 app.use("/api/post", postRouter);
 

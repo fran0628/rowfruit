@@ -4,18 +4,27 @@ import { v4 } from "uuid";
 import FruitType from "./ProductLIst/FruitType";
 function Middle(props) {
   const { data,cartData, addCart,setCounts } = props;
+ 
+  //美白商品資料
   const whiteningData = data.filter((item) => {
     return item.tag.indexOf("whitening") > -1;
   });
+  //瘦身商品資料
   const slimmingData = data.filter((item) => {
     return item.tag.indexOf("slimming") > -1;
   });
+  //銀髮族商品資料
   const silverHairData = data.filter((item) => {
     return item.tag.indexOf("silverHair") > -1;
   });
+  //顧眼睛商品資料
   const visionData = data.filter((item) => {
     return item.tag.indexOf("vision") > -1;
   });
+  
+ 
+
+  //Title資料設定
   const title = [
     { className: "title-all", title: "全部商品", buttonClass: "allButton" },
     {
@@ -51,7 +60,7 @@ function Middle(props) {
         {/* 全部商品 */}
 
         <div className="all">
-          {data.map((item) => {
+          {data.map((item,index) => {
             const { id, fruit_name, fruit_image, items, nutrients } = item;
             return (
               <FruitType

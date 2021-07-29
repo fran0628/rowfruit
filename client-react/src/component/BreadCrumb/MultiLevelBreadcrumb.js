@@ -40,7 +40,7 @@ function MultiLevelBreadcrumb(props) {
     // '/product/baby/birth' -> ['','product','baby', 'birth']
     const pathArray = pathnameList[index].split('/')
 
-    console.log(textArray, pathArray)
+    // console.log(textArray, pathArray)
 
     const listArray = textArray.map((v, i, array) => {
       if (i === 0) return ''

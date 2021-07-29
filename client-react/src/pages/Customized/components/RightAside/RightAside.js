@@ -11,7 +11,6 @@ function RightAside(props) {
     counts,
     setCounts,
   } = props;
-  // console.log("rightSideCartData", cartData);
 
   return (
     <>
@@ -47,11 +46,6 @@ function RightAside(props) {
                 index={index}
                 setCartData={setCartData}
                 cartItem={cartData[index]}
-                setCartItem={(newCartItem)=>{
-                  const newCartData = [...cartData]
-                  newCartData[index]=newCartItem
-                  setCartData(newCartData)
-                }}
                 setCounts={setCounts}
                 count={counts[index]}
                 setCount={(newCount)=>{

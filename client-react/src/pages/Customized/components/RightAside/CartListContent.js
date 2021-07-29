@@ -15,10 +15,8 @@ function CartListContent(props) {
     setCounts,
     count,
     setCount,
-    cartItem,
-    setCartItem,
   } = props;
-
+ 
   
   data.forEach(product => {
     let nutrients = product.nutrients.split(",");
@@ -32,13 +30,13 @@ function CartListContent(props) {
       allProduct.push(item)
     })
    })
-  const thisProduct = {...cartItem}
-  const productPrice = thisProduct.price
-  const productWight = thisProduct.wight
-  const productNutrients = thisProduct.nutrients
-  //  console.log(productPrice)
-  // console.log(cartItem)
-
+   const thisProduct= allProduct.find((item)=>{
+    return item.id===id
+  })
+  const productPrice=thisProduct.price
+  const productWight=thisProduct.wight
+  const productNutrients=thisProduct.nutrients
+  
 
   const newImageUrl =
     "http://localhost:3000/images/CustomizedPhotos/" +
@@ -47,8 +45,8 @@ function CartListContent(props) {
     images;
   //刪除
   function deleteItem() {
-    setCartData(function (cartData) {
-      return cartData.filter((item) => item.id !== id);
+    setCartData(function (prev) {
+      return prev.filter((item) => item.id !== id);
     });
     setCounts(function (prev) {
       const newPr = [...prev]
@@ -56,24 +54,29 @@ function CartListContent(props) {
       return newPr
     })
   }
-  
+
 
   function minus(){
     setCount(count-1)
-    setCartItem(()=>{
-      cartItem.price=productPrice*(count-1)
-      cartItem.wight=productWight*(count-1)
-      cartItem.nutrientsArray=productNutrients*(count-1)
-    })
-    
+    setCartData(function (prev) {
+      const modifyData = [...prev]
+      modifyData[index].price=productPrice*(count-1 ===0? 1:count-1)
+      modifyData[index].wight=productWight*(count-1 ===0? 1:count-1)
+      modifyData[index].nutrientsArray=productNutrients.map(item=>item*(count-1 ===0? 1:count-1))
+      return modifyData
+     });
+  
   }
   function plus(){
     setCount(count+1)
-    setCartItem(()=>{
-      cartItem.price=productPrice*(count+1)
-      cartItem.wight=productWight*(count+1)
-      cartItem.nutrientsArray=productNutrients*(count+1)
-    })
+    setCartData(function (prev) {
+     const modifyData = [...prev]
+     modifyData[index].price=productPrice*(count+1)
+     modifyData[index].wight=productWight*(count+1)
+     modifyData[index].nutrientsArray=productNutrients.map(item=>item*(count+1))
+     return modifyData
+    });
+    
   }
   return (
     <>

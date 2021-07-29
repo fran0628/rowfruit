@@ -1,14 +1,15 @@
-import React from "react";
+import React,{useState} from "react";
 import FruitVariety from "./FruitVariety";
 function FruitType(props) {
-  // console.log("type",props)
   const { fruit_name, fruit_image, items,nutrients,cartData ,addCart,setCounts } = props;
-  // console.log(items)
+  
+  
   const imageUrl =
     "http://localhost:3000/images/CustomizedPhotos/" +
     fruit_name +
     "/" +
     fruit_image;
+   
   return (
     <>
       <article className="芭樂">

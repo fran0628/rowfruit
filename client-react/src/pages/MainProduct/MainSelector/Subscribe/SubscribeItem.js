@@ -15,7 +15,7 @@ function SubscribeItem(props) {
     // button 連結
     const urlid = String(id)
     const url = "/Mainproduct/"+ urlid
-    
+    const urlsub = "/subscribecart"
     return (
         <>
             <div className="col-lg-12 g-2 mb-3">
@@ -34,7 +34,7 @@ function SubscribeItem(props) {
                             <p className="card-text" style={{fontSize: "17px"}}>月訂閱制方案 月付NT${monthprice}（享有每週<span className="text-danger">免運</span>服務）</p>
                             <p className="card-text" style={{fontSize: "17px"}}>季訂閱制方案 月付NT${seasonprice} (享有水果盒原價<span className="text-danger">9折</span>優惠)</p>
                             <p className="card-text" style={{fontSize: "17px"}}>半年訂閱制方案 月付NT${halfyearprice} (享有水果盒原價<span className="text-danger">8折</span>優惠)</p>
-                            <button className="buy-btnbuy me-4">點此直接訂閱</button>
+                            <Link to={urlsub}><button className="buy-btnbuy me-4">點此直接訂閱</button></Link>
                             <Link to={url}><button className="normal-buy-btn">點此查看水果盒</button></Link>
                     </div>
                 </div>

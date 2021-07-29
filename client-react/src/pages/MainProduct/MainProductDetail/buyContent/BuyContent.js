@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 function BuyContent(props) {
     const {name, fruit_item, boxprice} = props
     const fruitcontent = fruit_item.split(/\s+/);
     const [total, setTotal] = useState(1)
     const [price, setPrice] = useState(boxprice)
+    const urlsub = "/subscribecart"
 
     // 購買方案按鈕＋-
     function plus() {
@@ -82,7 +84,7 @@ function BuyContent(props) {
                   </div>
                   <div className="col-lg-12">
                     <button className="buy-btnbuy" onClick={addCart}>單買加入購物車</button>
-                    <button className="sub-btnbuy">選擇訂閱方案</button>
+                    <Link to={urlsub}><button className="sub-btnbuy">選擇訂閱方案</button></Link>
                   </div>
                 </div>
               </div>
