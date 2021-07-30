@@ -28,7 +28,7 @@ function App() {
 		price: 500,
 		imageUrl:""
 	  }])
-	// console.log(cart)
+	console.log(cart)
 	const [auth,setAuth]=useState("hi 我登入囉")
 
 	useEffect(()=>{

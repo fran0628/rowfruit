@@ -69,6 +69,10 @@ function RightAside(props) {
     updateCartToLocalStorage()
     props.history.push('/cart')
   }
+  function removeData(){
+    setCartData([]);
+      setCounts([]);
+  }
 
   return (
     <>
@@ -138,7 +142,7 @@ function RightAside(props) {
           </button>
           <button onClick={addCartAndTurnCartPage} className="sub">立即結帳</button>
         </div>
-        <button className="btn removeFruit">Remove All</button>
+        <button onClick={removeData} className="btn removeFruit">Remove All</button>
         <div className="fruitbox"></div>
       </aside>
     </>

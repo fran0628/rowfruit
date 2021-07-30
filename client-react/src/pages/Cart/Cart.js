@@ -2,7 +2,7 @@ import React,{useState,useEffect} from "react";
 import Item from "./components/Item";
 import DeliverynPayment from "./components/DeliverynPayment";
 import Buyer from "./components/Buyer"
-function Cart() {
+function Cart({cart}) {
   const[myCart,setMyCart]=useState([])
   const background = {
     backgroundImage: `url(${""})`,
@@ -11,6 +11,7 @@ function Cart() {
     backgroundPosition: "center",
     backgroundSize: "cover",
   };
+  console.log("cart",cart)
   function getCartFromLocalStorage() {
     const newCart = localStorage.getItem('cart') || '[]'
     console.log("JSON.parse(newCart)",JSON.parse(newCart))
