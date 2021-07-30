@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import FruitMapIcon from "../indexCustomAniIcon/avocado.png";
+import React from "react";
+// import FruitMapIcon from "../indexCustomAniIcon/avocado.png";
 
 // http://localhost:3000/indexCustomAniIcon/apple.png
 function FruitBallItem(props) {
