@@ -94,7 +94,7 @@ import { LinkContainer } from "react-router-bootstrap";
 								</NavDropdown>
 								<LinkContainer to="memberlogin">
 									<Nav.Link>
-										{auth? auth:<i class="fas fa-user fa-lg nav-icon" />}
+										{auth? auth: <i class="fas fa-user fa-lg nav-icon" /> }
 									</Nav.Link>
 								</LinkContainer>
 								<LinkContainer to="cart">

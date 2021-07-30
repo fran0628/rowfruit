@@ -1,7 +1,8 @@
 // import axios from "axios";
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import "./MemberLogin.scss";
+import Swal from "sweetalert2";
 
 const banner = {
   backgroundImage: `url(${"MemberPhoto/banner.png"})`,
@@ -12,7 +13,7 @@ const banner = {
 };
 
 function MemberLogin(props) {
-  const { setAuth,data,setData,setShowdata } = props;
+  const { setAuth, data, setData, setShowdata } = props;
 
   const [account, setAccount] = useState("");
 
@@ -26,28 +27,28 @@ function MemberLogin(props) {
     setPassword(e.target.value);
   }
 
-  function loginSubmit(){
-    setShowdata(true)
+  function loginSubmit() {
+    setShowdata(true);
     setData(() => {
-      const newData={...data}
-      newData.account=account
-      newData.password=password
-      return newData
-    })
+      const newData = { ...data };
+      newData.account = account;
+      newData.password = password;
+      return newData;
+    });
   }
 
-  const [isLoading, setIsLoading] = useState(false)
-  // 自動1秒後關閉指示的spinner
-  useEffect(() => {
-    if (isLoading) {
-      setTimeout(() => setIsLoading(false), 1000)
-    }
-  }, [isLoading])
-  // 狀態變為物件，處理多個欄位
-  // const [fields, setFields] = useState({
-  //   username: '',
-  //   password: '',
-  // })
+  // const [isLoading, setIsLoading] = useState(false);
+  // // 自動1秒後關閉指示的spinner
+  // useEffect(() => {
+  //   if (isLoading) {
+  //     setTimeout(() => setIsLoading(false), 1000);
+  //   }
+  // }, [isLoading]);
+  // // 狀態變為物件，處理多個欄位
+  // // const [fields, setFields] = useState({
+  // //   username: '',
+  // //   password: '',
+  // // })
 
   // ex. 送到伺服器
   function changeLogin() {
@@ -72,20 +73,20 @@ function MemberLogin(props) {
     //   });
 
     let url = "http://localhost:5000/api/login";
-    let data = { account: '666666', password: '666666' };
+    let data = { account: "666666", password: "666666" };
 
     fetch(url, {
-      method: "POST", 
-      body: JSON.stringify(data), 
+      method: "POST",
+      body: JSON.stringify(data),
       headers: new Headers({
         "Content-Type": "application/json",
-
       }),
     })
-      .then( res => {
+      .then((res) => {
         return res.json();
-      }).then(result => {
-         localStorage.setItem("token", result.data.token);
+      })
+      .then((result) => {
+        localStorage.setItem("token", result.data.token);
         // token解析
         const token = result.data.token.split(" ")[1];
 
@@ -97,27 +98,23 @@ function MemberLogin(props) {
         console.log(result.data.name);
       });
 
-      // .catch((error) => console.error("Error:", error))
-      // .then((response) => console.log("Success:", response));
+    // .catch((error) => console.error("Error:", error))
+    // .then((response) => console.log("Success:", response));
   }
-  
-  const loading = (
-    <>
-      <div className="d-flex justify-content-center">
-        <div className="spinner-border" role="status">
-          <span className="sr-only">Loading...</span>
-        </div>
-      </div>
-    </>
-  )
 
-  const display = (
-    // <button onClick={changeLogin}>我會改變login</button>
-    <form
-      // onSubmit={handleSubmit}
-      // onChange={handleFormChange}
-      // onInvalid={handleFormInvalid}
-    >
+  // const loading = (
+  //   <>
+  //     <div className="d-flex justify-content-center">
+  //       <div className="spinner-border" role="status">
+  //         <span className="sr-only">Loading...</span>
+  //       </div>
+  //     </div>
+  //   </>
+  // );
+
+  return  (
+    <form>
+      <button onClick={changeLogin}>我會改變login</button>
       <div className="MemberBanner" style={banner}>
         {/* Login  Form */}
         <div className="container">
@@ -141,9 +138,6 @@ function MemberLogin(props) {
                         className="form-control"
                         type="text"
                         name="account"
-                          // state={fields.account}
-                        // setState={handleFieldChange}
-                        // error={fieldErrors.account}
                         value={account}
                         placeholder="Account"
                         onChange={accountChange}
@@ -155,12 +149,9 @@ function MemberLogin(props) {
                         密碼
                       </label>
                       <input
-                        className="form-control" 
+                        className="form-control"
                         type="password"
                         name="password"
-                     // state={fields.password}
-                        // setState={handleFieldChange}
-                        // error={fieldErrors.password}
                         placeholder="Password"
                         value={password}
                         onChange={passwordChange}
@@ -178,14 +169,25 @@ function MemberLogin(props) {
                       <label htmlFor="remember">Remeber Me</label>
                     </div>
                     <div className="d-none d-sm-flex justify-content-center">
-                      <button type="button" className="btn normal-btn"
-                      onClick={loginSubmit}>
+                      <button
+                        type="button"
+                        className="btn normal-btn"
+                        onClick={() =>
+                          Swal.fire({
+                            position: "center-center",
+                            icon: "success",
+                            title: "登入成功",
+                            showConfirmButton: false,
+                            timer: 1500,
+                            
+                          })
+                        }
+                      >
                         登入
                       </button>
                     </div>
                     <div className=" d-sm-none my-2">
-                      <button type="button" className="btn rwd-btn"
-                      onClick={loginSubmit}>
+                      <button type="button" className="btn rwd-btn">
                         登入
                       </button>
                     </div>
@@ -203,7 +205,7 @@ function MemberLogin(props) {
                     {/* <div className="d-flex justify-content-center mb-1">
                 <h5 className="FastDoLogin">快速登入</h5>
               </div>
-              <div className="d-flex justify-content-center mb-2">
+              <div className="d-flex justify-content-center mb-2 " type="button">
                 <img className="mx-3" src="MemberPhoto/GOOGLE.png" alt="" />
                 <img className="mx-3" src="MemberPhoto/facebook.png" alt="" />
               </div> */}
@@ -221,12 +223,6 @@ function MemberLogin(props) {
       </div>
     </form>
   );
-   return (
-    <>
-      {/* <h1>會員登入</h1> */}
-      <hr />
-      {isLoading ? loading : display}
-    </>
-  )
+  
 }
 export default withRouter(MemberLogin);

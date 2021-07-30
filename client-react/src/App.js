@@ -31,7 +31,7 @@ function App() {
 	// console.log(cart)
 	console.log(cart)
 	
-	const [auth,setAuth]=useState("hi 我登入囉")
+	const [auth,setAuth]=useState("hi XXX")
 	const [data,setData]=useState({account:"",password:""})
 	const [showData,setShowdata]=useState(false)
 
@@ -70,7 +70,7 @@ function App() {
 	  }
 
 	useEffect(()=>{
-		console.log("初始值測試")
+		// console.log("初始值測試")
 		if(showData){
 			fetchSetData()
 		}
