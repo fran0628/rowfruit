@@ -28,7 +28,7 @@ useEffect(() => {
 
     if (product) setData (product)
     })();
-  }, []) 
+  }, [props.match.params.id]); 
 
 // console.log(data)
 useEffect(() => {
@@ -42,7 +42,7 @@ useEffect(() => {
 
     if (asideproduct) setAsidedata (asideproduct)
     })();
-}, [])
+}, [props.match.params.id]);
 // console.log(asidedata)
 
 
