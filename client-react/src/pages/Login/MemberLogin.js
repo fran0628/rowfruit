@@ -86,6 +86,18 @@ function MemberLogin(props) {
   //   setFields(updatedFields)
   // }
 
+    // let data = {
+    //   account:accountChange(),
+    //   password:passwordChange()
+    // };
+    axios.post(`http://localhost:5000/api/login`,data)
+  
+    .then(res=>{
+        localStorage.setItem('token',res.data.data.token);
+        // token解析
+        const token =  res.data.data.token.split(' ')[1];
+        
+        let payload =JSON.parse(atob(token.split('.')[1]));
   
 
   // const handleSubmit = (e) => {
@@ -318,4 +330,4 @@ function MemberLogin(props) {
     </>
   )
 }
-export default withRouter(MemberLogin);
+export default withRouter(MemberLogin)

@@ -29,6 +29,8 @@ function App() {
 		imageUrl:""
 	  }])
 	// console.log(cart)
+	console.log(cart)
+	
 	const [auth,setAuth]=useState("hi 我登入囉")
 	const [data,setData]=useState({account:"",password:""})
 	const [showData,setShowdata]=useState(false)
