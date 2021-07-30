@@ -22,7 +22,8 @@ const banner = {
 };
 
 function MemberLogin(props) {
-  const { setAuth } = props;
+  const { setAuth,data,setData } = props;
+
   const [account, setAccount] = useState("");
 
   function accountChange(e) {
@@ -34,6 +35,18 @@ function MemberLogin(props) {
   function passwordChange(e) {
     setPassword(e.target.value);
   }
+
+  console.log(`${account},${password}`)
+
+  function loginSubmit(){
+    setData(() => {
+      const newData={...data}
+      newData.account=account
+      newData.password=password
+      return newData
+    })
+  }
+
   // const [login, setLogin] = useState([]);
 
   // function loginChange() {
@@ -141,7 +154,7 @@ function MemberLogin(props) {
   }
 
   const handleFormChange = (e) => {
-    console.log('更新欄位: ', e.target.value)
+    // console.log('更新欄位: ', e.target.value)
 
     // 該欄位的錯誤訊息清空
     const updatedFieldErrors = {
@@ -196,7 +209,7 @@ function MemberLogin(props) {
                   <h3 className="NormalMemberLogin d-flex justify-content-center mb-3">
                     一般會員登入
                   </h3>
-                  <form onSubmit={handleSubmit}>
+                  <form >
                     <div className="mb-3">
                       <label htmlFor="username" className="form-label">
                         帳號
@@ -207,10 +220,11 @@ function MemberLogin(props) {
                         }`}
                         type="text"
                         name="account"
-                        setState={handleFieldChange}
-                        value={fields.account}
+                        // setState={handleFieldChange}
+                        error={fieldErrors.account}
+                        value={account}
                         placeholder="Account"
-                        onChange={handleFieldChange}
+                        onChange={accountChange}
                         required
                       />
                     </div>
@@ -224,11 +238,12 @@ function MemberLogin(props) {
                         }`}
                         type="password"
                         name="password"
-                        state={fields.password}
-                        setState={handleFieldChange}
+                        // state={fields.password}
+                        // setState={handleFieldChange}
                         error={fieldErrors.password}
                         placeholder="Password"
-                        onChange={handleFieldChange}
+                        value={password}
+                        onChange={passwordChange}
                         minLength="6"
                         maxLength="8"
                         required
@@ -244,7 +259,8 @@ function MemberLogin(props) {
                     </div>
                     <div className="d-none d-sm-flex justify-content-center">
                       <button type="submit" className="btn normal-btn"
-                      onClick={loginApi}>
+                      onClick={loginSubmit}
+                      >
                         登入
                       </button>
                     </div>
@@ -259,7 +275,8 @@ function MemberLogin(props) {
                     </button> */}
                     <div className=" d-sm-none my-2">
                       <button type="submit" className="btn rwd-btn"
-                      onClick={loginApi}>
+                      onClick={loginSubmit}
+                      >
                         登入
                       </button>
                     </div>

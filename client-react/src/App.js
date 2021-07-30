@@ -30,6 +30,7 @@ function App() {
 	  }])
 	// console.log(cart)
 	const [auth,setAuth]=useState("hi 我登入囉")
+	const [data,setData]=useState({account:"",password:""})
 
 	useEffect(()=>{
 		setAuth("嗨嗨嗨嗨")
@@ -56,7 +57,7 @@ function App() {
 							<UserDashboard />
 						</Route>
 						<Route path="/memberlogin">
-							<MemberLogin setAuth={setAuth} />
+							<MemberLogin setAuth={setAuth} setData={setData} data={data} />
 						</Route>
 						<Route path="/memberegister">
 							<MemberRegister />
