@@ -1,8 +1,7 @@
 import React,{useState,useEffect} from "react";
 import Item from "./components/Item";
 import DeliverynPayment from "./components/DeliverynPayment";
-import Buyer from "./components/Buyer";
-
+import Buyer from "./components/Buyer"
 function Cart() {
   const[myCart,setMyCart]=useState([])
   const background = {
@@ -63,7 +62,7 @@ function Cart() {
             </tbody>
           </table>
           <DeliverynPayment />
-          <Buyer />
+          <Buyer/>
         </div>
       </div>
     </>
