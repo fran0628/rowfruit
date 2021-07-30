@@ -3,16 +3,6 @@ import React, { useState,useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import "./MemberLogin.scss";
 
-// import Background from '../../../banner.png';
-// const [member,setMember]=useState()
-
-// useEffect(()=>{
-//   async function member(set) {
-//     const res = await fetch('localhost:/5000/api/member')
-//     const apidata  = await res.json()
-//     set(apidata);
-// },[])
-
 const banner = {
   backgroundImage: `url(${"MemberPhoto/banner.png"})`,
   backgroundRepeat: "no-repeat",
@@ -22,7 +12,8 @@ const banner = {
 };
 
 function MemberLogin(props) {
-  const { setAuth } = props;
+  const { setAuth,data,setData,setShowdata } = props;
+
   const [account, setAccount] = useState("");
 
   function accountChange(e) {
@@ -34,13 +25,16 @@ function MemberLogin(props) {
   function passwordChange(e) {
     setPassword(e.target.value);
   }
-  // const [login, setLogin] = useState([]);
 
-  // function loginChange() {
-  //   account:"111111",
-  //   password:"111111"
-  // }
-
+  function loginSubmit(){
+    setShowdata(true)
+    setData(() => {
+      const newData={...data}
+      newData.account=account
+      newData.password=password
+      return newData
+    })
+  }
 
   const [isLoading, setIsLoading] = useState(false)
   // 自動1秒後關閉指示的spinner
@@ -50,45 +44,12 @@ function MemberLogin(props) {
     }
   }, [isLoading])
   // 狀態變為物件，處理多個欄位
-  const [fields, setFields] = useState({
-    username: '',
-    password: '',
-  })
+  // const [fields, setFields] = useState({
+  //   username: '',
+  //   password: '',
+  // })
 
-  // 每個欄位的錯誤訊息
-  const [fieldErrors, setFieldErrors] = useState({
-    username: '',
-    password: '',
-  })
-
-  const handleFieldChange = (e) => {
-    // 更新輸入欄位的變動
-    // 用新輸入的屬性值和原物件作合併
-    const updatedFields = {
-      ...fields,
-      [e.target.name]: e.target.value,
-    }
-
-    setFields(updatedFields)
-  }
-
-  
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const user = new FormData(e.target);
-
-    console.log(user.get("account"));
-    console.log(user.get("password"));
-
-    // 整個表單有任何變動(ex.某個欄位有輸入)
-  // 認為使用者正在改有錯誤的欄位
-  // 清除某個欄位的錯誤訊息
- 
-
-    // ex. 送到伺服器
-  };
+  // ex. 送到伺服器
   function changeLogin() {
     setAuth("Steven");
   }
@@ -111,11 +72,11 @@ function MemberLogin(props) {
     //   });
 
     let url = "http://localhost:5000/api/login";
-    let data = { account: '123456', password: '123456' };
+    let data = { account: '666666', password: '666666' };
 
     fetch(url, {
-      method: "POST", // or 'PUT'
-      body: JSON.stringify(data), // data can be `string` or {object}!
+      method: "POST", 
+      body: JSON.stringify(data), 
       headers: new Headers({
         "Content-Type": "application/json",
 
@@ -139,31 +100,6 @@ function MemberLogin(props) {
       // .catch((error) => console.error("Error:", error))
       // .then((response) => console.log("Success:", response));
   }
-
-  const handleFormChange = (e) => {
-    console.log('更新欄位: ', e.target.value)
-
-    // 該欄位的錯誤訊息清空
-    const updatedFieldErrors = {
-      ...fieldErrors,
-      [e.target.name]: '',
-    }
-
-    setFieldErrors(updatedFieldErrors)
-  }
-
-  // 表單有不合法的檢查出現時
-  const handleFormInvalid = (e) => {
-    // 擋住錯誤訊息預設呈現方式(跳出的訊息泡泡)
-    // e.preventDefault()
-
-    const updatedFieldErrors = {
-      ...fieldErrors,
-      [e.target.name]: e.target.validationMessage,
-    }
-
-    setFieldErrors(updatedFieldErrors)
-  }
   
   const loading = (
     <>
@@ -178,9 +114,9 @@ function MemberLogin(props) {
   const display = (
     // <button onClick={changeLogin}>我會改變login</button>
     <form
-      onSubmit={handleSubmit}
-      onChange={handleFormChange}
-      onInvalid={handleFormInvalid}
+      // onSubmit={handleSubmit}
+      // onChange={handleFormChange}
+      // onInvalid={handleFormInvalid}
     >
       <div className="MemberBanner" style={banner}>
         {/* Login  Form */}
@@ -196,21 +132,21 @@ function MemberLogin(props) {
                   <h3 className="NormalMemberLogin d-flex justify-content-center mb-3">
                     一般會員登入
                   </h3>
-                  <form onSubmit={handleSubmit}>
+                  <form>
                     <div className="mb-3">
                       <label htmlFor="username" className="form-label">
                         帳號
                       </label>
                       <input
-                        className={`form-control ${
-                          fieldErrors.account !== "" ? "is-invalid" : ""
-                        }`}
+                        className="form-control"
                         type="text"
                         name="account"
-                        setState={handleFieldChange}
-                        value={fields.account}
+                          // state={fields.account}
+                        // setState={handleFieldChange}
+                        // error={fieldErrors.account}
+                        value={account}
                         placeholder="Account"
-                        onChange={handleFieldChange}
+                        onChange={accountChange}
                         required
                       />
                     </div>
@@ -219,16 +155,15 @@ function MemberLogin(props) {
                         密碼
                       </label>
                       <input
-                        className={`form-control ${
-                          fieldErrors.password !== "" ? "is-invalid" : ""
-                        }`}
+                        className="form-control" 
                         type="password"
                         name="password"
-                        state={fields.password}
-                        setState={handleFieldChange}
-                        error={fieldErrors.password}
+                     // state={fields.password}
+                        // setState={handleFieldChange}
+                        // error={fieldErrors.password}
                         placeholder="Password"
-                        onChange={handleFieldChange}
+                        value={password}
+                        onChange={passwordChange}
                         minLength="6"
                         maxLength="8"
                         required
@@ -243,23 +178,14 @@ function MemberLogin(props) {
                       <label htmlFor="remember">Remeber Me</label>
                     </div>
                     <div className="d-none d-sm-flex justify-content-center">
-                      <button type="submit" className="btn normal-btn"
-                      onClick={loginApi}>
+                      <button type="button" className="btn normal-btn"
+                      onClick={loginSubmit}>
                         登入
                       </button>
                     </div>
-                    {/* <button
-                      type="button"
-                      onClick={() => {
-                        checkLogin();
-                      }}
-                      className="btn btn-primary"
-                    >
-                      檢查登入狀態
-                    </button> */}
                     <div className=" d-sm-none my-2">
-                      <button type="submit" className="btn rwd-btn"
-                      onClick={loginApi}>
+                      <button type="button" className="btn rwd-btn"
+                      onClick={loginSubmit}>
                         登入
                       </button>
                     </div>
