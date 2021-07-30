@@ -1,65 +1,109 @@
-//   @media screen and (max-width: 576px) {
-//    .section{
-//        margin: 0 auto;
-//    }
-//    .hand{
-//        display: none;
-//    }
-//    .thebox{
-//        display: none;
-//    }
-//    .fruit_ball{
-//        display: none;
-//    }
-//   }
-  .gotocustombtn {
-    width: 150px;
-    /* height: 40px; */
-    max-width: 100%;
-    padding: 20px 10px;
-    background: #fcfdf5;
-    font-size: 1.125em;
-    color: #e79737;
-    border: none;
-    margin: 10px;
-    padding: 8px 16px;
-    border: 2px solid #838080;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+.gotocustombtn {
+  width: 150px;
+  /* height: 40px; */
+  max-width: 100%;
+  padding: 20px 10px;
+  background: #fcfdf5;
+  font-size: 1.125em;
+  color: #e79737;
+  border: none;
+  margin: 10px;
+  padding: 8px 16px;
+  border: 2px solid #838080;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+}
+.box {
+  /* display:block; */
+  width: 84px;
+  height: 84px;
+  border-radius: 15px;
+  /* position: absolute; */
+}
+.orange {
+  border: transparent;
+  position: absolute;
+  right: 0;
+}
+.hand {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 50px;
+}
+.all_ball {
+  display: inline-flex;
+}
+.fruit_ball img {
+  width: 55px;
+  height: auto;
+}
+.section {
+  text-align: center;
+  color: #f5bb77;
+}
+.thebox {
+  margin-top: 250px;
+  width: 210px;
+  height: 180px;
+  position: absolute;
+  right: -15px;
+}
+// Ani
+.at-item1 {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: inline-block;
+  background-color:#e4ec70;
+  animation-name: roll-in-left;
+  animation-duration: 3s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  line-height:50px;
+
+}
+.at-item2 {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: inline-block;
+  background-color:#b070ec;
+  animation-name: roll-in-left;
+  animation-duration: 3s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  line-height:50px;
+}
+.at-item3 {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: inline-block;
+  background-color:#ec70ae;
+  animation-name: roll-in-left;
+  animation-duration: 3s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  line-height:50px;
+}
+@keyframes roll-in-left {
+  0%{
+    -webkit-transform: translateX(-800px) rotate(-540deg);
+    transform: translateX(-800px) rotate(-540deg);
+    opacity: 0;
   }
-  .box {
-    /* display:block; */
-    width: 84px;
-    height: 84px;
-    border-radius: 15px;
-    /* position: absolute; */
+  100%{
+    -webkit-transform: translateX(0) rotate(0deg);
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
   }
-  .orange {
-    border: transparent;
-    position: absolute;
-    right: 0;
-  }
-  .hand {
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    top: 50px;
-  }
-  .all_ball {
-    display: inline-flex;
-  }
-  .fruit_ball img {
-    width: 55px;
-    height: auto;
-    
-  }
-  .section {
-    text-align: center;
-    color: #f5bb77;
-  }
-  .thebox {
-    margin-top: 250px;
-    width: 210px;
-    height: 180px;
-    position: absolute;
-    right: -15px;
-  }
+}
