@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import FruitMapFarmerItem from "./FruitMapFarmerItem";
 import axios from "axios";
@@ -10,7 +10,6 @@ function FruitMapFarmer(props) {
   // const { avatar, fram_name, content } = props;
   // const [data, setData] = useState([]);
 
-  
   useEffect(() => {
     const fetchFruitMapFarmerItem = async () => {
       const res = await axios.get("/Map/Fruit");
@@ -20,7 +19,7 @@ function FruitMapFarmer(props) {
     };
     fetchFruitMapFarmerItem();
   }, []);
-  
+
   return (
     <>
       <div className="container mt-3">
@@ -48,7 +47,7 @@ function FruitMapFarmer(props) {
           </div>
           <div class="col-md-5 px-1">
             {data.map((value, i) => (
-              <FruitMapFarmerItem 
+              <FruitMapFarmerItem
                 value={value}
                 key={i}
                 avatar={value.avatar}

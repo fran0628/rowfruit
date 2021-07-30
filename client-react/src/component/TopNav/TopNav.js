@@ -68,7 +68,7 @@ import { LinkContainer } from "react-router-bootstrap";
 								<LinkContainer to="/customized">
 									<Nav.Link>客製水果盒</Nav.Link>
 								</LinkContainer>
-								<LinkContainer to="/FruitMapMain">
+								<LinkContainer to="/fruitmap">
 									<Nav.Link>水果地圖</Nav.Link>
 								</LinkContainer>
 								<NavDropdown title="小農部落" id="basic-nav-dropdown">

@@ -106,7 +106,7 @@ function App() {
 						<Route path="/farmerlist">
 							<FarmList />
 						</Route>
-						<Route path="/FruitMapMain">
+						<Route path="/fruitmap">
 							<FruitMapMain />
 						</Route>
 						<Route path="/MainProduct/:id?">
