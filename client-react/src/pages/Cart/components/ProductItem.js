@@ -1,6 +1,6 @@
 import React from 'react';
 
-function productItem() {
+function ProductItem() {
   return (
     <>
       <div classNameName="col-8 mx-auto mt-3">
@@ -46,4 +46,4 @@ function productItem() {
     </>
   );
 }
-export default productItem
+export default ProductItem

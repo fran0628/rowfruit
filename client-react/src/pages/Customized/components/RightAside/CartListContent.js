@@ -1,4 +1,4 @@
-import React, {useEffect } from "react";
+import React, {useState} from "react";
 
 function CartListContent(props) {
   const {
@@ -9,6 +9,7 @@ function CartListContent(props) {
     price,
     wight,
     nutrients,
+    cartData,
     setCartData,
     index,
     data,
@@ -16,7 +17,6 @@ function CartListContent(props) {
     count,
     setCount,
   } = props;
- 
   
   data.forEach(product => {
     let nutrients = product.nutrients.split(",");
@@ -54,6 +54,7 @@ function CartListContent(props) {
       return newPr
     })
   }
+
 
 
   function minus(){

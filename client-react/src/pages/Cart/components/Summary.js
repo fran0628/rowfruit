@@ -1,6 +1,6 @@
 import React from 'react';
 
-function summary() {
+function Summary() {
   return (
     <>
       <table class="table table-success container">
@@ -22,4 +22,4 @@ function summary() {
   );
 }
 
-export default summary;
+export default Summary;

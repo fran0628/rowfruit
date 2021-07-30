@@ -1,6 +1,6 @@
 import React from 'react';
 
-function buyer() {
+function Buyer() {
   return (
     <>
       <h3 className="text-center">訂購人資訊</h3>
@@ -47,4 +47,4 @@ function buyer() {
     </>
   );
 }
-export default buyer
+export default Buyer

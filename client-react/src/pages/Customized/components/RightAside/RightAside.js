@@ -1,5 +1,7 @@
 import React from "react";
 import CartListContent from "./CartListContent";
+import Swal from "sweetalert2";
+import {withRouter} from 'react-router-dom'
 
 function RightAside(props) {
   const {
@@ -11,40 +13,63 @@ function RightAside(props) {
     counts,
     setCounts,
     setTotalCart,
+    setCartUpdate,
   } = props;
 
-  // const customizedProduct={productId:99,productName:"客製化水果盒",amount:"",price:totalPrice}
-  // const amount=[]
-  // for(let i =0;i<cartData.length;i++){
-  //   amount.push(`${cartData[i].fruitname}*${counts[i]}`)
-  // }
-  // customizedProduct.amount=amount.join(',')
-  // console.log(customizedProduct)
-
-  function addTotalCart() {
-    const customizedProduct = {
-      productId: 99,
-      productName: "客製化水果盒",
-      count:1,
-      amount: "",
-      price: totalPrice,
-      imageUrl:"http://localhost:3000/images/CustomizedPhotos/customized.jpeg"
-    };
-    const amount = [];
-    for (let i = 0; i < cartData.length; i++) {
-      amount.push(`${cartData[i].fruitname}*${counts[i]}`);
-    }
-    customizedProduct.amount = amount.join(",");
-    console.log(customizedProduct)
-    setTotalCart(function (prevData) {
-      const newTotalCart = [...prevData];
-      console.log(newTotalCart);
-      newTotalCart.push(customizedProduct)
-      return newTotalCart;
+  function successAdd() {
+    Swal.fire({
+      title: `${customizedProduct.productName}加入成功`,
+      text: "點擊右上角查看",
+      imageUrl: customizedProduct.imageUrl,
+      imageAlt: "Custom image",
+      confirmButtonText: "關閉",
     });
-    setCartData([])
-    setCounts([])
   }
+  function warning() {
+    Swal.fire({
+      title: "您還沒選擇商品",
+      confirmButtonText: "關閉",
+    });
+  }
+
+  const customizedProduct = {
+    productId: 99,
+    productName: "客製化水果盒",
+    count: 1,
+    amount: "",
+    price: totalPrice,
+    imageUrl: "http://localhost:3000/images/CustomizedPhotos/customized.jpeg",
+  };
+  const amount = [];
+  for (let i = 0; i < cartData.length; i++) {
+    amount.push(`${cartData[i].fruitname}*${counts[i]}`);
+  }
+  customizedProduct.amount = amount.join(",");
+
+  const updateCartToLocalStorage = () => {
+    if (cartData.length === 0) {
+      warning();
+    } else {
+      const currentCart = JSON.parse(localStorage.getItem("cart")) || [];
+      currentCart.push(customizedProduct);
+      localStorage.setItem("cart", JSON.stringify(currentCart));
+
+      setTotalCart(function (prevData) {
+        const newTotalCart = [...prevData];
+        newTotalCart.push(customizedProduct);
+        return newTotalCart;
+      });
+      setCartUpdate(true);
+      setCartData([]);
+      setCounts([]);
+      successAdd();
+    }
+  };
+  function addCartAndTurnCartPage(){
+    updateCartToLocalStorage()
+    props.history.push('/cart')
+  }
+
   return (
     <>
       <aside className="col-md-4 d-none d-lg-block position-relative">
@@ -77,6 +102,7 @@ function RightAside(props) {
                 wight={wight}
                 nutrients={nutrients}
                 index={index}
+                cartData={cartData}
                 setCartData={setCartData}
                 cartItem={cartData[index]}
                 setCounts={setCounts}
@@ -106,11 +132,11 @@ function RightAside(props) {
           </div>
         </div>
         <div className="d-flex justify-content-around">
-          <button onClick={addTotalCart} className="buy-btn">
-            <i  className="fas fa-shopping-cart"></i>
+          <button onClick={updateCartToLocalStorage} className="buy-btn">
+            <i className="fas fa-shopping-cart"></i>
             加入購物車
           </button>
-          <button className="sub">立即結帳</button>
+          <button onClick={addCartAndTurnCartPage} className="sub">立即結帳</button>
         </div>
         <button className="btn removeFruit">Remove All</button>
         <div className="fruitbox"></div>
@@ -118,4 +144,4 @@ function RightAside(props) {
     </>
   );
 }
-export default RightAside;
+export default withRouter(RightAside);
