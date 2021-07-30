@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Progress from "./Progress";
-import { Link } from 'react-scroll'
+import { Link } from "react-scroll";
 function LeftAside(props) {
   const { cartData } = props;
 
@@ -16,7 +16,7 @@ function LeftAside(props) {
     vitamin_C += +cartData[i].nutrientsArray[3];
     Potassium += +cartData[i].nutrientsArray[4];
   }
-  
+
   const nutrients = [
     {
       className: "carbon_water",
@@ -36,17 +36,87 @@ function LeftAside(props) {
   return (
     <>
       <aside className="col-md-2 d-none d-lg-block ">
-        <div className="tagGroup ms-4">
-        <span className="btn d-block text-center tag-all">全部商品</span>
-        <span className="btn d-block text-center tag-whitening">美白</span>
-        <span className="btn d-block text-center tag-slimming">瘦身</span>
-        <span className="btn d-block text-center tag-silverHair">銀髮族</span>
-        <span className="btn d-block text-center tag-vision">顧眼睛</span>
-        </div>
+        <ul className="tagGroup ms-4">
+          <li className="btn d-block text-center tag-all">
+          <Link
+              href="#all"
+              to="all"
+              containerId="customizedProduct"
+              activeClass=""
+              className="text-dark"
+              spy={true}
+              smooth={true}
+              offset={-130}
+              duration={700}
+            >
+              全部商品
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="#whitening"
+              to="whitening"
+              containerId="customizedProduct"
+              activeClass="active"
+              className="btn d-block text-center tag-whitening"
+              spy={true}
+              smooth={true}
+              offset={0}
+              duration={700}
+            >
+              美白商品
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="#slimming"
+              to="slimming"
+              containerId="customizedProduct"
+              activeClass="active"
+              className="btn d-block text-center tag-slimming"
+              spy={true}
+              smooth={true}
+              offset={0}
+              duration={700}
+            >
+              瘦身商品
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="#silverHair"
+              to="silverHair"
+              containerId="customizedProduct"
+              activeClass="active"
+              className="btn d-block text-center tag-silverHair"
+              spy={true}
+              smooth={true}
+              offset={0}
+              duration={700}
+            >
+              銀髮族
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="#vision"
+              to="vision"
+              containerId="customizedProduct"
+              activeClass="active"
+              className="btn d-block text-center tag-vision"
+              spy={true}
+              smooth={true}
+              offset={0}
+              duration={700}
+            >
+              銀髮族
+            </Link>
+          </li>
+        </ul>
         <div className="progressgroup">
           <p className="h4 text-center">每周營養所需</p>
           {nutrients.map((item, index) => {
-            const { className, chineseName,width } = item;
+            const { className, chineseName, width } = item;
             return (
               <Progress
                 key={index}
