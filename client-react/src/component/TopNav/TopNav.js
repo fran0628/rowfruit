@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import './topnav.css' 
 import {
 	Container,
@@ -15,11 +15,20 @@ import { LinkContainer } from "react-router-bootstrap";
 
 
  function TopNav(props) {
-	 const{auth}=props
+	 const{auth,cartUpdate,setCartUpdate}=props
+	 const [cartLength,setCartLength]=useState()
    const [show, setShow] = useState(false);
 
 		const handleClose = () => setShow(false);
 		const handleShow = () => setShow(true);
+	
+		
+	
+	useEffect(()=>{
+		const cart = localStorage.getItem('cart')||'[]'
+		setCartLength(JSON.parse(cart).length)
+		setCartUpdate(false)
+	},[cartLength,cartUpdate])
     
     
     return (
@@ -89,8 +98,13 @@ import { LinkContainer } from "react-router-bootstrap";
 									</Nav.Link>
 								</LinkContainer>
 								<LinkContainer to="cart">
+										
 									<Nav.Link>
-										<i class="fas fa-shopping-cart fa-lg nav-icon" />
+										<div className="position-relative">
+										{cartLength>0 && <div className="text-warning d-flex align-items-center justify-content-center position-absolute">{cartLength}</div>}
+											
+											<i class="fas fa-shopping-cart fa-lg nav-icon" />
+										</div>
 									</Nav.Link>
 								</LinkContainer>
 							</Nav>

@@ -16,6 +16,15 @@
 	height: 90px;
 	margin-bottom: 30px;
 }
+.text-warning{
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background-color: red;
+	top: -7px;
+	right: -7px;
+
+}
 .navbar-light .navbar-nav .nav-link {
 	color: #7b9c85;
 }

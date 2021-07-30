@@ -12,7 +12,7 @@ import RightAside from "./components/RightAside/RightAside";
 //   setProducts(products);
 // }
 function Customized(props) {
-  const {setTotalCart}=props
+  const {setTotalCart,setCartUpdate}=props
   const [products, setProducts] = useState([
     {
       id: 0,
@@ -98,6 +98,7 @@ function Customized(props) {
             counts={counts}
             setCounts={setCounts}
             setTotalCart={setTotalCart}
+            setCartUpdate={setCartUpdate}
           />
         </div>
       </div>

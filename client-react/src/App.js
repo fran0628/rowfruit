@@ -19,7 +19,7 @@ import ScrollToTop from "./component/ScrollToTop";
 import SubscribeCart from './pages/SubscribeCart/SubscribeCart'
 
 function App() {
-
+	const[cartUpdate,setCartUpdate]=useState(false)
 	const [cart,setCart]=useState([{
 		productId: 1,
 		productName: "美白水果盒",
@@ -39,7 +39,7 @@ function App() {
 		<Router>
 			<>
 				<ScrollToTop>
-					<TopNav auth={auth} />
+					<TopNav auth={auth} cartUpdate={cartUpdate} setCartUpdate={setCartUpdate} />
 					<MultiLevelBreadcrumb />
 
 					<Switch>
@@ -74,7 +74,7 @@ function App() {
 							<Main />
 						</Route>
 						<Route path="/customized">
-							<Customized setTotalCart={setCart} />
+							<Customized setTotalCart={setCart} setCartUpdate={setCartUpdate} />
 						</Route>
 						<Route path="/About">
 							<About />

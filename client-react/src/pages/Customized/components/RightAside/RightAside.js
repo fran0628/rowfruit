@@ -1,5 +1,6 @@
 import React from "react";
 import CartListContent from "./CartListContent";
+import Swal from "sweetalert2";
 
 function RightAside(props) {
   const {
@@ -11,6 +12,7 @@ function RightAside(props) {
     counts,
     setCounts,
     setTotalCart,
+    setCartUpdate,
   } = props;
     
   const customizedProduct = {
@@ -27,6 +29,17 @@ function RightAside(props) {
   }
   customizedProduct.amount = amount.join(",");
 
+  function sweetAlert(){
+    Swal.fire({
+      title: `${customizedProduct.productName}加入成功`,
+      text: "點擊右上角查看",
+      imageUrl: customizedProduct.imageUrl,
+      imageAlt: "Custom image",
+      confirmButtonText: "關閉",
+    });
+  }
+
+
 
 const updateCartToLocalStorage = () => {
   const currentCart = JSON.parse(localStorage.getItem('cart')) || []
@@ -38,9 +51,11 @@ const updateCartToLocalStorage = () => {
     newTotalCart.push(customizedProduct)
     return newTotalCart;
   });
+  setCartUpdate(true)
   setCartData([])
   setCounts([])
-
+  sweetAlert()
+  
 }
 
 
