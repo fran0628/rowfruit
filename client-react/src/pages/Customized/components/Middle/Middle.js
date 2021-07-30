@@ -4,8 +4,7 @@ import { v4 } from "uuid";
 import FruitType from "./ProductLIst/FruitType";
 function Middle(props) {
   const { data,cartData, addCart,setCounts } = props;
-  console.log(data.length)
- const [handleAddClass,setHandleAddClass]= useState(Array(data.length).fill(false))
+
  
   //美白商品資料
   const whiteningData = data.filter((item) => {
