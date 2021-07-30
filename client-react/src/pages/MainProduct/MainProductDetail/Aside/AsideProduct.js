@@ -14,9 +14,9 @@ function AsideProduct(props) {
                 <img src={images} className="card-img-top" alt="" />
                 <div className="asidecardcontent card-body">
                   <h5 className="card-title text-center">{name}水果盒</h5>
-                  <a href={urlaside}>
+                  <Link to={urlaside}>
                     <button className="aside-btn">點此查看</button>
-                  </a>
+                  </Link>
                 </div>
             </div>
         </>
