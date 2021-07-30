@@ -31,10 +31,49 @@ function App() {
 	// console.log(cart)
 	const [auth,setAuth]=useState("hi 我登入囉")
 	const [data,setData]=useState({account:"",password:""})
+	const [showData,setShowdata]=useState(false)
+
+	console.log("data",data)
+	
+	 function fetchSetData(data) {
+		// await fetch("http://localhost:5000/api/login", {
+		//   method: "POST",
+		//   headers: {
+		// 	'Content-type': 'application/json'
+		//   },
+		//   body: JSON.stringify({ data })
+		// })
+		 fetch("http://localhost:5000/api/login", {
+			method: "POST",
+			body: JSON.stringify({data}), 
+			headers: new Headers({
+				"Content-Type": "application/json",
+				}),
+			})
+			.then( res => {
+				console.log(res)
+			  return res.json();
+			}).then(result => {
+			   localStorage.setItem("token", result.data.token);
+			  // token解析
+			  const token = result.data.token.split(" ")[1];
+	  
+			  let payload = JSON.parse(atob(token.split(".")[1]));
+	  
+			  // console.log("res :",res)
+	  
+			  console.log("res=>", payload);
+			  console.log(result.data.name);
+			});
+	  }
 
 	useEffect(()=>{
-		setAuth("嗨嗨嗨嗨")
-	},[])
+		console.log("初始值測試")
+		if(showData){
+			fetchSetData()
+		}
+		setShowdata(false)
+	},[data])
 
   return (
 		<Router>
@@ -57,7 +96,7 @@ function App() {
 							<UserDashboard />
 						</Route>
 						<Route path="/memberlogin">
-							<MemberLogin setAuth={setAuth} setData={setData} data={data} />
+							<MemberLogin setAuth={setAuth} setData={setData} data={data} setShowdata={setShowdata} />
 						</Route>
 						<Route path="/memberegister">
 							<MemberRegister />
