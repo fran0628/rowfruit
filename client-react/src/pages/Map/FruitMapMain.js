@@ -1,21 +1,32 @@
-import React, { useEffect, useState} from 'react'
-import './Map.scss'
-import FruitBall from './components/FruitBall'
-import FruitMapFarmer from './components/FruitMapFarmer'
-import axios from 'axios'
+import React, { useEffect, useState } from "react";
+import "./Map.scss";
+import FruitBall from "./components/FruitBall";
+import FruitMapFarmer from "./components/FruitMapFarmer";
+import axios from "axios";
 
 function FruitMapMain(props) {
-  const [data, setData]=useState([])
+  const [data, setData] = useState([]);
+  const [fruitNameList, setFruitNameList] = useState([]);
+  const fruitList = [
+    "apple",
+    "banana",
+    "guava",
+    "avocado",
+    "pineapple",
+    "tangerine",
+    "kiwi",
+    "papaya",
+    "watermelon",
+    "mango",
+  ];
+
   useEffect(() => {
     const fetchFruitMapFarmerItem = async () => {
       const res = await axios.get("/Map/Fruit");
-      console.log(res);
-      // setFruitMapFarmerItem(res.data);
+      // console.log(res);
       console.log(res.data);
-      setData(res.data)
-
+      setData(res.data);
     };
-
     fetchFruitMapFarmerItem();
   }, []);
 
@@ -23,9 +34,9 @@ function FruitMapMain(props) {
     <>
       <div>
         <FruitBall />
-        <FruitMapFarmer data={data}/>
+        <FruitMapFarmer data={data} />
       </div>
     </>
-  )
+  );
 }
-export default FruitMapMain
+export default FruitMapMain;
