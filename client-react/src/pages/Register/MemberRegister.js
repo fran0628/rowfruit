@@ -1,6 +1,6 @@
-import React, { useState,useEffect } from "react";
+import React, { useState } from "react";
 import "./MemberRegister.scss";
-import axios from 'axios'
+// import axios from 'axios'
 
 
 
