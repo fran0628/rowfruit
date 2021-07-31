@@ -1,6 +1,6 @@
 // import axios from "axios";
-import React, { useState, useEffect } from "react";
-import { withRouter } from "react-router-dom";
+import React, { useState } from "react";
+// import { withRouter } from "react-router-dom";
 import "./MemberLogin.scss";
 
 
@@ -35,6 +35,7 @@ function MemberLogin(props) {
       newData.password = password;
       return newData;
     });
+    console.log("loginSubmit :", loginSubmit)
   }
 
   // const [isLoading, setIsLoading] = useState(false);
@@ -51,9 +52,9 @@ function MemberLogin(props) {
   // // })
 
   // ex. 送到伺服器
-  function changeLogin() {
-    setAuth("Steven");
-  }
+  // function sucessLogin() {
+  //   setAuth("Steven");
+  // }
 
   function loginApi() {
     // let data = { account: 123456, password: 123456 };
@@ -178,7 +179,7 @@ function MemberLogin(props) {
                       </button>
                     </div>
                     <div className=" d-sm-none my-2">
-                      <button type="submit" className="btn rwd-btn">
+                      <button type="button" className="btn rwd-btn">
                         登入
                       </button>
                     </div>
@@ -216,4 +217,4 @@ function MemberLogin(props) {
   );
   
 }
-export default withRouter(MemberLogin);
+export default MemberLogin;
