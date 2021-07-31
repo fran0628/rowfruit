@@ -1,9 +1,10 @@
-import React from "react";
+import React,{useState} from "react";
 import TitleTag from "./TitleTag";
 import { v4 } from "uuid";
 import FruitType from "./ProductLIst/FruitType";
 function Middle(props) {
   const { data,cartData, addCart,setCounts } = props;
+
  
   //美白商品資料
   const whiteningData = data.filter((item) => {
@@ -46,7 +47,7 @@ function Middle(props) {
   ];
   return (
     <>
-      <main className="col-12 col-lg-6 customizedProduct">
+      <main className="col-12 col-lg-6 customizedProduct" id="customizedProduct">
         <TitleTag
           key={v4()}
           className={title[0].className}
@@ -76,7 +77,7 @@ function Middle(props) {
               />
             );
           })}
-          <div id="whitening">
+          <div id="whitening" name="whitening">
           <TitleTag
             key={v4()}
             className={title[1].className}

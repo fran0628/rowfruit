@@ -1,6 +1,5 @@
 import React from "react";
 import FruitBallItem from './FruitBallItem'
-// import FruitMapIcon from "../indexCustomAniIcon/avocado.png";
 function FruitBall(props) {
   const fruitBallImg = [
     'apple.png','avocado.png','banana.png','guava.png','pineapple.png','kiwi.png','mango.png','orange.png','papaya.png','watermelon.png'
@@ -23,18 +22,6 @@ function FruitBall(props) {
       {fruitBallImg.map((Img)=>{ 
         return <FruitBallItem Img={Img}/>
       })}
-        {/* <FruitBallItem  />
-        <FruitBallItem  />
-        <FruitBallItem  />
-        <FruitBallItem  />
-        <FruitBallItem  />
-        <FruitBallItem  />
-        <FruitBallItem  />
-        <FruitBallItem  />
-        <FruitBallItem  />
-        <FruitBallItem  />
-        <FruitBallItem  />
-        <FruitBallItem  /> */}
       </div>
     </>
   )

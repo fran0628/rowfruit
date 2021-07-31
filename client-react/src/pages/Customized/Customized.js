@@ -5,6 +5,7 @@ import { data } from "./data"; //假裝資料
 import LeftAside from "./components/LeftAside/LeftAside";
 import Middle from "./components/Middle/Middle";
 import RightAside from "./components/RightAside/RightAside";
+import BackgroundSlider from 'react-background-slider'
 // 伺服器fetch
 // async function fetchData(setProducts) {
 //   const res = await fetch(`${getCustomizeProductData}`);
@@ -78,6 +79,7 @@ function Customized(props) {
         <h1 className="display-4 text-center fw-bold">客製化水果盒</h1>
       </div>
       <div className="container">
+    <BackgroundSlider images={["https://images.pexels.com/photos/1028599/pexels-photo-1028599.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260","https://images.pexels.com/photos/1414130/pexels-photo-1414130.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260","https://images.pexels.com/photos/65256/pomegranate-open-cores-fruit-fruit-logistica-65256.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"]} duration={10} transition={2} />
         <div className="row">
           {/* 左側邊 */}
           <LeftAside cartData={cartData} />
@@ -103,6 +105,7 @@ function Customized(props) {
         </div>
       </div>
     </div>
+   
   );
 }
 export default Customized;

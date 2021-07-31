@@ -1,3 +1,4 @@
+
 import React from "react";
 import CartListContent from "./CartListContent";
 import Swal from "sweetalert2";
@@ -69,6 +70,10 @@ function RightAside(props) {
     updateCartToLocalStorage()
     props.history.push('/cart')
   }
+  function removeData(){
+    setCartData([]);
+      setCounts([]);
+  }
 
   return (
     <>
@@ -119,16 +124,17 @@ function RightAside(props) {
 
         <div className="d-flex justify-content-between">
           <div className="d-flex">
-            <p className="px-3">份量</p>
-            <p>{totalWight}</p>
+            <p className="px-3 text-dark">份量</p>
+            <p className="text-dark">{totalWight}</p>
           </div>
           <div>
-            <p>每周所需分量為40份</p>
+            {totalWight>40? <p className="text-dark bg-warning">您已經達到每周所需份量</p>:<p className="text-dark">每周所需分量為40份</p>}
+            
           </div>
           <div className="d-flex">
             <p className="px-3">總金額</p>
-            <p>$</p>
-            <p>{totalPrice}</p>
+            <p className="text-dark">$</p>
+            <p className="text-dark">{totalPrice}</p>
           </div>
         </div>
         <div className="d-flex justify-content-around">
@@ -138,7 +144,7 @@ function RightAside(props) {
           </button>
           <button onClick={addCartAndTurnCartPage} className="sub">立即結帳</button>
         </div>
-        <button className="btn removeFruit">Remove All</button>
+        <button onClick={removeData} className="btn removeFruit">Remove All</button>
         <div className="fruitbox"></div>
       </aside>
     </>

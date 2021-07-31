@@ -11,18 +11,23 @@ router.post("/", async (req, res) => {
 	var string=JSON.stringify(member); 
 	var data = JSON.parse(string)
 	console.log(data)
-	// const token = 'Bearer ' + jwt.sign( { _id:1, id:member.id,account:member.account }, 'secret12345', { expiresIn: 3600 * 24 * 3 }
-	const token = 'Bearer ' + jwt.sign( {id:data[0].id,account:data[0].account}, 'secret12345', { expiresIn: 3600 * 24 * 3 }
-  )
-//   console.log(member[0])
+	if(data.length==1) {
+		const token = 'Bearer ' + jwt.sign( {id:data[0].id,account:data[0].account}, 'secret12345', { expiresIn: 3600 * 24 * 3 })
 
-  res.json({ status: 'ok', data: { token: token,name:data[0].name }
-  })
-    // const member = await connection.queryAsync(
-	// 	"SELECT * FROM member_list"
-	// );
-    
-	// res.json(member);
+	res.json({
+		code:200,
+		status: 'success', 
+		data: { 
+			token: token,name:data[0].name 
+		}})
+   
+	} else {
+		res.json({
+			code:401,
+			status: 'failure', 
+		})
+	}
+	
 	
 });
 

@@ -1,17 +1,8 @@
-import axios from "axios";
-import React, { useState } from "react";
+// import axios from "axios";
+import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import "./MemberLogin.scss";
 
-// import Background from '../../../banner.png';
-// const [member,setMember]=useState()
-
-// useEffect(()=>{
-//   async function member(set) {
-//     const res = await fetch('localhost:/5000/api/member')
-//     const apidata  = await res.json()
-//     set(apidata);
-// },[])
 
 const banner = {
   backgroundImage: `url(${"MemberPhoto/banner.png"})`,
@@ -21,63 +12,109 @@ const banner = {
   backgroundSize: "cover",
 };
 
-  function MemberLogin(props) {
-  const {setAuth}=props
+function MemberLogin(props) {
+  const { setAuth, data, setData, setShowdata } = props;
+
   const [account, setAccount] = useState("");
 
   function accountChange(e) {
-    setAccount(e.target.value)
+    setAccount(e.target.value);
   }
+
   const [password, setPassword] = useState("");
 
   function passwordChange(e) {
-    setPassword(e.target.value)
-  }
-  const [login, setLogin] = useState("");
-
-  function loginChange(e) {
-    setLogin(e.target.value)
+    setPassword(e.target.value);
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const data = new FormData(e.target);
-
-    console.log(data.get("account"));
-    console.log(data.get("password"));
-
-    // ex. 送到伺服器
-  };
-  function changeLogin(){
-    setAuth("Steven")
+  function loginSubmit() {
+    setShowdata(true);
+    setData(() => {
+      const newData = { ...data };
+      newData.account = account;
+      newData.password = password;
+      return newData;
+    });
   }
 
-  function loginApi (){
-    let data = {"account":666666,"password":666666};
+  // const [isLoading, setIsLoading] = useState(false);
+  // // 自動1秒後關閉指示的spinner
+  // useEffect(() => {
+  //   if (isLoading) {
+  //     setTimeout(() => setIsLoading(false), 1000);
+  //   }
+  // }, [isLoading]);
+  // // 狀態變為物件，處理多個欄位
+  // // const [fields, setFields] = useState({
+  // //   username: '',
+  // //   password: '',
+  // // })
 
-    // let data = {
-    //   account=this.account,
-    //   password=this.password
-    // };
-    axios.post(`http://localhost:5000/api/login`,data)
-  
-    .then(res=>{
-        localStorage.setItem('token',res.data.data.token);
-        // token解析
-        const token =  res.data.data.token.split(' ')[1];
-        
-        let payload =JSON.parse(atob(token.split('.')[1]));
-  
-        console.log('res=>',payload);
-        console.log(res.data.data.name);            
+  // ex. 送到伺服器
+  function changeLogin() {
+    setAuth("Steven");
+  }
+
+  function loginApi() {
+    // let data = { account: 123456, password: 123456 };
+
+    // axios
+    //   .post(`http://localhost:5000/api/login`, data)
+
+    //   .then((res) => {
+    //     localStorage.setItem("token", res.data.data.token);
+    //     // token解析
+    //     const token = res.data.data.token.split(" ")[1];
+
+    //     let payload = JSON.parse(atob(token.split(".")[1]));
+
+    //     console.log("res=>", payload);
+    //     console.log(res.data.data.name);
+    //   });
+
+    let url = "http://localhost:5000/api/login";
+    let data = { account: "666666", password: "666666" };
+
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: new Headers({
+        "Content-Type": "application/json",
+      }),
     })
-  
+      .then((res) => {
+        return res.json();
+      })
+      .then((result) => {
+        localStorage.setItem("token", result.data.token);
+        // token解析
+        const token = result.data.token.split(" ")[1];
+
+        let payload = JSON.parse(atob(token.split(".")[1]));
+
+        // console.log("res :",res)
+
+        console.log("res=>", payload);
+        console.log(result.data.name);
+      });
+
+    // .catch((error) => console.error("Error:", error))
+    // .then((response) => console.log("Success:", response));
   }
 
-  return (
-    <div>
-      <button onClick={changeLogin}>我會改變login</button>
+  // const loading = (
+  //   <>
+  //     <div className="d-flex justify-content-center">
+  //       <div className="spinner-border" role="status">
+  //         <span className="sr-only">Loading...</span>
+  //       </div>
+  //     </div>
+  //   </>
+  // );
+
+  return  (
+    <form>
+      {/* <button onClick={changeLogin}>我會改變login</button> */}
       <div className="MemberBanner" style={banner}>
         {/* Login  Form */}
         <div className="container">
@@ -86,13 +123,13 @@ const banner = {
               <div className="card shadow">
                 <div className="MemberCardLogo text-center border-bottom">
                   {/* ROWFRUIT*/}
-                  <img className="logo p-3" src="MemberPhoto/logo.svg" alt="" />
+                  <img className="87 p-3" src="MemberPhoto/logo.svg" alt="" />
                 </div>
                 <div className="MemberBody">
                   <h3 className="NormalMemberLogin d-flex justify-content-center mb-3">
                     一般會員登入
                   </h3>
-                  <form onSubmit={handleSubmit}>
+                  <form>
                     <div className="mb-3">
                       <label htmlFor="username" className="form-label">
                         帳號
@@ -101,8 +138,8 @@ const banner = {
                         className="form-control"
                         type="text"
                         name="account"
-                        placeholder="Account"
                         value={account}
+                        placeholder="Account"
                         onChange={accountChange}
                         required
                       />
@@ -118,6 +155,8 @@ const banner = {
                         placeholder="Password"
                         value={password}
                         onChange={passwordChange}
+                        minLength="6"
+                        maxLength="8"
                         required
                       />
                     </div>
@@ -127,19 +166,19 @@ const banner = {
                         className="form-check-input"
                         id="remember"
                       />
-                      <label htmlFor="remember">Remeber Me</label>
+                      <label htmlFor="remember">記住使用者帳號</label>
                     </div>
                     <div className="d-none d-sm-flex justify-content-center">
-                      <button type="submit" className="btn normal-btn"
-                      //  onChange={loginChange}
-                       onClick={loginApi}>
+                      <button
+                        type="submit"
+                        className="btn normal-btn"
+                        onClick={loginSubmit}
+                        >
                         登入
                       </button>
                     </div>
                     <div className=" d-sm-none my-2">
-                      <button type="submit" className="btn rwd-btn"
-                      //  onChange={loginChange}
-                       onClick={loginApi}>
+                      <button type="submit" className="btn rwd-btn">
                         登入
                       </button>
                     </div>
@@ -157,7 +196,7 @@ const banner = {
                     {/* <div className="d-flex justify-content-center mb-1">
                 <h5 className="FastDoLogin">快速登入</h5>
               </div>
-              <div className="d-flex justify-content-center mb-2">
+              <div className="d-flex justify-content-center mb-2 " type="button">
                 <img className="mx-3" src="MemberPhoto/GOOGLE.png" alt="" />
                 <img className="mx-3" src="MemberPhoto/facebook.png" alt="" />
               </div> */}
@@ -173,7 +212,8 @@ const banner = {
           </div>
         </div>
       </div>
-    </div>
+    </form>
   );
+  
 }
 export default withRouter(MemberLogin);

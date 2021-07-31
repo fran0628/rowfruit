@@ -1,6 +1,6 @@
-import React, { useState,useEffect } from "react";
+import React, { useState } from "react";
 import "./MemberRegister.scss";
-import axios from 'axios'
+// import axios from 'axios'
 
 
 
@@ -22,8 +22,8 @@ export default function MemberRegister() {
     email: "",
   });
   const [fieldErrors, setFieldErrors] = useState({
-    username: "",
-    email: "",
+    fullname: "",
+    account: "",
     password: "",
     repassword: "",
     email: "",
@@ -60,6 +60,7 @@ export default function MemberRegister() {
     console.log(fields.email);
 
     // ex. 送到伺服器
+    
   };
 
   // 整個表單有任何變動(ex.某個欄位有輸入)
@@ -90,6 +91,7 @@ export default function MemberRegister() {
     setFieldErrors(updatedFieldErrors);
   };
 
+  
   // let Api = axios({
   //   method: 'post',
   //   baseURL: 'http://localhost:5000',

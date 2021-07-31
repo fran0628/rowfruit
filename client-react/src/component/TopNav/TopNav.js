@@ -12,10 +12,13 @@ import {
 import logoImg from './logo.png'
 import { LinkContainer } from "react-router-bootstrap";
 
-
+function logout(){
+	localStorage.clear();
+	window.location.href = 'memberlogin'
+}
 
  function TopNav(props) {
-	 const{auth,cartUpdate,setCartUpdate}=props
+	 const{auth,cartUpdate,setCartUpdate,checkLogin}=props
 	 const [cartLength,setCartLength]=useState()
    const [show, setShow] = useState(false);
 
@@ -23,7 +26,7 @@ import { LinkContainer } from "react-router-bootstrap";
 		const handleShow = () => setShow(true);
 	
 		
-	
+	console.log(checkLogin);
 	useEffect(()=>{
 		const cart = localStorage.getItem('cart')||'[]'
 		setCartLength(JSON.parse(cart).length)
@@ -68,7 +71,7 @@ import { LinkContainer } from "react-router-bootstrap";
 								<LinkContainer to="/customized">
 									<Nav.Link>客製水果盒</Nav.Link>
 								</LinkContainer>
-								<LinkContainer to="/FruitMapMain">
+								<LinkContainer to="/fruitmap">
 									<Nav.Link>水果地圖</Nav.Link>
 								</LinkContainer>
 								<NavDropdown title="小農部落" id="basic-nav-dropdown">
@@ -83,7 +86,8 @@ import { LinkContainer } from "react-router-bootstrap";
 								<LinkContainer to="/about">
 									<Nav.Link>關於我們</Nav.Link>
 								</LinkContainer>
-								<NavDropdown title="會員中心" id="basic-nav-dropdown">
+								{checkLogin.islogin ? 
+									<NavDropdown title="會員中心" id="basic-nav-dropdown">
 									<LinkContainer to="/memberdashboard">
 										<NavDropdown.Item>修改會員資料</NavDropdown.Item>
 									</LinkContainer>
@@ -92,14 +96,10 @@ import { LinkContainer } from "react-router-bootstrap";
 										<NavDropdown.Item>訂單資訊</NavDropdown.Item>
 									</LinkContainer>
 								</NavDropdown>
-								<LinkContainer to="memberlogin">
-									<Nav.Link>
-										{auth? auth:<i class="fas fa-user fa-lg nav-icon" />}
-									</Nav.Link>
-								</LinkContainer>
+										 :
+										 "" }
 								<LinkContainer to="cart">
-										
-									<Nav.Link>
+										<Nav.Link>
 										<div className="position-relative">
 										{cartLength>0 && <div className="text-warning d-flex align-items-center justify-content-center position-absolute">{cartLength}</div>}
 											
@@ -107,6 +107,16 @@ import { LinkContainer } from "react-router-bootstrap";
 										</div>
 									</Nav.Link>
 								</LinkContainer>
+								{checkLogin.islogin ? 
+										 <div>
+											<sapn> hi {checkLogin.name}</sapn> <button className="btn btn-success" onClick={logout}>登出</button>
+										 </div>  :
+										 <a className="nav-link" href="/memberlogin"> <i class="fas fa-user fa-lg nav-icon" /> </a>}
+								{/* <LinkContainer >
+									<Nav.Link>
+									
+									</Nav.Link>
+								</LinkContainer> */}
 							</Nav>
 						</Navbar.Collapse>
 						<Button
