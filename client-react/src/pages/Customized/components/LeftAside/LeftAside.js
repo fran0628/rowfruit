@@ -109,7 +109,7 @@ function LeftAside(props) {
               offset={0}
               duration={700}
             >
-              銀髮族
+              顧眼睛
             </Link>
           </li>
         </ul>
