@@ -10,6 +10,8 @@ import { withRouter } from 'react-router-dom'
 
 function MainProduct(props) {
 
+const{setCartUpdate}=props;
+
 const [data, setData] = useState({
   fruit_item:"",
   product_images:"",
@@ -30,7 +32,7 @@ useEffect(() => {
     })();
   }, [props.match.params.id]); 
 
-// console.log(data)
+console.log(data)
 useEffect(() => {
   (async function productsData() {
     const res = await fetch(apiMain)
@@ -63,6 +65,7 @@ return (
               fruit_item = {data.fruit_item}
               price = {data.price}
               images = {data.images}
+              setCartUpdate={setCartUpdate}
             />
             {/*側欄推薦其它產品*/}
             <Aside

@@ -2,7 +2,7 @@ import React from 'react'
 import BuyContent from './BuyContent'
 
 function Buy(props) {
-    const {id, product_name, fruit_item, price, images} = props
+    const {id, product_name, fruit_item, price, images, setCartUpdate} = props
     return (
         <>
             <BuyContent
@@ -11,7 +11,8 @@ function Buy(props) {
                 name={product_name}
                 fruit_item={fruit_item}
                 boxprice={price}
-                images={images}  
+                images={images}
+                setCartUpdate={setCartUpdate}  
             />
         </>
     )

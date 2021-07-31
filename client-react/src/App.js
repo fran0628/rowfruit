@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import MainProductFitness from "./pages/MainProduct/MainProductDetail/MainProduct";
+import MainProduct from "./pages/MainProduct/MainProductDetail/MainProduct";
 import Main from "./pages/MainProduct/MainSelector/Main";
 import Home from "./pages/Home";
 import FarmList from "./pages/Blog/FarmList/FarmList";
@@ -68,7 +68,7 @@ function App() {
 							<FruitMapMain />
 						</Route>
 						<Route path="/MainProduct/:id?">
-							<MainProductFitness />
+							<MainProduct setCartUpdate={setCartUpdate}/>
 						</Route>
 						<Route path="/Main">
 							<Main />
