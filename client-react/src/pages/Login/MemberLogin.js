@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import "./MemberLogin.scss";
-import Swal from "sweetalert2";
+
 
 const banner = {
   backgroundImage: `url(${"MemberPhoto/banner.png"})`,
@@ -170,7 +170,7 @@ function MemberLogin(props) {
                     </div>
                     <div className="d-none d-sm-flex justify-content-center">
                       <button
-                        type="button"
+                        type="submit"
                         className="btn normal-btn"
                         onClick={loginSubmit}
                         >
@@ -178,7 +178,7 @@ function MemberLogin(props) {
                       </button>
                     </div>
                     <div className=" d-sm-none my-2">
-                      <button type="button" className="btn rwd-btn">
+                      <button type="submit" className="btn rwd-btn">
                         登入
                       </button>
                     </div>

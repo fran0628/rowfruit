@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import MainProductFitness from "./pages/MainProduct/MainProductDetail/MainProduct";
 import Main from "./pages/MainProduct/MainSelector/Main";
@@ -58,7 +59,6 @@ function App() {
 
       .then((res) => {
 		  if(res.data.code===200) {
-		
 
 			// token解析
 			const token = res.data.data.token.split(" ")[1];
@@ -74,9 +74,22 @@ function App() {
 				islogin:true,
 				name:username
 			})
-			window.location.href = 'Main'
+			Swal.fire({
+				position: 'center-center',
+				icon: 'success',
+				title: '登入成功',
+				showConfirmButton: false,
+				timer: 5000,
+			  })
+			window.location.href = 'about'
 		  } else {
-			  alert('帳號或密碼有誤');
+			Swal.fire({
+				position: 'center-center',
+				icon: 'error',
+				title: '帳號或密碼有錯',
+				showConfirmButton: false,
+				timer: 1500,
+			  })
 		  }
       
       });

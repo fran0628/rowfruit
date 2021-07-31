@@ -3,7 +3,6 @@ import React , { Component } from 'react'
 import './userdashboard.scss'
 import axios from 'axios';
 class UserDashboard extends Component {
-
 	constructor(){
 		super();
 		this.state = {
@@ -37,10 +36,8 @@ class UserDashboard extends Component {
 			email:data.email,
 			phone:data.phone,
 			address:data.address
-			
 		})
-		
-		})
+	  })
 	}
 	
 	putUserDetail(){
@@ -71,9 +68,15 @@ class UserDashboard extends Component {
 		})
 	}
 
-	changePut = (e)=>{
-
-		console.log(e);
+	setMemberChange = (event)=>{
+		console.log(event.target.value);
+		this.setState({
+			name:event.target.value,
+			password:event.target.value,
+			confirmPassword:event.target.value,
+			address:event.target.value,
+			phone:event.target.value
+		})
 		// this.setState({
 		// 	account:data.account,
 		// 	name:data.name,
@@ -84,8 +87,11 @@ class UserDashboard extends Component {
 		// 	address:data.address
 			
 		// })
-
 	} 
+
+	click=() => {
+		console.log(this.state.name)
+	}
     render(){
 
 		const datas = this.state;
@@ -116,7 +122,7 @@ class UserDashboard extends Component {
 								type="text"
 								className="form-control form-control-plaintext"
 								id="inputUser"
-								value={this.state.account}
+								defaultValue={this.state.account}
 								readOnly
 							/>
 						</div>
@@ -125,8 +131,8 @@ class UserDashboard extends Component {
 								姓名
 							</label>
 							<input type="text" className="form-control" id="inputPassword4" 
-								value={datas.name}
-								onChange={this.changePut()}
+								defaultValue={datas.name}
+								onChange={(event)=>this.setMemberChange.setState}
 							/>
 						</div>
 						<div className="col-md-6">
@@ -137,7 +143,8 @@ class UserDashboard extends Component {
 								type="password"
 								className="form-control"
 								id="inputPassword"
-								value={this.state.password}
+								defaultValue={this.state.password}
+								onChange={(event)=>this.setMemberChange(event)}
 							/>
 						</div>
 						<div className="col-md-6">
@@ -148,7 +155,8 @@ class UserDashboard extends Component {
 								type="password"
 								className="form-control"
 								id="inputPassword2"
-								value={this.state.confirmPassword}
+								defaultValue={this.state.confirmPassword}
+								onChange={(event)=>this.setMemberChange(event)}
 							/>
 						</div>
 						<div className="col-4">
@@ -156,8 +164,8 @@ class UserDashboard extends Component {
 								電話
 							</label>
 							<input type="tel" className="form-control" id="inputPhone"  
-								value={this.state.phone}
-
+								defaultValue={this.state.phone}
+								onChange={(event)=>this.setMemberChange(event)}
 							/>
 						</div>
 						<div className="col-8">
@@ -165,7 +173,8 @@ class UserDashboard extends Component {
 								地址
 							</label>
 							<input type="text" className="form-control" id="inputAddress" 
-								value={this.state.address}
+								defaultValue={this.state.address}
+								onChange={(event)=>this.setMemberChange(event)}
 							/>
 						</div>
 
