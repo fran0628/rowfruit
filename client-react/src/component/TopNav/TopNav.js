@@ -106,7 +106,7 @@ function logout(){
 								</LinkContainer>
 								{checkLogin.islogin ? 
 										 <div>
-											<sapn> hi {checkLogin.name}</sapn> <button className="btn btn-warning" onClick={logout}>登出</button>
+											<sapn> hi {checkLogin.name}</sapn> <button className="btn btn-success" onClick={logout}>登出</button>
 										 </div>  :
 										 <a className="nav-link" href="/memberlogin"> <i class="fas fa-user fa-lg nav-icon" /> </a>}
 								{/* <LinkContainer >
