@@ -114,7 +114,7 @@ function MemberLogin(props) {
 
   return  (
     <form>
-      <button onClick={changeLogin}>我會改變login</button>
+      {/* <button onClick={changeLogin}>我會改變login</button> */}
       <div className="MemberBanner" style={banner}>
         {/* Login  Form */}
         <div className="container">
@@ -166,23 +166,14 @@ function MemberLogin(props) {
                         className="form-check-input"
                         id="remember"
                       />
-                      <label htmlFor="remember">Remeber Me</label>
+                      <label htmlFor="remember">記住使用者帳號</label>
                     </div>
                     <div className="d-none d-sm-flex justify-content-center">
                       <button
                         type="button"
                         className="btn normal-btn"
-                        onClick={() =>
-                          Swal.fire({
-                            position: "center-center",
-                            icon: "success",
-                            title: "登入成功",
-                            showConfirmButton: false,
-                            timer: 1500,
-                            
-                          })
-                        }
-                      >
+                        onClick={loginSubmit}
+                        >
                         登入
                       </button>
                     </div>
