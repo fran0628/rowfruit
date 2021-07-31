@@ -31,7 +31,7 @@ function App() {
 		imageUrl:""
 	  }])
 	// console.log(cart)
-	console.log(cart)
+	// console.log(cart)
 	const username = localStorage.getItem('name');
 	const [islogin,setIslogin]=useState({
 		islogin:username?true:false,
@@ -43,15 +43,9 @@ function App() {
 	const [showData,setShowdata]=useState(false)
 
 	console.log("data",data)
-	
+	console.log(islogin)
+
 	 function fetchSetData() {
-		// await fetch("http://localhost:5000/api/login", {
-		//   method: "POST",
-		//   headers: {
-		// 	'Content-type': 'application/json'
-		//   },
-		//   body: JSON.stringify({ data })
-		// })
 	let body = { account: data.account, password: data.password };
 
     axios
@@ -84,14 +78,13 @@ function App() {
 			window.location.href = 'about'
 		  } else {
 			Swal.fire({
-				position: 'center-center',
+				position: 'top-top',
 				icon: 'error',
 				title: '帳號或密碼有錯',
 				showConfirmButton: false,
 				timer: 1500,
 			  })
 		  }
-      
       });
 	  }
 

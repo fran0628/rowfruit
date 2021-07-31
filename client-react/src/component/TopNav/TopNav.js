@@ -14,7 +14,7 @@ import { LinkContainer } from "react-router-bootstrap";
 
 function logout(){
 	localStorage.clear();
-	window.location.href = 'Main'
+	window.location.href = 'memberlogin'
 }
 
  function TopNav(props) {
@@ -86,7 +86,8 @@ function logout(){
 								<LinkContainer to="/about">
 									<Nav.Link>關於我們</Nav.Link>
 								</LinkContainer>
-								<NavDropdown title="會員中心" id="basic-nav-dropdown">
+								{checkLogin.islogin ? 
+									<NavDropdown title="會員中心" id="basic-nav-dropdown">
 									<LinkContainer to="/memberdashboard">
 										<NavDropdown.Item>修改會員資料</NavDropdown.Item>
 									</LinkContainer>
@@ -95,6 +96,8 @@ function logout(){
 										<NavDropdown.Item>訂單資訊</NavDropdown.Item>
 									</LinkContainer>
 								</NavDropdown>
+										 :
+										 "" }
 								<LinkContainer to="cart">
 										<Nav.Link>
 										<div className="position-relative">
