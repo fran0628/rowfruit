@@ -1,8 +1,96 @@
-import React from 'react'
-import './userdashboard.scss'
 
-function UserDashboard() {
-    return (
+import React , { Component } from 'react'
+import './userdashboard.scss'
+import axios from 'axios';
+class UserDashboard extends Component {
+
+	constructor(){
+		super();
+		this.state = {
+			account:"",
+			name:"",
+			password:"",
+			confirmPassword:"",
+			email:"",
+			phone:"",
+			address:""
+		}
+		this.getuserDetail();
+	}
+
+	getuserDetail(){
+	
+		const token = localStorage.getItem('token').split(" ")[1];
+	  
+		let payload = JSON.parse(atob(token.split(".")[1]));
+		axios
+		.get('http://localhost:5000/api/member/'+payload.id)
+	
+		.then((res) => {
+			console.log(res.data[0]);
+			const data = res.data[0];
+		this.setState({
+			account:data.account,
+			name:data.name,
+			password:data.password,
+			confirmPassword:data.password,
+			email:data.email,
+			phone:data.phone,
+			address:data.address
+			
+		})
+		
+		})
+	}
+	
+	putUserDetail(){
+
+
+		const token = localStorage.getItem('token').split(" ")[1];
+	  
+		let payload = JSON.parse(atob(token.split(".")[1]));
+		let body = { 
+			id:payload.id,
+			account:this.userDetail.account,
+			name:this.userDetail.name,
+			password:this.userDetail.password,
+			confirmPassword:this.userDetail.password,
+			email:this.userDetail.email,
+			phone:this.userDetail.phone,
+			address:this.userDetail.address
+			
+		};
+
+		axios
+		.put('http://localhost:5000/api/member/',body)
+	
+		.then((res) => {
+			console.log(res.data[0]);
+		
+		
+		})
+	}
+
+	changePut = (e)=>{
+
+		console.log(e);
+		// this.setState({
+		// 	account:data.account,
+		// 	name:data.name,
+		// 	password:data.password,
+		// 	confirmPassword:data.password,
+		// 	email:data.email,
+		// 	phone:data.phone,
+		// 	address:data.address
+			
+		// })
+
+	} 
+    render(){
+
+		const datas = this.state;
+
+		return (
 			<>
 				<div className="container mb-5 mt-3 p-5 mx-auto">
 					<h3 className="text-center mb-4">修改會員資料</h3>
@@ -28,6 +116,7 @@ function UserDashboard() {
 								type="text"
 								className="form-control form-control-plaintext"
 								id="inputUser"
+								value={this.state.account}
 								readOnly
 							/>
 						</div>
@@ -35,7 +124,10 @@ function UserDashboard() {
 							<label for="inputPassword4" className="form-label">
 								姓名
 							</label>
-							<input type="text" className="form-control" id="inputPassword4" />
+							<input type="text" className="form-control" id="inputPassword4" 
+								value={datas.name}
+								onChange={this.changePut()}
+							/>
 						</div>
 						<div className="col-md-6">
 							<label for="inputPassword" className="form-label">
@@ -45,6 +137,7 @@ function UserDashboard() {
 								type="password"
 								className="form-control"
 								id="inputPassword"
+								value={this.state.password}
 							/>
 						</div>
 						<div className="col-md-6">
@@ -55,19 +148,25 @@ function UserDashboard() {
 								type="password"
 								className="form-control"
 								id="inputPassword2"
+								value={this.state.confirmPassword}
 							/>
 						</div>
 						<div className="col-4">
 							<label for="inputPhone" className="form-label">
 								電話
 							</label>
-							<input type="tel" className="form-control" id="inputPhone" />
+							<input type="tel" className="form-control" id="inputPhone"  
+								value={this.state.phone}
+
+							/>
 						</div>
 						<div className="col-8">
 							<label for="inputAddress" className="form-label">
 								地址
 							</label>
-							<input type="text" className="form-control" id="inputAddress" />
+							<input type="text" className="form-control" id="inputAddress" 
+								value={this.state.address}
+							/>
 						</div>
 
 						<div className="col-12">
@@ -79,5 +178,7 @@ function UserDashboard() {
 				</div>
 			</>
 		);
+    }
 }
+
 export default UserDashboard;
