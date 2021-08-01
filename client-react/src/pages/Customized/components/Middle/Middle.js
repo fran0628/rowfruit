@@ -4,7 +4,7 @@ import { v4 } from "uuid";
 import $ from "jquery";
 import FruitType from "./ProductLIst/FruitType";
 function Middle(props) {
-  const { data, cartData, addCart, setCounts,modalRef } = props;
+  const { data, cartData, addCart, setCounts, modalRef, setModalData } = props;
 
   //美白商品資料
   const whiteningData = data.filter((item) => {
@@ -27,9 +27,9 @@ function Middle(props) {
     $(".allButton").on("click", () => {
       const totalClass = $("#all").find(".productItem").length;
       const activeClass = $("#all").find(".active").length;
-      if ((totalClass !== activeClass)) {
+      if (totalClass !== activeClass) {
         $("#all").find(".productItem").addClass("active");
-      }else{
+      } else {
         $("#all").find(".productItem").removeClass("active");
       }
     });
@@ -100,6 +100,7 @@ function Middle(props) {
                 nutrients={nutrients}
                 setCounts={setCounts}
                 modalRef={modalRef}
+                setModalData={setModalData}
               />
             );
           })}
@@ -124,6 +125,7 @@ function Middle(props) {
                   nutrients={nutrients}
                   setCounts={setCounts}
                   modalRef={modalRef}
+                  setModalData={setModalData}
                 />
               );
             })}
@@ -148,7 +150,8 @@ function Middle(props) {
                   items={items}
                   nutrients={nutrients}
                   setCounts={setCounts}
-                   modalRef={modalRef}
+                  modalRef={modalRef}
+                  setModalData={setModalData}
                 />
               );
             })}
@@ -174,6 +177,7 @@ function Middle(props) {
                   nutrients={nutrients}
                   setCounts={setCounts}
                   modalRef={modalRef}
+                  setModalData={setModalData}
                 />
               );
             })}
@@ -199,6 +203,7 @@ function Middle(props) {
                   nutrients={nutrients}
                   modalRef={modalRef}
                   setCounts={setCounts}
+                  setModalData={setModalData}
                 />
               );
             })}

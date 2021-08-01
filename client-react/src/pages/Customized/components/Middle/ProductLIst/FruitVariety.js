@@ -13,12 +13,15 @@ function FruitVariety(props) {
     fram_name,
     avatar,
     rating,
+    imageArray,
+    content,
     imageFront,
     cartData,
     addCart,
     nutrients,
     setCounts,
-    modalRef
+    modalRef,
+    setModalData
   } = props;
   const nutrientsArray = nutrients.split(",");
   const newImageUrl =
@@ -68,8 +71,25 @@ function FruitVariety(props) {
       addCartDataAndCounts()
     }
   }
+  
+  const newImageArray = imageArray&&imageArray.split(',').map((item)=>{
+    const newImage=
+    "http://localhost:3000/images/CustomizedPhotos/" +
+    imageFront +
+    "/" +item
+    return newImage
+  })
   function setAndOpenModal(){
     modalRef.current.openModal()
+    setModalData((modalData)=>{
+      const newModalData={...modalData}
+      newModalData.fruitName=fruitname
+      newModalData.images=newImageArray
+      newModalData.farmerName=fram_name
+      newModalData.farmerImage=farmerImageUrl
+      newModalData.farmerContent=content
+      return newModalData
+    })
   }
 
   return (
@@ -99,8 +119,8 @@ function FruitVariety(props) {
           <div className="smallImageBox">
             <img
               className="productImage"
-              src="https://images.pexels.com/photos/8828132/pexels-photo-8828132.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-              // src={farmerImageUrl}
+              // src="https://images.pexels.com/photos/8828132/pexels-photo-8828132.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+              src={farmerImageUrl}
               alt=""
             />
           </div>

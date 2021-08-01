@@ -7,7 +7,7 @@ function SmallImage(props) {
     }
     return (
         <>
-             <img onClick={changeImage} style={{width:"70px",height:"70px",padding:"10px"}} src={data} alt="" />
+             <img onClick={changeImage} className="productImage" style={{width:"70px",height:"70px",padding:"10px"}} src={data} alt="" />
         </>
     )
 }

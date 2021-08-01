@@ -1,7 +1,7 @@
 import React,{useEffect} from "react";
 import FruitVariety from "./FruitVariety";
 function FruitType(props) {
-  const { fruit_name, fruit_image, items,nutrients,cartData ,addCart,setCounts,modalRef } = props;
+  const { fruit_name, fruit_image, items,nutrients,cartData ,addCart,setCounts,modalRef,setModalData } = props;
 
   const imageUrl =
     "http://localhost:3000/images/CustomizedPhotos/" +
@@ -30,7 +30,9 @@ function FruitType(props) {
               images,
               fram_name,
               avatar,
-              rating
+              rating,
+              imageArray,
+              content
             } = item;
             return (
               <FruitVariety
@@ -44,12 +46,15 @@ function FruitType(props) {
                 fram_name={fram_name}
                 avatar={avatar}
                 rating={rating}
+                imageArray={imageArray}
+                content={content}
                 imageFront={fruit_name}
                 cartData={cartData}
                 addCart={addCart}
                 nutrients={nutrients}
                 setCounts={setCounts}
                 modalRef={modalRef}
+                setModalData={setModalData}
               />
             );
           })}

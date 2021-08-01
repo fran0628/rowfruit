@@ -5,6 +5,7 @@ function BigImage(props) {
   return (
     <>
       <img
+        className="productImage"
         style={{ width: '350px', height: '350px' }}
         src={image}
         alt=""

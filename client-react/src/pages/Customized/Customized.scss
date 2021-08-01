@@ -22,8 +22,8 @@
   left: 50%;
   transform: translate(-50%,-50%);
   height: 600px;
-  width: 60%;
-  overflow-y: auto;
+  width: 811px;
+  overflow-y: hidden;
   background-color: white;
   box-shadow:0 0 10px rgba(0,0,0,0.25);
   z-index: 2002;
@@ -31,7 +31,7 @@
 }
 .modal-box:after{
   content: "";
-  background: url("https://images.pexels.com/photos/1002778/pexels-photo-1002778.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background: url("https://images.pexels.com/photos/1410141/pexels-photo-1410141.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
   background-size: cover;
   opacity: 0.7;
   filter: blur(7px);
@@ -51,8 +51,8 @@
 }
 .closeModal{
   position: absolute;
-  bottom: 50px;
-  left: 350px;
+  bottom: 0;
+  right: 0px;
   background:#f5c184 ;
   border-radius: 10px;
 }

@@ -2,7 +2,7 @@ import React, { useState, forwardRef, useImperativeHandle } from "react";
 import ReactDom from "react-dom";
 
 const Modal = forwardRef((props, ref) => {
-  const [display, setDisplay] = useState(true);
+  const [display, setDisplay] = useState(false);
 
   useImperativeHandle(ref, () => {
     return {

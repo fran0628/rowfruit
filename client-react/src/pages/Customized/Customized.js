@@ -56,7 +56,7 @@ function Customized(props) {
   const [counts, setCounts] = useState([]);
   // console.log("最上面cartData", cartData);
   // console.log("最上面counts", counts);
-  // console.log("最上面data",data)
+  // console.log("最上面product",products)
   //計算分量加總
   const totalWight = () => {
     let sum = 0;
@@ -75,26 +75,24 @@ function Customized(props) {
     return sum;
   };
   const [modalData,setModalData]=useState({
-    images:['https://images.pexels.com/photos/8836493/pexels-photo-8836493.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-    'https://images.pexels.com/photos/6681878/pexels-photo-6681878.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-    'https://images.pexels.com/photos/6051359/pexels-photo-6051359.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-    'https://images.pexels.com/photos/8697344/pexels-photo-8697344.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-    'https://images.pexels.com/photos/8859157/pexels-photo-8859157.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'],
-    farmerName:"陳阿財果園",
-    farmerImage:"https://images.pexels.com/photos/3586249/pexels-photo-3586249.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    farmerContent:"認識啟源的時候，他是個正在讀外語學校的少校軍官，她是國立藝術學院的學生，他們的戀情發生得曲折卻又極自然，兩校聯誼郊遊，第一次他出席了，她沒來，他卻注意到有個女孩—曹修忠，和他同學同名，心上留了意；第二次，她來了，他卻走得匆匆，她對他的印象只是一百八的高個兒帥哥；第三次，他請客，她卻有事先走；兩人的交集總差那麼一點兒，三次擦身而過，卻依然逃不過注定了緣訂三生的前宿，許久之後，他單獨約了她，確定了「眾裡尋她千百度」，這個女孩就是他要的終身伴侶，她在家排行第七，他喚她：小七。"
+    fruitName:"",
+    images:[],
+    farmerName:"",
+    farmerImage:"",
+    farmerContent:""
   })
   const modalRef = useRef();
   return (
     <>
       <Modal ref={modalRef}>
+          <h1 className="mt-0 d-flex justify-content-center">{modalData.fruitName}</h1>
         <div className="row">
           <div className="col-7 d-flex align-items-center h-100">
             <ImageContent Images={modalData.images} />
           </div>
           <div className="col-5">
             <h2 className="d-flex justify-content-center mt-0">{modalData.farmerName}</h2>
-            <div className="pb-2">
+            <div className="pb-2" style={{height:"200px"}} >
               <img
                 className="productImage"
                 src={modalData.farmerImage}
@@ -139,6 +137,7 @@ function Customized(props) {
               addCart={setCartData}
               setCounts={setCounts}
               modalRef={modalRef}
+              setModalData={setModalData}
             />
             {/* 右側 */}
             <RightAside
