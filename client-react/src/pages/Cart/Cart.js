@@ -22,6 +22,32 @@ function Cart({cart}) {
     getCartFromLocalStorage()
   },[])
 
+  const sendFake = async () => {
+    const order = {
+      "memberId": 110,
+      "totalPrice": 20000,
+      "address": "25 VIA LUCCA",
+      "receiver": "Tony",
+      "phone": "9495330930",
+      "items": [{
+        "productId": 1,
+        "amount": 3,
+        "content": "asd"
+      }, {
+        "productId": 2,
+        "amount": 1,
+        "content": "fake2"
+      }]
+    };
+    await fetch('http://localhost:5000/api/Orderlist', {
+      method: "POST",
+      body: JSON.stringify(order),
+      headers: new Headers({
+        "Content-Type": "application/json",
+      }),
+    })
+  };
+
   return (
     <>
       <div className="col-8 mx-auto mt-3">
@@ -39,7 +65,7 @@ function Cart({cart}) {
               </tr>
             </thead>
             <tbody>
-              {myCart.map((item) => {
+              {myCart.map((item, index) => {
                 const {
                   productId,
                   productName,
@@ -50,6 +76,7 @@ function Cart({cart}) {
                 } = item;
                 return (
                   <Item
+                    key={`item${index}`}
                     productId={productId}
                     productName={productName}
                     count={count}
@@ -64,6 +91,7 @@ function Cart({cart}) {
           </table>
           <DeliverynPayment />
           <Buyer/>
+          <button onClick={sendFake}>send fake</button>
         </div>
       </div>
     </>

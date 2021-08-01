@@ -77,6 +77,9 @@ app.use("/api/mainproduct", mainRouter);
 let mainitemRouter = require("./routes/MainProduct/MainProductitem");
 app.use("/api/mainitem", mainitemRouter);
 
+let orderlistRouter = require("./routes/Order/Orderlist");
+app.use("/api/orderlist", orderlistRouter);
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
 	console.log(req.url);
