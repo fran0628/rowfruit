@@ -46,50 +46,81 @@ function App() {
 	console.log("data",data)
 	console.log(islogin)
 
-	 function fetchSetData() {
-	let body = { account: data.account, password: data.password };
-
-    axios
-      .post(`http://localhost:5000/api/login`, body)
-
-      .then((res) => {
-		  if(res.data.code===200) {
-
-			// token解析
-			const token = res.data.data.token.split(" ")[1];
+	function fetchSetData() {
+		let body = { account: data.account, password: data.password };
+		
+		if(data.account==='' && data.password ==='') {
+			dialog('帳號密碼不可以為空');
+		} else if ( data.password==='') {
+			dialog('請輸入密碼');
+		} else if ( data.account==='') {
+			dialog('請輸入帳號');
+		} else if (  data.password.length<6) {
+			dialog('密碼長度最少需六個字元');
+		}
+		else {
+			axios
+			.post(`http://localhost:5000/api/login`, body)
 	
-			let payload = JSON.parse(atob(token.split(".")[1]));
+			.then((res) => {
+				if(res.data.code===200) {
 	
-			console.log("res=>", payload);
-			console.log(res.data.data.name);
-			let username = res.data.data.name;
-			localStorage.setItem("token", res.data.data.token);
-			localStorage.setItem("name", username);
-			setIslogin({
-				islogin:true,
-				name:username
-			})
-			Swal.fire({
-				position: 'center-center',
-				icon: 'success',
-				title: '登入成功',
-				showConfirmButton: false,
-				timer: 5000,
-			  })
-			window.location.href = 'about'
-		  } 
+				// token解析
+				const token = res.data.data.token.split(" ")[1];
+		
+				let payload = JSON.parse(atob(token.split(".")[1]));
+		
+				console.log("res=>", payload);
+				console.log(res.data.data.name);
+				let username = res.data.data.name;
+				localStorage.setItem("token", res.data.data.token);
+				localStorage.setItem("name", username);
+				setIslogin({
+					islogin:true,
+					name:username
+				})
+				Swal.fire({
+					position: 'center',
+					icon: 'success',
+					title: '登入成功',
+					showConfirmButton: false,
+					timer: 2000,
+					onClose:changePage()
+					})
+					function changePage(){
+						console.log('changePage');
+					setTimeout(()=>{
+						window.location.href = 'About'
+					},2000)
+					}
+					console.log("changePage:",changePage)
+				} 
+				if(res.data.code===401){
+					console.log('AAAAAAAA')
+					Swal.fire({
+						icon: 'error',
+						title: '帳號或密碼有誤',
+						showConfirmButton: false,
+						timer: 2000,
+					})
+				}
+	
+				
+			});
+		}
 
-		  if(res.data.code !== 404 ){
-			Swal.fire({
-				position: 'center-center',
-				icon: 'error',
-				title: '帳號或密碼有誤',
-				showConfirmButton: false,
-				timer: 5000,
-			})
-		  }
-      });
-	  }
+	}
+
+
+	function dialog(text) {
+		Swal.fire({
+			position: 'center',
+			icon: 'error',
+			title: text,
+			showConfirmButton: false,
+			timer: 2000,
+		})
+	}
 
 	useEffect(()=>{
 		// console.log("初始值測試")
