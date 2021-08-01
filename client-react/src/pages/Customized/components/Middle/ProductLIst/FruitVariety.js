@@ -18,6 +18,7 @@ function FruitVariety(props) {
     addCart,
     nutrients,
     setCounts,
+    modalRef
   } = props;
   const nutrientsArray = nutrients.split(",");
   const newImageUrl =
@@ -67,12 +68,15 @@ function FruitVariety(props) {
       addCartDataAndCounts()
     }
   }
+  function setAndOpenModal(){
+    modalRef.current.openModal()
+  }
 
   return (
     <>
       <div className="row productItem">
         <div className="col-2 h-100 d-flex justify-content-center align-items-center productItemImage">
-          <div className="smallImageBox ">
+          <div onClick={setAndOpenModal} className="smallImageBox ">
             <img className="productImage imageLarge" src={newImageUrl} alt="" />
           </div>
         </div>

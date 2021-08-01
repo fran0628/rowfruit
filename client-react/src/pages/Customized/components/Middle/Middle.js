@@ -4,7 +4,7 @@ import { v4 } from "uuid";
 import $ from "jquery";
 import FruitType from "./ProductLIst/FruitType";
 function Middle(props) {
-  const { data, cartData, addCart, setCounts } = props;
+  const { data, cartData, addCart, setCounts,modalRef } = props;
 
   //美白商品資料
   const whiteningData = data.filter((item) => {
@@ -99,6 +99,7 @@ function Middle(props) {
                 items={items}
                 nutrients={nutrients}
                 setCounts={setCounts}
+                modalRef={modalRef}
               />
             );
           })}
@@ -122,6 +123,7 @@ function Middle(props) {
                   items={items}
                   nutrients={nutrients}
                   setCounts={setCounts}
+                  modalRef={modalRef}
                 />
               );
             })}
@@ -146,6 +148,7 @@ function Middle(props) {
                   items={items}
                   nutrients={nutrients}
                   setCounts={setCounts}
+                   modalRef={modalRef}
                 />
               );
             })}
@@ -170,6 +173,7 @@ function Middle(props) {
                   items={items}
                   nutrients={nutrients}
                   setCounts={setCounts}
+                  modalRef={modalRef}
                 />
               );
             })}
@@ -193,6 +197,7 @@ function Middle(props) {
                   fruit_image={fruit_image}
                   items={items}
                   nutrients={nutrients}
+                  modalRef={modalRef}
                   setCounts={setCounts}
                 />
               );
