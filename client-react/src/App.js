@@ -40,6 +40,7 @@ function App() {
 
 	const [auth,setAuth]=useState("hi XXX")
 	const [data,setData]=useState({account:"",password:""})
+	const [register,setRegister]=useState({fullname:"", account:"", password:"", repassword:"", email:""})
 	const [showData,setShowdata]=useState(false)
 
 	console.log("data",data)
@@ -76,14 +77,16 @@ function App() {
 				timer: 5000,
 			  })
 			window.location.href = 'about'
-		  } else {
+		  } 
+
+		  if(res.data.code !== 404 ){
 			Swal.fire({
-				position: 'top-top',
+				position: 'center-center',
 				icon: 'error',
-				title: '帳號或密碼有錯',
+				title: '帳號或密碼有誤',
 				showConfirmButton: false,
-				timer: 1500,
-			  })
+				timer: 5000,
+			})
 		  }
       });
 	  }
@@ -93,8 +96,9 @@ function App() {
 		if(showData){
 			console.log('AAAs')
 			fetchSetData()
+		}else{
+			setShowdata(false)
 		}
-		setShowdata(false)
 	},[data])
 
   return (
@@ -121,7 +125,7 @@ function App() {
 							<MemberLogin setAuth={setAuth} setData={setData} data={data} setShowdata={setShowdata} />
 						</Route>
 						<Route path="/memberegister">
-							<MemberRegister />
+							<MemberRegister register={register} setRegister={setRegister} />
 						</Route>
 						<Route path="/farmerlist">
 							<FarmList />

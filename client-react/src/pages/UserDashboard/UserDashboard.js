@@ -2,6 +2,7 @@
 import React , { Component } from 'react'
 import './userdashboard.scss'
 import axios from 'axios';
+import Swal from "sweetalert2";
 class UserDashboard extends Component {
 	constructor(){
 		super();
@@ -12,7 +13,8 @@ class UserDashboard extends Component {
 			confirmPassword:"",
 			email:"",
 			phone:"",
-			address:""
+			address:"",
+			password_has_error:false
 		}
 		this.getuserDetail();
 	}
@@ -39,58 +41,67 @@ class UserDashboard extends Component {
 		})
 	  })
 	}
-	
-	putUserDetail(){
 
+	setText = (event)=>{
+		console.log(event.target.value);
+		let key = event.target.name
+		this.setState({
+			[key]:event.target.value,
+		});
+	} 
 
+	checkPassword() {
+		if(!this.state.password || this.state.password !== this.state.confirmPassword) {
+		   this.setState({password_has_error:true});
+	   }
+	   else {
+		   this.setState({password_has_error:false});
+	   }
+   }
+
+   handleChange = (event) => {
+	   this.setState({[event.target.name] : event.target.value });
+
+	   if (event.target.name === 'password' || event.target.name === 'confirmPassword')
+		   this.checkPassword();
+   }
+
+   handleSubmit(event) {
+	   event.preventDefault(); 
+	   // TODO: will submit the form here
+   }
+
+	putUserDetail=() => {
 		const token = localStorage.getItem('token').split(" ")[1];
 	  
 		let payload = JSON.parse(atob(token.split(".")[1]));
 		let body = { 
 			id:payload.id,
-			account:this.userDetail.account,
-			name:this.userDetail.name,
-			password:this.userDetail.password,
-			confirmPassword:this.userDetail.password,
-			email:this.userDetail.email,
-			phone:this.userDetail.phone,
-			address:this.userDetail.address
+			account:this.state.account,
+			name:this.state.name,
+			password:this.state.password,
+			confirmPassword:this.state.password,
+			email:this.state.email,
+			phone:this.state.phone,
+			address:this.state.address
 			
 		};
 
 		axios
-		.put('http://localhost:5000/api/member/',body)
+		.put('http://localhost:5000/api/member/'+payload.id,body)
 	
 		.then((res) => {
+			Swal.fire({
+				position: 'center-center',
+				icon: 'success',
+				title: '修改成功',
+				showConfirmButton: false,
+				timer: 1500,
+			  })
+			localStorage.setItem('name',this.state.name);
+			window.location.reload();
 			console.log(res.data[0]);
-		
-		
 		})
-	}
-
-	setMemberChange = (event)=>{
-		console.log(event.target.value);
-		this.setState({
-			name:event.target.value,
-			password:event.target.value,
-			confirmPassword:event.target.value,
-			address:event.target.value,
-			phone:event.target.value
-		})
-		// this.setState({
-		// 	account:data.account,
-		// 	name:data.name,
-		// 	password:data.password,
-		// 	confirmPassword:data.password,
-		// 	email:data.email,
-		// 	phone:data.phone,
-		// 	address:data.address
-			
-		// })
-	} 
-
-	click=() => {
-		console.log(this.state.name)
 	}
     render(){
 
@@ -98,10 +109,11 @@ class UserDashboard extends Component {
 
 		return (
 			<>
+			   <div>
 				<div className="container mb-5 mt-3 p-5 mx-auto">
 					<h3 className="text-center mb-4">修改會員資料</h3>
 
-					<form className="row g-4 mx-auto px-5">
+					<div className="row g-4 mx-auto px-5">
 						<div className="col-12 text-center">
 							<label htmlFor="fileInput">
 								<i className="settingsPPIcon fas fa-user"></i>
@@ -122,6 +134,7 @@ class UserDashboard extends Component {
 								type="text"
 								className="form-control form-control-plaintext"
 								id="inputUser"
+								name="account"
 								defaultValue={this.state.account}
 								readOnly
 							/>
@@ -130,9 +143,9 @@ class UserDashboard extends Component {
 							<label for="inputPassword4" className="form-label">
 								姓名
 							</label>
-							<input type="text" className="form-control" id="inputPassword4" 
+							<input type="text" className="form-control" id="inputPassword4" name="name"
 								defaultValue={datas.name}
-								onChange={(event)=>this.setMemberChange.setState}
+								onChange={(event) => this.setText(event)}
 							/>
 						</div>
 						<div className="col-md-6">
@@ -143,8 +156,10 @@ class UserDashboard extends Component {
 								type="password"
 								className="form-control"
 								id="inputPassword"
+								name="password"
+								minLength="6"
 								defaultValue={this.state.password}
-								onChange={(event)=>this.setMemberChange(event)}
+								onChange={(event) => this.setText(event)}
 							/>
 						</div>
 						<div className="col-md-6">
@@ -155,36 +170,41 @@ class UserDashboard extends Component {
 								type="password"
 								className="form-control"
 								id="inputPassword2"
+								name="confirm"
+								minLength="6"
 								defaultValue={this.state.confirmPassword}
-								onChange={(event)=>this.setMemberChange(event)}
+								onChange={(event) => this.setText(event)}
 							/>
 						</div>
 						<div className="col-4">
 							<label for="inputPhone" className="form-label">
 								電話
 							</label>
-							<input type="tel" className="form-control" id="inputPhone"  
+							<input type="tel" className="form-control" id="inputPhone"   name="phone"
 								defaultValue={this.state.phone}
-								onChange={(event)=>this.setMemberChange(event)}
+								onChange={(event) => this.setText(event)}
 							/>
 						</div>
 						<div className="col-8">
 							<label for="inputAddress" className="form-label">
 								地址
 							</label>
-							<input type="text" className="form-control" id="inputAddress" 
+							<input type="text" className="form-control" id="inputAddress" name="address"
 								defaultValue={this.state.address}
-								onChange={(event)=>this.setMemberChange(event)}
+								onChange={(event) => this.setText(event)}
 							/>
 						</div>
 
 						<div className="col-12">
-							<button type="submit" className="DSnormal-btn">
+							<button  className="DSnormal-btn"
+							onClick={this.putUserDetail}
+							>
 								送出
 							</button>
 						</div>
-					</form>
+					</div>
 				</div>
+			  </div>
 			</>
 		);
     }
