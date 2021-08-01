@@ -40,7 +40,7 @@ function App() {
 
 	const [auth,setAuth]=useState("hi XXX")
 	const [data,setData]=useState({account:"",password:""})
-	const [register,setRegister]=useState({fullname:"", account:"", password:"", repassword:"", email:""})
+	const [register,setRegister]=useState({fullname:"", account:"", password:"", repassword:"", email:"",address:"",phone:""})
 	const [showData,setShowdata]=useState(false)
 
 	console.log("data",data)
