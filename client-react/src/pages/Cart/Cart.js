@@ -4,13 +4,7 @@ import DeliverynPayment from "./components/DeliverynPayment";
 import Buyer from "./components/Buyer"
 function Cart({cart}) {
   const[myCart,setMyCart]=useState([])
-  const background = {
-    backgroundImage: `url(${""})`,
-    backgroundRepeat: "no-repeat",
-    backgroundAttachment: "fixed",
-    backgroundPosition: "center",
-    backgroundSize: "cover",
-  };
+ 
   console.log("cart",cart)
   function getCartFromLocalStorage() {
     const newCart = localStorage.getItem('cart') || '[]'
