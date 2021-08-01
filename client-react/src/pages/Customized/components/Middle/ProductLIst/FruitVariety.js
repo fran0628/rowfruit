@@ -12,6 +12,7 @@ function FruitVariety(props) {
     images,
     fram_name,
     avatar,
+    rating,
     imageFront,
     cartData,
     addCart,
@@ -104,7 +105,7 @@ function FruitVariety(props) {
           <div>
             <p className="my-0">{fram_name}</p>
             <p className="my-0">
-              4.5<i className="fas fa-star"></i>
+              {rating}<i className="fas fa-star"></i>
             </p>
           </div>
         </div>

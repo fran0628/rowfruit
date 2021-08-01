@@ -1,9 +1,8 @@
-import React,{useState} from "react";
+import React,{useEffect} from "react";
 import FruitVariety from "./FruitVariety";
 function FruitType(props) {
   const { fruit_name, fruit_image, items,nutrients,cartData ,addCart,setCounts } = props;
-  
-  
+
   const imageUrl =
     "http://localhost:3000/images/CustomizedPhotos/" +
     fruit_name +
@@ -12,13 +11,13 @@ function FruitType(props) {
    
   return (
     <>
-      <article className="芭樂">
+      <article>
         <div>
           <div className="fruitMenu shadow">
             <div className="smallImageBox">
               <img className="productImage" src={imageUrl} alt="" />
             </div>
-            <a className="btn">▼</a>
+         
           </div>
           {/* 水果項目 */}
           {items.map((item) => {
@@ -31,6 +30,7 @@ function FruitType(props) {
               images,
               fram_name,
               avatar,
+              rating
             } = item;
             return (
               <FruitVariety
@@ -43,6 +43,7 @@ function FruitType(props) {
                 images={images}
                 fram_name={fram_name}
                 avatar={avatar}
+                rating={rating}
                 imageFront={fruit_name}
                 cartData={cartData}
                 addCart={addCart}

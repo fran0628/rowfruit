@@ -1,11 +1,11 @@
-import React,{useState} from "react";
+import React, { useState, useEffect } from "react";
 import TitleTag from "./TitleTag";
 import { v4 } from "uuid";
+import $ from "jquery";
 import FruitType from "./ProductLIst/FruitType";
 function Middle(props) {
-  const { data,cartData, addCart,setCounts } = props;
+  const { data, cartData, addCart, setCounts } = props;
 
- 
   //美白商品資料
   const whiteningData = data.filter((item) => {
     return item.tag.indexOf("whitening") > -1;
@@ -22,8 +22,30 @@ function Middle(props) {
   const visionData = data.filter((item) => {
     return item.tag.indexOf("vision") > -1;
   });
-  
- 
+
+  useEffect(() => {
+    $(".allButton").on("click", () => {
+      const totalClass = $("#all").find(".productItem").length;
+      const activeClass = $("#all").find(".active").length;
+      if ((totalClass !== activeClass)) {
+        $("#all").find(".productItem").addClass("active");
+      }else{
+        $("#all").find(".productItem").removeClass("active");
+      }
+    });
+    $(".whiteningButton").on("click", () => {
+      $("#whitening").find(".productItem").toggleClass("active");
+    });
+    $(".slimmingButton").on("click", () => {
+      $("#slimming").find(".productItem").toggleClass("active");
+    });
+    $(".silverHairButton").on("click", () => {
+      $("#silverHair").find(".productItem").toggleClass("active");
+    });
+    $(".visionButton").on("click", () => {
+      $("#vision").find(".productItem").toggleClass("active");
+    });
+  });
 
   //Title資料設定
   const title = [
@@ -47,7 +69,10 @@ function Middle(props) {
   ];
   return (
     <>
-      <main className="col-12 col-lg-6 customizedProduct" id="customizedProduct">
+      <main
+        className="col-12 col-lg-6 customizedProduct"
+        id="customizedProduct"
+      >
         <TitleTag
           key={v4()}
           className={title[0].className}
@@ -61,7 +86,7 @@ function Middle(props) {
         {/* 全部商品 */}
 
         <div id="all" name="all">
-          {data.map((item,index) => {
+          {data.map((item, index) => {
             const { id, fruit_name, fruit_image, items, nutrients } = item;
             return (
               <FruitType
@@ -78,102 +103,102 @@ function Middle(props) {
             );
           })}
           <div id="whitening" name="whitening">
-          <TitleTag
-            key={v4()}
-            className={title[1].className}
-            title={title[1].title}
-            buttonClass={title[1].buttonClass}
-          />
-          {whiteningData.map((item) => {
-            const { id, fruit_name, fruit_image, items, nutrients } = item;
-            return (
-              <FruitType
-                key={id}
-                cartData={cartData}
-                addCart={addCart}
-                id={id}
-                fruit_name={fruit_name}
-                fruit_image={fruit_image}
-                items={items}
-                nutrients={nutrients}
-                setCounts={setCounts}
-              />
-            );
-          })}
+            <TitleTag
+              key={v4()}
+              className={title[1].className}
+              title={title[1].title}
+              buttonClass={title[1].buttonClass}
+            />
+            {whiteningData.map((item) => {
+              const { id, fruit_name, fruit_image, items, nutrients } = item;
+              return (
+                <FruitType
+                  key={id}
+                  cartData={cartData}
+                  addCart={addCart}
+                  id={id}
+                  fruit_name={fruit_name}
+                  fruit_image={fruit_image}
+                  items={items}
+                  nutrients={nutrients}
+                  setCounts={setCounts}
+                />
+              );
+            })}
           </div>
-          <div id="slimming" name="slimming" >
-          <TitleTag
-            key={v4()}
-            className={title[2].className}
-            title={title[2].title}
-            buttonClass={title[2].buttonClass}
-          />
-          {slimmingData.map((item) => {
-            const { id, fruit_name, fruit_image, items, nutrients } = item;
-            return (
-              <FruitType
-                key={id}
-                cartData={cartData}
-                addCart={addCart}
-                id={id}
-                fruit_name={fruit_name}
-                fruit_image={fruit_image}
-                items={items}
-                nutrients={nutrients}
-                setCounts={setCounts}
-              />
-            );
-          })}
+          <div id="slimming" name="slimming">
+            <TitleTag
+              key={v4()}
+              className={title[2].className}
+              title={title[2].title}
+              buttonClass={title[2].buttonClass}
+            />
+            {slimmingData.map((item) => {
+              const { id, fruit_name, fruit_image, items, nutrients } = item;
+              return (
+                <FruitType
+                  key={id}
+                  cartData={cartData}
+                  addCart={addCart}
+                  id={id}
+                  fruit_name={fruit_name}
+                  fruit_image={fruit_image}
+                  items={items}
+                  nutrients={nutrients}
+                  setCounts={setCounts}
+                />
+              );
+            })}
           </div>
           <div id="silverHair" name="silverHair">
-          <TitleTag
-            key={v4()}
-            className={title[3].className}
-            title={title[3].title}
-            buttonClass={title[3].buttonClass}
-          />
-          {silverHairData.map((item) => {
-            const { id, fruit_name, fruit_image, items, nutrients } = item;
-            return (
-              <FruitType
-                key={id}
-                cartData={cartData}
-                addCart={addCart}
-                id={id}
-                fruit_name={fruit_name}
-                fruit_image={fruit_image}
-                items={items}
-                nutrients={nutrients}
-                setCounts={setCounts}
-              />
-            );
-          })}
+            <TitleTag
+              key={v4()}
+              className={title[3].className}
+              title={title[3].title}
+              buttonClass={title[3].buttonClass}
+            />
+            {silverHairData.map((item) => {
+              const { id, fruit_name, fruit_image, items, nutrients } = item;
+              return (
+                <FruitType
+                  key={id}
+                  cartData={cartData}
+                  addCart={addCart}
+                  id={id}
+                  fruit_name={fruit_name}
+                  fruit_image={fruit_image}
+                  items={items}
+                  nutrients={nutrients}
+                  setCounts={setCounts}
+                />
+              );
+            })}
           </div>
-         <div id="vision" name="vision">
-         <TitleTag
-            key={v4()}
-            className={title[4].className}
-            title={title[4].title}
-            buttonClass={title[4].buttonClass}
-          />
-          {visionData.map((item) => {
-            const { id, fruit_name, fruit_image, items, nutrients } = item;
-            return (
-              <FruitType
-                key={id}
-                cartData={cartData}
-                addCart={addCart}
-                id={id}
-                fruit_name={fruit_name}
-                fruit_image={fruit_image}
-                items={items}
-                nutrients={nutrients}
-                setCounts={setCounts}
-              />
-            );
-          })}
-         </div>
-          
+          <div id="vision" name="vision">
+            <TitleTag
+              key={v4()}
+              className={title[4].className}
+              title={title[4].title}
+              buttonClass={title[4].buttonClass}
+            />
+            {visionData.map((item) => {
+              const { id, fruit_name, fruit_image, items, nutrients } = item;
+              return (
+                <FruitType
+                  key={id}
+                  cartData={cartData}
+                  addCart={addCart}
+                  id={id}
+                  fruit_name={fruit_name}
+                  fruit_image={fruit_image}
+                  items={items}
+                  nutrients={nutrients}
+                  setCounts={setCounts}
+                />
+              );
+            })}
+          </div>
+          <div style={{ height: "500px" }}></div>
         </div>
       </main>
     </>

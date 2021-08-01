@@ -16,6 +16,7 @@ const data = [
         images: "galaApple.jpg",
         fram_name: "朝日蔬果園",
         avatar: "203.jpg",
+        rating: 3,
       },
       {
         id: 33,
@@ -27,6 +28,7 @@ const data = [
         images: "fujiApple.jpg",
         fram_name: "阿芬樂活果園",
         avatar: "209.jpg",
+        rating: 3,
       },
       {
         id: 31,
@@ -38,6 +40,7 @@ const data = [
         images: "romanApple.jpg",
         fram_name: "日立觀光果園",
         avatar: "211.jpg",
+        rating: 5,
       },
     ],
   },
@@ -58,6 +61,7 @@ const data = [
         images: "baodaoBanana.jpg",
         fram_name: "俊才有機果園",
         avatar: "206.jpg",
+        rating: 3,
       },
       {
         id: 29,
@@ -69,6 +73,7 @@ const data = [
         images: "taiwanBananaNo1.jpg",
         fram_name: "康康蔬果園",
         avatar: "208.jpg",
+        rating: 4,
       },
       {
         id: 30,
@@ -80,6 +85,7 @@ const data = [
         images: "honeyBanana.jpg",
         fram_name: "日立觀光果園",
         avatar: "211.jpg",
+        rating: 5,
       },
     ],
   },
@@ -100,6 +106,7 @@ const data = [
         images: "pearlGuava.png",
         fram_name: "阿漂有機果園     ",
         avatar: "201.jpg",
+        rating: 5,
       },
       {
         id: 26,
@@ -111,6 +118,7 @@ const data = [
         images: "waterGuava.png",
         fram_name: "朝日蔬果園",
         avatar: "203.jpg",
+        rating: 3,
       },
       {
         id: 27,
@@ -122,6 +130,7 @@ const data = [
         images: "rainbowGuava.png",
         fram_name: "俊才有機果園",
         avatar: "206.jpg",
+        rating: 3,
       },
     ],
   },
@@ -142,6 +151,7 @@ const data = [
         images: "95avocado.jpg",
         fram_name: "阿漂有機果園     ",
         avatar: "201.jpg",
+        rating: 5,
       },
       {
         id: 43,
@@ -153,6 +163,7 @@ const data = [
         images: "redHeartAvocado.jpg",
         fram_name: "小玉新鮮果園",
         avatar: "204.jpg",
+        rating: 5,
       },
       {
         id: 44,
@@ -164,6 +175,7 @@ const data = [
         images: "jasonAvocado.jpg",
         fram_name: "阿劉果園",
         avatar: "205.jpg",
+        rating: 4,
       },
     ],
   },
@@ -184,6 +196,7 @@ const data = [
         images: "goldenDiamondPineapple.jpg",
         fram_name: "發財果園",
         avatar: "202.jpg",
+        rating: 4,
       },
       {
         id: 52,
@@ -195,6 +208,7 @@ const data = [
         images: "custardPineapple.jpg",
         fram_name: "阿劉果園",
         avatar: "205.jpg",
+        rating: 4,
       },
       {
         id: 53,
@@ -206,6 +220,7 @@ const data = [
         images: "perfumePineapple.jpg",
         fram_name: "阿芬樂活果園",
         avatar: "209.jpg",
+        rating: 3,
       },
     ],
   },
@@ -226,6 +241,7 @@ const data = [
         images: "imperialTangerine.jpg",
         fram_name: "阿漂有機果園     ",
         avatar: "201.jpg",
+        rating: 5,
       },
       {
         id: 34,
@@ -237,6 +253,7 @@ const data = [
         images: "sugerTangerine.jpg",
         fram_name: "俊才有機果園",
         avatar: "206.jpg",
+        rating: 3,
       },
       {
         id: 35,
@@ -248,6 +265,7 @@ const data = [
         images: "pearlTangerine.png",
         fram_name: "婷婷觀光果園",
         avatar: "207.jpg",
+        rating: 5,
       },
     ],
   },
@@ -268,6 +286,7 @@ const data = [
         images: "greenKiwi.jpg",
         fram_name: "小玉新鮮果園",
         avatar: "204.jpg",
+        rating: 5,
       },
       {
         id: 41,
@@ -279,6 +298,7 @@ const data = [
         images: "sweetHeartGreanFruit.jpg",
         fram_name: "婷婷觀光果園",
         avatar: "207.jpg",
+        rating: 5,
       },
       {
         id: 42,
@@ -290,6 +310,7 @@ const data = [
         images: "sunshineGoldenFruit.jpg",
         fram_name: "康康蔬果園",
         avatar: "208.jpg",
+        rating: 4,
       },
     ],
   },
@@ -310,6 +331,7 @@ const data = [
         images: "rishengSeed.jpg",
         fram_name: "朝日蔬果園",
         avatar: "203.jpg",
+        rating: 3,
       },
       {
         id: 37,
@@ -321,6 +343,7 @@ const data = [
         images: "tainong.png",
         fram_name: "婷婷觀光果園",
         avatar: "207.jpg",
+        rating: 5,
       },
       {
         id: 39,
@@ -332,6 +355,7 @@ const data = [
         images: "redConcubine.jpg",
         fram_name: "阿芬樂活果園",
         avatar: "209.jpg",
+        rating: 3,
       },
     ],
   },
@@ -352,6 +376,7 @@ const data = [
         images: "myanmarSweetKing.jpg",
         fram_name: "發財果園",
         avatar: "202.jpg",
+        rating: 4,
       },
       {
         id: 47,
@@ -363,6 +388,7 @@ const data = [
         images: "springRedJade.jpg",
         fram_name: "小玉新鮮果園",
         avatar: "204.jpg",
+        rating: 5,
       },
       {
         id: 48,
@@ -374,6 +400,7 @@ const data = [
         images: "blackBeauty.jpg",
         fram_name: "康康蔬果園",
         avatar: "208.jpg",
+        rating: 4,
       },
     ],
   },
@@ -394,6 +421,7 @@ const data = [
         images: "aiwenMango.jpg",
         fram_name: "發財果園",
         avatar: "202.jpg",
+        rating: 4,
       },
       {
         id: 50,
@@ -405,6 +433,7 @@ const data = [
         images: "peachMango.jpg",
         fram_name: "阿劉果園",
         avatar: "205.jpg",
+        rating: 4,
       },
       {
         id: 51,
@@ -416,6 +445,7 @@ const data = [
         images: "wuxiangMango.jpg",
         fram_name: "日立觀光果園",
         avatar: "211.jpg",
+        rating: 5,
       },
     ],
   },
