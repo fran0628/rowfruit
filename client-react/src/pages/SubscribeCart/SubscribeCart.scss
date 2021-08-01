@@ -35,20 +35,35 @@
     width: 100px;				
     max-width: 100%;
     padding: 10px 5px;
-    background-color: #fcfdf5;
-    color: #E79737;
+    background-color: #ffa20d;
+    color: #fff;
     border: 2px solid #838080;
-    border-radius: 5px;
-    font-size: 1em;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 700;
     /* box-shadow: 2px 2px 3px rgba(59, 59, 59, 0.16); */
     text-align: center;
     margin: auto;
 }
 
 .subscribe-btn:hover {
-   background-color: #fcfdea;
+   background-color: #fab342;
    box-shadow: 0px 1px 2px rgba(59, 59, 59, 0.16);
-  transition: transform 0.2s;
+   transition: transform 0.2s;
+}
+.addsubcart-btn {
+    display: inline-block;
+    width: 80px;				
+    max-width: 100%;
+    padding: 5px 5px;
+    background-color: #fafafa;
+    color: #000000;
+    border: 1px solid #888686;
+    border-radius: 2px;
+    font-size: 13px;
+    text-align: center;
+    margin-left: 5px;
+    margin-bottom: 3px;
 }
 .labelbox {
     margin-bottom: 10px;

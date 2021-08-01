@@ -1,6 +1,6 @@
 import React from 'react'
 
-function RadioBox(props) {
+function CheckBox(props) {
   const { value, checkedValue, setCheckedValue } = props
 
   return (
@@ -20,4 +20,4 @@ function RadioBox(props) {
   )
 }
 
-export default RadioBox
+export default CheckBox
