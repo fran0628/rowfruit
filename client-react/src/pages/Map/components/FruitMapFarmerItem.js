@@ -52,8 +52,8 @@ function FruitMapFarmerItem(props) {
           <h6>{content}</h6>
           {/* <div className="mt-5 "><h6>口碑第一</h6></div> */}
         </div>
-        <a href={urlknowfarmbtn}>
-          <button className="knowfarmbtn align-items-end">認識小農</button>
+        <a className="align-self-end" href={urlknowfarmbtn}>
+          <button className="knowfarmbtn ">認識小農</button>
         </a>
       </div>
     </>
