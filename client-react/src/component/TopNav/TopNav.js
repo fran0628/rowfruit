@@ -11,6 +11,8 @@ import {
 } from "react-bootstrap";
 import logoImg from './logo.png'
 import { LinkContainer } from "react-router-bootstrap";
+// import { useContext } from "react";
+// import { Context } from "../../context/Context";
 
 function logout(){
 	localStorage.clear();
@@ -18,6 +20,11 @@ function logout(){
 }
 
  function TopNav(props) {
+	 	// const { user, dispatch } = useContext(Context);
+
+		// const handleLogout = () => {
+		// 	dispatch({ type: "LOGOUT" });
+		// };
 	 const{auth,cartUpdate,setCartUpdate,checkLogin}=props
 	 const [cartLength,setCartLength]=useState()
    const [show, setShow] = useState(false);

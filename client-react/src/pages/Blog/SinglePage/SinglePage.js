@@ -48,13 +48,13 @@ import axios from "axios";
 				<div class="share-link position-fixed">
 					<div class="share">分享</div>
 					<div class="link p-2">
-						<a href="#" class="d-block">
+						<a class="d-block">
 							<i class="fab fa-facebook"></i>
 						</a>
-						<a href="#" class="d-block">
+						<a  class="d-block">
 							<i class="fab fa-twitter"></i>
 						</a>
-						<a href="#" class="d-block">
+						<a  class="d-block">
 							<i class="fas fa-paperclip"></i>
 						</a>
 					</div>
