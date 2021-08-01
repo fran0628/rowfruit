@@ -8,6 +8,8 @@ const data = [
     items: [
       {
         id: 32,
+        imageArray:
+          "galaApple1.jpeg,galaApple2.jpeg,galaApple3.jpeg,galaApple4.jpeg,galaApple5.jpeg",
         fruittype: 1,
         fruitname: "加拉蘋果",
         price: 35,
@@ -16,9 +18,13 @@ const data = [
         images: "galaApple.jpg",
         fram_name: "朝日蔬果園",
         avatar: "203.jpg",
+        rating: 3,
+        content: "日出而起，日落而食。各個水果都能品嘗到甜美滋味。",
       },
       {
         id: 33,
+        imageArray:
+          "fujiApple1.jpeg,fujiApple2.jpeg,fujiApple3.jpeg,fujiApple4.jpeg,fujiApple5.jpeg",
         fruittype: 1,
         fruitname: "富士蘋果",
         price: 45,
@@ -27,9 +33,13 @@ const data = [
         images: "fujiApple.jpg",
         fram_name: "阿芬樂活果園",
         avatar: "209.jpg",
+        rating: 3,
+        content: "愜意輕鬆地種植環境，培育出快樂甜蜜的果實。",
       },
       {
         id: 31,
+        imageArray:
+          "romanApple1.jpeg,romanApple2.jpeg,romanApple3.jpeg,romanApple4.jpeg,romanApple5.jpeg",
         fruittype: 1,
         fruitname: "羅馬蘋果",
         price: 20,
@@ -38,6 +48,8 @@ const data = [
         images: "romanApple.jpg",
         fram_name: "日立觀光果園",
         avatar: "211.jpg",
+        rating: 5,
+        content: "東部好山好水，培育出新鮮水果!",
       },
     ],
   },
@@ -50,6 +62,8 @@ const data = [
     items: [
       {
         id: 28,
+        imageArray:
+          "baodaoBanana1.jpeg,baodaoBanana2.jpeg,baodaoBanana3.jpeg,baodaoBanana4.jpeg,baodaoBanana5.jpeg",
         fruittype: 2,
         fruitname: "寶島蕉",
         price: 20,
@@ -58,9 +72,13 @@ const data = [
         images: "baodaoBanana.jpg",
         fram_name: "俊才有機果園",
         avatar: "206.jpg",
+        rating: 3,
+        content: "城市裡的一抹綠地，培育出茁壯而鮮美的果實",
       },
       {
         id: 29,
+        imageArray:
+          "taiwanBananaNo11.jpeg,taiwanBananaNo12.jpeg,taiwanBananaNo13.jpeg,taiwanBananaNo14.jpeg,taiwanBananaNo15.jpeg",
         fruittype: 2,
         fruitname: "台蕉1號",
         price: 35,
@@ -69,9 +87,13 @@ const data = [
         images: "taiwanBananaNo1.jpg",
         fram_name: "康康蔬果園",
         avatar: "208.jpg",
+        rating: 4,
+        content: "自家種植，甜美新鮮。歡迎聯絡我們，多多合作",
       },
       {
         id: 30,
+        imageArray:
+          "honeyBanana1.jpeg,honeyBanana2.jpeg,honeyBanana3.jpeg,honeyBanana4.jpeg,honeyBanana5.jpeg",
         fruittype: 2,
         fruitname: "蜜蕉",
         price: 45,
@@ -80,6 +102,8 @@ const data = [
         images: "honeyBanana.jpg",
         fram_name: "日立觀光果園",
         avatar: "211.jpg",
+        rating: 5,
+        content: "東部好山好水，培育出新鮮水果!",
       },
     ],
   },
@@ -92,17 +116,24 @@ const data = [
     items: [
       {
         id: 25,
+        imageArray:
+          "pearlGuava1.jpeg,pearlGuava2.jpeg,pearlGuava3.jpeg,pearlGuava4.jpeg,pearlGuava5.jpeg",
         fruittype: 3,
         fruitname: "珍珠芭樂",
         price: 40,
         unit: "顆",
         wight: 3,
         images: "pearlGuava.png",
-        fram_name: "阿漂有機果園     ",
+        fram_name: "阿漂有機果園",
         avatar: "201.jpg",
+        rating: 5,
+        content:
+          "在地小農，自家種植，自產自銷 有機無毒無農藥，天天去豆漿店載豆渣佐以奶粉、養樂多、黑糖來施肥  在地小農辛苦種植，保證安心健康新鮮",
       },
       {
         id: 26,
+        imageArray:
+          "waterGuava1.jpeg,waterGuava2.jpeg,waterGuava3.jpeg,waterGuava4.jpeg,waterGuava5.jpeg",
         fruittype: 3,
         fruitname: "水蜜芭樂",
         price: 35,
@@ -111,9 +142,13 @@ const data = [
         images: "waterGuava.png",
         fram_name: "朝日蔬果園",
         avatar: "203.jpg",
+        rating: 3,
+        content: "日出而起，日落而食。各個水果都能品嘗到甜美滋味。",
       },
       {
         id: 27,
+        imageArray:
+          "rainbowGuava1.jpeg,rainbowGuava2.jpeg,rainbowGuava3.jpeg,rainbowGuava4.jpeg,rainbowGuava5.jpeg",
         fruittype: 3,
         fruitname: "彩虹芭樂",
         price: 45,
@@ -122,6 +157,8 @@ const data = [
         images: "rainbowGuava.png",
         fram_name: "俊才有機果園",
         avatar: "206.jpg",
+        rating: 3,
+        content: "城市裡的一抹綠地，培育出茁壯而鮮美的果實",
       },
     ],
   },
@@ -134,17 +171,24 @@ const data = [
     items: [
       {
         id: 45,
+        imageArray:
+          "95avocado1.jpeg,95avocado2.jpeg,95avocado3.jpeg,95avocado4.jpeg,95avocado5.jpeg",
         fruittype: 4,
         fruitname: "95酪梨",
         price: 45,
         unit: "顆",
         wight: 3,
         images: "95avocado.jpg",
-        fram_name: "阿漂有機果園     ",
+        fram_name: "阿漂有機果園",
         avatar: "201.jpg",
+        rating: 5,
+        content:
+          "在地小農，自家種植，自產自銷 有機無毒無農藥，天天去豆漿店載豆渣佐以奶粉、養樂多、黑糖來施肥  在地小農辛苦種植，保證安心健康新鮮",
       },
       {
         id: 43,
+        imageArray:
+          "redHeartAvocado1.jpeg,redHeartAvocado2.jpeg,redHeartAvocado3.jpeg,redHeartAvocado4.jpeg,redHeartAvocado5.jpeg",
         fruittype: 4,
         fruitname: "紅心圓酪梨",
         price: 20,
@@ -153,9 +197,13 @@ const data = [
         images: "redHeartAvocado.jpg",
         fram_name: "小玉新鮮果園",
         avatar: "204.jpg",
+        rating: 5,
+        content: "歡迎來參觀我們的果園，新鮮能看得見!",
       },
       {
         id: 44,
+        imageArray:
+          "jasonAvocado1.jpeg,jasonAvocado2.jpeg,jasonAvocado3.jpeg,jasonAvocado4.jpeg,jasonAvocado5.jpeg",
         fruittype: 4,
         fruitname: "傑森酪梨",
         price: 35,
@@ -164,6 +212,8 @@ const data = [
         images: "jasonAvocado.jpg",
         fram_name: "阿劉果園",
         avatar: "205.jpg",
+        rating: 4,
+        content: "從父輩傳承下來的農田，經歷過二代轉型，堅持品質與創新。",
       },
     ],
   },
@@ -176,6 +226,8 @@ const data = [
     items: [
       {
         id: 54,
+        imageArray:
+          "goldenDiamondPineapple1.jpeg,goldenDiamondPineapple2.jpeg,goldenDiamondPineapple3.jpeg,goldenDiamondPineapple4.jpeg,goldenDiamondPineapple5.jpeg",
         fruittype: 5,
         fruitname: "金鑽鳳梨",
         price: 45,
@@ -184,9 +236,13 @@ const data = [
         images: "goldenDiamondPineapple.jpg",
         fram_name: "發財果園",
         avatar: "202.jpg",
+        rating: 4,
+        content: "吃得新鮮，吃得好。有機種植沒煩惱!",
       },
       {
         id: 52,
+        imageArray:
+          "custardPineapple1.jpeg,custardPineapple2.jpeg,custardPineapple3.jpeg,custardPineapple4.jpeg,custardPineapple5.jpeg",
         fruittype: 5,
         fruitname: "釋迦鳳梨",
         price: 20,
@@ -195,9 +251,13 @@ const data = [
         images: "custardPineapple.jpg",
         fram_name: "阿劉果園",
         avatar: "205.jpg",
+        rating: 4,
+        content: "從父輩傳承下來的農田，經歷過二代轉型，堅持品質與創新。",
       },
       {
         id: 53,
+        imageArray:
+          "perfumePineapple1.jpeg,perfumePineapple2.jpeg,perfumePineapple3.jpeg,perfumePineapple4.jpeg,perfumePineapple5.jpeg",
         fruittype: 5,
         fruitname: "香水鳳梨",
         price: 35,
@@ -206,6 +266,8 @@ const data = [
         images: "perfumePineapple.jpg",
         fram_name: "阿芬樂活果園",
         avatar: "209.jpg",
+        rating: 3,
+        content: "愜意輕鬆地種植環境，培育出快樂甜蜜的果實。",
       },
     ],
   },
@@ -218,17 +280,24 @@ const data = [
     items: [
       {
         id: 36,
+        imageArray:
+          "imperialTangerine1.jpeg,imperialTangerine2.jpeg,imperialTangerine3.jpeg,imperialTangerine4.jpeg,imperialTangerine5.jpeg",
         fruittype: 6,
         fruitname: "帝王柑",
         price: 45,
         unit: "顆",
         wight: 2,
         images: "imperialTangerine.jpg",
-        fram_name: "阿漂有機果園     ",
+        fram_name: "阿漂有機果園",
         avatar: "201.jpg",
+        rating: 5,
+        content:
+          "在地小農，自家種植，自產自銷 有機無毒無農藥，天天去豆漿店載豆渣佐以奶粉、養樂多、黑糖來施肥  在地小農辛苦種植，保證安心健康新鮮",
       },
       {
         id: 34,
+        imageArray:
+          "sugerTangerine1.jpeg,sugerTangerine2.jpeg,sugerTangerine3.jpeg,sugerTangerine4.jpeg,sugerTangerine5.jpeg",
         fruittype: 6,
         fruitname: "砂糖橘",
         price: 20,
@@ -237,9 +306,13 @@ const data = [
         images: "sugerTangerine.jpg",
         fram_name: "俊才有機果園",
         avatar: "206.jpg",
+        rating: 3,
+        content: "城市裡的一抹綠地，培育出茁壯而鮮美的果實",
       },
       {
         id: 35,
+        imageArray:
+          "pearlTangerine1.jpeg,pearlTangerine2.jpeg,pearlTangerine3.jpeg,pearlTangerine4.jpeg,pearlTangerine5.jpeg",
         fruittype: 6,
         fruitname: "珍珠柑",
         price: 35,
@@ -248,6 +321,8 @@ const data = [
         images: "pearlTangerine.png",
         fram_name: "婷婷觀光果園",
         avatar: "207.jpg",
+        rating: 5,
+        content: "親子共遊，採集蔬果的好地方。歡迎親自來參觀檢視蔬果品質!",
       },
     ],
   },
@@ -260,6 +335,8 @@ const data = [
     items: [
       {
         id: 40,
+        imageArray:
+          "greenKiwi1.jpeg,greenKiwi2.jpeg,greenKiwi3.jpeg,greenKiwi4.jpeg,greenKiwi5.jpeg",
         fruittype: 7,
         fruitname: "綠色奇異果",
         price: 20,
@@ -268,9 +345,13 @@ const data = [
         images: "greenKiwi.jpg",
         fram_name: "小玉新鮮果園",
         avatar: "204.jpg",
+        rating: 5,
+        content: "歡迎來參觀我們的果園，新鮮能看得見!",
       },
       {
         id: 41,
+        imageArray:
+          "sweetHeartGreanFruit1.jpeg,sweetHeartGreanFruit2.jpeg,sweetHeartGreanFruit3.jpeg,sweetHeartGreanFruit4.jpeg,sweetHeartGreanFruit5.jpeg",
         fruittype: 7,
         fruitname: "甜心綠果",
         price: 35,
@@ -279,9 +360,13 @@ const data = [
         images: "sweetHeartGreanFruit.jpg",
         fram_name: "婷婷觀光果園",
         avatar: "207.jpg",
+        rating: 5,
+        content: "親子共遊，採集蔬果的好地方。歡迎親自來參觀檢視蔬果品質!",
       },
       {
         id: 42,
+        imageArray:
+          "sunshineGoldenFruit1.jpeg,sunshineGoldenFruit2.jpeg,sunshineGoldenFruit3.jpeg,sunshineGoldenFruit4.jpeg,sunshineGoldenFruit5.jpeg",
         fruittype: 7,
         fruitname: "陽光金果",
         price: 45,
@@ -290,6 +375,8 @@ const data = [
         images: "sunshineGoldenFruit.jpg",
         fram_name: "康康蔬果園",
         avatar: "208.jpg",
+        rating: 4,
+        content: "自家種植，甜美新鮮。歡迎聯絡我們，多多合作",
       },
     ],
   },
@@ -302,6 +389,8 @@ const data = [
     items: [
       {
         id: 38,
+        imageArray:
+          "rishengSeed1.jpeg,rishengSeed2.jpeg,rishengSeed3.jpeg,rishengSeed4.jpeg,rishengSeed5.jpeg",
         fruittype: 10,
         fruitname: "日昇種",
         price: 35,
@@ -310,9 +399,13 @@ const data = [
         images: "rishengSeed.jpg",
         fram_name: "朝日蔬果園",
         avatar: "203.jpg",
+        rating: 3,
+        content: "日出而起，日落而食。各個水果都能品嘗到甜美滋味。",
       },
       {
         id: 37,
+        imageArray:
+          "tainong1.jpeg,tainong2.jpeg,tainong3.jpeg,tainong4.jpeg,tainong5.jpeg",
         fruittype: 10,
         fruitname: "台農2號",
         price: 20,
@@ -321,9 +414,13 @@ const data = [
         images: "tainong.png",
         fram_name: "婷婷觀光果園",
         avatar: "207.jpg",
+        rating: 5,
+        content: "親子共遊，採集蔬果的好地方。歡迎親自來參觀檢視蔬果品質!",
       },
       {
         id: 39,
+        imageArray:
+          "redConcubine1.jpeg,redConcubine2.jpeg,redConcubine3.jpeg,redConcubine4.jpeg,redConcubine5.jpeg",
         fruittype: 10,
         fruitname: "紅妃",
         price: 45,
@@ -332,6 +429,8 @@ const data = [
         images: "redConcubine.jpg",
         fram_name: "阿芬樂活果園",
         avatar: "209.jpg",
+        rating: 3,
+        content: "愜意輕鬆地種植環境，培育出快樂甜蜜的果實。",
       },
     ],
   },
@@ -344,6 +443,8 @@ const data = [
     items: [
       {
         id: 46,
+        imageArray:
+          "myanmarSweetKing1.jpeg,myanmarSweetKing2.jpeg,myanmarSweetKing3.jpeg,myanmarSweetKing4.jpeg,myanmarSweetKing5.jpeg",
         fruittype: 14,
         fruitname: "緬甸甜王",
         price: 20,
@@ -352,9 +453,13 @@ const data = [
         images: "myanmarSweetKing.jpg",
         fram_name: "發財果園",
         avatar: "202.jpg",
+        rating: 4,
+        content: "吃得新鮮，吃得好。有機種植沒煩惱!",
       },
       {
         id: 47,
+        imageArray:
+          "springRedJade1.jpeg,springRedJade2.jpeg,springRedJade3.jpeg,springRedJade4.jpeg,springRedJade5.jpeg",
         fruittype: 14,
         fruitname: "早春紅玉",
         price: 35,
@@ -363,9 +468,13 @@ const data = [
         images: "springRedJade.jpg",
         fram_name: "小玉新鮮果園",
         avatar: "204.jpg",
+        rating: 5,
+        content: "歡迎來參觀我們的果園，新鮮能看得見!",
       },
       {
         id: 48,
+        imageArray:
+          "blackBeauty1.jpeg,blackBeauty2.jpeg,blackBeauty3.jpeg,blackBeauty4.jpeg,blackBeauty5.jpeg",
         fruittype: 14,
         fruitname: "黑美人",
         price: 45,
@@ -374,6 +483,8 @@ const data = [
         images: "blackBeauty.jpg",
         fram_name: "康康蔬果園",
         avatar: "208.jpg",
+        rating: 4,
+        content: "自家種植，甜美新鮮。歡迎聯絡我們，多多合作",
       },
     ],
   },
@@ -386,6 +497,8 @@ const data = [
     items: [
       {
         id: 49,
+        imageArray:
+          "aiwenMango1.jpeg,aiwenMango2.jpeg,aiwenMango3.jpeg,aiwenMango4.jpeg,aiwenMango5.jpeg",
         fruittype: 15,
         fruitname: "愛文芒果",
         price: 20,
@@ -394,9 +507,13 @@ const data = [
         images: "aiwenMango.jpg",
         fram_name: "發財果園",
         avatar: "202.jpg",
+        rating: 4,
+        content: "吃得新鮮，吃得好。有機種植沒煩惱!",
       },
       {
         id: 50,
+        imageArray:
+          "peachMango1.jpeg,peachMango2.jpeg,peachMango3.jpeg,peachMango4.jpeg,peachMango5.jpeg",
         fruittype: 15,
         fruitname: "水蜜桃芒果",
         price: 35,
@@ -405,9 +522,13 @@ const data = [
         images: "peachMango.jpg",
         fram_name: "阿劉果園",
         avatar: "205.jpg",
+        rating: 4,
+        content: "從父輩傳承下來的農田，經歷過二代轉型，堅持品質與創新。",
       },
       {
         id: 51,
+        imageArray:
+          "wuxiangMango1.jpeg,wuxiangMango2.jpeg,wuxiangMango3.jpeg,wuxiangMango4.jpeg,wuxiangMango5.jpeg",
         fruittype: 15,
         fruitname: "烏香芒果",
         price: 45,
@@ -416,6 +537,8 @@ const data = [
         images: "wuxiangMango.jpg",
         fram_name: "日立觀光果園",
         avatar: "211.jpg",
+        rating: 5,
+        content: "東部好山好水，培育出新鮮水果!",
       },
     ],
   },

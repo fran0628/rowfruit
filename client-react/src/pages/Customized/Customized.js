@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { getCustomizeProductData } from "../../config";
 import "./Customized.scss";
 import { data } from "./data"; //假裝資料
 import LeftAside from "./components/LeftAside/LeftAside";
 import Middle from "./components/Middle/Middle";
 import RightAside from "./components/RightAside/RightAside";
-import BackgroundSlider from 'react-background-slider'
+import BackgroundSlider from "react-background-slider";
+import Modal from "./components/Modal/Modal";
+import ImageContent from "./components/Modal/ModalContent/ImageContent";
 // 伺服器fetch
 // async function fetchData(setProducts) {
 //   const res = await fetch(`${getCustomizeProductData}`);
@@ -13,7 +15,7 @@ import BackgroundSlider from 'react-background-slider'
 //   setProducts(products);
 // }
 function Customized(props) {
-  const {setTotalCart,setCartUpdate}=props
+  const { setTotalCart, setCartUpdate } = props;
   const [products, setProducts] = useState([
     {
       id: 0,
@@ -54,12 +56,12 @@ function Customized(props) {
   const [counts, setCounts] = useState([]);
   // console.log("最上面cartData", cartData);
   // console.log("最上面counts", counts);
-  // console.log("最上面data",data)
+  // console.log("最上面product",products)
   //計算分量加總
   const totalWight = () => {
     let sum = 0;
     for (let i = 0; i < cartData.length; i++) {
-      sum += cartData[i].wight
+      sum += cartData[i].wight;
     }
     return sum;
   };
@@ -68,44 +70,91 @@ function Customized(props) {
   const totalPrice = () => {
     let sum = 0;
     for (let i = 0; i < cartData.length; i++) {
-      sum += cartData[i].price
+      sum += cartData[i].price;
     }
     return sum;
   };
-
+  const [modalData,setModalData]=useState({
+    fruitName:"",
+    images:[],
+    farmerName:"",
+    farmerImage:"",
+    farmerContent:""
+  })
+  const modalRef = useRef();
   return (
-    <div className="customizedTitle">
-      <div className="container ">
-        <h1 className="display-4 text-center fw-bold">客製化水果盒</h1>
-      </div>
-      <div className="container">
-    <BackgroundSlider images={["https://images.pexels.com/photos/1028599/pexels-photo-1028599.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260","https://images.pexels.com/photos/1414130/pexels-photo-1414130.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260","https://images.pexels.com/photos/65256/pomegranate-open-cores-fruit-fruit-logistica-65256.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"]} duration={10} transition={2} />
+    <>
+      <Modal ref={modalRef}>
+          <h1 className="mt-0 d-flex justify-content-center">{modalData.fruitName}</h1>
         <div className="row">
-          {/* 左側邊 */}
-          <LeftAside cartData={cartData} />
-          {/* 商品區塊 */}
-          <Middle
-            data={products}
-            cartData={cartData}
-            addCart={setCartData}
-            setCounts={setCounts}
+          <div className="col-7 d-flex align-items-center h-100">
+            <ImageContent Images={modalData.images} />
+          </div>
+          <div className="col-5">
+            <h2 className="d-flex justify-content-center mt-0">{modalData.farmerName}</h2>
+            <div className="pb-2" style={{height:"200px"}} >
+              <img
+                className="productImage"
+                src={modalData.farmerImage}
+                alt=""
+              />
+            </div>
+            <div className="textBox">
+              <p>{modalData.farmerContent}</p>
+            </div>
+            <button
+              className="closeModal"
+              onClick={() => {
+                modalRef.current.close();
+              }}
+            >
+              關閉
+            </button>
+          </div>
+        </div>
+      </Modal>
+      <div className="customizedTitle">
+        <div className="container ">
+          <h1 className="text-center fw-bold pb-4 pt-2">客製化水果盒</h1>
+        </div>
+        <div className="container">
+          <BackgroundSlider
+            images={[
+              "https://images.pexels.com/photos/1028599/pexels-photo-1028599.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+              "https://images.pexels.com/photos/1414130/pexels-photo-1414130.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+              "https://images.pexels.com/photos/65256/pomegranate-open-cores-fruit-fruit-logistica-65256.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+            ]}
+            duration={10}
+            transition={2}
           />
-          {/* 右側 */}
-          <RightAside
-            data={products}
-            cartData={cartData}
-            setCartData={setCartData}
-            totalPrice={totalPrice()}
-            totalWight={totalWight()}
-            counts={counts}
-            setCounts={setCounts}
-            setTotalCart={setTotalCart}
-            setCartUpdate={setCartUpdate}
-          />
+          <div className="row">
+            {/* 左側邊 */}
+            <LeftAside cartData={cartData} />
+            {/* 商品區塊 */}
+            <Middle
+              data={products}
+              cartData={cartData}
+              addCart={setCartData}
+              setCounts={setCounts}
+              modalRef={modalRef}
+              setModalData={setModalData}
+            />
+            {/* 右側 */}
+            <RightAside
+              data={products}
+              cartData={cartData}
+              setCartData={setCartData}
+              totalPrice={totalPrice()}
+              totalWight={totalWight()}
+              counts={counts}
+              setCounts={setCounts}
+              setTotalCart={setTotalCart}
+              setCartUpdate={setCartUpdate}
+            />
+          </div>
         </div>
       </div>
-    </div>
-   
+    </>
   );
 }
 export default Customized;

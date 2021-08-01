@@ -37,7 +37,7 @@ function About() {
           <div className="row align-items-center">
             <div className="col-12 col-lg-6">
               <div className="image-wrapper">
-                <img src="../../public/img/farmer.png" alt="ROWFRUIT" />
+                <img src="/About/farmer.png" alt="ROWFRUIT" />
               </div>
             </div>
             <div className="col-12 col-lg">
@@ -111,7 +111,7 @@ function About() {
                     <div className="item-wrapper">
                       <img
                         className="d-block w-100"
-                        src="./mapn.png"
+                        src="/About/mapn.png"
                         data-slide-to="0"
                       />
                     </div>
@@ -120,7 +120,7 @@ function About() {
                     <div className="item-wrapper">
                       <img
                         className="d-block w-100"
-                        src="./mapm.png"
+                        src="/About/mapm.png"
                         data-slide-to="1"
                       />
                     </div>
@@ -132,7 +132,7 @@ function About() {
                   </div>
                   <div className="carousel-item slider-image item">
                     <div className="item-wrapper">
-                      <img className="d-block w-100" src="./mape.png" />
+                      <img className="d-block w-100" src="/About/mape.png" />
                     </div>
                   </div>
                 </div>
@@ -177,7 +177,7 @@ function About() {
           <div className="row justify-content-center">
             <div className="col-lg-7 col-12">
               <div className="image-wrapper">
-                <img className="w-100" src="./MEMBERBAN.png" alt="ROWFRUIT" />
+                <img className="w-100" src="/About/MEMBERBAN.png" alt="ROWFRUIT" />
               </div>
             </div>
             <div className="col-lg-3 offset-lg-1 mbr-form" data-form-type="formoid">
@@ -275,12 +275,12 @@ function About() {
     
 
     
-
+    
     <div className="container">
         <div className="row justify-content-center">
             <div className="col-lg-7 col-12">
                 <div className="image-wrapper">
-                    <img className="w-100" src="./FARMERBAN.png" alt="ROWFRUIT"/>
+                    <img className="w-100" src="/About/FARMERBAN.png" alt="ROWFRUIT"/>
                 </div>
             </div>
             <div className="col-lg-3 offset-lg-1 mbr-form" data-form-type="formoid">

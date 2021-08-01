@@ -1,4 +1,63 @@
 
+.modal-wrapper {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2000;
+}
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2001;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.modal-box{
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  height: 600px;
+  width: 811px;
+  overflow-y: hidden;
+  background-color: white;
+  box-shadow:0 0 10px rgba(0,0,0,0.25);
+  z-index: 2002;
+  padding: 40px;
+}
+.modal-box:after{
+  content: "";
+  background: url("https://images.pexels.com/photos/1410141/pexels-photo-1410141.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-size: cover;
+  opacity: 0.7;
+  filter: blur(7px);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+
+  ;
+}
+.textBox{
+  height: 200px;
+  width: 311px;
+  overflow-y: auto;
+}
+.closeModal{
+  position: absolute;
+  bottom: 0;
+  right: 0px;
+  background:#f5c184 ;
+  border-radius: 10px;
+}
+
+
 .customizedTitle{
    position: relative;
    top: -130px;
@@ -25,6 +84,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  cursor: pointer;
 }
 
 
@@ -322,6 +382,7 @@
   .smallImageBox {
     height: 50px;
     width: 50px;
+    
   }
   .productName {
     font-size: 1.2rem !important;

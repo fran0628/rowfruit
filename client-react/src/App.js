@@ -1,4 +1,6 @@
 import React,{useState,useEffect} from "react";
+import { useContext } from "react";
+import { Context } from "./context/Context.js";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
@@ -17,10 +19,17 @@ import UserDashboard from "./pages/UserDashboard/UserDashboard";
 import OrderList from "./pages/OrderList/OrderList";
 import About from "./pages/About/about";
 import Cart from "./pages/Cart/Cart"
+import Blog from "./pages/Blog/BlogPage/BlogPage";
+import FarmerRegister from "./pages/FarmerRegister/FarmerRegister";
+import FarmerLogin from "./pages/FarmerLogin/FarmerLogin";
+import SinglePage from "./pages/Blog/SinglePage/SinglePage";
+import FarmerUserDashboard from "./pages/FarmerUserDashboard/FarmerUserDashboard";
 import ScrollToTop from "./component/ScrollToTop";
 import SubscribeCart from './pages/SubscribeCart/SubscribeCart'
 
 function App() {
+	const { farmeruser } = useContext(Context);
+
 	const[cartUpdate,setCartUpdate]=useState(false)
 	const [cart,setCart]=useState([{
 		productId: 1,
@@ -40,71 +49,126 @@ function App() {
 
 	const [auth,setAuth]=useState("hi XXX")
 	const [data,setData]=useState({account:"",password:""})
+	const [register,setRegister]=useState({fullname:"", account:"", password:"", repassword:"", email:"",address:"",phone:""})
 	const [showData,setShowdata]=useState(false)
 
 	console.log("data",data)
 	console.log(islogin)
 
-	 function fetchSetData() {
-	let body = { account: data.account, password: data.password };
-
-    axios
-      .post(`http://localhost:5000/api/login`, body)
-
-      .then((res) => {
-		  if(res.data.code===200) {
-
-			// token解析
-			const token = res.data.data.token.split(" ")[1];
+	function fetchSetData() {
+		let body = { account: data.account, password: data.password };
+		
+		if(data.account==='' && data.password ==='') {
+			dialog('帳號密碼不可以為空');
+		} else if ( data.password==='') {
+			dialog('請輸入密碼');
+		} else if ( data.account==='') {
+			dialog('請輸入帳號');
+		} else if (  data.password.length<6) {
+			dialog('密碼長度最少需六個字元');
+		}
+		else {
+			axios
+			.post(`http://localhost:5000/api/login`, body)
 	
-			let payload = JSON.parse(atob(token.split(".")[1]));
+			.then((res) => {
+				if(res.data.code===200) {
 	
-			console.log("res=>", payload);
-			console.log(res.data.data.name);
-			let username = res.data.data.name;
-			localStorage.setItem("token", res.data.data.token);
-			localStorage.setItem("name", username);
-			setIslogin({
-				islogin:true,
-				name:username
-			})
-			Swal.fire({
-				position: 'center-center',
-				icon: 'success',
-				title: '登入成功',
-				showConfirmButton: false,
-				timer: 5000,
-			  })
-			window.location.href = 'about'
-		  } else {
-			Swal.fire({
-				position: 'top-top',
-				icon: 'error',
-				title: '帳號或密碼有錯',
-				showConfirmButton: false,
-				timer: 1500,
-			  })
-		  }
-      });
-	  }
+				// token解析
+				const token = res.data.data.token.split(" ")[1];
+		
+				let payload = JSON.parse(atob(token.split(".")[1]));
+		
+				console.log("res=>", payload);
+				console.log(res.data.data.name);
+				let username = res.data.data.name;
+				localStorage.setItem("token", res.data.data.token);
+				localStorage.setItem("name", username);
+				setIslogin({
+					islogin:true,
+					name:username
+				})
+				Swal.fire({
+					position: 'center',
+					icon: 'success',
+					title: '登入成功',
+					showConfirmButton: false,
+					timer: 2000,
+					onClose:changePage()
+					})
+					function changePage(){
+						console.log('changePage');
+					setTimeout(()=>{
+						window.location.href = 'About'
+					},2000)
+					}
+					console.log("changePage:",changePage)
+				} 
+				if(res.data.code===401){
+					console.log('AAAAAAAA')
+					Swal.fire({
+						icon: 'error',
+						title: '帳號或密碼有誤',
+						showConfirmButton: false,
+						timer: 2000,
+					})
+				}
+	
+				
+			});
+		}
+
+	}
+
+
+	function dialog(text) {
+		Swal.fire({
+			position: 'center',
+			icon: 'error',
+			title: text,
+			showConfirmButton: false,
+			timer: 2000,
+		})
+	}
 
 	useEffect(()=>{
 		// console.log("初始值測試")
 		if(showData){
 			console.log('AAAs')
 			fetchSetData()
+		}else{
+			setShowdata(false)
 		}
-		setShowdata(false)
 	},[data])
 
   return (
 		<Router>
 			<>
 				<ScrollToTop>
-					<TopNav checkLogin={islogin}  auth={auth} cartUpdate={cartUpdate} setCartUpdate={setCartUpdate} />
+					<TopNav
+						checkLogin={islogin}
+						auth={auth}
+						cartUpdate={cartUpdate}
+						setCartUpdate={setCartUpdate}
+					/>
 					<MultiLevelBreadcrumb />
 
 					<Switch>
+						<Route exact path="/farmeruserdashboard">
+							{farmeruser ? <FarmerUserDashboard /> : <FarmerLogin />}
+						</Route>
+						<Route exact path="/farmerlogin">
+							{farmeruser ? <Home /> : <FarmerLogin />}
+						</Route>
+						<Route exact path="/farmerregister">
+							{farmeruser ? <Blog /> : <FarmerRegister />}
+						</Route>
+						<Route exact path="/blog">
+							<Blog />
+						</Route>
+						<Route exact path="/post/:postId">
+							<SinglePage />
+						</Route>
 						<Route path="/cart">
 							<Cart cart={cart} />
 						</Route>
@@ -118,10 +182,15 @@ function App() {
 							<UserDashboard />
 						</Route>
 						<Route path="/memberlogin">
-							<MemberLogin setAuth={setAuth} setData={setData} data={data} setShowdata={setShowdata} />
+							<MemberLogin
+								setAuth={setAuth}
+								setData={setData}
+								data={data}
+								setShowdata={setShowdata}
+							/>
 						</Route>
 						<Route path="/memberegister">
-							<MemberRegister />
+							<MemberRegister register={register} setRegister={setRegister} />
 						</Route>
 						<Route path="/farmerlist">
 							<FarmList />
@@ -136,7 +205,10 @@ function App() {
 							<Main />
 						</Route>
 						<Route path="/customized">
-							<Customized setTotalCart={setCart} setCartUpdate={setCartUpdate} />
+							<Customized
+								setTotalCart={setCart}
+								setCartUpdate={setCartUpdate}
+							/>
 						</Route>
 						<Route path="/About">
 							<About />

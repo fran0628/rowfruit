@@ -12,11 +12,16 @@ function FruitVariety(props) {
     images,
     fram_name,
     avatar,
+    rating,
+    imageArray,
+    content,
     imageFront,
     cartData,
     addCart,
     nutrients,
     setCounts,
+    modalRef,
+    setModalData
   } = props;
   const nutrientsArray = nutrients.split(",");
   const newImageUrl =
@@ -66,12 +71,32 @@ function FruitVariety(props) {
       addCartDataAndCounts()
     }
   }
+  
+  const newImageArray = imageArray&&imageArray.split(',').map((item)=>{
+    const newImage=
+    "http://localhost:3000/images/CustomizedPhotos/" +
+    imageFront +
+    "/" +item
+    return newImage
+  })
+  function setAndOpenModal(){
+    modalRef.current.openModal()
+    setModalData((modalData)=>{
+      const newModalData={...modalData}
+      newModalData.fruitName=fruitname
+      newModalData.images=newImageArray
+      newModalData.farmerName=fram_name
+      newModalData.farmerImage=farmerImageUrl
+      newModalData.farmerContent=content
+      return newModalData
+    })
+  }
 
   return (
     <>
       <div className="row productItem">
         <div className="col-2 h-100 d-flex justify-content-center align-items-center productItemImage">
-          <div className="smallImageBox ">
+          <div onClick={setAndOpenModal} className="smallImageBox ">
             <img className="productImage imageLarge" src={newImageUrl} alt="" />
           </div>
         </div>
@@ -94,8 +119,8 @@ function FruitVariety(props) {
           <div className="smallImageBox">
             <img
               className="productImage"
-              src="https://images.pexels.com/photos/8828132/pexels-photo-8828132.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-              // src={farmerImageUrl}
+              // src="https://images.pexels.com/photos/8828132/pexels-photo-8828132.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+              src={farmerImageUrl}
               alt=""
             />
           </div>
@@ -104,7 +129,7 @@ function FruitVariety(props) {
           <div>
             <p className="my-0">{fram_name}</p>
             <p className="my-0">
-              4.5<i className="fas fa-star"></i>
+              {rating}<i className="fas fa-star"></i>
             </p>
           </div>
         </div>

@@ -26,7 +26,6 @@ function BuyContent(props) {
   })
   }
 
-
  // 更新購物車中的商品數量
 
   // sweetalert
@@ -39,6 +38,7 @@ function BuyContent(props) {
 
 
   // 加入購物車的localstorage
+
   const fruitamount = fruitcontent.join(',');
   
   const mainProduct = {
@@ -49,10 +49,10 @@ function BuyContent(props) {
     price: boxprice,
     imageUrl: images,
   };
-  
+
 
   function addCart() {
-  if (1) {
+  if (mainProduct.productId === id) {
     const currentCart = JSON.parse(localStorage.getItem("cart")) || [];
     currentCart.push(mainProduct);
     localStorage.setItem("cart", JSON.stringify(currentCart));
@@ -63,13 +63,9 @@ function BuyContent(props) {
     remind();
   }
   }
+
+
   
-  // const boxcontent = fruit_item.split(' ');
-  // console.log(boxcontent)
-  // for (var i = 0; i < boxcontent.length; i++) {
-  //     const item = boxcontent[i];
-  //     console.log(i, item);
-  //   }
   return (
       <>
           <div className="col-xl-5 col-lg-6">

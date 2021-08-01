@@ -3,7 +3,7 @@ import axios from "axios";
 // import Item from "../../Cart/components/Item";
 
 function FruitMapFarmerItem(props) {
-  const { avatar, fram_Name, content } = props;
+  const { avatar, fram_name, content } = props;
   // const [FruitMapFarmerItem, setFruitMapFarmerItem] = useState([]);
 
   // 認識小農按鈕連結
@@ -29,7 +29,7 @@ function FruitMapFarmerItem(props) {
 
   useEffect(() => {
     setData(data);
-   // setFruitMapFarmerItem(data);
+    // setFruitMapFarmerItem(data);
   }, []);
 
   return (
@@ -41,21 +41,19 @@ function FruitMapFarmerItem(props) {
             src={PF + avatar}
             alt="..."
           />
-          <h6 className="mt-3 m-3">
-            <i className="fa fa-star" aria-hidden="true"></i>
-            <i className="fa fa-star" aria-hidden="true"></i>
-            <i className="fa fa-star" aria-hidden="true"></i>
-            <i className="fa fa-star" aria-hidden="true"></i>
-            <i className="fa fa-star" aria-hidden="false"></i>
-          </h6>
+          <h6 className="mt-3 m-3"></h6>
         </div>
         <div className="vertical align-items-center">
-          <h5 className="mt-4">{fram_Name}</h5>
+          <h5 className="mt-4">
+            果園名稱：
+            <br />
+            {fram_name}
+          </h5>
           <h6>{content}</h6>
           {/* <div className="mt-5 "><h6>口碑第一</h6></div> */}
         </div>
-        <a href={urlknowfarmbtn}>
-          <button className="knowfarmbtn align-self-end p-1">認識小農</button>
+        <a className="align-self-end" href={urlknowfarmbtn}>
+          <button className="knowfarmbtn ">認識小農</button>
         </a>
       </div>
     </>

@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Accordion } from "react-bootstrap";
 import OrderDetail from "./OrderDetail/OrderDetail";
+import axios from "axios";
 
-function Order() {
+function Order(props) {
+  const { id, create_time, total_price, member_id, product_id, amount } = props;
+
+	const [data, setData] = useState([]);
+  useEffect(() => {
+    const fetchOrderDetail = async () => {
+      const res = await axios.get("/Cart/Orderlist");
+      console.log(res);
+      console.log(res.data);
+      setData(res.data);
+    };
+    fetchOrderDetail();
+  }, []);
+
   return (
     <>
       <div className="col-8 mx-auto mt-3">
@@ -16,9 +30,9 @@ function Order() {
           </thead>
           <tbody>
             <tr>
-              <td>XX</td>
-              <td>XXXX-XX-XX</td>
-              <td>$??</td>
+              <td>{id}</td>
+              <td>{create_time}</td>
+              <td>{total_price}</td>
             </tr>
             <tr>
               <td colspan="3" className="p-0 mb-0">
