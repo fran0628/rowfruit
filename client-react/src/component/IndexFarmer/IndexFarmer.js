@@ -5,7 +5,16 @@ import CardItem from "./CardItem/CardItem";
 import axios from "axios";
 
 function IndexFarmer() {
-	const [farmer,setFarmer]=useState([])
+	const [farmer, setFarmer] = useState([
+		{
+			id: 0,
+			fram_name: "",
+			content:"",
+			avatar: "",
+			rating: 0,
+			fruit: []
+		},
+	]);
 	useEffect(() => {
 		const fetchFarmer = async () => {
 			const res = await axios.get("/indexfarmer");
@@ -46,7 +55,7 @@ function IndexFarmer() {
 							style={{ display: !isMoved && "none" }}
 						/>
 						<div className="farmer-cards" ref={listRef}>
-							{farmer.map((f,i)=>{
+							{farmer && farmer.map((f,i)=>{
 								return <CardItem key={i} farmer={f}/>
 							})}
 							

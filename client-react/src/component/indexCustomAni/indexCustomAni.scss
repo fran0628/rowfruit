@@ -54,7 +54,7 @@
   height: 50px;
   border-radius: 50%;
   display: inline-block;
-  background-color:#e4ec70;
+  // background-color:#e4ec70;
   animation-name: roll-in-left;
   animation-duration: 3s;
   animation-timing-function: ease;
@@ -63,14 +63,14 @@
   animation-direction: normal;
   animation-fill-mode: none;
   line-height:50px;
-
+  
 }
 .at-item2 {
   width: 50px;
   height: 50px;
   border-radius: 50%;
   display: inline-block;
-  background-color:#b070ec;
+  // background-color:#b070ec;
   animation-name: roll-in-left;
   animation-duration: 3s;
   animation-timing-function: ease;
@@ -79,13 +79,14 @@
   animation-direction: normal;
   animation-fill-mode: none;
   line-height:50px;
+  margin-left: 50px;
 }
 .at-item3 {
   width: 50px;
   height: 50px;
   border-radius: 50%;
   display: inline-block;
-  background-color:#ec70ae;
+  // background-color:#ec70ae;
   animation-name: roll-in-left;
   animation-duration: 3s;
   animation-timing-function: ease;
@@ -94,6 +95,7 @@
   animation-direction: normal;
   animation-fill-mode: none;
   line-height:50px;
+  margin-left: 50px;
 }
 @keyframes roll-in-left {
   0%{

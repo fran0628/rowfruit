@@ -1,0 +1,21 @@
+.share-link {
+				top: 50vh;
+				left: 50px;
+				
+				transform: translateY(-50%);
+                z-index: -1;
+			}
+			a {
+				color: inherit;
+			}
+			.share {
+				font-size: 16px;
+				background-color: #d05656;
+				text-align: center;
+				border-radius: 5px 5px 0 0;
+                color: #fff;
+			}
+			.share-link {
+				background-color: #f6f7f2;
+                font-size: 40px;
+			}

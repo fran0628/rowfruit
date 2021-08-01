@@ -50,27 +50,36 @@ class UserDashboard extends Component {
 		});
 	} 
 
-	checkPassword() {
-		if(!this.state.password || this.state.password !== this.state.confirmPassword) {
-		   this.setState({password_has_error:true});
-	   }
-	   else {
-		   this.setState({password_has_error:false});
-	   }
-   }
+// 	checkPassword() {
+// 		if(!this.state.password || this.state.password !== this.state.confirmPassword) {
+// 		   this.setState({password_has_error:true});
+// 	   }
+// 	   else {
+// 		   this.setState({password_has_error:false});
+// 	   }
+//    }
 
-   handleChange = (event) => {
-	   this.setState({[event.target.name] : event.target.value });
+//    handleChange = (event) => {
+// 	   this.setState({[event.target.name] : event.target.value });
 
-	   if (event.target.name === 'password' || event.target.name === 'confirmPassword')
-		   this.checkPassword();
-   }
+// 	   if (event.target.name === 'password' || event.target.name === 'confirmPassword')
+// 		   this.checkPassword();
+//    }
 
-   handleSubmit(event) {
-	   event.preventDefault(); 
-	   // TODO: will submit the form here
-   }
+//    handleSubmit(event) {
+// 	   event.preventDefault(); 
+// 	   // TODO: will submit the form here
+//    }
 
+    dialog(text) {
+	Swal.fire({
+		position: 'center',
+		icon: 'error',
+		title: text,
+		showConfirmButton: false,
+		timer: 2000,
+	})
+}
 	putUserDetail=() => {
 		const token = localStorage.getItem('token').split(" ")[1];
 	  
@@ -80,13 +89,30 @@ class UserDashboard extends Component {
 			account:this.state.account,
 			name:this.state.name,
 			password:this.state.password,
-			confirmPassword:this.state.password,
+			confirmPassword:this.state.confirmPassword,
 			email:this.state.email,
 			phone:this.state.phone,
 			address:this.state.address
-			
 		};
-
+		console.log(body.password === body.confirmPassword);
+		console.log(this.state.password,this.state.confirmPassword);
+		console.log(this.state.Password === this.state.confirmPassword)
+		if(this.state.name==='') {
+			dialog('姓名不可為空值');
+		} else if ( this.state.password==='') {
+			dialog('請輸入密碼');
+		} else if ( this.state.confirmPassword==='') {
+			dialog('請在輸入一次密碼');
+		}else if ( body.password !== body.confirmPassword) {
+			dialog('密碼輸入不一致');
+		}else if ( this.state.phone==='') {
+			dialog('請輸入電話');
+		}else if (  this.state.account==='') {
+			dialog('請輸入帳號');
+		} else if (   this.state.address==='') {
+			dialog('請輸入地址');
+		}
+		else {
 		axios
 		.put('http://localhost:5000/api/member/'+payload.id,body)
 	
@@ -102,7 +128,20 @@ class UserDashboard extends Component {
 			window.location.reload();
 			console.log(res.data[0]);
 		})
+		}
+
+		function dialog(text) {
+			Swal.fire({
+				position: 'center',
+				icon: 'error',
+				title: text,
+				showConfirmButton: false,
+				timer: 2000,
+			})
+		}
 	}
+
+	
     render(){
 
 		const datas = this.state;
@@ -157,7 +196,6 @@ class UserDashboard extends Component {
 								className="form-control"
 								id="inputPassword"
 								name="password"
-								minLength="6"
 								defaultValue={this.state.password}
 								onChange={(event) => this.setText(event)}
 							/>
@@ -170,8 +208,7 @@ class UserDashboard extends Component {
 								type="password"
 								className="form-control"
 								id="inputPassword2"
-								name="confirm"
-								minLength="6"
+								name="confirmPassword"
 								defaultValue={this.state.confirmPassword}
 								onChange={(event) => this.setText(event)}
 							/>

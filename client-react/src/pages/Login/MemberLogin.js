@@ -1,5 +1,6 @@
 // import axios from "axios";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 // import { withRouter } from "react-router-dom";
 import "./MemberLogin.scss";
 
@@ -113,8 +114,20 @@ function MemberLogin(props) {
   //   </>
   // );
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    // const data = new FormData(e.target)
+
+    // console.log(data.get('username'))
+    // console.log(data.get('password'))
+
+    // ex. 送到伺服器
+    // loginToSever()
+  }
+
   return  (
-    <form>
+    <div  >
       {/* <button onClick={changeLogin}>我會改變login</button> */}
       <div className="MemberBanner" style={banner}>
         {/* Login  Form */}
@@ -130,7 +143,7 @@ function MemberLogin(props) {
                   <h3 className="NormalMemberLogin d-flex justify-content-center mb-3">
                     一般會員登入
                   </h3>
-                  <form>
+                  <form >
                     <div className="mb-3">
                       <label htmlFor="username" className="form-label">
                         帳號
@@ -171,7 +184,7 @@ function MemberLogin(props) {
                     </div>
                     <div className="d-none d-sm-flex justify-content-center">
                       <button
-                        type="submit"
+                        type="button"
                         className="btn normal-btn"
                         onClick={loginSubmit}
                         >
@@ -202,9 +215,9 @@ function MemberLogin(props) {
                 <img className="mx-3" src="MemberPhoto/facebook.png" alt="" />
               </div> */}
                     <div className="d-flex justify-content-center mb-2">
-                      <a className="back-farmerlogin" href="farmer_login.html">
+                      <Link className="back-farmerlogin" to="/farmerlogin">
                         <h5 className="BackFarmerlogin">切換為小農登入頁面</h5>
-                      </a>
+                      </Link>
                     </div>
                   </form>
                 </div>
@@ -213,7 +226,7 @@ function MemberLogin(props) {
           </div>
         </div>
       </div>
-    </form>
+    </div>
   );
   
 }

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./MemberRegister.scss";
+import Swal from "sweetalert2";
 import axios from 'axios'
 
 
@@ -43,25 +44,88 @@ export default function MemberRegister(props) {
     setEmail(e.target.value)
   }
 
+  const [address, setAddress ] = useState("")
+
+  function addressChange (e){
+    setAddress(e.target.value)
+  }
+
+  const [phone, setPhone ] = useState("")
+
+  function phoneChange (e){
+    setPhone(e.target.value)
+  }
+
   console.log(`${fullname},${account},${password},${repassword},${email}`)
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    // const data = new FormData(e.target)
+
+    // console.log(data.get('username'))
+    // console.log(data.get('password'))
+
+    // ex. 送到伺服器
+    // loginToSever()
+  }
+
   function formData() {
+    
      setRegister(() => {
       const newData = { ...register };
       console.log("newData :",newData)
-      newData.fullname = fullname;
+      newData.name = fullname;
       newData.account = account;
       newData.password = password;
       newData.repassword = password;
       newData.email = email;
-      return newData;
-    }, 
-    
-   );
-   
+      newData.address = address;
+      newData.phone = phone;
 
-   
-    
+      registerData(newData);
+    },
+   );
+  
+}
+
+function registerData(datas){
+  if(datas.account==='') {
+    dialog('帳號不可以為空');
+  } else if ( datas.name==='') {
+    dialog('姓名不可以為空');
+  }else if ( datas.password==='') {
+    dialog('密碼不可以為空');
+  } else if ( datas.password.length<6) {
+    dialog('密碼不能少於6位數');
+  }else if ( datas.repassword ==='') {
+    dialog('密碼不可以為空');
+  }else if ( datas.password !== datas.repassword) {
+    dialog('密碼兩者不相同');
+  } else if ( datas.email==='') {
+    dialog('請輸入信箱');
+  }else if ( datas.email.indexOf('@')==-1) {
+    dialog('信箱內必須包含@');
+  }else if ( datas.address==='') {
+    dialog('請輸入地址');
+  }else if (  datas.phone==='') {
+    dialog('請輸入電話');
+  }
+  else {
+  axios.post('http://localhost:5000/api/member',datas)
+    .then((result) => { console.log(result.data) })
+    .catch((err) => { console.error(err) })
+  }
+
+  function dialog(text) {
+		Swal.fire({
+			position: 'center',
+			icon: 'error',
+			title: text,
+			showConfirmButton: false,
+			timer: 2000,
+		})
+	}
 }
 
   return (
@@ -74,7 +138,7 @@ export default function MemberRegister(props) {
                 <img className="p-3" src="MemberPhoto/logo.svg" alt="" />
               </div>
               <div className="MemberBody">
-                <form>
+                <form  onSubmit={handleSubmit} >
                   <h3 className="MemberRegister d-flex justify-content-center  mb-3">
                     會員註冊
                   </h3>
@@ -86,8 +150,7 @@ export default function MemberRegister(props) {
                       value={fullname}
                       onChange={fullnameChange}
                       placeholder="姓名"
-                      required
-                    />
+                      />
                   </div>
                   <div className="mb-3">
                     <input
@@ -97,8 +160,7 @@ export default function MemberRegister(props) {
                       value={account}
                       onChange={accountChange}
                       placeholder="帳號"
-                      required
-                    />
+                      />
                     
                   </div>
                   <div className="mb-3">
@@ -109,9 +171,7 @@ export default function MemberRegister(props) {
                       value={password}
                       onChange={passwordChange}
                       placeholder="密碼"
-                      minLength="6"
-                      required
-                    />
+                      />
                   </div>
                   <div className="mb-3">
                     <input
@@ -120,10 +180,8 @@ export default function MemberRegister(props) {
                       name="repassword"
                       value={repassword}
                       onChange={rePasswordChange}
-                      minLength="6"
                       placeholder="請再次確認密碼"
-                      required
-                    />
+                      />
                   </div>
                   <div className="mb-3">
                     <input
@@ -133,18 +191,37 @@ export default function MemberRegister(props) {
                       value={email}
                       onChange={emailChange}
                       placeholder="電子信箱"
-                      required
+                      />
+                  </div>
+                  <div className="mb-3">
+                    <input
+                      className="form-control"
+                      type="text"
+                      name="address"
+                      value={address}
+                      onChange={addressChange}
+                      placeholder="地址"
+                      />
+                  </div>
+                  <div className="mb-3">
+                    <input
+                      className="form-control"
+                      type="text"
+                      name="phone"
+                      value={phone}
+                      onChange={phoneChange}
+                      placeholder="電話"
                     />
                   </div>
                   <div className="d-none d-sm-flex justify-content-center  my-4">
-                    <button type="button" className="btn normal-btn"
+                    <button  className="btn normal-btn"
                     onClick={formData}
                     >
                       送出
                     </button>
                   </div>
                   <div className=" d-sm-none my-4">
-                    <button type="button" className="btn rwd-btn"
+                    <button  className="btn rwd-btn"
                     >
                       送出
                     </button>
