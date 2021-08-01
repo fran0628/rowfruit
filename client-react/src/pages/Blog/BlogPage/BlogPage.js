@@ -3,30 +3,42 @@ import HotPost from './HotPost/HotPost'
 import './blogpage.css'
 import axios from "axios";
 import PostBlock from "./PostBlock/PostBlock";
+import PostAside from "./PostAside/PostAside";
+import { useLocation } from "react-router-dom";
+
+
+
 
 
  function BlogPage() {
     const [posts, setPosts] = useState([]);
     const [hotArticle,setHotArticle]=useState([])
+
+	const { search } = useLocation();
+	console.log(search.slice(1,search.length));
+
+
 		// const serverUrl = "http://localhost:5000/api"
 		useEffect(() => {
 			const fetchPosts = async () => {
-				const res = await axios.get("/posts");
-				// console.log(res);
-				
-				console.log(res.data)
+				// const cat= 
+				const res = await axios.get("/post/" + (search ? `cat/${search.slice(1, search.length)}`: ""));
+				console.log(res);
+
+				console.log(res.data);
 				setPosts(res.data);
-                setHotArticle(res.data.slice(0, 5));
-                
+				setHotArticle(res.data.slice(0, 5));
 			};
-            
+
 			fetchPosts();
-		}, []);
-    
+		}, [search]);
+			
+			
+			
+		
 
     return (
 			<>
-				
 				<div className="container mt-2">
 					<div className="section-hero row">
 						<div
@@ -65,7 +77,7 @@ import PostBlock from "./PostBlock/PostBlock";
 						justify-content-between
 					"
 						>
-							{hotArticle.map((p, i) => {
+							{hotArticle && hotArticle.map((p, i) => {
 								return <HotPost post={p} key={i} />;
 							})}
 						</div>
@@ -76,129 +88,12 @@ import PostBlock from "./PostBlock/PostBlock";
 					<div className="row">
 						<div className="col-12 col-xl-8">
 							<div className="row gx-5 gy-5">
-								{posts.map((p, i) => {
+								{posts && posts.map((p, i) => {
 									return <PostBlock post={p} key={i} />;
 								})}
 							</div>
 						</div>
-
-						<aside class="col-12 col-xl-4 mt-4 ps-5">
-							<div class="row">
-								<div class="profile p-4 col col-xl-12 me-3">
-									<div class="farm-top">
-										<div class="farm d-flex justify-content-between align-items-center">
-											<div class="farm-name position-relative">
-												<h4 class="m-offset">rowfruit編輯部</h4>
-												<div class="rating position-absolute">
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa grey fa-star" aria-hidden="true"></i>
-												</div>
-											</div>
-											<div class="k-avatar">
-												<img
-													class="object-fit"
-													src="images/image1.jpg"
-													alt=""
-												/>
-											</div>
-										</div>
-									</div>
-									<div class="farm-content mt-5">
-										<p>
-											在地小農，自家種植，自產自銷
-											有機無毒無農藥，天天去豆漿店載豆渣佐以奶粉、養樂多、黑糖來施肥
-										</p>
-										<p>在地小農辛苦種植，保證安心健康新鮮</p>
-									</div>
-									<div class="farm-connect">
-										<p>聯絡我</p>
-										<div class="connect-icon">
-											<i class="fab fa-facebook"></i>
-											<i class="fab fa-line"></i>
-											<i class="fas fa-phone-alt"></i>
-										</div>
-									</div>
-								</div>
-								<div
-									class="
-								article-catagory
-								mt-xl-5
-								p-xl-5 p-4
-								col col-xl-12
-								d-none d-md-block
-							"
-								>
-									<h5>文章分類</h5>
-									<ul class="list-unstyled ms-4 mt-4">
-										<li class="mt-4">
-											<span class="hit-block fruit">F</span>
-											<span class="hit-content text-muted">水果(15)</span>
-										</li>
-										<li class="mt-4">
-											<span class="hit-block live">L</span>
-											<span class="hit-content text-muted">生活</span>
-										</li>
-										<li class="mt-4">
-											<span class="hit-block knowledge">K</span>
-											<span class="hit-content text-muted">營養知識(6)</span>
-										</li>
-										<li class="mt-4">
-											<div>
-												<span class="hit-block story">S</span>
-												<span class="hit-content text-muted">故事(15)</span>
-											</div>
-										</li>
-										<li class="mt-4">
-											<span class="hit-block other">O</span>
-											<span class="hit-content text-muted">其他(15)</span>
-										</li>
-									</ul>
-									<div class="hit-small mt-5 d-none d-xl-block">
-										<h5 class="mb-4">熱門文章</h5>
-										<div class="d-flex mb-4">
-											<div class="hit-title ms-4">
-												<div>
-													<span class="hit-block fruit">F</span>
-													<span class="hit-content text-muted">水果</span>
-												</div>
-
-												<span class="d-block sub-title text-muted">
-													不漂亮 ≠ 不能吃！？ 每顆水果其實都值得...
-												</span>
-											</div>
-										</div>
-										<div class="d-flex mb-4">
-											<div class="hit-title ms-4">
-												<div>
-													<span class="hit-block fruit">F</span>
-													<span class="hit-content text-muted">水果</span>
-												</div>
-
-												<span class="d-block sub-title text-muted">
-													不漂亮 ≠ 不能吃！？ 每顆水果其實都值得...
-												</span>
-											</div>
-										</div>
-										<div class="d-flex mb-4">
-											<div class="hit-title ms-4">
-												<div>
-													<span class="hit-block fruit">F</span>
-													<span class="hit-content text-muted">水果</span>
-												</div>
-
-												<span class="d-block sub-title text-muted">
-													不漂亮 ≠ 不能吃！？ 每顆水果其實都值得...
-												</span>
-											</div>
-										</div>
-									</div>
-								</div>
-								
-							</div>
-						</aside>
+						<PostAside hotArticle={hotArticle} />
 					</div>
 				</div>
 			</>

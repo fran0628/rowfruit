@@ -35,8 +35,7 @@ const storage = multer.diskStorage({
 		cb(null, "images");
 	},
 	filename: (req, file, cb) => {
-		const ext = file.originalname.split(".").pop();
-		cb(null, `${file.fieldname}-${Date.now()}.${ext}`);
+		cb(null, req.body.name);
 	},
 });
 
@@ -47,6 +46,14 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
 
 let farmerRouter = require("./routes/Blog/farmerUser");
 app.use("/api/farmer", farmerRouter);
+
+
+let farmerUserAuthRouter = require("./routes/farmMember/farmMemberAuth");
+app.use("/api/farmerauth", farmerUserAuthRouter);
+
+let farmerUserRouter = require("./routes/farmMember/farmerUser");
+app.use("/api/farmeruser", farmerUserRouter);
+
 
     let indexFarmerRouter = require("./routes/Blog/indexFarmer");
 		app.use("/api/indexfarmer", indexFarmerRouter);

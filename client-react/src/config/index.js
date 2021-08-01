@@ -15,14 +15,15 @@ export const getCustomizeProductData = `${API_GET_API}/customer`
 
 
 export const pathnameList = [
-  '/memberlogin',
-  '/memberegister',
-  '/farmerlist',
-  '/FruitMapMain',
-  '/MainProduct',
-  '/customized',
-  '/Main',
-]
+	"/memberlogin",
+	"/memberegister",
+	"/farmerlist",
+	"/FruitMapMain",
+	"/MainProduct",
+	"/customized",
+	"/Main",
+	"/blog",
+];
 
 export const pathnameTextList = [
   '/會員登入',
@@ -32,4 +33,5 @@ export const pathnameTextList = [
   '/主打商品',
   '/客製化商品',
   '/主打水果盒選單',
+  '/小農部落',
 ]

@@ -59,9 +59,9 @@ function CardItem(props) {
 					<div className="card-body">
 						<h5 className="card-title">{farmer.fram_name}</h5>
 						<h6 className="card-subtitle mb-2 text-muted">
-							種植水果：{convertCategoryToText(farmer.fruit[0])}、
-							{convertCategoryToText(farmer.fruit[1])}、
-							{convertCategoryToText(farmer.fruit[2])}
+							種植水果：{farmer.fruit && convertCategoryToText(farmer.fruit[0])}
+							、{farmer.fruit && convertCategoryToText(farmer.fruit[1])}、
+							{farmer.fruit && convertCategoryToText(farmer.fruit[2])}
 						</h6>
 
 						<p className="card-text">{farmer.content}</p>

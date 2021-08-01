@@ -1,5 +1,6 @@
 // import axios from "axios";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 // import { withRouter } from "react-router-dom";
 import "./MemberLogin.scss";
 
@@ -214,9 +215,9 @@ function MemberLogin(props) {
                 <img className="mx-3" src="MemberPhoto/facebook.png" alt="" />
               </div> */}
                     <div className="d-flex justify-content-center mb-2">
-                      <a className="back-farmerlogin" href="farmer_login.html">
+                      <Link className="back-farmerlogin" to="/farmerlogin">
                         <h5 className="BackFarmerlogin">切換為小農登入頁面</h5>
-                      </a>
+                      </Link>
                     </div>
                   </form>
                 </div>

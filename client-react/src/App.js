@@ -1,4 +1,6 @@
 import React,{useState,useEffect} from "react";
+import { useContext } from "react";
+import { Context } from "./context/Context.js";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
@@ -17,10 +19,17 @@ import UserDashboard from "./pages/UserDashboard/UserDashboard";
 import OrderList from "./pages/OrderList/OrderList";
 import About from "./pages/About/about";
 import Cart from "./pages/Cart/Cart"
+import Blog from "./pages/Blog/BlogPage/BlogPage";
+import FarmerRegister from "./pages/FarmerRegister/FarmerRegister";
+import FarmerLogin from "./pages/FarmerLogin/FarmerLogin";
+import SinglePage from "./pages/Blog/SinglePage/SinglePage";
+import FarmerUserDashboard from "./pages/FarmerUserDashboard/FarmerUserDashboard";
 import ScrollToTop from "./component/ScrollToTop";
 import SubscribeCart from './pages/SubscribeCart/SubscribeCart'
 
 function App() {
+	const { farmeruser } = useContext(Context);
+
 	const[cartUpdate,setCartUpdate]=useState(false)
 	const [cart,setCart]=useState([{
 		productId: 1,
@@ -136,10 +145,30 @@ function App() {
 		<Router>
 			<>
 				<ScrollToTop>
-					<TopNav checkLogin={islogin}  auth={auth} cartUpdate={cartUpdate} setCartUpdate={setCartUpdate} />
+					<TopNav
+						checkLogin={islogin}
+						auth={auth}
+						cartUpdate={cartUpdate}
+						setCartUpdate={setCartUpdate}
+					/>
 					<MultiLevelBreadcrumb />
 
 					<Switch>
+						<Route exact path="/farmeruserdashboard">
+							{farmeruser ? <FarmerUserDashboard /> : <FarmerLogin />}
+						</Route>
+						<Route exact path="/farmerlogin">
+							{farmeruser ? <Home /> : <FarmerLogin />}
+						</Route>
+						<Route exact path="/farmerregister">
+							{farmeruser ? <Blog /> : <FarmerRegister />}
+						</Route>
+						<Route exact path="/blog">
+							<Blog />
+						</Route>
+						<Route exact path="/post/:postId">
+							<SinglePage />
+						</Route>
 						<Route path="/cart">
 							<Cart cart={cart} />
 						</Route>
@@ -153,7 +182,12 @@ function App() {
 							<UserDashboard />
 						</Route>
 						<Route path="/memberlogin">
-							<MemberLogin setAuth={setAuth} setData={setData} data={data} setShowdata={setShowdata} />
+							<MemberLogin
+								setAuth={setAuth}
+								setData={setData}
+								data={data}
+								setShowdata={setShowdata}
+							/>
 						</Route>
 						<Route path="/memberegister">
 							<MemberRegister register={register} setRegister={setRegister} />
@@ -171,7 +205,10 @@ function App() {
 							<Main />
 						</Route>
 						<Route path="/customized">
-							<Customized setTotalCart={setCart} setCartUpdate={setCartUpdate} />
+							<Customized
+								setTotalCart={setCart}
+								setCartUpdate={setCartUpdate}
+							/>
 						</Route>
 						<Route path="/About">
 							<About />
