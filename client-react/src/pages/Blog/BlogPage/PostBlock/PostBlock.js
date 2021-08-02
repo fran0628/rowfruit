@@ -27,7 +27,7 @@ const convertCategoryToText = (v) => {
 				return str;
 			}
 		
-		
+		 console.log(post.creat_time)
 			return (
 				<>
 					<div className="col-12 col-md-6">
@@ -52,7 +52,7 @@ const convertCategoryToText = (v) => {
 								</h5>
 								<p className="mb-4">
 									- 作者 {post.author}-
-									{new Date(post.creat_time).toLocaleDateString()}
+									{new Date(post.created_time).toLocaleDateString()}
 								</p>
 								<p className="card-text text-bk">
 									{deleteHtmlTag(post.content)}

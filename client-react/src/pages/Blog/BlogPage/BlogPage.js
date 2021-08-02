@@ -4,7 +4,7 @@ import './blogpage.css'
 import axios from "axios";
 import PostBlock from "./PostBlock/PostBlock";
 import PostAside from "./PostAside/PostAside";
-import { useLocation } from "react-router-dom";
+import { useLocation,Link } from "react-router-dom";
 
 const category = ["Fruit", "History", "Knowledge", "Live", "Other"];
 
@@ -53,6 +53,7 @@ function deleteHtmlTag(str) {
 			<>
 				<div className="container mt-2">
 					<div className="section-hero row">
+						
 						<div
 							className="
 						col-12 col-lg-8
@@ -67,17 +68,20 @@ function deleteHtmlTag(str) {
 								<span className="catagory-content">{posts[0] && convertCategoryToText(posts[0].category)}</span>
 							</div>
 							<div className="article-title mb-5 ms-3 mt-5 position-relative">
-								<h1 className="text-white mb-3">
-									{posts[0] && posts[0].title}
-								</h1>
-								<p className="text-white mb-3">
-									- 作者 {posts[0] && posts[0].author} ·2021-05-11 17:46:17
-								</p>
-								<p className="text-white text-bk">
-									{posts[0] && deleteHtmlTag(posts[0].content)}
-								</p>
+								<Link to={`/post/${posts[0] && posts[0].id}`}>
+									<h1 className="text-white mb-3">
+										{posts[0] && posts[0].title}
+									</h1>
+									<p className="text-white mb-3">
+										- 作者 {posts[0] && posts[0].author} ·2021-05-11 17:46:17
+									</p>
+									<p className="text-white text-bk">
+										{posts[0] && deleteHtmlTag(posts[0].content)}
+									</p>
+								</Link>
 							</div>
 						</div>
+						
 						<div
 							className="
 						col-12 col-lg-4
