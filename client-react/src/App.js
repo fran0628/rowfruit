@@ -72,8 +72,8 @@ function App() {
 				if(res.data.code===200) {
 	
 				// token解析
-				const token = res.data.data.token.split(" ")[1];
-		
+				const token = res.data.data.token.split(" ")[1];			
+				
 				let payload = JSON.parse(atob(token.split(".")[1]));
 		
 				console.log("res=>", payload);

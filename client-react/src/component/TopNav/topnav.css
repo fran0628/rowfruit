@@ -67,3 +67,10 @@ button:focus {
 	box-shadow: none !important;
 	outline: none !important;
 }
+.farmerIcon{
+	width: 40px;
+	height: 40px;
+	overflow: hidden;
+	border-radius: 50%;
+	object-fit: cover;
+}

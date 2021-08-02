@@ -108,7 +108,7 @@ router.post("/login", loginRules, async (req, res, next) => {
 	}else{
 		let errMsg=	 {
 			title: "登入失敗",
-			text: "請填寫正確帳號密碼",
+			text: "請填寫正確密碼",
 		};
 		res.status(400).json(errMsg)
 	}
