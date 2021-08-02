@@ -59,7 +59,9 @@
   animation-duration: 3s;
   animation-timing-function: ease;
   animation-delay: 0s;
-  animation-iteration-count: 1;
+  // animation-iteration-count: 1;
+  animation-iteration-count: infinite;
+
   animation-direction: normal;
   animation-fill-mode: none;
   line-height:50px;
@@ -75,7 +77,9 @@
   animation-duration: 3s;
   animation-timing-function: ease;
   animation-delay: 0s;
-  animation-iteration-count: 1;
+  // animation-iteration-count: 1;
+  animation-iteration-count: infinite;
+
   animation-direction: normal;
   animation-fill-mode: none;
   line-height:50px;
@@ -91,7 +95,8 @@
   animation-duration: 3s;
   animation-timing-function: ease;
   animation-delay: 0s;
-  animation-iteration-count: 1;
+  animation-iteration-count: infinite;
+  // animation-iteration-count: 1;
   animation-direction: normal;
   animation-fill-mode: none;
   line-height:50px;

@@ -1,5 +1,6 @@
 import React from "react";
 import FruitIconItem from "./fruitIcon/FruitIconItem.js";
+
 import "./indexCustomAni.scss";
 
 function IndexCustomAni(props) {
