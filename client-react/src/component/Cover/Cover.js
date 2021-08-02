@@ -5,11 +5,11 @@ import "./Cover.scss"
      
     return (
 			<>
-				<div className="container-fluid sliderbg ">
+				<div className="container-fluid sliderbg">
 					<div className="container">
 						<div className="row">
 							{/*視覺輪播圖*/}
-							<div className="homeCarousel col-lg-5 p-0">
+							<div className="homeCarousel col p-0">
 								<div>
 									<img src="/Mainphotos/13.jpg" alt="" />
 								</div>
@@ -27,7 +27,7 @@ import "./Cover.scss"
 								</div>
 							</div>
 							{/*水果盒動畫*/}
-							<div className="boxfloat col-lg-7">
+							<div className="coverfloat col">
 								<img src="/Mainphotos/2.png" className="boxanimate" alt="" />
 								<h3 className="text-center">精緻水果盒 週週宅配到你家</h3>
 								<div className="d-flex justify-content-center">
