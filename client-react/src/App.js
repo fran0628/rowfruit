@@ -47,7 +47,6 @@ function App() {
 		name:username?username:''
 	})
 
-	const [auth,setAuth]=useState("hi XXX")
 	const [data,setData]=useState({account:"",password:""})
 	const [register,setRegister]=useState({fullname:"", account:"", password:"", repassword:"", email:"",address:"",phone:""})
 	const [showData,setShowdata]=useState(false)
@@ -58,13 +57,11 @@ function App() {
 	function fetchSetData() {
 		let body = { account: data.account, password: data.password };
 		
-		if(data.account==='' && data.password ==='') {
-			dialog('帳號密碼不可以為空');
-		} else if ( data.password==='') {
-			dialog('請輸入密碼');
-		} else if ( data.account==='') {
+		if(data.account==='') {
 			dialog('請輸入帳號');
-		} else if (  data.password.length<6) {
+		}else if ( data.password==='') {
+			dialog('請輸入密碼');
+		}else if (  data.password.length<6) {
 			dialog('密碼長度最少需六個字元');
 		}
 		else {
@@ -99,7 +96,7 @@ function App() {
 					function changePage(){
 						console.log('changePage');
 					setTimeout(()=>{
-						window.location.href = 'About'
+						window.location.href = '/'
 					},2000)
 					}
 					console.log("changePage:",changePage)
@@ -132,7 +129,6 @@ function App() {
 	}
 
 	useEffect(()=>{
-		// console.log("初始值測試")
 		if(showData){
 			console.log('AAAs')
 			fetchSetData()
@@ -147,7 +143,6 @@ function App() {
 				<ScrollToTop>
 					<TopNav
 						checkLogin={islogin}
-						auth={auth}
 						cartUpdate={cartUpdate}
 						setCartUpdate={setCartUpdate}
 					/>
@@ -183,7 +178,6 @@ function App() {
 						</Route>
 						<Route path="/memberlogin">
 							<MemberLogin
-								setAuth={setAuth}
 								setData={setData}
 								data={data}
 								setShowdata={setShowdata}
