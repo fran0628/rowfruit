@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import "./Cover.scss"
 
  function Cover() {
@@ -7,7 +8,7 @@ import "./Cover.scss"
 			<>
 				<div className="container-fluid sliderbg">
 					<div className="container">
-						<div className="row">
+						<div className="row p-4">
 							{/*視覺輪播圖*/}
 							<div className="homeCarousel col p-0">
 								<div>
@@ -31,7 +32,9 @@ import "./Cover.scss"
 								<img src="/Mainphotos/2.png" className="boxanimate" alt="" />
 								<h3 className="text-center">精緻水果盒 週週宅配到你家</h3>
 								<div className="d-flex justify-content-center">
+								<Link to="/Main">
 									<div className="enterbtn">點此進入</div>
+								</Link>
 									<div className="howsub-btn">了解訂閱方案</div>
 								</div>
 							</div>
