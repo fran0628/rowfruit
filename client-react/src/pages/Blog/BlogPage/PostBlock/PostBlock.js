@@ -41,7 +41,7 @@ const convertCategoryToText = (v) => {
 
 							<img
 								src={PF + catchImgSrc(post.content)}
-								className="card-img-top rounded-0 object-fit "
+								className=" kun-card-img-top rounded-0 object-fit "
 								alt="..."
 							/>
 							<div className="card-body card-body-offset">
