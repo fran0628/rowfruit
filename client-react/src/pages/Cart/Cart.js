@@ -2,6 +2,7 @@ import React,{useState,useEffect} from "react";
 import Item from "./components/Item";
 import DeliverynPayment from "./components/DeliverynPayment";
 import Buyer from "./components/Buyer"
+import MultiLevelBreadcrumb from "../../component/BreadCrumb/MultiLevelBreadcrumb";
 function Cart({cart}) {
   const[myCart,setMyCart]=useState([])
  
@@ -43,52 +44,53 @@ function Cart({cart}) {
   };
 
   return (
-    <>
-      <div className="col-8 mx-auto mt-3">
-        <h3 className="">購物車清單</h3>
-        <div className="row">
-          <table className="table table-success table-striped table-hover container">
-            <thead>
-              <tr>
-                <th>商品圖片</th>
-                <th>商品名稱</th>
-                <th>商品內容</th>
-                <th>商品價格</th>
-                <th>商品數量</th>
-                <th>商品小計</th>
-              </tr>
-            </thead>
-            <tbody>
-              {myCart.map((item, index) => {
-                const {
-                  productId,
-                  productName,
-                  count,
-                  amount,
-                  price,
-                  imageUrl,
-                } = item;
-                return (
-                  <Item
-                    key={`item${index}`}
-                    productId={productId}
-                    productName={productName}
-                    count={count}
-                    amount={amount}
-                    price={price}
-                    imageUrl={imageUrl}
-                  />
-                );
-              })}
-              {/* <Item/> */}
-            </tbody>
-          </table>
-          <DeliverynPayment />
-          <Buyer/>
-          <button onClick={sendFake}>send fake</button>
-        </div>
-      </div>
-    </>
-  );
+		<>
+			<MultiLevelBreadcrumb />
+			<div className="col-8 mx-auto mt-3">
+				<h3 className="">購物車清單</h3>
+				<div className="row">
+					<table className="table table-success table-striped table-hover container">
+						<thead>
+							<tr>
+								<th>商品圖片</th>
+								<th>商品名稱</th>
+								<th>商品內容</th>
+								<th>商品價格</th>
+								<th>商品數量</th>
+								<th>商品小計</th>
+							</tr>
+						</thead>
+						<tbody>
+							{myCart.map((item, index) => {
+								const {
+									productId,
+									productName,
+									count,
+									amount,
+									price,
+									imageUrl,
+								} = item;
+								return (
+									<Item
+										key={`item${index}`}
+										productId={productId}
+										productName={productName}
+										count={count}
+										amount={amount}
+										price={price}
+										imageUrl={imageUrl}
+									/>
+								);
+							})}
+							{/* <Item/> */}
+						</tbody>
+					</table>
+					<DeliverynPayment />
+					<Buyer />
+					<button onClick={sendFake}>send fake</button>
+				</div>
+			</div>
+		</>
+	);
 }
 export default Cart;

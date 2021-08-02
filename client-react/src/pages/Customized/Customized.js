@@ -113,9 +113,9 @@ function Customized(props) {
           </div>
         </div>
       </Modal>
-      <div className="customizedTitle">
-        <div className="container ">
-          <h1 className="text-center pb-4 pt-5">客製化水果盒</h1>
+      <div className="customizedTitle mt-5">
+        <div className="container mt-5">
+          <h1 className="text-center pb-4 p-offset">客製化水果盒</h1>
         </div>
         <div className="container">
           <BackgroundSlider

@@ -3,6 +3,8 @@ import "./Map.scss";
 import FruitBall from "./components/FruitBall";
 import FruitMapFarmer from "./components/FruitMapFarmer";
 import axios from "axios";
+import MultiLevelBreadcrumb from '../../component/BreadCrumb/MultiLevelBreadcrumb';
+
 
 function FruitMapMain(props) {
   const [data, setData] = useState([]);
@@ -31,12 +33,13 @@ function FruitMapMain(props) {
   }, []);
 
   return (
-    <>
-      <div>
-        <FruitBall />
-        <FruitMapFarmer data={data} />
-      </div>
-    </>
-  );
+		<>
+			<MultiLevelBreadcrumb />
+			<div>
+				<FruitBall />
+				<FruitMapFarmer data={data} />
+			</div>
+		</>
+	);
 }
 export default FruitMapMain;

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./MemberRegister.scss";
 import Swal from "sweetalert2";
 import axios from 'axios'
-
+import MultiLevelBreadcrumb from "../../component/BreadCrumb/MultiLevelBreadcrumb";
 
 
 const banner = {
@@ -139,114 +139,111 @@ function registerData(datas){
 }
 
   return (
-    <div className="MemberBanner" style={banner}>
-      <div className="container ">
-        <div className="row justify-content-center mt-5">
-          <div className="col-lg-4 col-sm-8 mb-3 my-3">
-            <div className="card shadow">
-              <div className="MemberCardLogo text-center border-bottom">
-                <img className="p-3" src="MemberPhoto/logo.svg" alt="" />
-              </div>
-              <div className="MemberBody">
-                <div  onSubmit={handleSubmit} >
-                  <h3 className="MemberRegister d-flex justify-content-center  mb-3">
-                    會員註冊
-                  </h3>
-                  <div className="mb-3">
-                    <input
-                      className="form-control"
-                      type="text"
-                      name="fullname"
-                      value={fullname}
-                      onChange={fullnameChange}
-                      placeholder="姓名"
-                      />
-                  </div>
-                  <div className="mb-3">
-                    <input
-                      className="form-control"
-                      type="text"
-                      name="account"
-                      value={account}
-                      onChange={accountChange}
-                      placeholder="帳號"
-                      />
-                    
-                  </div>
-                  <div className="mb-3">
-                    <input
-                      className="form-control"
-                      type="password"
-                      name="password"
-                      value={password}
-                      onChange={passwordChange}
-                      placeholder="密碼"
-                      />
-                  </div>
-                  <div className="mb-3">
-                    <input
-                      className="form-control"
-                      type="password"
-                      name="repassword"
-                      value={repassword}
-                      onChange={rePasswordChange}
-                      placeholder="請再次確認密碼"
-                      />
-                  </div>
-                  <div className="mb-3">
-                    <input
-                      className="form-control"
-                      type="email"
-                      name="email"
-                      value={email}
-                      onChange={emailChange}
-                      placeholder="電子信箱"
-                      />
-                  </div>
-                  <div className="mb-3">
-                    <input
-                      className="form-control"
-                      type="text"
-                      name="address"
-                      value={address}
-                      onChange={addressChange}
-                      placeholder="地址"
-                      />
-                  </div>
-                  <div className="mb-3">
-                    <input
-                      className="form-control"
-                      type="text"
-                      name="phone"
-                      value={phone}
-                      onChange={phoneChange}
-                      placeholder="電話"
-                    />
-                  </div>
-                  <div className="d-none d-sm-flex justify-content-center  my-4">
-                    <button  className="btn normal-btn"
-                    onClick={formData}
-                    >
-                      送出
-                    </button>
-                  </div>
-                  <div className=" d-sm-none my-4">
-                    <button  className="btn rwd-btn"
-                    >
-                      送出
-                    </button>
-                  </div>
-                  <div className="d-flex justify-content-center mb-3">
-                    <a className="back-login" href="memberlogin">
-                      <h5 className="back-login">已經有帳號了? 登入</h5>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+		<>
+			<MultiLevelBreadcrumb />
+			<div className="MemberBanner" style={banner}>
+				<div className="container ">
+					<div className="row justify-content-center mt-5">
+						<div className="col-lg-4 col-sm-8 mb-3 my-3">
+							<div className="card shadow">
+								<div className="MemberCardLogo text-center border-bottom">
+									<img className="p-3" src="MemberPhoto/logo.svg" alt="" />
+								</div>
+								<div className="MemberBody">
+									<div onSubmit={handleSubmit}>
+										<h3 className="MemberRegister d-flex justify-content-center  mb-3">
+											會員註冊
+										</h3>
+										<div className="mb-3">
+											<input
+												className="form-control"
+												type="text"
+												name="fullname"
+												value={fullname}
+												onChange={fullnameChange}
+												placeholder="姓名"
+											/>
+										</div>
+										<div className="mb-3">
+											<input
+												className="form-control"
+												type="text"
+												name="account"
+												value={account}
+												onChange={accountChange}
+												placeholder="帳號"
+											/>
+										</div>
+										<div className="mb-3">
+											<input
+												className="form-control"
+												type="password"
+												name="password"
+												value={password}
+												onChange={passwordChange}
+												placeholder="密碼"
+											/>
+										</div>
+										<div className="mb-3">
+											<input
+												className="form-control"
+												type="password"
+												name="repassword"
+												value={repassword}
+												onChange={rePasswordChange}
+												placeholder="請再次確認密碼"
+											/>
+										</div>
+										<div className="mb-3">
+											<input
+												className="form-control"
+												type="email"
+												name="email"
+												value={email}
+												onChange={emailChange}
+												placeholder="電子信箱"
+											/>
+										</div>
+										<div className="mb-3">
+											<input
+												className="form-control"
+												type="text"
+												name="address"
+												value={address}
+												onChange={addressChange}
+												placeholder="地址"
+											/>
+										</div>
+										<div className="mb-3">
+											<input
+												className="form-control"
+												type="text"
+												name="phone"
+												value={phone}
+												onChange={phoneChange}
+												placeholder="電話"
+											/>
+										</div>
+										<div className="d-none d-sm-flex justify-content-center  my-4">
+											<button className="btn normal-btn" onClick={formData}>
+												送出
+											</button>
+										</div>
+										<div className=" d-sm-none my-4">
+											<button className="btn rwd-btn">送出</button>
+										</div>
+										<div className="d-flex justify-content-center mb-3">
+											<a className="back-login" href="memberlogin">
+												<h5 className="back-login">已經有帳號了? 登入</h5>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</>
+	);
 }
