@@ -1,50 +1,37 @@
 body{
     overflow-x: hidden;
 }
-// .mainproduct {
-//     position: relative;   
-//     height: 500vh;
-//     background: #dde4df;
-// }
-// .mainbtn{
-//   margin: 0 auto;
-//   cursor: pointer;
-// }
-
-// .fullBox {
-//     width: 300px;
-//     height: 100vh;
-//     transition: .1s;
-// }
-// .fruitbox img{
-//     width: 100%;
-//     height: 80%;
-// }
-// .fruitbox {
-//     padding: 50px;
-//     height: 450px;
-//     width: 2000px;
-// }
-// .fa-star, .fa-star-half-alt {
-//   color: #f5c184;
-// }
-
-
-
-.sliderbg{
-    background-color: #dde4df;
-}
-.slider{
+.mainproduct {
     position: relative;   
-    height: 120vh;
+    height: 500vh;
     background: #dde4df;
 }
-
-.productbox {
-    width: 450px;
-    height: 450px;
+.mainbtn{
+  margin: 0 auto;
+  cursor: pointer;
 }
-.productbox img {
+.fullPage3 {
+    height: 100vh;
+    background: #dde4df;
+}
+.fullBox {
+    /* background: pink; */
+    width: 2600px;
+    height: 100vh;
+    transform: translateX(1500px)translateY(500px);
+    transition: .1s;
+}
+.fruitbox img{
     width: 100%;
     height: 100%;
+    object-fit: cover;
+}
+.fruitbox {
+    margin-left: 150px;
+    padding: 50px;
+    height: 450px;
+    width: 1500px;
+}
+.fa-star, .fa-star-half-alt {
+  color: #f5c184;
 }
