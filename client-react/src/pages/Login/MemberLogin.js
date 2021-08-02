@@ -1,7 +1,5 @@
-// import axios from "axios";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-// import { withRouter } from "react-router-dom";
 import "./MemberLogin.scss";
 
 
@@ -14,7 +12,7 @@ const banner = {
 };
 
 function MemberLogin(props) {
-  const { setAuth, data, setData, setShowdata } = props;
+  const { data, setData, setShowdata } = props;
 
   const [account, setAccount] = useState("");
 
@@ -39,96 +37,8 @@ function MemberLogin(props) {
     console.log("loginSubmit :", loginSubmit)
   }
 
-  // const [isLoading, setIsLoading] = useState(false);
-  // // 自動1秒後關閉指示的spinner
-  // useEffect(() => {
-  //   if (isLoading) {
-  //     setTimeout(() => setIsLoading(false), 1000);
-  //   }
-  // }, [isLoading]);
-  // // 狀態變為物件，處理多個欄位
-  // // const [fields, setFields] = useState({
-  // //   username: '',
-  // //   password: '',
-  // // })
-
-  // ex. 送到伺服器
-  // function sucessLogin() {
-  //   setAuth("Steven");
-  // }
-
-  function loginApi() {
-    // let data = { account: 123456, password: 123456 };
-
-    // axios
-    //   .post(`http://localhost:5000/api/login`, data)
-
-    //   .then((res) => {
-    //     localStorage.setItem("token", res.data.data.token);
-    //     // token解析
-    //     const token = res.data.data.token.split(" ")[1];
-
-    //     let payload = JSON.parse(atob(token.split(".")[1]));
-
-    //     console.log("res=>", payload);
-    //     console.log(res.data.data.name);
-    //   });
-
-    let url = "http://localhost:5000/api/login";
-    let data = { account: "666666", password: "666666" };
-
-    fetch(url, {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: new Headers({
-        "Content-Type": "application/json",
-      }),
-    })
-      .then((res) => {
-        return res.json();
-      })
-      .then((result) => {
-        localStorage.setItem("token", result.data.token);
-        // token解析
-        const token = result.data.token.split(" ")[1];
-
-        let payload = JSON.parse(atob(token.split(".")[1]));
-
-        // console.log("res :",res)
-
-        console.log("res=>", payload);
-        console.log(result.data.name);
-      });
-
-    // .catch((error) => console.error("Error:", error))
-    // .then((response) => console.log("Success:", response));
-  }
-
-  // const loading = (
-  //   <>
-  //     <div className="d-flex justify-content-center">
-  //       <div className="spinner-border" role="status">
-  //         <span className="sr-only">Loading...</span>
-  //       </div>
-  //     </div>
-  //   </>
-  // );
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-
-    // const data = new FormData(e.target)
-
-    // console.log(data.get('username'))
-    // console.log(data.get('password'))
-
-    // ex. 送到伺服器
-    // loginToSever()
-  }
-
   return  (
     <div  >
-      {/* <button onClick={changeLogin}>我會改變login</button> */}
       <div className="MemberBanner" style={banner}>
         {/* Login  Form */}
         <div className="container">
@@ -207,13 +117,6 @@ function MemberLogin(props) {
                         <a href="member_forgotpassword.html">忘記密碼</a>
                       </label>
                     </div>
-                    {/* <div className="d-flex justify-content-center mb-1">
-                <h5 className="FastDoLogin">快速登入</h5>
-              </div>
-              <div className="d-flex justify-content-center mb-2 " type="button">
-                <img className="mx-3" src="MemberPhoto/GOOGLE.png" alt="" />
-                <img className="mx-3" src="MemberPhoto/facebook.png" alt="" />
-              </div> */}
                     <div className="d-flex justify-content-center mb-2">
                       <Link className="back-farmerlogin" to="/farmerlogin">
                         <h5 className="BackFarmerlogin">切換為小農登入頁面</h5>

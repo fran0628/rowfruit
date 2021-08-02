@@ -25,7 +25,7 @@ function logout(){
 		// const handleLogout = () => {
 		// 	dispatch({ type: "LOGOUT" });
 		// };
-	 const{auth,cartUpdate,setCartUpdate,checkLogin}=props
+	 const{cartUpdate,setCartUpdate,checkLogin}=props
 	 const [cartLength,setCartLength]=useState()
    const [show, setShow] = useState(false);
 

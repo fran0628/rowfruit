@@ -50,27 +50,6 @@ class UserDashboard extends Component {
 		});
 	} 
 
-// 	checkPassword() {
-// 		if(!this.state.password || this.state.password !== this.state.confirmPassword) {
-// 		   this.setState({password_has_error:true});
-// 	   }
-// 	   else {
-// 		   this.setState({password_has_error:false});
-// 	   }
-//    }
-
-//    handleChange = (event) => {
-// 	   this.setState({[event.target.name] : event.target.value });
-
-// 	   if (event.target.name === 'password' || event.target.name === 'confirmPassword')
-// 		   this.checkPassword();
-//    }
-
-//    handleSubmit(event) {
-// 	   event.preventDefault(); 
-// 	   // TODO: will submit the form here
-//    }
-
     dialog(text) {
 	Swal.fire({
 		position: 'center',
@@ -107,8 +86,8 @@ class UserDashboard extends Component {
 			dialog('密碼輸入不一致');
 		}else if ( this.state.phone==='') {
 			dialog('請輸入電話');
-		}else if (  this.state.account==='') {
-			dialog('請輸入帳號');
+		}else if ( this.state.email.indexOf('@')===-1) {
+			dialog('信箱內必須包含@');
 		} else if (   this.state.address==='') {
 			dialog('請輸入地址');
 		}
@@ -223,6 +202,15 @@ class UserDashboard extends Component {
 							/>
 						</div>
 						<div className="col-8">
+							<label for="inputEmail" className="form-label">
+								信箱
+							</label>
+							<input type="email" className="form-control" id="inputEmail"   name="email"
+								defaultValue={this.state.email}
+								onChange={(event) => this.setText(event)}
+							/>
+						</div>
+						<div className="col-12">
 							<label for="inputAddress" className="form-label">
 								地址
 							</label>
