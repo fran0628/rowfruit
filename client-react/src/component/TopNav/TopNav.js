@@ -1,4 +1,4 @@
-import { useState,useEffect } from 'react';
+import { useState,useEffect,useContext } from 'react';
 import './topnav.css' 
 import {
 	Container,
@@ -12,20 +12,22 @@ import {
 import logoImg from './logo.png'
 import { LinkContainer } from "react-router-bootstrap";
 // import { useContext } from "react";
-// import { Context } from "../../context/Context";
+import { Context } from "../../context/Context";
 
-function logout(){
-	localStorage.clear();
-	window.location.href = 'memberlogin'
-}
+
 
  function TopNav(props) {
-	 	// const { user, dispatch } = useContext(Context);
+	 	const { farmeruser, dispatch } = useContext(Context);
+		const PF = "http://localhost:5000/images/";
+		const handleLogout = () => {
+			dispatch({ type: "LOGOUT" });
+		};
 
-		// const handleLogout = () => {
-		// 	dispatch({ type: "LOGOUT" });
-		// };
-	 const{auth,cartUpdate,setCartUpdate,checkLogin}=props
+		function logout() {
+			localStorage.clear();
+			window.location.href = "memberlogin";
+		}
+	 const{cartUpdate,setCartUpdate,checkLogin}=props
 	 const [cartLength,setCartLength]=useState()
    const [show, setShow] = useState(false);
 
@@ -93,7 +95,57 @@ function logout(){
 								<LinkContainer to="/about">
 									<Nav.Link>關於我們</Nav.Link>
 								</LinkContainer>
-								{checkLogin.islogin ? 
+								{checkLogin.islogin ? (
+									<NavDropdown
+										title={<sapn> hi {checkLogin.name}</sapn>}
+										id="basic-nav-dropdown"
+									>
+										<LinkContainer to="/memberdashboard">
+											<NavDropdown.Item>修改會員資料</NavDropdown.Item>
+										</LinkContainer>
+
+										<LinkContainer to="/orderlist">
+											<NavDropdown.Item>訂單資訊</NavDropdown.Item>
+										</LinkContainer>
+										<NavDropdown.Divider />
+
+										<NavDropdown.Item onClick={logout}>登出</NavDropdown.Item>
+									</NavDropdown>
+								) : farmeruser ? (
+									<NavDropdown
+										// title="hi，我是小農"
+										title={
+											<img
+												className="farmerIcon"
+												src={PF + farmeruser.avatar}
+												alt=""
+											/>
+										}
+										id="basic-nav-dropdown"
+									>
+										<LinkContainer to="/farmeruserdashboard">
+											<NavDropdown.Item>修改小農會員資料</NavDropdown.Item>
+										</LinkContainer>
+										<NavDropdown.Divider />
+										<NavDropdown.Item onClick={handleLogout}>
+											登出
+										</NavDropdown.Item>
+									</NavDropdown>
+								) : (
+									<NavDropdown
+										title={<i class="fas fa-user fa-lg nav-icon" />}
+										id="basic-nav-dropdown"
+									>
+										<LinkContainer to="/memberlogin">
+											<NavDropdown.Item>會員登入</NavDropdown.Item>
+										</LinkContainer>
+										<LinkContainer to="/memberegister">
+											<NavDropdown.Item>會員註冊</NavDropdown.Item>
+										</LinkContainer>
+									</NavDropdown>
+								)}
+
+								{/* {checkLogin.islogin ? 
 									<NavDropdown title="會員中心" id="basic-nav-dropdown">
 									<LinkContainer to="/memberdashboard">
 										<NavDropdown.Item>修改會員資料</NavDropdown.Item>
@@ -104,21 +156,25 @@ function logout(){
 									</LinkContainer>
 								</NavDropdown>
 										 :
-										 "" }
+										 "" } */}
 								<LinkContainer to="cart">
-										<Nav.Link>
+									<Nav.Link>
 										<div className="position-relative">
-										{cartLength>0 && <div className="text-warning d-flex align-items-center justify-content-center position-absolute">{cartLength}</div>}
-											
+											{cartLength > 0 && (
+												<div className="text-warning d-flex align-items-center justify-content-center position-absolute">
+													{cartLength}
+												</div>
+											)}
+
 											<i class="fas fa-shopping-cart fa-lg nav-icon" />
 										</div>
 									</Nav.Link>
 								</LinkContainer>
-								{checkLogin.islogin ? 
+								{/* {checkLogin.islogin ? 
 										 <div>
 											<sapn> hi {checkLogin.name}</sapn> <button className="btn btn-success" onClick={logout}>登出</button>
 										 </div>  :
-										 <a className="nav-link" href="/memberlogin"> <i class="fas fa-user fa-lg nav-icon" /> </a>}
+										 <a className="nav-link" href="/memberlogin"> <i class="fas fa-user fa-lg nav-icon" /> </a>} */}
 								{/* <LinkContainer >
 									<Nav.Link>
 									

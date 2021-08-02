@@ -49,19 +49,31 @@ function BuyContent(props) {
     price: boxprice,
     imageUrl: images,
   };
-
-
-  function addCart() {
-  if (mainProduct.productId === id) {
-    const currentCart = JSON.parse(localStorage.getItem("cart")) || [];
+  const currentCart = JSON.parse(localStorage.getItem("cart")) || [];
+  console.log(currentCart)
+  function setLocalstorage(){
     currentCart.push(mainProduct);
     localStorage.setItem("cart", JSON.stringify(currentCart));
-    props.history.push('/cart')
+    // props.history.push('/cart')
+  }
+  function addCart() {
+    if(currentCart.length===0){
+      setLocalstorage()
+    }else{
+      for(let i =0; i<currentCart.length;i++){
+        if(currentCart[i].productId===id){
+          remind()
+          return
+        }
+        setLocalstorage()
+      }
+    }
+    
 
     setCartUpdate(true);
-  } else {
-    remind();
-  }
+  // } else {
+  //   remind();
+  // }
   }
 
 

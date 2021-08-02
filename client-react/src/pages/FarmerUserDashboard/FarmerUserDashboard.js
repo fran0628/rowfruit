@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import { Context } from "../../context/Context";
 import axios from "axios";
 import Swal from "sweetalert2";
+import MultiLevelBreadcrumb from '../../component/BreadCrumb/MultiLevelBreadcrumb';
 
 
 function FarmerUserDashboard() {
@@ -87,6 +88,7 @@ function FarmerUserDashboard() {
 	};
 	return (
 		<>
+			<MultiLevelBreadcrumb />
 			<div className="container mb-5 mt-3 p-5 mx-auto">
 				<h3 className="text-center mb-4">修改小農會員資料</h3>
 

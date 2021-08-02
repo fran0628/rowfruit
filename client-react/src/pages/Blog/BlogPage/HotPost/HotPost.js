@@ -40,7 +40,7 @@ const convertCategoryToText = (v) => {
 							</Link>
 						</span>
 					</div>
-					<div className="hit-img ji-flex">
+					<div className="hit-img ji-flex align-self-end">
 						<img
 							src={PF + catchImgSrc(post.content)}
 							className="object-fit"

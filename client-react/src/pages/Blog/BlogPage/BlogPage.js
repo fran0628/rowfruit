@@ -4,9 +4,22 @@ import './blogpage.css'
 import axios from "axios";
 import PostBlock from "./PostBlock/PostBlock";
 import PostAside from "./PostAside/PostAside";
-import { useLocation } from "react-router-dom";
+import { useLocation,Link } from "react-router-dom";
+import MultiLevelBreadcrumb from "../../../component/BreadCrumb/MultiLevelBreadcrumb";
 
+const category = ["Fruit", "History", "Knowledge", "Live", "Other"];
 
+const categoryText = ["水果", "歷史", "知識", "生活", "其他"];
+const convertCategoryToText = (v) => {
+	const index = category.indexOf(v);
+
+	return categoryText[index];
+};
+
+function deleteHtmlTag(str) {
+	str = str.replace(/<[^>]+>|&[^>]+;/g, "").trim(); 
+	return str;
+}
 
 
 
@@ -33,12 +46,13 @@ import { useLocation } from "react-router-dom";
 			fetchPosts();
 		}, [search]);
 			
-			
+			// console.log(posts[0])
 			
 		
 
     return (
 			<>
+				<MultiLevelBreadcrumb />
 				<div className="container mt-2">
 					<div className="section-hero row">
 						<div
@@ -51,23 +65,30 @@ import { useLocation } from "react-router-dom";
 					"
 						>
 							<div className="catagory mt-4 ms-3">
-								<span className="catagory-block live">L</span>
-								<span className="catagory-content">生活</span>
+								<span
+									className={`catagory-block ${posts[0] && posts[0].category}`}
+								>
+									L
+								</span>
+								<span className="catagory-content">
+									{posts[0] && convertCategoryToText(posts[0].category)}
+								</span>
 							</div>
 							<div className="article-title mb-5 ms-3 mt-5 position-relative">
-								<h1 className="text-white mb-3">
-									破解迷思：水果到底該飯前吃，還是飯後吃？
-								</h1>
-								<p className="text-white mb-3">
-									- 作者 Irene ·2021-05-11 17:46:17
-								</p>
-								<p className="text-white">
-									究竟什麼時候吃水果最適合？在台灣有個深植人心的說法：水果要飯前吃，不能飯後吃，
-									甚至有人宣稱飯後馬上吃水果如同慢性自殺的吃法，你相信這種說法嗎？
-									...
-								</p>
+								<Link to={`/post/${posts[0] && posts[0].id}`}>
+									<h1 className="text-white mb-3">
+										{posts[0] && posts[0].title}
+									</h1>
+									<p className="text-white mb-3">
+										- 作者 {posts[0] && posts[0].author} ·2021-05-11 17:46:17
+									</p>
+									<p className="text-white text-bk">
+										{posts[0] && deleteHtmlTag(posts[0].content)}
+									</p>
+								</Link>
 							</div>
 						</div>
+
 						<div
 							className="
 						col-12 col-lg-4
@@ -77,9 +98,10 @@ import { useLocation } from "react-router-dom";
 						justify-content-between
 					"
 						>
-							{hotArticle && hotArticle.map((p, i) => {
-								return <HotPost post={p} key={i} />;
-							})}
+							{hotArticle &&
+								hotArticle.map((p, i) => {
+									return <HotPost post={p} key={i} />;
+								})}
 						</div>
 					</div>
 				</div>
@@ -88,9 +110,10 @@ import { useLocation } from "react-router-dom";
 					<div className="row">
 						<div className="col-12 col-xl-8">
 							<div className="row gx-5 gy-5">
-								{posts && posts.map((p, i) => {
-									return <PostBlock post={p} key={i} />;
-								})}
+								{posts &&
+									posts.map((p, i) => {
+										return <PostBlock post={p} key={i} />;
+									})}
 							</div>
 						</div>
 						<PostAside hotArticle={hotArticle} />

@@ -6,12 +6,14 @@ import { apiMain } from '../../config/API'
 
 
 async function productData(setData) {
+  
   const res = await fetch(apiMain)
   const apidata  = await res.json()
   setData(apidata);
 }
 
 function SubscribeCart() {
+  
   //水果盒價目表
   const [boxOption, setBoxOption] = useState('')
   const [timeOption, setTimeOption] = useState('')

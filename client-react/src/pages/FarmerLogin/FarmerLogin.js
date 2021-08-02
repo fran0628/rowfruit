@@ -1,8 +1,9 @@
 import { Link,useHistory } from "react-router-dom";
-import { useRef, useContext } from "react";
+import { useRef, useContext,useState } from "react";
 import { Context } from "../../context/Context";
 import axios from "axios";
 import Swal from "sweetalert2";
+import MultiLevelBreadcrumb from "../../component/BreadCrumb/MultiLevelBreadcrumb";
 
 const banner = {
 	backgroundImage: `url(${"MemberPhoto/banner.png"})`,
@@ -16,6 +17,7 @@ export default function FarmerLogin() {
 	const history = useHistory()
 	const accountRef = useRef();
 	const passwordRef = useRef();
+	const [errorMsg, setErrorMsg] = useState("");
 	const { dispatch, isFetching } = useContext(Context);
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -26,13 +28,15 @@ export default function FarmerLogin() {
 				account: accountRef.current.value,
 				password: passwordRef.current.value,
 			});
+			console.log(res.data)
 			
 
 			dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
 			 function sweetAlert() {
 					Swal.fire({
+						icon: "success",
 						title: "登入成功",
-						text: "歡迎來到rowfruit",
+						text: `Hi!${res.data.name}，歡迎來到rowfruit`,
 						animation: true,
 						confirmButtonText: "關閉",
 					}).then(function () {
@@ -44,21 +48,27 @@ export default function FarmerLogin() {
 
 			
 		} catch (err) {
-			function sweetAlert() {
-				Swal.fire({
-					title: "登入失敗",
-					text: "請重新登入",
-					animation: true,
-					confirmButtonText: "關閉",
-				})
-			}
-			sweetAlert();
+			// function sweetAlert() {
+			// 	Swal.fire({
+			// 		icon: "error",
+			// 		title: "登入失敗",
+			// 		text: "請重新登入",
+			// 		animation: true,
+			// 		confirmButtonText: "關閉",
+			// 	});
+			// }
+			// sweetAlert();
+			console.log(err)
 			dispatch({ type: "LOGIN_FAILURE" });
+			setErrorMsg(err.response.data.text);
+			console.log(err.response.data.text);
+
 		}
 	};
 
 	return (
 		<div>
+			<MultiLevelBreadcrumb />
 			<div className="MemberBanner" style={banner}>
 				{/* Login  Form */}
 				<div className="container">
@@ -100,13 +110,12 @@ export default function FarmerLogin() {
 												required
 											/>
 										</div>
-										<div className="mb-3">
-											<input
-												type="checkbox"
-												className="form-check-input"
-												id="remember"
-											/>
-											<label htmlFor="remember">Remeber Me</label>
+										<div className="mb-3 text-center">
+											{errorMsg && (
+												<small className="text-danger form-text">
+													{errorMsg}
+												</small>
+											)}
 										</div>
 										<div className="d-none d-sm-flex justify-content-center">
 											<button
@@ -126,6 +135,7 @@ export default function FarmerLogin() {
 												登入
 											</button>
 										</div>
+
 										<div className="d-flex justify-content-center mt-3">
 											<label className="sign-up mx-4">
 												<Link className="MemberSignup" to="/farmerregister">

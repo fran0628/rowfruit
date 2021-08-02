@@ -20,6 +20,9 @@ const convertCategoryToText = (v) => {
 
  function PostAside(props) {
 	 const { hotArticle } = props;
+
+	// console.log(hotArticle[0])
+
     return (
 			<>
 				<aside className="col-12 col-xl-4 mt-4 ps-5">
@@ -44,17 +47,16 @@ const convertCategoryToText = (v) => {
 							</div>
 							<div className="farm-content mt-5">
 								<p>
-									在地小農，自家種植，自產自銷
-									有機無毒無農藥，天天去豆漿店載豆渣佐以奶粉、養樂多、黑糖來施肥
+									打造小農與消費者互信的平台
 								</p>
-								<p>在地小農辛苦種植，保證安心健康新鮮</p>
+								
 							</div>
 							<div className="farm-connect">
 								<p>聯絡我</p>
-								<div className="connect-icon">
-									<i className="fab fa-facebook"></i>
-									<i className="fab fa-line"></i>
-									<i className="fas fa-phone-alt"></i>
+								<div className="">
+									<i className="fab connect-icon fa-facebook"></i>
+									<i className="fab connect-icon fa-line"></i>
+									<i className="fas connect-icon fa-phone-alt"></i>
 								</div>
 							</div>
 						</div>
