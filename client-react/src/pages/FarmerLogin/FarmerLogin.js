@@ -26,13 +26,15 @@ export default function FarmerLogin() {
 				account: accountRef.current.value,
 				password: passwordRef.current.value,
 			});
+			console.log(res.data)
 			
 
 			dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
 			 function sweetAlert() {
 					Swal.fire({
+						icons: "success",
 						title: "登入成功",
-						text: "歡迎來到rowfruit",
+						text: `Hi!${res.data.name}，歡迎來到rowfruit`,
 						animation: true,
 						confirmButtonText: "關閉",
 					}).then(function () {
