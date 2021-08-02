@@ -54,6 +54,23 @@ function App() {
 	console.log("data",data)
 	console.log(islogin)
 
+	//  JWT 轉成 JSON 的 方法 大家可以參考使用喔
+	function getuserDetail (){
+	
+		const token = localStorage.getItem('token').split(" ")[1];
+	  
+		let payload = JSON.parse(atob(token.split(".")[1]));
+		// console.log("payload :",payload)
+		axios
+		.get('http://localhost:5000/api/member/'+payload.id)
+	
+		.then((res) => {
+			// console.log("res.data[0] :",res.data[0]);
+			const userdata = res.data[0];
+			console.log("data :",data)
+	  })
+	}
+	// Login axiox api
 	function fetchSetData() {
 		let body = { account: data.account, password: data.password };
 		
