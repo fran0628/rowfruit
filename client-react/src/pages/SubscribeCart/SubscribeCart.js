@@ -90,7 +90,6 @@ function SubscribeCart() {
                           />
                         )
                       })} 
-                      {/* <button className="btn btn-light" onClick={totalPrice}>點我查詢</button> */}
                       <h5 class="account">搭配方案每月：<span class="text-danger">＄{subboxTime}</span></h5>    
                   </div>
                   {filterdata.map((item) => {

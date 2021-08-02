@@ -12,7 +12,7 @@ function MainFruitboxProductItem(props) {
     return (
         <>
             <div className="col-lg-4 col-md-6 g-5">
-                <div className="figure"><a href="#/"><img src={images} className="card-img-top" alt="..." /></a></div>
+                <div className="figure"><img src={images} className="card-img-top" alt="..." /></div>
                 <div className="card-body">
                     <h3 className="card-title fs-4">{product_name}水果盒</h3>
                     <p className="card-text" style={{fontSize: "19px"}} >體驗一箱 NT $ {price}</p>
