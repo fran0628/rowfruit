@@ -115,7 +115,7 @@ function Customized(props) {
       </Modal>
       <div className="customizedTitle">
         <div className="container ">
-          <h1 className="text-center fw-bold pb-4 pt-2">客製化水果盒</h1>
+          <h1 className="text-center pb-4 pt-5">客製化水果盒</h1>
         </div>
         <div className="container">
           <BackgroundSlider

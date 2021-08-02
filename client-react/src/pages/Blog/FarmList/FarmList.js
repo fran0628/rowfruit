@@ -20,8 +20,8 @@ import axios from 'axios'
     return (
 			<>
 				<div className="container">
-					<h1 className="text-center mt-5">小農部落</h1>
-					<div className="row g-5 mt-2" id="cards">
+					<h1 className="text-center mt-0 mb-0">小農部落</h1>
+					<div className="row g-5 mt-0" id="cards">
 						{farmers.map((f,i)=>{
 							return (
 								<Farmer farmer={f} key={i}/>
