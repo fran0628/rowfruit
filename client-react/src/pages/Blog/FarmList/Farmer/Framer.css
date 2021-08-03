@@ -8,13 +8,13 @@
 	height: 390px;
 	background-color: #fafcec;
 }
-.bg-change:nth-of-type(2n) > .profile{
+.bg-change:nth-of-type(2n) > .k-profile{
 	background-color: #F0F5F0;
 }
-.bg-change:nth-of-type(3n) > .profile{
+.bg-change:nth-of-type(3n) > .k-profile{
 	background-color: #F6F7F2;
 }
-.bg-change:nth-of-type(4n) > .profile{
+.bg-change:nth-of-type(4n) > .k-profile{
 	background-color: #E8EAE1;
 }
 .rating {
@@ -40,5 +40,5 @@
 	margin-right: 15px;
 }
 .farm-content {
-	height: 100px;
+	/* height: 100px; */
 }

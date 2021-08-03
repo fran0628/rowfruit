@@ -170,10 +170,9 @@ p {
 .card-body-offset {
 	padding: 1em 0;
 }
-.profile {
-	width: 370px;
-
-	height: 390px;
+.k-profile {
+	max-width: 370px;
+	min-height: 390px;	
 	background-color: #fafcec;
 }
 .rating {

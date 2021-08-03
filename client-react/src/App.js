@@ -26,6 +26,8 @@ import SinglePage from "./pages/Blog/SinglePage/SinglePage";
 import FarmerUserDashboard from "./pages/FarmerUserDashboard/FarmerUserDashboard";
 import ScrollToTop from "./component/ScrollToTop";
 import SubscribeCart from './pages/SubscribeCart/SubscribeCart'
+import WritePage from "./pages/Blog/WritePage/WritePage.js";
+import EditPage from "./pages/Blog/EditPage/EditPage"
 
 function App() {
 	const { farmeruser } = useContext(Context);
@@ -175,11 +177,18 @@ function App() {
 						<Route exact path="/farmerregister">
 							{farmeruser ? <Home /> : <FarmerRegister />}
 						</Route>
+						<Route exact path="/writepage">
+							<WritePage />
+						</Route>
 						<Route exact path="/blog">
 							<Blog />
 						</Route>
 						<Route exact path="/post/:postId">
 							<SinglePage />
+						</Route>
+						
+						<Route exact path="/edit/:editId">
+							<EditPage />
 						</Route>
 						<Route path="/cart">
 							<Cart cart={cart} />
@@ -210,7 +219,7 @@ function App() {
 							<FruitMapMain />
 						</Route>
 						<Route path="/MainProduct/:id?">
-							<MainProduct setCartUpdate={setCartUpdate}/>
+							<MainProduct setCartUpdate={setCartUpdate} />
 						</Route>
 						<Route path="/Main">
 							<Main />

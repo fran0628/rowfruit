@@ -133,6 +133,9 @@ import { Context } from "../../context/Context";
 										<LinkContainer to="/farmeruserdashboard">
 											<NavDropdown.Item>修改小農會員資料</NavDropdown.Item>
 										</LinkContainer>
+										<LinkContainer to="/writepage">
+											<NavDropdown.Item>發表文章</NavDropdown.Item>
+										</LinkContainer>
 										<NavDropdown.Divider />
 										<NavDropdown.Item onClick={handleLogout}>
 											登出

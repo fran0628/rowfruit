@@ -22,7 +22,7 @@ const convertCategoryToText = (v) => {
 			function catchImgSrc(str) {
 				str = str.match(/(\/|http)[^>]+\.(jpg|jpeg|png|gif)/g);
 				if(str===null){
-					return "/logo.png"
+					return `${PF}/logo.png`
 				}
 				return str;
 			}
@@ -40,7 +40,7 @@ const convertCategoryToText = (v) => {
 							</div>
 
 							<img
-								src={PF + catchImgSrc(post.content)}
+								src={catchImgSrc(post.content)}
 								className=" kun-card-img-top rounded-0 object-fit "
 								alt="..."
 							/>
