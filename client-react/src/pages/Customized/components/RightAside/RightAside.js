@@ -1,8 +1,8 @@
-
 import React from "react";
 import CartListContent from "./CartListContent";
 import Swal from "sweetalert2";
 import {withRouter} from 'react-router-dom'
+import BackgroundSlider from "react-background-slider";
 
 function RightAside(props) {
   const {
@@ -13,18 +13,20 @@ function RightAside(props) {
     totalPrice,
     counts,
     setCounts,
-    setTotalCart,
     setCartUpdate,
   } = props;
 
   function successAdd() {
-    Swal.fire({
-      title: `${customizedProduct.productName}加入成功`,
-      text: "點擊右上角查看",
-      imageUrl: customizedProduct.imageUrl,
-      imageAlt: "Custom image",
-      confirmButtonText: "關閉",
-    });
+    if(customizedProduct){
+      Swal.fire({
+        title: `${customizedProduct.productName}加入成功`,
+        text: "點擊右上角查看",
+        imageUrl: customizedProduct.imageUrl,
+        imageAlt: "Custom image",
+        confirmButtonText: "關閉",
+      });
+    }
+   
   }
   function warning() {
     Swal.fire({
@@ -39,11 +41,11 @@ function RightAside(props) {
     count: 1,
     amount: "",
     price: totalPrice,
-    imageUrl: "http://localhost:3000/images/CustomizedPhotos/customized.jpeg",
+    imageUrl: "http://localhost:3000/images/CustomizedPhotos/customized.jpg",
   };
   const amount = [];
   for (let i = 0; i < cartData.length; i++) {
-    amount.push(`${cartData[i].fruitname}*${counts[i]}`);
+    amount.push(`${cartData[i].fruitname}${counts[i]}個`);
   }
   customizedProduct.amount = amount.join(",");
 
@@ -55,11 +57,6 @@ function RightAside(props) {
       currentCart.push(customizedProduct);
       localStorage.setItem("cart", JSON.stringify(currentCart));
 
-      setTotalCart(function (prevData) {
-        const newTotalCart = [...prevData];
-        newTotalCart.push(customizedProduct);
-        return newTotalCart;
-      });
       setCartUpdate(true);
       setCartData([]);
       setCounts([]);
@@ -77,7 +74,16 @@ function RightAside(props) {
 
   return (
     <>
-      <aside className="col-md-4 d-none d-lg-block position-relative">
+      <aside className="col-md-4 d-none d-lg-block position-relative rightAside" style={{height:"700px"}}>
+       <BackgroundSlider
+            images={[
+              "https://images.pexels.com/photos/1028599/pexels-photo-1028599.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+              "https://images.pexels.com/photos/1414130/pexels-photo-1414130.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+              "https://images.pexels.com/photos/65256/pomegranate-open-cores-fruit-fruit-logistica-65256.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+            ]}
+            duration={10}
+            transition={2}
+          />
         <h2 className="text-center customerCartList">客製化列表</h2>
         {cartData.length === 0 && (
           <p className="text-center unSelected">尚未選取商品</p>
@@ -144,7 +150,7 @@ function RightAside(props) {
           </button>
           <button onClick={addCartAndTurnCartPage} className="sub">立即結帳</button>
         </div>
-        <button onClick={removeData} className="btn removeFruit">Remove All</button>
+        <button onClick={removeData} className="btn removeFruit">清除購物車列表</button>
         <div className="fruitbox"></div>
       </aside>
     </>

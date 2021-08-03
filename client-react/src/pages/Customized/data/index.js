@@ -9,7 +9,7 @@ const data = [
       {
         id: 32,
         imageArray:
-          "galaApple1.jpeg,galaApple2.jpeg,galaApple3.jpeg,galaApple4.jpeg,galaApple5.jpeg",
+          "galaApple1.jpg,galaApple2.jpg,galaApple3.jpg,galaApple4.jpg,galaApple5.jpg",
         fruittype: 1,
         fruitname: "加拉蘋果",
         price: 35,
@@ -24,7 +24,7 @@ const data = [
       {
         id: 33,
         imageArray:
-          "fujiApple1.jpeg,fujiApple2.jpeg,fujiApple3.jpeg,fujiApple4.jpeg,fujiApple5.jpeg",
+          "fujiApple1.jpg,fujiApple2.jpg,fujiApple3.jpg,fujiApple4.jpg,fujiApple5.jpg",
         fruittype: 1,
         fruitname: "富士蘋果",
         price: 45,
@@ -39,7 +39,7 @@ const data = [
       {
         id: 31,
         imageArray:
-          "romanApple1.jpeg,romanApple2.jpeg,romanApple3.jpeg,romanApple4.jpeg,romanApple5.jpeg",
+          "romanApple1.jpg,romanApple2.jpg,romanApple3.jpg,romanApple4.jpg,romanApple5.jpg",
         fruittype: 1,
         fruitname: "羅馬蘋果",
         price: 20,
@@ -63,7 +63,7 @@ const data = [
       {
         id: 28,
         imageArray:
-          "baodaoBanana1.jpeg,baodaoBanana2.jpeg,baodaoBanana3.jpeg,baodaoBanana4.jpeg,baodaoBanana5.jpeg",
+          "baodaoBanana1.jpg,baodaoBanana2.jpg,baodaoBanana3.jpg,baodaoBanana4.jpg,baodaoBanana5.jpg",
         fruittype: 2,
         fruitname: "寶島蕉",
         price: 20,
@@ -78,7 +78,7 @@ const data = [
       {
         id: 29,
         imageArray:
-          "taiwanBananaNo11.jpeg,taiwanBananaNo12.jpeg,taiwanBananaNo13.jpeg,taiwanBananaNo14.jpeg,taiwanBananaNo15.jpeg",
+          "taiwanBananaNo11.jpg,taiwanBananaNo12.jpg,taiwanBananaNo13.jpg,taiwanBananaNo14.jpg,taiwanBananaNo15.jpg",
         fruittype: 2,
         fruitname: "台蕉1號",
         price: 35,
@@ -93,7 +93,7 @@ const data = [
       {
         id: 30,
         imageArray:
-          "honeyBanana1.jpeg,honeyBanana2.jpeg,honeyBanana3.jpeg,honeyBanana4.jpeg,honeyBanana5.jpeg",
+          "honeyBanana1.jpg,honeyBanana2.jpg,honeyBanana3.jpg,honeyBanana4.jpg,honeyBanana5.jpg",
         fruittype: 2,
         fruitname: "蜜蕉",
         price: 45,
@@ -117,7 +117,7 @@ const data = [
       {
         id: 25,
         imageArray:
-          "pearlGuava1.jpeg,pearlGuava2.jpeg,pearlGuava3.jpeg,pearlGuava4.jpeg,pearlGuava5.jpeg",
+          "pearlGuava1.jpg,pearlGuava2.jpg,pearlGuava3.jpg,pearlGuava4.jpg,pearlGuava5.jpg",
         fruittype: 3,
         fruitname: "珍珠芭樂",
         price: 40,
@@ -133,7 +133,7 @@ const data = [
       {
         id: 26,
         imageArray:
-          "waterGuava1.jpeg,waterGuava2.jpeg,waterGuava3.jpeg,waterGuava4.jpeg,waterGuava5.jpeg",
+          "waterGuava1.jpg,waterGuava2.jpg,waterGuava3.jpg,waterGuava4.jpg,waterGuava5.jpg",
         fruittype: 3,
         fruitname: "水蜜芭樂",
         price: 35,
@@ -148,7 +148,7 @@ const data = [
       {
         id: 27,
         imageArray:
-          "rainbowGuava1.jpeg,rainbowGuava2.jpeg,rainbowGuava3.jpeg,rainbowGuava4.jpeg,rainbowGuava5.jpeg",
+          "rainbowGuava1.jpg,rainbowGuava2.jpg,rainbowGuava3.jpg,rainbowGuava4.jpg,rainbowGuava5.jpg",
         fruittype: 3,
         fruitname: "彩虹芭樂",
         price: 45,
@@ -172,7 +172,7 @@ const data = [
       {
         id: 45,
         imageArray:
-          "95avocado1.jpeg,95avocado2.jpeg,95avocado3.jpeg,95avocado4.jpeg,95avocado5.jpeg",
+          "95avocado1.jpg,95avocado2.jpg,95avocado3.jpg,95avocado4.jpg,95avocado5.jpg",
         fruittype: 4,
         fruitname: "95酪梨",
         price: 45,
@@ -188,7 +188,7 @@ const data = [
       {
         id: 43,
         imageArray:
-          "redHeartAvocado1.jpeg,redHeartAvocado2.jpeg,redHeartAvocado3.jpeg,redHeartAvocado4.jpeg,redHeartAvocado5.jpeg",
+          "redHeartAvocado1.jpg,redHeartAvocado2.jpg,redHeartAvocado3.jpg,redHeartAvocado4.jpg,redHeartAvocado5.jpg",
         fruittype: 4,
         fruitname: "紅心圓酪梨",
         price: 20,
@@ -203,7 +203,7 @@ const data = [
       {
         id: 44,
         imageArray:
-          "jasonAvocado1.jpeg,jasonAvocado2.jpeg,jasonAvocado3.jpeg,jasonAvocado4.jpeg,jasonAvocado5.jpeg",
+          "jasonAvocado1.jpg,jasonAvocado2.jpg,jasonAvocado3.jpg,jasonAvocado4.jpg,jasonAvocado5.jpg",
         fruittype: 4,
         fruitname: "傑森酪梨",
         price: 35,
@@ -227,7 +227,7 @@ const data = [
       {
         id: 54,
         imageArray:
-          "goldenDiamondPineapple1.jpeg,goldenDiamondPineapple2.jpeg,goldenDiamondPineapple3.jpeg,goldenDiamondPineapple4.jpeg,goldenDiamondPineapple5.jpeg",
+          "goldenDiamondPineapple1.jpg,goldenDiamondPineapple2.jpg,goldenDiamondPineapple3.jpg,goldenDiamondPineapple4.jpg,goldenDiamondPineapple5.jpg",
         fruittype: 5,
         fruitname: "金鑽鳳梨",
         price: 45,
@@ -242,7 +242,7 @@ const data = [
       {
         id: 52,
         imageArray:
-          "custardPineapple1.jpeg,custardPineapple2.jpeg,custardPineapple3.jpeg,custardPineapple4.jpeg,custardPineapple5.jpeg",
+          "custardPineapple1.jpg,custardPineapple2.jpg,custardPineapple3.jpg,custardPineapple4.jpg,custardPineapple5.jpg",
         fruittype: 5,
         fruitname: "釋迦鳳梨",
         price: 20,
@@ -257,7 +257,7 @@ const data = [
       {
         id: 53,
         imageArray:
-          "perfumePineapple1.jpeg,perfumePineapple2.jpeg,perfumePineapple3.jpeg,perfumePineapple4.jpeg,perfumePineapple5.jpeg",
+          "perfumePineapple1.jpg,perfumePineapple2.jpg,perfumePineapple3.jpg,perfumePineapple4.jpg,perfumePineapple5.jpg",
         fruittype: 5,
         fruitname: "香水鳳梨",
         price: 35,
@@ -281,7 +281,7 @@ const data = [
       {
         id: 36,
         imageArray:
-          "imperialTangerine1.jpeg,imperialTangerine2.jpeg,imperialTangerine3.jpeg,imperialTangerine4.jpeg,imperialTangerine5.jpeg",
+          "imperialTangerine1.jpg,imperialTangerine2.jpg,imperialTangerine3.jpg,imperialTangerine4.jpg,imperialTangerine5.jpg",
         fruittype: 6,
         fruitname: "帝王柑",
         price: 45,
@@ -297,7 +297,7 @@ const data = [
       {
         id: 34,
         imageArray:
-          "sugerTangerine1.jpeg,sugerTangerine2.jpeg,sugerTangerine3.jpeg,sugerTangerine4.jpeg,sugerTangerine5.jpeg",
+          "sugerTangerine1.jpg,sugerTangerine2.jpg,sugerTangerine3.jpg,sugerTangerine4.jpg,sugerTangerine5.jpg",
         fruittype: 6,
         fruitname: "砂糖橘",
         price: 20,
@@ -312,7 +312,7 @@ const data = [
       {
         id: 35,
         imageArray:
-          "pearlTangerine1.jpeg,pearlTangerine2.jpeg,pearlTangerine3.jpeg,pearlTangerine4.jpeg,pearlTangerine5.jpeg",
+          "pearlTangerine1.jpg,pearlTangerine2.jpg,pearlTangerine3.jpg,pearlTangerine4.jpg,pearlTangerine5.jpg",
         fruittype: 6,
         fruitname: "珍珠柑",
         price: 35,
@@ -336,7 +336,7 @@ const data = [
       {
         id: 40,
         imageArray:
-          "greenKiwi1.jpeg,greenKiwi2.jpeg,greenKiwi3.jpeg,greenKiwi4.jpeg,greenKiwi5.jpeg",
+          "greenKiwi1.jpg,greenKiwi2.jpg,greenKiwi3.jpg,greenKiwi4.jpg,greenKiwi5.jpg",
         fruittype: 7,
         fruitname: "綠色奇異果",
         price: 20,
@@ -351,7 +351,7 @@ const data = [
       {
         id: 41,
         imageArray:
-          "sweetHeartGreanFruit1.jpeg,sweetHeartGreanFruit2.jpeg,sweetHeartGreanFruit3.jpeg,sweetHeartGreanFruit4.jpeg,sweetHeartGreanFruit5.jpeg",
+          "sweetHeartGreanFruit1.jpg,sweetHeartGreanFruit2.jpg,sweetHeartGreanFruit3.jpg,sweetHeartGreanFruit4.jpg,sweetHeartGreanFruit5.jpg",
         fruittype: 7,
         fruitname: "甜心綠果",
         price: 35,
@@ -366,7 +366,7 @@ const data = [
       {
         id: 42,
         imageArray:
-          "sunshineGoldenFruit1.jpeg,sunshineGoldenFruit2.jpeg,sunshineGoldenFruit3.jpeg,sunshineGoldenFruit4.jpeg,sunshineGoldenFruit5.jpeg",
+          "sunshineGoldenFruit1.jpg,sunshineGoldenFruit2.jpg,sunshineGoldenFruit3.jpg,sunshineGoldenFruit4.jpg,sunshineGoldenFruit5.jpg",
         fruittype: 7,
         fruitname: "陽光金果",
         price: 45,
@@ -390,7 +390,7 @@ const data = [
       {
         id: 38,
         imageArray:
-          "rishengSeed1.jpeg,rishengSeed2.jpeg,rishengSeed3.jpeg,rishengSeed4.jpeg,rishengSeed5.jpeg",
+          "rishengSeed1.jpg,rishengSeed2.jpg,rishengSeed3.jpg,rishengSeed4.jpg,rishengSeed5.jpg",
         fruittype: 10,
         fruitname: "日昇種",
         price: 35,
@@ -405,7 +405,7 @@ const data = [
       {
         id: 37,
         imageArray:
-          "tainong1.jpeg,tainong2.jpeg,tainong3.jpeg,tainong4.jpeg,tainong5.jpeg",
+          "tainong1.jpg,tainong2.jpg,tainong3.jpg,tainong4.jpg,tainong5.jpg",
         fruittype: 10,
         fruitname: "台農2號",
         price: 20,
@@ -420,7 +420,7 @@ const data = [
       {
         id: 39,
         imageArray:
-          "redConcubine1.jpeg,redConcubine2.jpeg,redConcubine3.jpeg,redConcubine4.jpeg,redConcubine5.jpeg",
+          "redConcubine1.jpg,redConcubine2.jpg,redConcubine3.jpg,redConcubine4.jpg,redConcubine5.jpg",
         fruittype: 10,
         fruitname: "紅妃",
         price: 45,
@@ -444,7 +444,7 @@ const data = [
       {
         id: 46,
         imageArray:
-          "myanmarSweetKing1.jpeg,myanmarSweetKing2.jpeg,myanmarSweetKing3.jpeg,myanmarSweetKing4.jpeg,myanmarSweetKing5.jpeg",
+          "myanmarSweetKing1.jpg,myanmarSweetKing2.jpg,myanmarSweetKing3.jpg,myanmarSweetKing4.jpg,myanmarSweetKing5.jpg",
         fruittype: 14,
         fruitname: "緬甸甜王",
         price: 20,
@@ -459,7 +459,7 @@ const data = [
       {
         id: 47,
         imageArray:
-          "springRedJade1.jpeg,springRedJade2.jpeg,springRedJade3.jpeg,springRedJade4.jpeg,springRedJade5.jpeg",
+          "springRedJade1.jpg,springRedJade2.jpg,springRedJade3.jpg,springRedJade4.jpg,springRedJade5.jpg",
         fruittype: 14,
         fruitname: "早春紅玉",
         price: 35,
@@ -474,7 +474,7 @@ const data = [
       {
         id: 48,
         imageArray:
-          "blackBeauty1.jpeg,blackBeauty2.jpeg,blackBeauty3.jpeg,blackBeauty4.jpeg,blackBeauty5.jpeg",
+          "blackBeauty1.jpg,blackBeauty2.jpg,blackBeauty3.jpg,blackBeauty4.jpg,blackBeauty5.jpg",
         fruittype: 14,
         fruitname: "黑美人",
         price: 45,
@@ -498,7 +498,7 @@ const data = [
       {
         id: 49,
         imageArray:
-          "aiwenMango1.jpeg,aiwenMango2.jpeg,aiwenMango3.jpeg,aiwenMango4.jpeg,aiwenMango5.jpeg",
+          "aiwenMango1.jpg,aiwenMango2.jpg,aiwenMango3.jpg,aiwenMango4.jpg,aiwenMango5.jpg",
         fruittype: 15,
         fruitname: "愛文芒果",
         price: 20,
@@ -513,7 +513,7 @@ const data = [
       {
         id: 50,
         imageArray:
-          "peachMango1.jpeg,peachMango2.jpeg,peachMango3.jpeg,peachMango4.jpeg,peachMango5.jpeg",
+          "peachMango1.jpg,peachMango2.jpg,peachMango3.jpg,peachMango4.jpg,peachMango5.jpg",
         fruittype: 15,
         fruitname: "水蜜桃芒果",
         price: 35,
@@ -528,7 +528,7 @@ const data = [
       {
         id: 51,
         imageArray:
-          "wuxiangMango1.jpeg,wuxiangMango2.jpeg,wuxiangMango3.jpeg,wuxiangMango4.jpeg,wuxiangMango5.jpeg",
+          "wuxiangMango1.jpg,wuxiangMango2.jpg,wuxiangMango3.jpg,wuxiangMango4.jpg,wuxiangMango5.jpg",
         fruittype: 15,
         fruitname: "烏香芒果",
         price: 45,

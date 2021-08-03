@@ -5,7 +5,6 @@ import { data } from "./data"; //假裝資料
 import LeftAside from "./components/LeftAside/LeftAside";
 import Middle from "./components/Middle/Middle";
 import RightAside from "./components/RightAside/RightAside";
-import BackgroundSlider from "react-background-slider";
 import Modal from "./components/Modal/Modal";
 import ImageContent from "./components/Modal/ModalContent/ImageContent";
 // 伺服器fetch
@@ -74,59 +73,68 @@ function Customized(props) {
     }
     return sum;
   };
-  const [modalData,setModalData]=useState({
-    fruitName:"",
-    images:[],
-    farmerName:"",
-    farmerImage:"",
-    farmerContent:""
-  })
+  const [modalData, setModalData] = useState({
+    fruitName: "",
+    images: [],
+    farmerName: "",
+    farmerImage: "",
+    farmerContent: "",
+  });
+  const [dataLoading, setDataLoading] = useState(false);
+  useEffect(() => {
+    setTimeout(() => setDataLoading(false), 500);
+  }, [modalData]);
   const modalRef = useRef();
   return (
     <>
       <Modal ref={modalRef}>
-          <h1 className="mt-0 d-flex justify-content-center">{modalData.fruitName}</h1>
-        <div className="row">
-          <div className="col-7 d-flex align-items-center h-100">
-            <ImageContent Images={modalData.images} />
-          </div>
-          <div className="col-5">
-            <h2 className="d-flex justify-content-center mt-0">{modalData.farmerName}</h2>
-            <div className="pb-2" style={{height:"200px"}} >
-              <img
-                className="productImage"
-                src={modalData.farmerImage}
-                alt=""
-              />
+        {dataLoading ? (
+          <div className="d-flex justify-content-center align-items-center h-100">
+            <div className="spinner-border" role="status">
+              <span className="sr-only">Loading...</span>
             </div>
-            <div className="textBox">
-              <p>{modalData.farmerContent}</p>
-            </div>
-            <button
-              className="closeModal"
-              onClick={() => {
-                modalRef.current.close();
-              }}
-            >
-              關閉
-            </button>
           </div>
-        </div>
+        ) : (
+          <>
+            <h1 className="mt-0 d-flex justify-content-center">
+              {modalData.fruitName}
+            </h1>
+            <div className="row">
+              <div className="col-7 d-flex align-items-center h-100">
+                <ImageContent Images={modalData.images} />
+              </div>
+              <div className="col-5">
+                <h2 className="d-flex justify-content-center mt-0">
+                  {modalData.farmerName}
+                </h2>
+                <div className="pb-2" style={{ height: "200px" }}>
+                  <img
+                    className="productImage"
+                    src={modalData.farmerImage}
+                    alt=""
+                  />
+                </div>
+                <div className="textBox">
+                  <p>{modalData.farmerContent}</p>
+                </div>
+                <button
+                  className="closeModal"
+                  onClick={() => {
+                    modalRef.current.close();
+                  }}
+                >
+                  關閉
+                </button>
+              </div>
+            </div>
+          </>
+        )}
       </Modal>
       <div className="customizedTitle mt-5">
         <div className="container mt-5">
           <h1 className="text-center pb-4 p-offset">客製化水果盒</h1>
         </div>
         <div className="container">
-          <BackgroundSlider
-            images={[
-              "https://images.pexels.com/photos/1028599/pexels-photo-1028599.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-              "https://images.pexels.com/photos/1414130/pexels-photo-1414130.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-              "https://images.pexels.com/photos/65256/pomegranate-open-cores-fruit-fruit-logistica-65256.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-            ]}
-            duration={10}
-            transition={2}
-          />
           <div className="row">
             {/* 左側邊 */}
             <LeftAside cartData={cartData} />
@@ -138,6 +146,7 @@ function Customized(props) {
               setCounts={setCounts}
               modalRef={modalRef}
               setModalData={setModalData}
+              setDataLoading={setDataLoading}
             />
             {/* 右側 */}
             <RightAside

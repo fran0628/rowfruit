@@ -98,7 +98,7 @@ function CartListContent(props) {
           <span>$</span>
           <span>{price}</span>
         </div>
-        <div className="text-center">
+        <div className="text-center text-dark">
           <div>分量</div>
           <div>{wight}</div>
         </div>
