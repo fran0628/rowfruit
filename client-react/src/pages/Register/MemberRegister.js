@@ -82,10 +82,10 @@ export default function MemberRegister(props) {
 }
 
 function registerData(datas){
-  if(datas.account==='') {
-    dialog('帳號不可以為空');
-  } else if ( datas.name==='') {
+  if(datas.name==='') {
     dialog('姓名不可以為空');
+  } else if ( datas.account==='') {
+    dialog('帳號不可以為空');
   }else if ( datas.password==='') {
     dialog('密碼不可以為空');
   } else if ( datas.password.length<6) {
@@ -124,7 +124,7 @@ function registerData(datas){
   function dialog(text) {
 		Swal.fire({
 			position: 'center',
-			icon: 'error',
+			icon: 'info',
 			title: text,
 			showConfirmButton: false,
 			timer: 1500,
