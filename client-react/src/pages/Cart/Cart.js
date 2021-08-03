@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import Item from "./components/Item";
 import DeliverynPayment from "./components/DeliverynPayment";
 import Buyer from "./components/Buyer"
@@ -8,39 +8,42 @@ function Cart({cart}) {
  
   console.log("cart",cart)
   function getCartFromLocalStorage() {
-    const newCart = localStorage.getItem('cart') || '[]'
-    console.log("JSON.parse(newCart)",JSON.parse(newCart))
-    setMyCart(JSON.parse(newCart))
+    const newCart = localStorage.getItem("cart") || "[]";
+    console.log("JSON.parse(newCart)", JSON.parse(newCart));
+    setMyCart(JSON.parse(newCart));
   }
 
-  useEffect(()=>{
-    getCartFromLocalStorage()
-  },[])
+  useEffect(() => {
+    getCartFromLocalStorage();
+  }, []);
 
   const sendFake = async () => {
     const order = {
-      "memberId": 110,
-      "totalPrice": 20000,
-      "address": "25 VIA LUCCA",
-      "receiver": "Tony",
-      "phone": "9495330930",
-      "items": [{
-        "productId": 1,
-        "amount": 3,
-        "content": "asd"
-      }, {
-        "productId": 2,
-        "amount": 1,
-        "content": "fake2"
-      }]
+      memberId: 110,
+      totalPrice: 20000,
+      address: "25 VIA LUCCA",
+      receiver: "Tony",
+      phone: "9495330930",
+      items: [
+        {
+          productId: 1,
+          amount: 3,
+          content: "asd",
+        },
+        {
+          productId: 2,
+          amount: 1,
+          content: "fake2",
+        },
+      ],
     };
-    await fetch('http://localhost:5000/api/Orderlist', {
+    await fetch("http://localhost:5000/api/Orderlist", {
       method: "POST",
       body: JSON.stringify(order),
       headers: new Headers({
         "Content-Type": "application/json",
       }),
-    })
+    });
   };
 
   return (

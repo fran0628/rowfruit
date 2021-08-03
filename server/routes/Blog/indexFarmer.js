@@ -9,6 +9,7 @@ router.get("/", async (req, res) => {
 	const indexFarmerUserItem = await connection.queryAsync(
 		"SELECT farmer_list_id,fruit_name FROM (customize_label INNER JOIN storage ON customize_label.id=storage.fruittype)INNER JOIN farmer_member ON storage.farmer_list_id=farmer_member.id"
 	);
+	
 	// console.log(indexFarmerUserItem[0].farmer_list_id);
 	 indexFarmerUser.forEach((framer)=> {
 		let item = []
