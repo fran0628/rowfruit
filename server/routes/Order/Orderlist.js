@@ -11,6 +11,7 @@ router.get("/", async (req, res) => {
     order_list.create_time,
     order_list.total_price,
     order_list_detail.product_id,
+    order_list_detail.qty,
     order_list_detail.amount,
     order_list_detail.content,
     product.product_name,
@@ -33,16 +34,17 @@ router.post("/", async (req, res) => {
       [memberId, totalPrice, address, receiver, phone]
     );
     //mysql不能讀取陣列,所以要變成陣列的陣列(Node.js MySQL Insert Into/w3cshool)
-    const details = items.map(({ productId, amount, content }) => [
+    const details = items.map(({ productId, amount, qty, content }) => [
       //insertId=po_id,
       insertId,
       productId,
+      qty,
       amount,
       content,
     ]);
 
     await connection.queryAsync(
-      "INSERT INTO order_list_detail (po_id, product_id, amount, content) VALUES ?",
+      "INSERT INTO order_list_detail (po_id, product_id, qty,amount, content) VALUES ?",
       [details]
     );
 
