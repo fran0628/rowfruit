@@ -17,6 +17,13 @@ import { Context } from "../../context/Context";
 
 
  function TopNav(props) {
+	 	function catchImgSrc(str) {
+			
+			if (str === null) {
+				return "null.png";
+			}
+			return str;
+		}
 	 	const { farmeruser, dispatch } = useContext(Context);
 		const PF = "http://localhost:5000/images/";
 		const handleLogout = () => {
@@ -117,7 +124,7 @@ import { Context } from "../../context/Context";
 										title={
 											<img
 												className="farmerIcon"
-												src={PF + farmeruser.avatar}
+												src={PF + catchImgSrc(farmeruser.avatar)}
 												alt=""
 											/>
 										}

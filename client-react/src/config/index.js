@@ -19,8 +19,7 @@ export const pathnameList = [
 	"/memberegister",
 	"/memberdashboard",
 	"/farmerlist",
-	"/fruitmap",
-	"/MainProduct",
+	"/fruitmap",	
 	"/customized",
 	"/Main",
 	"/MainProduct/1",
@@ -36,19 +35,18 @@ export const pathnameList = [
 export const pathnameTextList = [
 	"/會員登入",
 	"/會員註冊",
-  "/會員中心",
+    "/會員中心",
 	"/小農總覽",
-	"/水果地圖",
-	"/主打商品",
+	"/水果地圖",	
 	"/客製化商品",
 	"/主打水果盒選單",
-	"/主打水果盒選單/美白水果盒",
-	"/主打水果盒選單/健身水果盒",
-	"/主打水果盒選單/多纖輕盈水果盒",
+	"/主打水果盒/美白水果盒",
+	"/主打水果盒/健身水果盒",
+	"/主打水果盒/多纖輕盈水果盒",
 	"/小農部落",
-  "/小農會員註冊",
-  "/小農會員登入",
-  "/小農會員中心",
-  "/購物車"
+    "/小農會員註冊",
+    "/小農會員登入",
+    "/小農會員中心",
+    "/購物車"
 
 ];

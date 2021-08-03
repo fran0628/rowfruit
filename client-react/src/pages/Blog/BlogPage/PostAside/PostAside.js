@@ -20,6 +20,7 @@ const convertCategoryToText = (v) => {
 
  function PostAside(props) {
 	 const { hotArticle } = props;
+	 const PF = "http://localhost:5000/images/";
 
 	// console.log(hotArticle[0])
 
@@ -39,7 +40,7 @@ const convertCategoryToText = (v) => {
 									<div className="avatar">
 										<img
 											className="object-fit"
-											src="images/image1.jpg"
+											src={PF + "null.png"}
 											alt=""
 										/>
 									</div>

@@ -121,7 +121,7 @@ function App() {
 				if(res.data.code===401){
 					console.log('AAAAAAAA')
 					Swal.fire({
-						icon: 'error',
+						icon: 'info',
 						title: '帳號或密碼有誤',
 						showConfirmButton: false,
 						timer: 2000,
@@ -138,7 +138,7 @@ function App() {
 	function dialog(text) {
 		Swal.fire({
 			position: 'center',
-			icon: 'error',
+			icon: 'info',
 			title: text,
 			showConfirmButton: false,
 			timer: 2000,
@@ -173,7 +173,7 @@ function App() {
 							{farmeruser ? <Home /> : <FarmerLogin />}
 						</Route>
 						<Route exact path="/farmerregister">
-							{farmeruser ? <Blog /> : <FarmerRegister />}
+							{farmeruser ? <Home /> : <FarmerRegister />}
 						</Route>
 						<Route exact path="/blog">
 							<Blog />
