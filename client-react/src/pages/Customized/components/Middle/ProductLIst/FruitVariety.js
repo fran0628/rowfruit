@@ -21,7 +21,8 @@ function FruitVariety(props) {
     nutrients,
     setCounts,
     modalRef,
-    setModalData
+    setModalData,
+    setDataLoading
   } = props;
   const nutrientsArray = nutrients.split(",");
   const newImageUrl =
@@ -80,7 +81,7 @@ function FruitVariety(props) {
     return newImage
   })
   function setAndOpenModal(){
-    modalRef.current.openModal()
+    setDataLoading(true)
     setModalData((modalData)=>{
       const newModalData={...modalData}
       newModalData.fruitName=fruitname
@@ -90,6 +91,7 @@ function FruitVariety(props) {
       newModalData.farmerContent=content
       return newModalData
     })
+    modalRef.current.openModal()
   }
 
   return (
@@ -112,7 +114,7 @@ function FruitVariety(props) {
         </div>
         <div className="col-1 h-100 d-flex align-items-center justify-content-end">
           <p className="btn addCart" onClick={addItem}>
-            <i className="far fa-plus-square"></i>
+            <i className="fas fa-plus "></i>
           </p>
         </div>
         <div className="col-2 h-100 d-flex align-items-center">

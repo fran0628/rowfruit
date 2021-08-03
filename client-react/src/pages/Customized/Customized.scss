@@ -496,13 +496,22 @@
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
+.cartLIstContainer p{
+  color: black;
+}
+.cartLIstContainer i{
+  color: black;
+}
+.cartLIstContainer span{
+  color: black;
+}
 
 .removeFruit {
   background:#E9AFAF ;
   position: absolute;
   right: 30%;
-  bottom: 20%;
-  z-index: 5;
+  bottom: 10%;
+  z-index: 10;
   -webkit-transform: rotate(-3deg);
   transform: rotate(-3deg);
 }
