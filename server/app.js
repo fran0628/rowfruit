@@ -1,6 +1,11 @@
 var createError = require("http-errors");
+const bodyparser = require('body-parser')
+const multiparty = require('connect-multiparty')
+
+const morgan = require('morgan')
 var express = require("express");
 var path = require("path");
+const fs = require('fs')
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const connection = require("./utilities/db");
@@ -34,6 +39,8 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 
+const MutipartyMiddleware = multiparty({ uploadDir: "./images" });
+
 const storage = multer.diskStorage({
 	destination: (req, file, cb) => {
 		cb(null, "images");
@@ -42,6 +49,31 @@ const storage = multer.diskStorage({
 		cb(null, req.body.name);
 	},
 });
+
+app.post('/api/postupload',MutipartyMiddleware,(req,res)=>{
+	var TempFile = req.files.upload;
+	var TempPathfile = TempFile.path;
+
+	const targetPathUrl = path.join(__dirname, "./uploads/" + TempFile.name);
+
+	if (
+		path.extname(TempFile.originalFilename).toLowerCase() === ".png" ||
+		".jpg"
+	) {
+		fs.rename(TempPathfile, targetPathUrl, (err) => {
+			res.status(200).json({
+				uploaded: true,
+				url: `${TempFile.originalFilename}`,
+			});
+
+			if (err) return console.log(err);
+		});
+	}
+
+	console.log(req.files);
+
+	
+})
 
 const upload = multer({ storage: storage });
 app.post("/api/upload", upload.single("file"), (req, res) => {
