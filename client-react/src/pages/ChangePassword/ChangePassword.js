@@ -159,7 +159,7 @@ function ChangePassword (props) {
 			<>
 			   <div>
 				<div className="container mb-5 mt-3 p-5 mx-auto">
-					<h3 className="text-center mb-4">會員修改密碼</h3>
+					<h3 className="text-center mb-4">修改會員密碼</h3>
 
 					<div className="row g-4 mx-auto px-5 d-flex  justify-content-center">
 				
