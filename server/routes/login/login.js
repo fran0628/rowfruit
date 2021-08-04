@@ -18,7 +18,7 @@ router.post("/", async (req, res) => {
 		code:200,
 		status: 'success', 
 		data: { 
-			token: token,name:data[0].name 
+			token: token,name:data[0].name
 		}})
    
 	} else {

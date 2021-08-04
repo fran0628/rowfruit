@@ -13,6 +13,7 @@ import logoImg from './logo.png'
 import { LinkContainer } from "react-router-bootstrap";
 // import { useContext } from "react";
 import { Context } from "../../context/Context";
+import axios from 'axios';
 
 
 
@@ -26,6 +27,7 @@ import { Context } from "../../context/Context";
 		}
 	 	const { farmeruser, dispatch } = useContext(Context);
 		const PF = "http://localhost:5000/images/";
+		const [avatar,setAvatar]=useState("") 
 		const handleLogout = () => {
 			dispatch({ type: "LOGOUT" });
 		};
@@ -42,14 +44,34 @@ import { Context } from "../../context/Context";
 		const handleShow = () => setShow(true);
 	
 		
-	console.log(checkLogin);
+	console.log(checkLogin.islogin);
+
 	useEffect(()=>{
 		const cart = localStorage.getItem('cart')||'[]'
 		setCartLength(JSON.parse(cart).length)
 		setCartUpdate(false)
 	},[cartLength,cartUpdate])
     
-    
+    function getuserDetail(){
+		const token = localStorage.getItem('token').split(" ")[1];
+	  
+		let payload = JSON.parse(atob(token.split(".")[1]));
+		axios
+		.get('http://localhost:5000/api/member/'+payload.id)
+	
+		.then((res) => {
+			console.log(res.data[0].avatar);
+			setAvatar(res.data[0].avatar)
+	  })
+	}
+	
+	if(checkLogin.islogin){
+		getuserDetail()
+	}
+	
+
+
+
     return (
 			<>
 				<Navbar className="myNavbar"></Navbar>
@@ -104,7 +126,13 @@ import { Context } from "../../context/Context";
 								</LinkContainer>
 								{checkLogin.islogin ? (
 									<NavDropdown
-										title={<sapn> hi {checkLogin.name}</sapn>}
+										title={
+											<img
+												className="farmerIcon"
+												src={PF + avatar}
+												alt=""
+											/>
+										}
 										id="basic-nav-dropdown"
 									>
 										<LinkContainer to="/memberdashboard">

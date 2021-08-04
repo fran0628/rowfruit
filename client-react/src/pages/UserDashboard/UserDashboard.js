@@ -7,6 +7,7 @@ class UserDashboard extends Component {
 	constructor(){
 		super();
 		this.state = {
+			id:"",
 			account:"",
 			name:"",
 			password:"",
@@ -14,10 +15,17 @@ class UserDashboard extends Component {
 			email:"",
 			phone:"",
 			address:"",
-			password_has_error:false
+			avatar:"",
+			password_has_error:false,
+			file:null
 		}
+		console.log(this.state)
 		this.getuserDetail();
 	}
+
+	
+	
+	
 
 	getuserDetail(){
 	
@@ -31,13 +39,16 @@ class UserDashboard extends Component {
 			console.log(res.data[0]);
 			const data = res.data[0];
 		this.setState({
+			id:data.id,
 			account:data.account,
 			name:data.name,
 			password:data.password,
 			confirmPassword:data.password,
 			email:data.email,
 			phone:data.phone,
-			address:data.address
+			address:data.address,
+			file:data.file,
+			avatar:data.avatar
 		})
 	  })
 	}
@@ -46,8 +57,18 @@ class UserDashboard extends Component {
 		console.log(event.target.value);
 		let key = event.target.name
 		this.setState({
+			
 			[key]:event.target.value,
 		});
+	} 
+	setFile = (event)=>{
+		let key = event.target.name
+		this.setState({
+			
+			[key]:event.target.files[0],
+		});
+	 this.state.file = event.target.files[0]
+	 console.log("this.state.file",this.state.file)
 	} 
 
     dialog(text) {
@@ -71,8 +92,28 @@ class UserDashboard extends Component {
 			confirmPassword:this.state.confirmPassword,
 			email:this.state.email,
 			phone:this.state.phone,
-			address:this.state.address
+			address:this.state.address,
+			avatar:this.state.avatar,
+			file:this.state.file
 		};
+		 console.log("this.state.file ",this.state.file)
+
+		if (this.state.file) {
+			const data = new FormData();
+			const filename =
+				body.id + body.file.name.substr(body.file.name.lastIndexOf("."));
+	
+			data.append("name", filename);
+			data.append("file", body.file);				
+			body.avatar = filename;
+			console.log("data :",data)
+			try {
+				axios.post("/upload", data);
+				
+			} catch (err) {}
+			
+		}
+
 		console.log(body.password === body.confirmPassword);
 		console.log(this.state.password,this.state.confirmPassword);
 		console.log(this.state.Password === this.state.confirmPassword)
@@ -94,7 +135,9 @@ class UserDashboard extends Component {
 		else {
 		axios
 		.put('http://localhost:5000/api/member/'+payload.id,body)
-	
+
+	    
+
 		.then((res) => {
 			Swal.fire({
 				position: 'center-center',
@@ -109,7 +152,7 @@ class UserDashboard extends Component {
 				console.log('reloadPage');
 			setTimeout(()=>{
 				window.location.reload();
-			},1500)
+			},15000)
 			}
 			console.log(res.data[0]);
 		})
@@ -130,7 +173,12 @@ class UserDashboard extends Component {
     render(){
 
 		const datas = this.state;
-
+		console.log(datas)
+		// const chromeFileUrl =  URL.createObjectURL(datas.file)
+		// console.log(chromeFileUrl)
+		console.log(datas.file)
+		console.log(this.state.avatar)
+		
 		return (
 			<>
 			   <div>
@@ -140,13 +188,26 @@ class UserDashboard extends Component {
 					<div className="row g-4 mx-auto px-5">
 						<div className="col-12 text-center">
 							<label htmlFor="fileInput">
+							{ this.state.file || this.state.avatar ? (
+								<div className="farmeravatar">
+									<img
+										src={
+											this.state.file  ? window.URL.createObjectURL(datas.file)  : "http://localhost:5000/images/" + datas.avatar
+										}
+										alt=""
+										className="object-fit"
+									/>
+								</div>
+							) : (
 								<i className="settingsPPIcon fas fa-user"></i>
+							)}
 							</label>
 							<input
 								type="file"
 								name=""
 								id="fileInput"								
 								hidden
+								onChange={(event) => this.setFile(event)}
 							/>
 						</div>
 						<div className="col-md-6">
@@ -236,6 +297,7 @@ class UserDashboard extends Component {
 					</div>
 				</div>
 			  </div>
+			  
 			</>
 		);
     }
