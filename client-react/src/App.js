@@ -53,8 +53,8 @@ function App() {
 	const [register,setRegister]=useState({fullname:"", account:"", password:"", repassword:"", email:"",address:"",phone:""})
 	const [showData,setShowdata]=useState(false)
 
-	console.log("data",data)
-	console.log(islogin)
+	// console.log("data",data)
+	// console.log(islogin)
 
 	//  JWT 轉成 JSON 的 方法 大家可以參考使用喔
 	function getuserDetail (){
@@ -97,6 +97,7 @@ function App() {
 		
 				console.log("res=>", payload);
 				console.log(res.data.data.name);
+				console.log("res.data.data",res.data.data)
 				let username = res.data.data.name;
 				localStorage.setItem("token", res.data.data.token);
 				localStorage.setItem("name", username);

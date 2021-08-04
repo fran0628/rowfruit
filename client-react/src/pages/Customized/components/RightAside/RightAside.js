@@ -75,7 +75,7 @@ function RightAside(props) {
   return (
     <>
       <aside className="col-md-4 d-none d-lg-block position-relative rightAside" style={{height:"700px"}}>
-       <BackgroundSlider
+       {/* <BackgroundSlider
             images={[
               "https://images.pexels.com/photos/1028599/pexels-photo-1028599.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
               "https://images.pexels.com/photos/1414130/pexels-photo-1414130.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
@@ -83,7 +83,7 @@ function RightAside(props) {
             ]}
             duration={10}
             transition={2}
-          />
+          /> */}
         <h2 className="text-center customerCartList">客製化列表</h2>
         {cartData.length === 0 && (
           <p className="text-center unSelected">尚未選取商品</p>

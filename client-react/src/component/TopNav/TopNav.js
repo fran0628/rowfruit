@@ -42,7 +42,7 @@ import { Context } from "../../context/Context";
 		const handleShow = () => setShow(true);
 	
 		
-	console.log(checkLogin);
+	// console.log(checkLogin);
 	useEffect(()=>{
 		const cart = localStorage.getItem('cart')||'[]'
 		setCartLength(JSON.parse(cart).length)
