@@ -28,7 +28,7 @@ function IndexMain() {
 					<div class="fullBox sticky-top d-flex">
 						<div class="fruitbox text-center d-flex">
 							<div>
-								<img src="/Mainphotos/2.png" alt="" />
+								<img src="/Mainphotos/test1.png" alt="" />
 								<div class="mt-3">
 									<h3 class="mt-3">美白水果盒</h3>
 									<span>內容物：</span>
@@ -42,7 +42,7 @@ function IndexMain() {
 						</div>
 						<div class="fruitbox text-center d-flex">
 							<div>
-								<img src="/Mainphotos/2.png" alt="" />
+								<img src="/Mainphotos/test2.png" alt="" />
 								<div class="mt-3">
 									<h3 class="mt-3">健身水果盒</h3>
 									<span>內容物：</span>
@@ -56,7 +56,7 @@ function IndexMain() {
 						</div>
 						<div class="fruitbox text-center d-flex">
 							<div>
-								<img src="/Mainphotos/2.png" alt="" />
+								<img src="/Mainphotos/test3.png" alt="" />
 								<div class="mt-3">
 									<h3 class="mt-3">多纖輕盈水果盒</h3>
 									<span>內容物：</span>
