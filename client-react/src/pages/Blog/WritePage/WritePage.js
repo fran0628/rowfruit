@@ -76,7 +76,8 @@ function WritePage() {
 								config={{
 									ckfinder: {
 										uploadUrl:
-											"http://localhost/rowfruit/backend/dist/upload.php",
+											// "http://localhost/rowfruit/backend/dist/upload.php",
+											"http://localhost:5000/api/postupload",
 									},
 								}}
 								// className="writeInput writeText"

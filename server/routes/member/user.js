@@ -1,7 +1,7 @@
 // CRUD SQL
 
 class User {
-    constructor(name, account, password, gender, phone, email, address) {
+    constructor(name, account, password, gender, phone, email, address,avatar) {
       this.id = 0
       this.name = name
       this.account = account
@@ -10,18 +10,19 @@ class User {
       this.phone = phone
       this.email = email
       this.address = address
+      this.avatar = avatar
       this.valid = 0
     }
   
     addUserSQL() {
       let sql = `INSERT INTO member_list(name, account, password, gender, phone, email, address, valid ) \
-                     VALUES('${this.name}', '${this.account}', '${this.password}', '${this.gender}','${this.phone}','${this.email}', '${this.address}', 0)`
+                     VALUES('${this.name}', '${this.account}', '${this.password}', '${this.gender}','${this.phone}','${this.email}', '${this.address}','${this.avatar}, 0)`
       return sql
     }
   
     updateUserByIdSQL(id) {
       let sql = `UPDATE member_list \
-                 SET name = '${this.name}', account = '${this.account}', password = '${this.password}', gender = '${this.gender}', phone = '${this.phone}', email = '${this.email}', address = '${this.address}', valid = ${this.valid} \
+                 SET name = '${this.name}', account = '${this.account}', password = '${this.password}', gender = '${this.gender}', phone = '${this.phone}', email = '${this.email}', address = '${this.address}', avatar = '${this.avatar}',valid = ${this.valid} \
                  WHERE id =  ${id}`
       return sql
     }

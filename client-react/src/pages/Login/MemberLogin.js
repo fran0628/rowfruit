@@ -49,11 +49,11 @@ function MemberLogin(props) {
 							<div className="card shadow">
 								<div className="MemberCardLogo text-center border-bottom">
 									{/* ROWFRUIT*/}
-									<img className="87 p-3" src="MemberPhoto/logo.svg" alt="" />
+									<img className="pt-3" src="MemberPhoto/logo.png" alt="" />
 								</div>
 								<div className="MemberBody">
 									<h3 className="NormalMemberLogin d-flex justify-content-center mb-3">
-										一般會員登入1
+										一般會員登入
 									</h3>
 									<form>
 										<div className="mb-3">
