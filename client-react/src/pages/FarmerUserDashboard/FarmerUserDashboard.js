@@ -49,10 +49,9 @@ function FarmerUserDashboard() {
 				const filename =
 					farmeruser.id + file.name.substr(file.name.lastIndexOf("."));
 				data.append("name", filename);
-				data.append("file", file);
-				
-				
+				data.append("file", file);				
 				updatedFarmerUser.avatar = filename;
+				// console.log(data)
 				try {
 					await axios.post("/upload", data);
 					

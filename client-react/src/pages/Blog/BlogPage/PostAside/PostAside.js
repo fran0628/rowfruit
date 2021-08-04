@@ -1,6 +1,8 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import { Link } from 'react-router-dom';
 import ReactStars from "react-rating-stars-component";
+import { Context } from "../../../../context/Context";
+
 const category = [
 	"Fruit",
 	"History",
@@ -20,6 +22,7 @@ const convertCategoryToText = (v) => {
 
  function PostAside(props) {
 	 const { hotArticle } = props;
+	 const { farmeruser, dispatch } = useContext(Context);
 	 const PF = "http://localhost:5000/images/";
 
 	// console.log(hotArticle[0])
@@ -28,36 +31,64 @@ const convertCategoryToText = (v) => {
 			<>
 				<aside className="col-12 col-xl-4 mt-4 ps-5">
 					<div className="row">
-						<div className="profile p-4 col col-xl-12 me-3">
+						<div className="k-profile p-4 col col-xl-12 me-3 d-flex flex-column jusitify-content-between">
 							<div className="farm-top">
 								<div className="farm d-flex justify-content-between align-items-center">
 									<div className="farm-name position-relative">
-										<h4 className="m-offset">rowfruit編輯部</h4>
-										<div className="rating position-absolute">
-											<ReactStars size={20} edit={false} value={5} />
+										{" "}
+										{farmeruser ? (
+											<h4 className="m-offset">{farmeruser.fram_name}</h4>
+										) : (
+											<h4 className="m-offset">rowfruit編輯部</h4>
+										)}
+										<div className="rating">
+											{farmeruser ? (
+												<ReactStars size={20} edit={false} value={0} />
+											) : (
+												<ReactStars size={20} edit={false} value={5} />
+											)}
 										</div>
 									</div>
 									<div className="avatar">
-										<img
-											className="object-fit"
-											src={PF + "null.png"}
-											alt=""
-										/>
+										{farmeruser ? (
+											<img
+												className="object-fit"
+												src={PF + farmeruser.avatar}
+												alt=""
+											/>
+										) : (
+											<img
+												className="object-fit"
+												src={PF + "null.png"}
+												alt=""
+											/>
+										)}
 									</div>
 								</div>
 							</div>
 							<div className="farm-content mt-5">
-								<p>
-									打造小農與消費者互信的平台
-								</p>
-								
+								{farmeruser ? (
+									farmeruser.content
+								) : (
+									<p>打造小農與消費者互信的平台</p>
+								)}
 							</div>
+
 							<div className="farm-connect">
 								<p>聯絡我</p>
-								<div className="">
-									<i className="fab connect-icon fa-facebook"></i>
-									<i className="fab connect-icon fa-line"></i>
-									<i className="fas connect-icon fa-phone-alt"></i>
+								<div className="d-flex justify-content-between">
+									<div>
+										<i className="fab connect-icon fa-facebook"></i>
+										<i className="fab connect-icon fa-line"></i>
+										<i className="fas connect-icon fa-phone-alt"></i>
+									</div>
+									
+									<div>
+									{farmeruser ? (<Link className="writeSubmit" to="/writepage">
+											發表文章
+										</Link>) : ""}
+										
+									</div>
 								</div>
 							</div>
 						</div>

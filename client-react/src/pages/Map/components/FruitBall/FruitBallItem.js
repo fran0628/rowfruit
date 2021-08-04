@@ -1,16 +1,17 @@
 import React from "react";
-// import FruitMapIcon from "../indexCustomAniIcon/avocado.png";
 
-// http://localhost:3000/indexCustomAniIcon/apple.png
-function FruitBallItem() {
- 
-  // const fruitIcon = 'http://localhost:3000/indexCustomAniIcon/'+Img
-  
+function FruitBallItem(props) {
+  const fruitIcon =
+    "http://localhost:3000/indexCustomAniIcon/" + props.fruit_name + ".png";
+
   return (
     <>
       <div className="fruit_ball shake-slow" id="clickMe">
-        <img src="https://images.pexels.com/photos/4050299/pexels-photo-4050299.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="" />
-        {/* <img src={require("avocado")} alt="avocado"/> */}
+        <img
+          onClick={() => props.fruitClick(props.fruit_name)}
+          src={fruitIcon}
+          alt="{props.fruit_name}"
+        />
       </div>
     </>
   );

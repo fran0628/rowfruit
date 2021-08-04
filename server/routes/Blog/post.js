@@ -57,9 +57,12 @@ router.delete("/:id", async (req, res) => {
 			"SELECT * FROM article WHERE id = ?;",
 			req.params.id
 		);
+		// console.log(post)
 		// console.log(post[0].author);
+		console.log(req.body.author);
         if(post[0].author === req.body.author){
              try{
+				//  console.log("YES")
                  const deletePost = await connection.queryAsync(
 										"DELETE FROM article WHERE id=?",
 										req.params.id,

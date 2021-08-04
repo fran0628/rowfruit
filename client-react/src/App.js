@@ -26,6 +26,8 @@ import SinglePage from "./pages/Blog/SinglePage/SinglePage";
 import FarmerUserDashboard from "./pages/FarmerUserDashboard/FarmerUserDashboard";
 import ScrollToTop from "./component/ScrollToTop";
 import SubscribeCart from './pages/SubscribeCart/SubscribeCart'
+import WritePage from "./pages/Blog/WritePage/WritePage.js";
+import EditPage from "./pages/Blog/EditPage/EditPage"
 
 function App() {
 	const { farmeruser } = useContext(Context);
@@ -60,14 +62,14 @@ function App() {
 		const token = localStorage.getItem('token').split(" ")[1];
 	  
 		let payload = JSON.parse(atob(token.split(".")[1]));
-		// console.log("payload :",payload)
+		console.log("payload :",payload)
 		axios
 		.get('http://localhost:5000/api/member/'+payload.id)
 	
 		.then((res) => {
-			// console.log("res.data[0] :",res.data[0]);
+			console.log("res.data[0] :",res.data[0]);
 			const userdata = res.data[0];
-			console.log("data :",data)
+			// console.log("data :",data)
 	  })
 	}
 	// Login axiox api
@@ -90,11 +92,13 @@ function App() {
 	
 				// token解析
 				const token = res.data.data.token.split(" ")[1];			
-				
+				console.log("token :",token)
+
 				let payload = JSON.parse(atob(token.split(".")[1]));
 		
-				console.log("res=>", payload);
-				console.log(res.data.data.name);
+				// console.log("res=>", payload);
+				console.log("res.data.data=>", res.data.data);
+				// console.log("res.data.data.name",res.data.data.name);
 				let username = res.data.data.name;
 				localStorage.setItem("token", res.data.data.token);
 				localStorage.setItem("name", username);
@@ -111,12 +115,12 @@ function App() {
 					onClose:changePage()
 					})
 					function changePage(){
-						console.log('changePage');
+						// console.log('changePage');
 					setTimeout(()=>{
 						window.location.href = '/'
 					},2000)
 					}
-					console.log("changePage:",changePage)
+					//console.log("changePage:",changePage)
 				} 
 				if(res.data.code===401){
 					console.log('AAAAAAAA')
@@ -175,11 +179,18 @@ function App() {
 						<Route exact path="/farmerregister">
 							{farmeruser ? <Home /> : <FarmerRegister />}
 						</Route>
+						<Route exact path="/writepage">
+							<WritePage />
+						</Route>
 						<Route exact path="/blog">
 							<Blog />
 						</Route>
 						<Route exact path="/post/:postId">
 							<SinglePage />
+						</Route>
+						
+						<Route exact path="/edit/:editId">
+							<EditPage />
 						</Route>
 						<Route path="/cart">
 							<Cart cart={cart} />
@@ -210,7 +221,7 @@ function App() {
 							<FruitMapMain />
 						</Route>
 						<Route path="/MainProduct/:id?">
-							<MainProduct setCartUpdate={setCartUpdate}/>
+							<MainProduct setCartUpdate={setCartUpdate} />
 						</Route>
 						<Route path="/Main">
 							<Main />

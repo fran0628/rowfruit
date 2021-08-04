@@ -11,8 +11,7 @@ const convertCategoryToText = (v) => {
 
 
  function HotPost(props) {
-     const {post} = props
-	 const PF = "http://localhost:5000/images";
+     const {post} = props	
      function catchImgSrc(str) {
 				str = str.match(/(\/|http)[^>]+\.(jpg|jpeg|png|gif)/g);
 				if (str === null) {
@@ -42,7 +41,7 @@ const convertCategoryToText = (v) => {
 					</div>
 					<div className="hit-img ji-flex align-self-end">
 						<img
-							src={PF + catchImgSrc(post.content)}
+							src={catchImgSrc(post.content)}
 							className="object-fit"
 							alt=""
 						/>

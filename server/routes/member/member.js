@@ -123,7 +123,8 @@ router.post('/', (req, res, next) => {
     req.body.gender,
     req.body.phone,
     req.body.email,
-    req.body.address
+    req.body.address,
+    req.body.avatar
   )
 
   executeSQL(user.addUserSQL(), res, 'post', false, user)
@@ -144,6 +145,7 @@ router.put('/:userId', (req, res) => {
     req.body.phone,
     req.body.email,
     req.body.address,
+    req.body.avatar,
     req.body.valid
   )
 

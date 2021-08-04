@@ -19,7 +19,7 @@ export const pathnameList = [
 	"/memberegister",
 	"/memberdashboard",
 	"/farmerlist",
-	"/fruitmap",	
+	"/fruitmap",
 	"/customized",
 	"/Main",
 	"/MainProduct/1",
@@ -29,7 +29,10 @@ export const pathnameList = [
 	"/farmerregister",
 	"/farmerlogin",
 	"/farmeruserdashboard",
+	"/writepage",
+	"/edit",
 	"/cart",
+	"/post",
 ];
 
 export const pathnameTextList = [
@@ -47,6 +50,9 @@ export const pathnameTextList = [
     "/小農會員註冊",
     "/小農會員登入",
     "/小農會員中心",
-    "/購物車"
+	"/發表文章",
+	"/編輯文章",
+    "/購物車",
+	"/小農部落/文章內頁"
 
 ];
