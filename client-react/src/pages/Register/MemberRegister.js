@@ -147,7 +147,7 @@ function registerData(datas){
 						<div className="col-lg-4 col-sm-8 mb-3 my-3">
 							<div className="card shadow">
 								<div className="MemberCardLogo text-center border-bottom">
-									<img className="p-3" src="MemberPhoto/logo.svg" alt="" />
+									<img className="pt-3" src="MemberPhoto/logo.png" alt="" />
 								</div>
 								<div className="MemberBody">
 									<div onSubmit={handleSubmit}>
