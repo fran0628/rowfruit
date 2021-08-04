@@ -53,7 +53,7 @@ function MemberLogin(props) {
 								</div>
 								<div className="MemberBody">
 									<h3 className="NormalMemberLogin d-flex justify-content-center mb-3">
-										一般會員登入
+										一般會員登入1
 									</h3>
 									<form>
 										<div className="mb-3">
