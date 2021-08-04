@@ -11,9 +11,12 @@ import { API_HOST } from "../../config";
 
 function FruitMapMain(props) {
   // const farmerInfoItem
-  const [farmerInfoItem, setFarmerInfoItem] = useState([]);
+  // const [farmerInfoItem, setFarmerInfoItem] = useState([]);
+
+  // 傳遞小農位置
   const [farmerMap, setFarmerMap] = useState([]);
   const [fruits, setFruits] = useState([]);
+  const [sample, setSample] = useState([]);
   // const [position, setPosition] = useState([]); //全部小農座標
   // const [singlePosition, setSinglePosition] = useState([]); 單個小農座標
 
@@ -22,9 +25,11 @@ function FruitMapMain(props) {
   useEffect(() => {
     const fetchFarmerMap = async () => {
       const res = await axios.get("/Map/Fruit");
-      console.log(res.data);
+      // console.log(res.data);
       setFarmerMap(res.data);
+      setSample(res.data);
     };
+    // console.log("123");
     fetchFarmerMap();
   }, []);
 
@@ -32,36 +37,43 @@ function FruitMapMain(props) {
   useEffect(() => {
     const fetchFruits = async () => {
       const res = await axios.get(API_HOST + "/api/Map/SingleFruit");
-      console.log(res.data);
+      // console.log(res.data);
       setFruits(res.data);
     };
     fetchFruits();
   }, []);
 
-  //點選水果的function 以及過濾出相對應小農
   //把fruitclick這個function一層一層傳下去 main->ball->item ; item->ball->main會再回傳
   function fruitClick(fruit) {
     console.log("fruitClick", fruit);
-    let result = farmerMap.filter((map) => {
-      return map.fruit.indexOf(fruit) > 0;
+    let result = sample.filter((map) => {
+      return map.fruit.indexOf(fruit) >= 0;
     });
-    console.log(result);
+    // console.log(result);
+    setFarmerMap(result);
   }
 
   return (
     <>
       <MultiLevelBreadcrumb />
       <div>
-        <FruitBall fruitClick={fruitClick} fruits={fruits} />
+        <FruitBall
+          fruitClick={fruitClick}
+          fruits={fruits}
+          farmerMap={farmerMap}
+        />
         <div className="container-fluid row">
           <div className="col-6">
             {/* 地圖 */}
             <FruitMap farmerMap={farmerMap} setFarmerMap={setFarmerMap} />
           </div>
-          <div className="col-6">
+          <div className="col-6 vh-100  overflow-scroll">
             {" "}
             {/* 小農資訊 */}
-            <FruitMapFarmerItem farmerInfoItem={setFarmerInfoItem} />
+            {farmerMap &&
+              farmerMap.map((f, i) => {
+                return <FruitMapFarmerItem value={f} key={i} />;
+              })}
           </div>
         </div>
       </div>

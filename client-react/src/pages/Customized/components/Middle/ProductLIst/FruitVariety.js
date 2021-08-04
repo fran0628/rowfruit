@@ -81,7 +81,6 @@ function FruitVariety(props) {
     return newImage
   })
   function setAndOpenModal(){
-    setDataLoading(true)
     setModalData((modalData)=>{
       const newModalData={...modalData}
       newModalData.fruitName=fruitname
@@ -92,6 +91,7 @@ function FruitVariety(props) {
       return newModalData
     })
     modalRef.current.openModal()
+    setDataLoading(true)
   }
 
   return (
