@@ -97,6 +97,9 @@ app.use("/api/Map/Map", MapRouter);
 let FruitRouter = require("./routes/Map/Fruit");
 app.use("/api/Map/Fruit", FruitRouter);
 
+let SingleFruitRouter = require("./routes/Map/SingleFruit");
+app.use("/api/Map/SingleFruit", SingleFruitRouter);
+
 let mainRouter = require("./routes/MainProduct/MainProduct");
 app.use("/api/mainproduct", mainRouter);
 
