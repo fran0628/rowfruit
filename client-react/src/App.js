@@ -27,7 +27,8 @@ import FarmerUserDashboard from "./pages/FarmerUserDashboard/FarmerUserDashboard
 import ScrollToTop from "./component/ScrollToTop";
 import SubscribeCart from './pages/SubscribeCart/SubscribeCart'
 import WritePage from "./pages/Blog/WritePage/WritePage.js";
-import EditPage from "./pages/Blog/EditPage/EditPage"
+import EditPage from "./pages/Blog/EditPage/EditPage";
+import ChangePassword from "./pages/ChangePassword/ChangePassword"
 
 function App() {
 	const { farmeruser } = useContext(Context);
@@ -68,8 +69,8 @@ function App() {
 	
 		.then((res) => {
 			console.log("res.data[0] :",res.data[0]);
-			const userdata = res.data[0];
-			// console.log("data :",data)
+			const data = res.data[0];
+			console.log("data :",data)
 	  })
 	}
 	// Login axiox api
@@ -203,6 +204,11 @@ function App() {
 						</Route>
 						<Route path="/memberdashboard">
 							<UserDashboard />
+						</Route>
+						<Route path="/changepassword">
+							<ChangePassword 
+								checkLogin={islogin}
+							/>
 						</Route>
 						<Route path="/memberlogin">
 							<MemberLogin

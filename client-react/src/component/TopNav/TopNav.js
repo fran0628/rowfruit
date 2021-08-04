@@ -19,8 +19,15 @@ import axios from 'axios';
 
  function TopNav(props) {
 	 	function catchImgSrc(str) {
-			
+
 			if (str === null) {
+				return "null.png";
+			}
+			return str;
+
+		}function defaultImgSrc(str) {
+			
+			if (str === null || str ==="") {
 				return "null.png";
 			}
 			return str;
@@ -44,7 +51,7 @@ import axios from 'axios';
 		const handleShow = () => setShow(true);
 	
 		
-	console.log(checkLogin.islogin);
+	// console.log(checkLogin.islogin);
 
 	useEffect(()=>{
 		const cart = localStorage.getItem('cart')||'[]'
@@ -60,7 +67,7 @@ import axios from 'axios';
 		.get('http://localhost:5000/api/member/'+payload.id)
 	
 		.then((res) => {
-			console.log(res.data[0].avatar);
+			// console.log(res.data[0].avatar);
 			setAvatar(res.data[0].avatar)
 	  })
 	}
@@ -129,7 +136,7 @@ import axios from 'axios';
 										title={
 											<img
 												className="farmerIcon"
-												src={PF + avatar}
+												src={PF + defaultImgSrc(avatar)}
 												alt=""
 											/>
 										}
@@ -137,6 +144,10 @@ import axios from 'axios';
 									>
 										<LinkContainer to="/memberdashboard">
 											<NavDropdown.Item>修改會員資料</NavDropdown.Item>
+										</LinkContainer>
+
+										<LinkContainer to="/changepassword">
+											<NavDropdown.Item>修改密碼</NavDropdown.Item>
 										</LinkContainer>
 
 										<LinkContainer to="/orderlist">
