@@ -72,7 +72,7 @@ function FruitVariety(props) {
       addCartDataAndCounts()
     }
   }
-  
+
   const newImageArray = imageArray&&imageArray.split(',').map((item)=>{
     const newImage=
     "http://localhost:3000/images/CustomizedPhotos/" +

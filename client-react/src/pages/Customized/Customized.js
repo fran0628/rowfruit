@@ -85,6 +85,7 @@ function Customized(props) {
     setTimeout(() => setDataLoading(false), 500);
   }, [modalData]);
   const modalRef = useRef();
+  console.log(modalRef.current)
   return (
     <>
       <Modal ref={modalRef}>
