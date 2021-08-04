@@ -145,14 +145,14 @@ class UserDashboard extends Component {
 				title: '修改成功',
 				showConfirmButton: false,
 				timer: 3000,
-				onClose:reloadPage()
+				onClose:replacePage()
 			  })
 			  localStorage.setItem('name',this.state.name);
-			  function reloadPage(){
+			  function replacePage(){
 				console.log('reloadPage');
 			setTimeout(()=>{
-				window.location.reload();
-			},15000)
+				window.location.replace("/");
+			},2000)
 			}
 			console.log(res.data[0]);
 		})
@@ -233,7 +233,7 @@ class UserDashboard extends Component {
 								onChange={(event) => this.setText(event)}
 							/>
 						</div>
-						<div className="col-md-6">
+						{/* <div className="col-md-6">
 							<label for="inputPassword" className="form-label">
 								密碼
 							</label>
@@ -258,7 +258,7 @@ class UserDashboard extends Component {
 								defaultValue={this.state.confirmPassword}
 								onChange={(event) => this.setText(event)}
 							/>
-						</div>
+						</div> */}
 						<div className="col-4">
 							<label for="inputPhone" className="form-label">
 								電話
