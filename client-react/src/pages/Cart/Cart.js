@@ -7,7 +7,8 @@ import { v4 } from "uuid";
 import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-function Cart({ setCartUpdate, isLogin }) {
+function Cart(props) {
+  const { setCartUpdate, isLogin }=props
   //初始化會員資料
   const [userData, setUserData] = useState({
     id: "",
@@ -84,19 +85,10 @@ function Cart({ setCartUpdate, isLogin }) {
   function successAdd() {
     Swal.fire({
       title: "感謝您的購買",
-      confirmButtonText: "查看明細",
-      cancelButtonText: "關閉",
-      showCancelButton: true,
-      showCloseButton: true,
+      confirmButtonText: '<i class="fa fa-thumbs-up"></i> Great!' ,
+      timer: 1500
     });
   }
-  //加成功跳出sweetalert
-  useEffect(() => {
-    if (start) {
-      successAdd();
-    }
-  }, [myCart, start]);
-  //綁定input能夠取得值
   const [receiver, setReceiver] = useState("");
   function nameChange(e) {
     setReceiver(e.target.value);
@@ -137,6 +129,7 @@ function Cart({ setCartUpdate, isLogin }) {
     setMyCart([]);
     //清掉localStorage
     localStorage.removeItem("cart");
+
   }
   //fetchPost方法
   const fetchPostApi = async () => {
@@ -156,6 +149,8 @@ function Cart({ setCartUpdate, isLogin }) {
       setPhone("");
       setAddress("");
       setAgree(false);
+      successAdd();
+      props.history.push("/orderlist")
     }
   }, [order, start]);
   //checkbox設定

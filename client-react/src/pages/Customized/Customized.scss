@@ -535,6 +535,20 @@
 }
 .rowFruitImage{
   position: absolute;
- transform: rotate(10deg) scale(2);
+//  transform: rotate(10deg) scale(2);
  bottom: 20%;
+ transition: .4s;
 }
+// .rowFruitImage:hover{
+//   position: absolute;
+//   transform: rotate(10deg) scale(4);
+//   bottom: 20%;
+// }
+// @keyframes jump{
+//   0%{
+//     transform: scale(2);
+//   }
+//   100%{
+//     transform: scale(4);
+//   }
+// }
