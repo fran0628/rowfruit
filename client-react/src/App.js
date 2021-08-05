@@ -194,7 +194,7 @@ function App() {
 							<EditPage />
 						</Route>
 						<Route path="/cart">
-							<Cart cart={cart} setCartUpdate={setCartUpdate} />
+							<Cart cart={cart} setCartUpdate={setCartUpdate} isLogin={islogin} />
 						</Route>
 						<Route path="/subscribecart">
 							<SubscribeCart />
