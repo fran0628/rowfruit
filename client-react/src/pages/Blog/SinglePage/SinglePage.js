@@ -50,21 +50,7 @@ import MultiLevelBreadcrumb from '../../../component/BreadCrumb/MultiLevelBreadc
 		}, [path]);
         
         
-		const handleDelete = async () => {
-			function deleteConfirm(){
-				Swal.fire({
-					title: "確定刪除嗎？",
-					
-					type: "warning",
-					showCancelButton: true,
-					confirmButtonColor: "#3085d6",
-					cancelButtonColor: "#d33",
-					confirmButtonText: "確認刪除",
-				}).then({
-					
-				});
-			}
-			deleteConfirm();
+		const handleDelete = async () => {		
 
 			try {
 				await axios.delete(`/post/${id}`, {
@@ -76,7 +62,7 @@ import MultiLevelBreadcrumb from '../../../component/BreadCrumb/MultiLevelBreadc
 						text: "將無法回復此篇文章",
 						icon: "warning",
 						showCancelButton: true,
-						confirmButtonColor: "#3085d6",
+						confirmButtonColor: "#7367f0",
 						cancelButtonColor: "#d33",
 						confirmButtonText: "確認",
 					}).then((result) => {
