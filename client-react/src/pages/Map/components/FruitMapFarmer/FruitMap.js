@@ -3,6 +3,8 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 
 function FruitMapFarmer(props) {
   const { farmerMap, setFarmerMap } = props;
+  const url = "http://localhost:5000/images/";
+
   // console.log("地圖的原件傳下來的資料", farmerMap);
   // const {farmer}=props
   // 中大中心點
@@ -25,8 +27,16 @@ function FruitMapFarmer(props) {
           return (
             <Marker position={position.position}>
               <Popup>
+                <img
+                  className="avatar object-fit"
+                  src={url + position.avatar}
+                  alt="{position.avatar}"
+                  
+                />
+
                 <h5> {position.fram_name}</h5>
                 <h6>{position.content}</h6>
+                <p>{position.address}</p>
               </Popup>
             </Marker>
           );

@@ -58,21 +58,42 @@ function App() {
 	// console.log(islogin)
 
 	//  JWT 轉成 JSON 的 方法 大家可以參考使用喔
-	function getuserDetail (){
-	
-		const token = localStorage.getItem('token').split(" ")[1];
+	// 先設鉤子設定初始狀態
+	// const [userData,setUserData]=useState({
+	// 	id:"",
+	// 	account:"",
+	// 	name:"",
+	// 	password:"",
+	// 	email:"",
+	// 	phone:"",
+	// 	address:"",
+	// 	avatar:"",
+	// 	file:null
+	//   })
+	//   function getUserDetail(){
+	// 	const token = localStorage.getItem('token').split(" ")[1];
+		
+	// 	let payload = JSON.parse(atob(token.split(".")[1]));
+	// 	axios
+	// 	.get('http://localhost:5000/api/member/'+payload.id)
 	  
-		let payload = JSON.parse(atob(token.split(".")[1]));
-		console.log("payload :",payload)
-		axios
-		.get('http://localhost:5000/api/member/'+payload.id)
-	
-		.then((res) => {
-			console.log("res.data[0] :",res.data[0]);
-			const data = res.data[0];
-			console.log("data :",data)
-	  })
-	}
+	// 	.then((res) => {
+		// 撈回來了所有資料
+	// 	  console.log(res.data[0]);
+	// 	  const data = res.data[0];
+	// 	  setUserData({
+	// 	  id:data.id,
+	// 	  account:data.account,
+	// 	  name:data.name,
+	// 	  password:data.password,
+	// 	  email:data.email,
+	// 	  phone:data.phone,
+	// 	  address:data.address,
+	// 	  file:data.file,
+	// 	  avatar:data.avatar
+	// 	})
+	// 	})
+	// }
 	// Login axiox api
 	function fetchSetData() {
 		let body = { account: data.account, password: data.password };

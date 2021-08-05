@@ -18,7 +18,7 @@ function FruitMapFarmerItem(props) {
     <>
       <div className="container-fluid d-flex farmer flex-row block mt-2">
         <div>
-          <img className="avatar" src={url + value.avatar} alt="" />
+          <img className="avatar object-fit" src={url + value.avatar} alt="" />
           <ReactStars value={value.rating} size={16} edit={false} />
         </div>
         <div className="vertical align-items-center">
