@@ -65,7 +65,7 @@ function MemberLogin(props) {
 												type="text"
 												name="account"
 												value={account}
-												placeholder="Account"
+												placeholder="請輸入您的帳號"
 												onChange={accountChange}
 												required
 											/>
@@ -78,7 +78,7 @@ function MemberLogin(props) {
 												className="form-control"
 												type="password"
 												name="password"
-												placeholder="Password"
+												placeholder="請輸入您的密碼"
 												value={password}
 												onChange={passwordChange}
 												minLength="6"

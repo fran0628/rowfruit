@@ -127,6 +127,8 @@ class UserDashboard extends Component {
 			dialog('密碼輸入不一致');
 		}else if ( this.state.phone==='') {
 			dialog('請輸入電話');
+		}else if ( this.state.email==='') {
+			dialog('請輸入信箱');
 		}else if ( this.state.email.indexOf('@')===-1) {
 			dialog('信箱內必須包含@');
 		} else if (   this.state.address==='') {
@@ -188,6 +190,7 @@ class UserDashboard extends Component {
 					<div className="row g-4 mx-auto px-5">
 						<div className="col-12 text-center">
 							<label htmlFor="fileInput">
+						
 							{ this.state.file || this.state.avatar ? (
 								<div className="farmeravatar">
 									<img
@@ -201,6 +204,7 @@ class UserDashboard extends Component {
 							) : (
 								<i className="settingsPPIcon fas fa-user"></i>
 							)}
+							<button className="btn btn-success mt-3">更換頭貼</button>
 							</label>
 							<input
 								type="file"

@@ -129,11 +129,13 @@ function App() {
 					islogin:true,
 					name:username
 				})
+				
 				Swal.fire({
-					position: 'center',
-					icon: 'success',
-					title: '登入成功',
-					showConfirmButton: false,
+					icon: "success",
+					title: "登入成功",
+					text: `Hi!${username}，歡迎來到rowfruit`,
+					animation: true,
+					confirmButtonText: "關閉",
 					timer: 2000,
 					onClose:changePage()
 					})
