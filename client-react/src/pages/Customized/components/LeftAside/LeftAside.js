@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-scroll";
 function LeftAside(props) {
-  const { cartData } = props;
+  const { totalWight } = props;
+  const imageScale = 1+totalWight/10
+ 
 
   return (
     <>
@@ -84,7 +86,7 @@ function LeftAside(props) {
           </li>
         </ul>
       
-          <img className="rowFruitImage" src="http://localhost:3000/images/null.png" alt=""/>
+          <img style={{transform:`rotate(5deg) scale(${imageScale})`}} className="rowFruitImage" src="http://localhost:3000/images/null.png" alt=""/>
        
       </aside>
     </>
