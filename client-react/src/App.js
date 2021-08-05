@@ -97,15 +97,9 @@ function App() {
 
 				let payload = JSON.parse(atob(token.split(".")[1]));
 		
-<<<<<<< HEAD
-				console.log("res=>", payload);
-				console.log(res.data.data.name);
-				console.log("res.data.data",res.data.data)
-=======
 				// console.log("res=>", payload);
 				console.log("res.data.data=>", res.data.data);
 				// console.log("res.data.data.name",res.data.data.name);
->>>>>>> 26848e891808bffba9b85c008eea78030da02e4e
 				let username = res.data.data.name;
 				localStorage.setItem("token", res.data.data.token);
 				localStorage.setItem("name", username);
@@ -200,7 +194,7 @@ function App() {
 							<EditPage />
 						</Route>
 						<Route path="/cart">
-							<Cart cart={cart} />
+							<Cart cart={cart} setCartUpdate={setCartUpdate} />
 						</Route>
 						<Route path="/subscribecart">
 							<SubscribeCart />

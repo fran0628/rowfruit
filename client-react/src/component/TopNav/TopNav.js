@@ -51,12 +51,8 @@ import axios from 'axios';
 		const handleShow = () => setShow(true);
 	
 		
-<<<<<<< HEAD
-	// console.log(checkLogin);
-=======
 	// console.log(checkLogin.islogin);
 
->>>>>>> 26848e891808bffba9b85c008eea78030da02e4e
 	useEffect(()=>{
 		const cart = localStorage.getItem('cart')||'[]'
 		setCartLength(JSON.parse(cart).length)

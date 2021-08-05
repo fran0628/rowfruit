@@ -7,6 +7,8 @@ import Middle from "./components/Middle/Middle";
 import RightAside from "./components/RightAside/RightAside";
 import Modal from "./components/Modal/Modal";
 import ImageContent from "./components/Modal/ModalContent/ImageContent";
+import MultiLevelBreadcrumb from "../../component/BreadCrumb/MultiLevelBreadcrumb";
+import BackgroundSlider from "react-background-slider";
 // 伺服器fetch
 // async function fetchData(setProducts) {
 //   const res = await fetch(`${getCustomizeProductData}`);
@@ -85,7 +87,6 @@ function Customized(props) {
     setTimeout(() => setDataLoading(false), 500);
   }, [modalData]);
   const modalRef = useRef();
-  console.log(modalRef.current)
   return (
     <>
       <Modal ref={modalRef}>
@@ -97,6 +98,15 @@ function Customized(props) {
           </div>
         ) : (
           <>
+           <BackgroundSlider
+            images={[
+              "https://images.pexels.com/photos/1028599/pexels-photo-1028599.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+              "https://images.pexels.com/photos/1414130/pexels-photo-1414130.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+              "https://images.pexels.com/photos/65256/pomegranate-open-cores-fruit-fruit-logistica-65256.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+            ]}
+            duration={6}
+            transition={2}
+          />
             <h1 className="mt-0 d-flex justify-content-center">
               {modalData.fruitName}
             </h1>
@@ -131,6 +141,7 @@ function Customized(props) {
           </>
         )}
       </Modal>
+      <MultiLevelBreadcrumb/>
       <div className="customizedTitle mt-5">
         <div className="container mt-5">
           <h1 className="text-center pb-4 p-offset">客製化水果盒</h1>

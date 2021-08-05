@@ -1,8 +1,8 @@
 import React from "react";
 import CartListContent from "./CartListContent";
 import Swal from "sweetalert2";
-import {withRouter} from 'react-router-dom'
-import BackgroundSlider from "react-background-slider";
+import { withRouter } from "react-router-dom";
+import Progress from "../RightAside/Progress";
 
 function RightAside(props) {
   const {
@@ -17,16 +17,13 @@ function RightAside(props) {
   } = props;
 
   function successAdd() {
-    if(customizedProduct){
+    if (customizedProduct) {
       Swal.fire({
         title: `${customizedProduct.productName}加入成功`,
         text: "點擊右上角查看",
-        imageUrl: customizedProduct.imageUrl,
-        imageAlt: "Custom image",
         confirmButtonText: "關閉",
       });
     }
-   
   }
   function warning() {
     Swal.fire({
@@ -39,15 +36,15 @@ function RightAside(props) {
     productId: 99,
     productName: "客製化水果盒",
     count: 1,
-    amount: "",
+    content: "",
     price: totalPrice,
     imageUrl: "http://localhost:3000/images/CustomizedPhotos/customized.jpg",
   };
-  const amount = [];
+  const content = [];
   for (let i = 0; i < cartData.length; i++) {
-    amount.push(`${cartData[i].fruitname}${counts[i]}個`);
+    content.push(`${cartData[i].fruitname}${counts[i]}個`);
   }
-  customizedProduct.amount = amount.join(",");
+  customizedProduct.content = content.join(",");
 
   const updateCartToLocalStorage = () => {
     if (cartData.length === 0) {
@@ -63,27 +60,51 @@ function RightAside(props) {
       successAdd();
     }
   };
-  function addCartAndTurnCartPage(){
-    updateCartToLocalStorage()
-    props.history.push('/cart')
+  function addCartAndTurnCartPage() {
+    updateCartToLocalStorage();
+    props.history.push("/cart");
   }
-  function removeData(){
+  function removeData() {
     setCartData([]);
-      setCounts([]);
+    setCounts([]);
   }
+
+
+  let carbon_water = 0;
+  let dietary_fiber = 0;
+  let vitamin_A = 0;
+  let vitamin_C = 0;
+  let Potassium = 0;
+  for (let i = 0; i < cartData.length; i++) {
+    carbon_water += +cartData[i].nutrientsArray[0];
+    dietary_fiber += +cartData[i].nutrientsArray[1];
+    vitamin_A += +cartData[i].nutrientsArray[2];
+    vitamin_C += +cartData[i].nutrientsArray[3];
+    Potassium += +cartData[i].nutrientsArray[4];
+  }
+
+  const nutrients = [
+    {
+      className: "carbon_water",
+      chineseName: "碳水化合物",
+      width: carbon_water,
+    },
+    {
+      className: "dietary_fiber",
+      chineseName: "膳食纖維",
+      width: dietary_fiber,
+    },
+    { className: "vitamin_A", chineseName: "維他命A", width: vitamin_A },
+    { className: "vitamin_C", chineseName: "維他命C", width: vitamin_C },
+    { className: "Potassium", chineseName: "鉀", width: Potassium },
+  ];
 
   return (
     <>
-      <aside className="col-md-4 d-none d-lg-block position-relative rightAside" style={{height:"700px"}}>
-       {/* <BackgroundSlider
-            images={[
-              "https://images.pexels.com/photos/1028599/pexels-photo-1028599.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-              "https://images.pexels.com/photos/1414130/pexels-photo-1414130.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-              "https://images.pexels.com/photos/65256/pomegranate-open-cores-fruit-fruit-logistica-65256.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-            ]}
-            duration={10}
-            transition={2}
-          /> */}
+      <aside
+        className="col-md-4 d-none d-lg-block position-relative rightAside"
+        style={{ height: "700px" }}
+      >
         <h2 className="text-center customerCartList">客製化列表</h2>
         {cartData.length === 0 && (
           <p className="text-center unSelected">尚未選取商品</p>
@@ -128,19 +149,42 @@ function RightAside(props) {
           })}
         </div>
 
-        <div className="d-flex justify-content-between">
-          <div className="d-flex">
-            <p className="px-3 text-dark">份量</p>
-            <p className="text-dark">{totalWight}</p>
-          </div>
+        <div className="d-flex justify-content-center">
           <div>
-            {totalWight>40? <p className="text-dark bg-warning">您已經達到每周所需份量</p>:<p className="text-dark">每周所需分量為40份</p>}
-            
+            {totalWight > 40 ? (
+              <p className="activeClass">您已經達到每周所需份量</p>
+            ) : (
+              <p className="text-dark">每周所需分量為40份</p>
+            )}
           </div>
-          <div className="d-flex">
-            <p className="px-3">總金額</p>
-            <p className="text-dark">$</p>
-            <p className="text-dark">{totalPrice}</p>
+        </div>
+        <div className="row rightAsideMiddle">
+          <div className="col-7">
+          <div className="progressgroup">
+          <p className="h4 text-center">每周營養所需</p>
+          {nutrients.map((item, index) => {
+            const { className, chineseName, width } = item;
+            return (
+              <Progress
+                key={index}
+                className={className}
+                chineseName={chineseName}
+                width={width}
+              />
+            );
+          })}
+        </div>
+          </div>
+          <div className="col-5">
+           
+              <p className="d-flex justify-content-center px-3 text-dark">份量</p>
+              <p className="d-flex justify-content-center text-dark">{totalWight}</p>
+           
+           
+              <p className="d-flex justify-content-center text-dark px-3">總金額</p>
+              <p className="d-flex justify-content-center text-dark fs-5">${totalPrice}</p>
+             
+          
           </div>
         </div>
         <div className="d-flex justify-content-around">
@@ -148,9 +192,13 @@ function RightAside(props) {
             <i className="fas fa-shopping-cart"></i>
             加入購物車
           </button>
-          <button onClick={addCartAndTurnCartPage} className="sub">立即結帳</button>
+          <button onClick={addCartAndTurnCartPage} className="sub">
+            立即結帳
+          </button>
         </div>
-        <button onClick={removeData} className="btn removeFruit">清除購物車列表</button>
+        <button onClick={removeData} className="btn removeFruit">
+          清除購物車列表
+        </button>
         <div className="fruitbox"></div>
       </aside>
     </>

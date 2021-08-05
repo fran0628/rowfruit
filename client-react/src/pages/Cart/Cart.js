@@ -1,27 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Item from "./components/Item";
 import MultiLevelBreadcrumb from "../../component/BreadCrumb/MultiLevelBreadcrumb";
-function Cart() {
+import Swal from "sweetalert2";
+import {v4} from "uuid"
+function Cart({setCartUpdate}) {
+  //設定本地資料
   const [myCart, setMyCart] = useState([]);
-  console.log(myCart);
-  const totalPrice = () => {
-    let sum = 0;
-    for (let i = 0; i < myCart.length; i++) {
-      sum += myCart[i].price;
-    }
-    return sum;
-  };
- 
-  function getCartFromLocalStorage() {
-    const newCart = localStorage.getItem("cart") || "[]";
-    // console.log("JSON.parse(newCart)", JSON.parse(newCart));
-    setMyCart(JSON.parse(newCart));
-  }
-
-  useEffect(() => {
-    getCartFromLocalStorage();
-  }, []);
+  //送出開關 資料清空所需要
   const [start, setStart] = useState(false);
+  //post出去資料格式初始化與設定
   const [order, setOrder] = useState({
     memberId: 110,
     totalPrice: 0,
@@ -33,11 +20,43 @@ function Cart() {
         productId: 0,
         count: 1,
         price: 0,
-        amount: "",
+        content: "",
       },
     ],
   });
-  console.log(order);
+  //計算總價
+  const totalPrice = () => {
+    let sum = 0;
+    for (let i = 0; i < myCart.length; i++) {
+      sum += myCart[i].price;
+    }
+    return sum;
+  };
+ //拿到localStorage資料放進mycart
+  function getCartFromLocalStorage() {
+    const newCart = localStorage.getItem("cart") || "[]";
+    setMyCart(JSON.parse(newCart));
+  }
+  //一開始就把資料丟進去myCart
+  useEffect(() => {
+    getCartFromLocalStorage();
+  }, []);
+  function successAdd (){
+    Swal.fire({
+      title: "感謝您的購買",
+      confirmButtonText: '查看明細',
+      cancelButtonText: '關閉',
+      showCancelButton: true,
+      showCloseButton: true
+    });
+  }
+  useEffect(()=>{
+    if(start){
+      successAdd()
+    }
+  },[myCart,start])
+
+  
   const [receiver, setReceiver] = useState("");
   function nameChange(e) {
     setReceiver(e.target.value);
@@ -50,10 +69,10 @@ function Cart() {
   function addressChange(e) {
     setAddress(e.target.value);
   }
-  //   console.log(`收件人${receiver},電話${phone},地址${address}`)
-
+  
   function setOrderAndSubmit() {
-	setStart(true)
+    setCartUpdate(true)
+    setStart(true)
     setOrder((prev) => {
       const newOrder = { ...prev };
       newOrder.receiver = receiver;
@@ -61,18 +80,20 @@ function Cart() {
       newOrder.address = address;
       newOrder.items = myCart;
 	  newOrder.totalPrice=totalPrice();
-      return newOrder;
-    });
-}
-const fetchPostApi =async ()=>{
-	await fetch("http://localhost:5000/api/Orderlist", {
-      method: "POST",
-      body: JSON.stringify(order),
-      headers: new Headers({
-        "Content-Type": "application/json",
-      }),
-    });
-} 
+    return newOrder;
+  });
+    setMyCart([])
+    localStorage.removeItem("cart");
+  }
+  const fetchPostApi =async ()=>{
+    await fetch("http://localhost:5000/api/Orderlist", {
+        method: "POST",
+        body: JSON.stringify(order),
+        headers: new Headers({
+          "Content-Type": "application/json",
+        }),
+      });
+  } 
 useEffect(()=>{
 	fetchPostApi()
 },[order,start])
@@ -91,6 +112,7 @@ useEffect(()=>{
                 <th>商品價格</th>
                 <th>商品數量</th>
                 <th>商品小計</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -99,19 +121,22 @@ useEffect(()=>{
                   productId,
                   productName,
                   count,
-                  amount,
+                  content,
                   price,
                   imageUrl,
                 } = item;
                 return (
                   <Item
-                    key={`item${index}`}
+                    key= {v4()}
                     productId={productId}
                     productName={productName}
                     count={count}
-                    amount={amount}
+                    content={content}
                     price={price}
                     imageUrl={imageUrl}
+                    myCart={myCart}
+                    setMyCart={setMyCart}
+                    setCartUpdate={setCartUpdate}
                   />
                 );
               })}
@@ -166,13 +191,14 @@ useEffect(()=>{
                   onChange={addressChange}
                 ></input>
               </div>
-              <button
+              {myCart.length===0? <button disabled>購物車內尚未有商品</button> : <button
                 type=""
                 class="btn btn-success container-fluid mt-3"
                 onClick={setOrderAndSubmit}
               >
                 確認並送出訂單
-              </button>
+              </button> }
+              
             </div>
           </div>
         </div>
