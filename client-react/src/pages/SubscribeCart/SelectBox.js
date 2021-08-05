@@ -1,8 +1,10 @@
 import React , { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 function SelectBox(props) {
     const {id, product_name, images} = props
     const [subscribe_way, setSubscribe_way] = useState(0);
+    const urlsub = "/subpay"
     function checkOut() {
         const subData = {id: id, subscribe_way: subscribe_way}
         // const SubCart = JSON.parse(localStorage.getItem("Subcart")) || [];
@@ -23,7 +25,7 @@ function SelectBox(props) {
                     <button type="button" className={"btn addsubcart-btn" + (subscribe_way===3 ? " active" : "")} onClick={(e)=>{setSubscribe_way(3)}}>季訂閱製</button>
                     <button type="button" className={"btn addsubcart-btn" + (subscribe_way===6 ? " active" : "")} onClick={(e)=>{setSubscribe_way(6)}}>半年訂閱製</button>
                 </div>
-                <button class="subscribe-btn" onClick={checkOut}>點我結帳</button>
+                <Link to={urlsub}><button class="subscribe-btn" onClick={checkOut}>點我結帳</button></Link>
                 </div>
             </div>
         </div>
