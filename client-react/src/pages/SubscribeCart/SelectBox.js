@@ -6,13 +6,11 @@ function SelectBox(props) {
     const [subscribe_way, setSubscribe_way] = useState(0);
     const urlsub = "/subpay"
     function checkOut() {
-        const subData = {id: id, subscribe_way: subscribe_way}
+        const subData = [{product_id: id, product_name: product_name, images: images, subscribe_way: subscribe_way}]
         // const SubCart = JSON.parse(localStorage.getItem("Subcart")) || [];
         // SubCart.push(subData);
         localStorage.setItem("subData", JSON.stringify(subData));
     }
-    // console.log(id)
-    // console.log(subscrib_way)
     return (
         <>
         <div class="col-3">

@@ -1,7 +1,18 @@
-import React from 'react'
-import './SubPay.scss'
+import React, { useState, useEffect } from "react";
+import './SubPay.scss';
+import SubItem from './SubItem';
+import SubCheck from './SubCheck'
 
 function SubPay() {
+    const [subCart, setSubCart] = useState([]);
+    function getCartFromLocalStorage() {
+        const newSubCart = localStorage.getItem("subData") || "[]";
+        setSubCart(JSON.parse(newSubCart));
+    }
+    useEffect(() => {
+        getCartFromLocalStorage();
+    }, []);
+      
     return (
         <>
         <div class="container">
@@ -23,18 +34,27 @@ function SubPay() {
                                 <th><span>商品圖片</span></th>
                                 <th><span>商品名稱</span></th>
                                 <th><span>訂閱時間</span></th>
-                                <th><span>數量</span></th>
-                                <th><span>金額</span></th>
+                                <th><span>月繳金額</span></th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <th class="cartimg"><img src="/Mainphotos/4.jpg" alt="" /></th>
-                                <td><span>美白水果盒</span></td>
-                                <td><span>月訂閱制</span></td>
-                                <td><span>一盒</span></td>
-                                <td><span>＄2000</span></td>
-                            </tr>
+                            {subCart.map((item, index) => {
+                                const {
+                                product_id,
+                                product_name,
+                                subscribe_way,
+                                images,
+                                } = item;
+                                return (
+                                <SubItem
+                                    key={product_id}
+                                    productId={product_id}
+                                    product_name={product_name}
+                                    images={images}
+                                    subscribe_way={subscribe_way}
+                                />
+                                );
+                            })}
                             </tbody>
                         </table>
                     </div>
@@ -61,7 +81,20 @@ function SubPay() {
                     </div>
                 </div>
                 <div class="col-md-4 ms-2">
-                    <div class="checkoutdetail p-3">
+                    {subCart.map((item, index) => {
+                        const {
+                        product_id,
+                        subscribe_way,
+                        } = item;
+                        return (
+                        <SubCheck
+                            key={product_id}
+                            productId={product_id}
+                            subscribe_way={subscribe_way}
+                        />
+                        );
+                    })}       
+                    {/* <div class="checkoutdetail p-3">
                         <span class="subpaydetail">訂單摘要</span>
                         <hr />
                         <div class="d-flex justify-content-between">
@@ -84,7 +117,7 @@ function SubPay() {
                         <div class="submit text-end">
                         <button class="subpaybuy-btn mt-3">立即付款</button>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
                 </div>
                 <div class="container back">

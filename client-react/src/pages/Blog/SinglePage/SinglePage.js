@@ -21,6 +21,7 @@ import MultiLevelBreadcrumb from '../../../component/BreadCrumb/MultiLevelBreadc
     const [time, setTime] = useState("");
 	const [id, setId] = useState("");
     const [content,setContent]=useState(null)
+	const [dataLoading, setDataLoading] = useState(false);
 	
 
     
@@ -39,6 +40,9 @@ import MultiLevelBreadcrumb from '../../../component/BreadCrumb/MultiLevelBreadc
 											`class="object-fit" src=`
 										));
 				setId(post.id)
+
+				setDataLoading(true);
+				setTimeout(() => setDataLoading(false), 1500);
                 
 			};
             
@@ -130,50 +134,25 @@ import MultiLevelBreadcrumb from '../../../component/BreadCrumb/MultiLevelBreadc
 										""
 									)}
 								</div>
-
-								<div
-									class="article-content overflow-hidden border-bottom"
-									dangerouslySetInnerHTML={{
-										__html: content,
-									}}
-								></div>
+								{dataLoading ? (
+									<div className="d-flex justify-content-center align-items-center h-100">
+										<div className="spinner-border" role="status">
+											<span className="sr-only">Loading...</span>
+										</div>
+									</div>
+								) : (
+									<div
+										class="article-content overflow-hidden border-bottom"
+										dangerouslySetInnerHTML={{ __html: content }}
+									></div>
+								)}
 							</div>
-							{/* <div class="row mt-5 border-top border-bottom">
-								<div class="col-6 border-end d-flex flex-column justify-content-center">
-									<div class="mt-4 mb-3">
-										<span class="hit-block live">
-											<i class="fa fa-arrow-left" aria-hidden="true"></i>
-										</span>
-										<span class="hit-content grey">上一篇</span>
-									</div>
-									<div class="pre-title mb-5">
-										<h5 class="grey">多吃水果會獲得哪些好處？</h5>
-									</div>
-								</div>
-								<div
-									class="
-								col-6
-								border-start
-								d-flex
-								flex-column
-								justify-content-center
-								align-items-end
-							"
-								>
-									<div class="mt-4 mb-3">
-										<span class="hit-content grey">下一篇</span>
-										<span class="hit-block live">
-											<i class="fa fa-arrow-right" aria-hidden="true"></i>
-										</span>
-									</div>
-									<div class="pre-title mb-5">
-										<h5 class="grey text-end">
-											小農水果到你家：讓農民和消費者 都安心的「rowfruit」平台
-										</h5>
-									</div>
-								</div>
-							</div> */}
-							<FacebookComment id={id} />
+							{dataLoading ? (<div className="d-flex justify-content-center align-items-center h-100">
+										<div className="spinner-border" role="status">
+											<span className="sr-only">Loading...</span>
+										</div>
+									</div>) : (<FacebookComment id={id} />) }
+							
 						</div>
 						<PostAside />
 					</div>
