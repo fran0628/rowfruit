@@ -29,6 +29,7 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
 
 app.use("/images", express.static(path.join(__dirname, "/images")));
+app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 
 app.use(logger("dev"));
 app.use(express.json());
