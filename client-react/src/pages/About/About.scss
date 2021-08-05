@@ -1,137 +1,176 @@
+/* 統一規範 */
 
-.offcanvasbtn {
+h1,h2,h3,h4,h5,h6 {
+  color: #625f5f;
+  font-family: "Source Han Sans TW", "PingFang TC", "Heiti TC", "微軟正黑體",
+    sans-serif;
+  margin-top: 1em;
+  margin-bottom: 0.6em;
+  line-height: 1.75em;
+}
+p {
+  color: #717171;
+  font-family: "Source Han Sans TW", "PingFang TC", "Heiti TC", "微軟正黑體",
+    sans-serif;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  line-height: 1.75em;
+}
+span {
+  color: #717171;
+  font-family: "Source Han Sans TW", "PingFang TC", "Heiti TC", "微軟正黑體",
+    sans-serif;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  line-height: 1.5em;
+}
+a {
+  color: #b4d1be;
+  text-decoration: none;
+}
+a:hover {
+  color: #f5c184;
+}
+ul {
+  list-style: none;
+  padding: 0px;
+}
+li {
+  color: #717171;
+  font-family: "Source Han Sans TW", "PingFang TC", "Heiti TC", "微軟正黑體",
+    sans-serif;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  line-height: 1.5em;
+}
+.normal-buy-btn {
+  display: inline-block;
+  width: 150px;
+  max-width: 100%;
+  padding: 20px 10px;
+  background-color: #fcfdf5;
+  color: #e79737;
+  border: 2px solid #838080;
   border-radius: 5px;
-  padding: 10px 15px;
-  border: 0;
-  background: #f5f5f5;
+  font-size: 1.125em;
+  box-shadow: 2px 2px 3px rgba(59, 59, 59, 0.16);
+  text-align: center;
+  margin: auto;
 }
-@media screen and (min-width: 992px) {
-  .offcanvasbtn {
-    display: none;
-  }
-}
-.fa-bars {
-  color: rgb(137, 137, 139);
-}
-.navbox {
-  height: 90px;
-}
-.navbar {
-  background: #f5f5f5;
-  height: 90px;
-  // margin-bottom: 30px;
-}
-@media screen and (max-width: 992px) {
-  .navbar ul {
-    display: none;
-  }
-}
-.nav-link {
-  color: #7b9c85;
-}
-.nav-link:hover {
-  color: #b1ddbe;
-}
-.nav-icon {
-  color: #4c534e;
-}
-.nav-icon:hover {
-  color: #b5b8b6;
-}
-@media screen and (max-width: 576px) {
-  .navbar-brand img {
-    margin-top: 10px;
-    margin-left: 10px;
-    width: 160px;
-    height: 70px;
-  }
-}
-.fa-bars {
-color: rgb(137, 137, 139);
-}
-.navbox {
-height: 90px;
-}
-.navbar {
-background: #f5f5f5;
-// height: 90px;
-// margin-bottom: 30px;
-}
-.nav-link {
-color: #7b9c85;
-}
-.nav-link:hover {
-color: #b1ddbe;
-}
-.nav-icon {
-color: #4c534e;
-}
-.nav-icon:hover {
-color: #b5b8b6;
+.normal-buy-btn:hover {
+  background-color: #fcfdea;
+  box-shadow: 0px 1px 2px rgba(59, 59, 59, 0.16);
+  transition: transform 0.2s;
 }
 .banner {
-padding-top: 10rem;
-padding-bottom: 10rem;
-background-image: url("./banner\ papaya.png");
-}
-.banner .mbr-text,
-.banner .mbr-section-btn {
-text-align: right;
-}
-#mobiriseBanner.container-banner {
-height: 8rem;
--webkit-animation: 4s linear animationHeight;
--moz-animation: 4s linear animationHeight;
--o-animation: 4s linear animationHeight;
- animation: 4s linear animationHeight;
-}
-#mobiriseBanner .banner {
-min-height: 8rem;
-position:fixed;
-top: 0;
-left: 0;
-right: 0;
-background: #fff;
-padding: 10px;
-opacity:1;
--webkit-animation: 4s linear animationBanner;
--moz-animation: 4s linear animationBanner;
--o-animation: 4s linear animationBanner;
- animation: 4s linear animationBanner;
-z-index: 1031;
-display: flex;
-flex-direction: column;
-justify-content: center;
-}
-#mobiriseBanner .banner p {
-overflow: hidden;
-display: -webkit-box;
--webkit-line-clamp: 4;
--webkit-box-orient: vertical;
-animation: none;
-visibility: visible;
-}
-#mobiriseBanner .buy-license {
-text-decoration: underline;
-}
-#mobiriseBanner .banner .btn {
-margin: 0.3rem 0.5rem;
-animation: none;
-visibility: visible;
-}
-.navbar.opened {
-z-index: 1032;
-}
-.COLOR{
-background: #e79737;
-}
-@-webkit-keyframes animationBanner { 0% { opacity: 0; top: -8rem; } 75% { opacity: 0; top: -8rem; } 100% { opacity: 1; top: 0; } }
-@-moz-keyframes animationBanner { 0% { opacity: 0; top: -8rem; } 75% { opacity: 0; top: -8rem; } 100% { opacity: 1; top: 0; } }
-@-o-keyframes animationBanner { 0% { opacity: 0; top: -8rem; } 75% { opacity: 0; top: -8rem; } 100% { opacity: 1; top: 0; } }
-@keyframes animationBanner { 0% { opacity: 0; top: -8rem; } 75% { opacity: 0; top: -8rem; } 100% { opacity: 1; top: 0; } }
-@-webkit-keyframes animationHeight { 0% { height: 0; } 75% { height: 0; } 100% { height: 8rem; } }
-@-moz-keyframes animationHeight { 0% { height: 0; } 75% { height: 0; } 100% { height: 8rem; } }
-@-o-keyframes animationHeight { 0% { height: 0; } 75% { height: 0; } 100% { height: 8rem; } }
-@keyframes animationHeight { 0% { height: 0; } 75% { height: 0; } 100% { height: 8rem; } }
+  opacity: 0.8;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+  background-image: url("./banner\ papaya.png");
+  }
 
-.tether-element,.tether-element *,.tether-element :after,.tether-element :before,.tether-element:after,.tether-element:before{box-sizing:border-box}.tether-element{position:absolute;display:none}.tether-element.tether-open{display:block}
+  .mbr-text {
+    font-style: normal;
+    line-height: 1.7; }
+
+    .sliderbg{
+      height: 115vh;
+      background: #dde4df;
+    }
+  .homeCarousel {
+      // margin: 100px;
+      // width: 650px;
+      // height: 580px;
+      position: relative;
+      background-color: #f5f5f5;
+  
+    }
+  .homeCarousel div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      filter: alpha(opacity=0);
+      width: 100%;
+      height: 100%;
+    }
+  .homeCarousel img {
+      width: 100%;
+      height: 100%;
+    }
+  .coverfloat {
+      max-width: 500px; 
+    }
+  .coverfloat img{
+      max-width: 80%;
+      margin: 100px 0px 0px 50px;
+  }
+  
+  
+  /*設定動畫週期*/
+  
+  .homeCarousel div {
+      -webkit-animation: round 25s linear infinite;
+      animation: round 25s linear infinite;
+  }
+  @-webkit-keyframes round {
+  4% {
+      opacity: 1;
+      filter: alpha(opacity=100);
+      /* 0 - 1秒 淡入*/
+  }
+  20% {
+      opacity: 1;
+      filter: alpha(opacity=100);
+      /* 1- 5秒靜止*/
+  }
+  24% {
+      opacity: 0;
+      filter: alpha(opacity=0);
+      /* 5-6秒淡出*/
+  }
+  }
+  @keyframes round {
+  4% {
+      opacity: 1;
+      filter: alpha(opacity=100);
+      /* 0 - 1秒 淡入*/
+  }
+  20% {
+      opacity: 1;
+      filter: alpha(opacity=100);
+      /* 1- 5秒靜止*/
+  }
+  24% {
+      opacity: 0;
+      filter: alpha(opacity=0);
+      /* 5-6秒淡出*/
+  }
+  }
+  
+  /*每張圖片進場時間相隔5秒*/
+  
+  .homeCarousel div:nth-child(5) {
+      -webkit-animation-delay: 0s;
+      animation-delay: 0s;
+  }
+  
+  .homeCarousel div:nth-child(4) {
+      -webkit-animation-delay: 5s;
+      animation-delay: 5s;
+  }
+  
+  .homeCarousel div:nth-child(3) {
+      -webkit-animation-delay: 10s;
+      animation-delay: 10s;
+  }
+  
+  .homeCarousel div:nth-child(2) {
+      -webkit-animation-delay: 15s;
+      animation-delay: 15s;
+  }
+  
+  .homeCarousel div:nth-child(1) {
+      -webkit-animation-delay: 20s;
+      animation-delay: 20s;
+  }
