@@ -10,6 +10,7 @@ function BuyContent(props) {
   const [price, setPrice] = useState(boxprice)
   const urlsub = "/subscribecart"
   
+
   // 購買方案按鈕＋-
   function plus() {
     setTotal(total + 1)
@@ -35,7 +36,15 @@ function BuyContent(props) {
       confirmButtonText: "關閉",
     });
   }
+  function successAdd() {
+      Swal.fire({
+        title: `${mainProduct.productName}加入成功`,
+        text: "點擊右上角查看",
+        confirmButtonText: "關閉",
+      });
+  }
 
+  const productName = name+`水果盒`
 
   // 加入購物車的localstorage
 
@@ -43,14 +52,15 @@ function BuyContent(props) {
   
   const mainProduct = {
     productId: id,
-    productName: "主打水果盒",
+    productName: productName,
     count: 1,
-    amount: fruitamount,
+    content: fruitamount,
     price: boxprice,
     imageUrl: images,
   };
+  
+
   const currentCart = JSON.parse(localStorage.getItem("cart")) || [];
-  console.log(currentCart)
   function setLocalstorage(){
     currentCart.push(mainProduct);
     localStorage.setItem("cart", JSON.stringify(currentCart));
@@ -59,14 +69,16 @@ function BuyContent(props) {
   function addCart() {
     if(currentCart.length===0){
       setLocalstorage()
+      successAdd()
     }else{
-      for(let i =0; i<currentCart.length;i++){
+      successAdd()
+      for(let i =0; i<currentCart.length; i++){
         if(currentCart[i].productId===id){
           remind()
           return
         }
-        setLocalstorage()
       }
+      setLocalstorage()
     }
     
 

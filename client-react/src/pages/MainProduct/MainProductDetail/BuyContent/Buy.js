@@ -16,7 +16,7 @@ function Buy(props) {
             />
         </>
     )
-
 }
+
 
 export default Buy

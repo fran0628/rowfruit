@@ -14,6 +14,7 @@ function MainProduct(props) {
 const{setCartUpdate}=props;
 
 const [data, setData] = useState({
+  id: 0,
   fruit_item:"",
   product_images:"",
   items:[]
@@ -33,7 +34,7 @@ useEffect(() => {
     })();
   }, [props.match.params.id]); 
 
-console.log(data)
+// console.log(data)
 useEffect(() => {
   (async function productsData() {
     const res = await fetch(apiMain)
