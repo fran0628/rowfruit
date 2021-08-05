@@ -39,9 +39,9 @@ router.put("/:id", async (req, res) => {
 											req.body.category,
 											req.body.content,
 											req.body.author,
-											req.body.status,
+											req.body.status,0,
 											req.params.id,
-											0
+											
 										]
 									);
 				res.status(200).json(updatedPost);
