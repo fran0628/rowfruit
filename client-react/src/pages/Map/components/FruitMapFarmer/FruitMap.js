@@ -27,7 +27,9 @@ function FruitMapFarmer(props) {
 				/>
 				{farmerMap && farmerMap.map((position, i) => {
 					return (
-						<Marker position={position.position}>
+						<Marker
+							position={position.position ? position.position : defaulPosition}
+						>
 							<Popup>
 								<img
 									className="avatar object-fit"
