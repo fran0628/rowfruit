@@ -74,3 +74,6 @@ button:focus {
 	border-radius: 50%;
 	object-fit: cover;
 }
+.dropdown-item.active, .dropdown-item:active {
+	background-color: #b4d1be;
+}

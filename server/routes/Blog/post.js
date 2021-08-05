@@ -95,7 +95,7 @@ router.delete("/:id", async (req, res) => {
 // get的部分
 // 全部文章
 router.get("/", async (req, res) => {
-	const articles = await connection.queryAsync("SELECT * FROM article;");
+	const articles = await connection.queryAsync("SELECT * FROM article WHERE status='on';");
 
 	res.json(articles);
 });
