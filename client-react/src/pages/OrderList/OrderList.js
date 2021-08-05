@@ -17,7 +17,7 @@ function OrderList() {
     for (const {
       id,
       receiver,
-      amount,
+      price,
       create_time,
       content,
       phone,
@@ -26,7 +26,7 @@ function OrderList() {
       total_price,
       product_name,
 	  member_id,
-      qty,
+      count,
     } of res.data) {
 	  if (member_id !== memberId) continue;
       tmp[id] = tmp[id] || {
@@ -43,8 +43,8 @@ function OrderList() {
         product_name,
         product_id,
         content,
-        qty,
-        amount,
+        count,
+        price,
       });
     }
     setOrder(Object.values(tmp));
@@ -107,13 +107,13 @@ function OrderList() {
                                       product_name,
                                       product_id,
                                       content,
-                                      qty,
-                                      amount,
+                                      count,
+                                      price,
                                     }) => (
                                       <tr>
                                         <td>{product_name}水果盒</td>
-                                        <td>{qty}</td>
-                                        <td>${amount}</td>
+                                        <td>{count}</td>
+                                        <td>${price}</td>
                                         <td>{content}</td>
                                       </tr>
                                     )
