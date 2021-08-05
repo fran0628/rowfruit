@@ -29,6 +29,7 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
 
 app.use("/images", express.static(path.join(__dirname, "/images")));
+app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -63,7 +64,7 @@ app.post('/api/postupload',MutipartyMiddleware,(req,res)=>{
 		fs.rename(TempPathfile, targetPathUrl, (err) => {
 			res.status(200).json({
 				uploaded: true,
-				url: `${TempFile.originalFilename}`,
+				url: `http://localhost:5000/uploads/${TempFile.originalFilename}`,
 			});
 
 			if (err) return console.log(err);
