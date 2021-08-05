@@ -15,32 +15,45 @@ function Cart({ setCartUpdate, isLogin }) {
     phone: "",
     address: "",
   });
-  //解析token拿到會員資料丟進userData
-  function getUserDetail() {
+  //解析token拿到會員資料丟進userData和order
+  async function getUserDetail() {
     const token = localStorage.getItem("token").split(" ")[1];
 
     let payload = JSON.parse(atob(token.split(".")[1]));
-    axios
+    let res=await axios
       .get("http://localhost:5000/api/member/" + payload.id)
-      .then((res) => {
-        // console.log(res.data[0]);
         const data = res.data[0];
         setUserData({
           id: data.id,
           name: data.name,
           phone: data.phone,
-          address: data.address,
-        });
-      });
+          address: data.address})
+        setOrder({
+          memberId: data.id,
+          totalPrice: 0,
+          address: "",
+          receiver: "",
+          phone: "",
+          items: [
+            {
+              productId: 0,
+              count: 1,
+              price: 0,
+              content: "",
+            },
+          ],
+        })
+     
   }
-  console.log(userData)
   //設定本地資料
   const [myCart, setMyCart] = useState([]);
   //送出開關 資料清空所需要
   const [start, setStart] = useState(false);
   //post出去資料格式初始化與設定
+ 
+
   const [order, setOrder] = useState({
-    memberId: 224,
+    memberId: 0,
     totalPrice: 0,
     address: "",
     receiver: "",
@@ -54,8 +67,9 @@ function Cart({ setCartUpdate, isLogin }) {
       },
     ],
   });
-  console.log(order);
-  console.log(userData.id);
+  console.log("order",order);
+  console.log("userData.id",userData.id);
+  console.log("order.memberId",order.memberId)
   //拿到localStorage資料放進mycart
   function getCartFromLocalStorage() {
     const newCart = localStorage.getItem("cart") || "[]";
@@ -140,6 +154,10 @@ function Cart({ setCartUpdate, isLogin }) {
   useEffect(() => {
     if(start){
       fetchPostApi();
+      setReceiver("")
+      setPhone("")
+      setAddress("")
+      setAgree(false)
     }
   }, [order, start]);
   //checkbox設定
