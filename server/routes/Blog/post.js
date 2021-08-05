@@ -39,7 +39,8 @@ router.put("/:id", async (req, res) => {
 											req.body.category,
 											req.body.content,
 											req.body.author,
-											req.body.status,0,
+											req.body.status,
+											0,
 											req.params.id,
 											
 										]
