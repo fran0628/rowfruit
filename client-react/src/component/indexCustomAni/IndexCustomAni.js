@@ -8,8 +8,8 @@ function IndexCustomAni(props) {
   const urlid = String();
   const urlcustombtn = "/customized/" + urlid;
   const FruitIconItemList1 = ["apple.png"];
-  const FruitIconItemList2 = ["avocado.png"];
-  const FruitIconItemList3 = ["banana.png"];
+  const FruitIconItemList2 = ["banana.jpg"];
+  const FruitIconItemList3 = ["mango.png"];
   return (
     <>
       <div className="container">

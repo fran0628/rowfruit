@@ -56,19 +56,21 @@ function FruitMapMain(props) {
   return (
     <>
       <MultiLevelBreadcrumb />
-      <div>
+
+      <div className="container-fluid">
         <FruitBall
           fruitClick={fruitClick}
           fruits={fruits}
           farmerMap={farmerMap}
         />
-        <div className="container-fluid row">
+        <div className="container-fluid row ">
           <div className="col-6">
             {/* 地圖 */}
             <FruitMap farmerMap={farmerMap} setFarmerMap={setFarmerMap} />
           </div>
-          <div className="col-6 vh-100  overflow-scroll">
-            {" "}
+
+          <div className="col-6 vh-100  overflow-scroll px-5" id="style-3">
+            <h5　className="text-decoration-underline">小農列表</h5> 
             {/* 小農資訊 */}
             {farmerMap &&
               farmerMap.map((f, i) => {
