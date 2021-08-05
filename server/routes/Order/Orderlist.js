@@ -3,21 +3,22 @@ const router = express.Router();
 const connection = require("../../utilities/db");
 
 router.get("/", async (req, res) => {
-  let orderlist = await connection.queryAsync(`SELECT 
+  let orderlist = await connection.queryAsync(`SELECT
     order_list.id,
+    order_list.member_id,
     order_list.receiver,
     order_list.phone,
     order_list.address,
     order_list.create_time,
     order_list.total_price,
     order_list_detail.product_id,
-    order_list_detail.count,
-    order_list_detail.price,
+    order_list_detail.qty,
     order_list_detail.amount,
+    order_list_detail.content,
     product.product_name,
-    member_list.id,
+    
     member_list.name
-  FROM order_list_detail
+    FROM order_list_detail
     LEFT JOIN order_list ON order_list.id = order_list_detail.po_id
     LEFT JOIN member_list ON order_list.member_id = member_list.id
     LEFT JOIN product ON order_list_detail.product_id = product.id
