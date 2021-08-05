@@ -9,41 +9,44 @@ function FruitMapFarmer(props) {
   // const {farmer}=props
   // 中大中心點
   const defaulPosition = [24.96, 121.192];
+  // console.log(farmerMap[0].position);
+	console.log(farmerMap);
 
   useEffect(() => {}, []);
   return (
-    <>
-      <MapContainer
-        center={defaulPosition}
-        zoom={8}
-        scrollWheelZoom={true}
-        className="map"
-      >
-        <TileLayer
-          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        {farmerMap.map((position, i) => {
-          return (
-            <Marker position={position.position}>
-              <Popup>
-                <img
-                  className="avatar object-fit"
-                  src={url + position.avatar}
-                  alt="{position.avatar}"
-                  
-                />
+		<>
+			<MapContainer
+				center={defaulPosition}
+				zoom={8}
+				scrollWheelZoom={true}
+				className="map"
+			>
+				<TileLayer
+					attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+					url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+				/>
+				{farmerMap && farmerMap.map((position, i) => {
+					return (
+						<Marker
+							position={position.position ? position.position : defaulPosition}
+						>
+							<Popup>
+								<img
+									className="avatar object-fit"
+									src={url + position.avatar}
+									alt="{position.avatar}"
+								/>
 
-                <h5> {position.fram_name}</h5>
-                <h6>{position.content}</h6>
-                <p>{position.address}</p>
-              </Popup>
-            </Marker>
-          );
-        })}
-      </MapContainer>
-    </>
-  );
+								<h5> {position.fram_name}</h5>
+								<h6>{position.content}</h6>
+								<p>{position.address}</p>
+							</Popup>
+						</Marker>
+					);
+				})}
+			</MapContainer>
+		</>
+	);
 }
 export default FruitMapFarmer;
 

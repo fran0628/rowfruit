@@ -89,8 +89,7 @@ function WritePage() {
 							editor={ClassicEditor}
 							config={{
 								ckfinder: {
-									uploadUrl:
-										"http://localhost/rowfruit/backend/dist/upload.php",
+									uploadUrl: "http://localhost:5000/api/postupload",
 								},
 							}}
 							// className="writeInput writeText"

@@ -1,0 +1,70 @@
+.cartlist{
+    background: #f1f1f1;
+    color: #202020;
+    margin: 20px 30px 10px 30px;
+    padding: 30px;
+    border-radius: 2px;
+    text-align: center;
+    font-size: 14px;
+    width: 260px;
+    font-weight: 700;
+}
+.subinfo{
+    background: #f1f1f1;
+    color: #302f2f;
+    padding: 15px;
+    text-align: center;
+    font-weight: 800;
+}
+.subtable th, .table td {
+    text-align: center;
+    vertical-align: middle!important;
+}
+.subtable span{
+    color: #474646;
+}
+.subinfoway{
+    margin: 10px 0px;
+}
+.cartimg img{
+    width: 100px;
+    height: 100px;
+}
+.checkoutdetail{
+    background: #f1f1f1;
+
+}
+.detailform{
+    outline-style: none ; 
+    border: 1px solid rgb(204, 204, 204);
+}
+.back{
+    text-align: center;
+    margin: 30px;
+}
+.subpaybuy-btn {
+    display: inline-block;
+    width: 100px;				
+    max-width: 100%;
+    padding: 10px 5px;
+    background-color: #ffa20d;
+    color: #fff;
+    border: 2px solid #838080;
+    border-radius: 2px;
+    font-size: 1em;
+    /* box-shadow: 2px 2px 3px rgba(59, 59, 59, 0.16); */
+    text-align: center;
+    /* margin: 15px 5px 0px 0px; */
+  }
+.subpaybuy-btn:hover {
+    background-color: #fab342;
+    box-shadow: 0px 1px 2px rgba(59, 59, 59, 0.16);
+    transition: transform 0.2s;
+}
+.subpaydetail{
+    color: #302f2f;
+    font-weight: 600;
+}
+.subpayinfodetail{
+    color: #302f2f;
+}
