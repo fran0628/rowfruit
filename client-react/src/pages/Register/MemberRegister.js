@@ -111,10 +111,10 @@ function registerData(datas){
     .catch((err) => { console.error(err) })
 
     Swal.fire({
-			position: 'center',
-			icon: 'success',
-			title: '註冊成功，進入登入畫面',
-			showConfirmButton: false,
+		title: "註冊成功",
+		text: "歡迎來到rowfruit",
+		animation: false,
+		confirmButtonText: "前往登入",
 			timer: 2000,
       onClose:changePage()
 		})

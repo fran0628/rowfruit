@@ -18,7 +18,12 @@ const convertCategoryToText = (v) => {
 
 	return categoryText[index];
 };
-
+function defaultImgSrc(str) {
+	if (str === null || str === "") {
+		return "null.png";
+	}
+	return str;
+}
 
  function PostAside(props) {
 	 const { hotArticle } = props;
@@ -53,7 +58,7 @@ const convertCategoryToText = (v) => {
 										{farmeruser ? (
 											<img
 												className="object-fit"
-												src={PF + farmeruser.avatar}
+												src={PF + defaultImgSrc(farmeruser.avatar)}
 												alt=""
 											/>
 										) : (
@@ -82,12 +87,15 @@ const convertCategoryToText = (v) => {
 										<i className="fab connect-icon fa-line"></i>
 										<i className="fas connect-icon fa-phone-alt"></i>
 									</div>
-									
+
 									<div>
-									{farmeruser ? (<Link className="writeSubmit" to="/writepage">
-											發表文章
-										</Link>) : ""}
-										
+										{farmeruser ? (
+											<Link className="writeSubmit" to="/writepage">
+												發表文章
+											</Link>
+										) : (
+											""
+										)}
 									</div>
 								</div>
 							</div>

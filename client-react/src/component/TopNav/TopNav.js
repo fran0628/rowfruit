@@ -27,8 +27,8 @@ import axios from 'axios';
 
 		}function defaultImgSrc(str) {
 			
-			if (str === null || str ==="") {
-				return "null.png";
+			if (str === null || str === "") {
+				return "apple.png";
 			}
 			return str;
 		}
@@ -138,7 +138,7 @@ import axios from 'axios';
 									<NavDropdown
 										title={
 											<img
-												className="farmerIcon"
+												className="memberIcon"
 												src={PF + defaultImgSrc(avatar)}
 												alt=""
 											/>
