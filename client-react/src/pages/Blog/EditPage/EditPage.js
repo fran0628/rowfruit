@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 import { useLocation, Link, useHistory } from "react-router-dom";
 import MultiLevelBreadcrumb from "../../../component/BreadCrumb/MultiLevelBreadcrumb";
 
- const PF = "http://localhost:5000/images";
+
 
 function WritePage() {
 	const history = useHistory();
@@ -21,7 +21,8 @@ function WritePage() {
 	const [category, setCategory] = useState("");
 	const [author, setAuthor] = useState(farmeruser.name);
 	const [status, setStatus] = useState("");
-    
+	
+	
 
         useEffect(() => {
 					const getPost = async () => {
@@ -38,18 +39,24 @@ function WritePage() {
 					};
 
 					getPost();
+					
 				}, [path]);
 
 	const handleUpdate = async (e) => {
         e.preventDefault();
+		const updatePost = {
+			title: title,
+			category: category,
+			content: content,
+			author: farmeruser.name,
+			status: status,
+		};
+		console.log(updatePost)
+		
 		try {
-			await axios.put(`/post/${path}`, {
-				title: title,
-				category: category,
-				content: content,
-				author: farmeruser.name,
-				status:status,                
-			});
+		// 	// console.log()
+			await axios.put(`/post/${path}`, updatePost);
+			
             function sweetAlert() {
 							Swal.fire({
 								title: "修改成功",

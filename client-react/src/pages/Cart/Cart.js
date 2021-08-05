@@ -7,7 +7,8 @@ import { v4 } from "uuid";
 import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-function Cart({ setCartUpdate, isLogin }) {
+function Cart(props) {
+  const { setCartUpdate, isLogin }=props
   //初始化會員資料
   const [userData, setUserData] = useState({
     id: "",
@@ -20,37 +21,35 @@ function Cart({ setCartUpdate, isLogin }) {
     const token = localStorage.getItem("token").split(" ")[1];
 
     let payload = JSON.parse(atob(token.split(".")[1]));
-    let res=await axios
-      .get("http://localhost:5000/api/member/" + payload.id)
-        const data = res.data[0];
-        setUserData({
-          id: data.id,
-          name: data.name,
-          phone: data.phone,
-          address: data.address})
-        setOrder({
-          memberId: data.id,
-          totalPrice: 0,
-          address: "",
-          receiver: "",
-          phone: "",
-          items: [
-            {
-              productId: 0,
-              count: 1,
-              price: 0,
-              content: "",
-            },
-          ],
-        })
-     
+    let res = await axios.get("http://localhost:5000/api/member/" + payload.id);
+    const data = res.data[0];
+    setUserData({
+      id: data.id,
+      name: data.name,
+      phone: data.phone,
+      address: data.address,
+    });
+    setOrder({
+      memberId: data.id,
+      totalPrice: 0,
+      address: "",
+      receiver: "",
+      phone: "",
+      items: [
+        {
+          productId: 0,
+          count: 1,
+          price: 0,
+          content: "",
+        },
+      ],
+    });
   }
   //設定本地資料
   const [myCart, setMyCart] = useState([]);
   //送出開關 資料清空所需要
   const [start, setStart] = useState(false);
   //post出去資料格式初始化與設定
- 
 
   const [order, setOrder] = useState({
     memberId: 0,
@@ -67,9 +66,9 @@ function Cart({ setCartUpdate, isLogin }) {
       },
     ],
   });
-  console.log("order",order);
-  console.log("userData.id",userData.id);
-  console.log("order.memberId",order.memberId)
+  console.log("order", order);
+  console.log("userData.id", userData.id);
+  console.log("order.memberId", order.memberId);
   //拿到localStorage資料放進mycart
   function getCartFromLocalStorage() {
     const newCart = localStorage.getItem("cart") || "[]";
@@ -86,19 +85,10 @@ function Cart({ setCartUpdate, isLogin }) {
   function successAdd() {
     Swal.fire({
       title: "感謝您的購買",
-      confirmButtonText: "查看明細",
-      cancelButtonText: "關閉",
-      showCancelButton: true,
-      showCloseButton: true,
+      confirmButtonText: '<i class="fa fa-thumbs-up"></i> Great!' ,
+      timer: 1500
     });
   }
-  //加成功跳出sweetalert
-  useEffect(() => {
-    if (start) {
-      successAdd();
-    }
-  }, [myCart, start]);
-  //綁定input能夠取得值
   const [receiver, setReceiver] = useState("");
   function nameChange(e) {
     setReceiver(e.target.value);
@@ -132,13 +122,14 @@ function Cart({ setCartUpdate, isLogin }) {
       newOrder.phone = phone;
       newOrder.address = address;
       newOrder.items = myCart;
-      newOrder.totalPrice = totalPrice();
+      newOrder.totalPrice = orderPrice;
       return newOrder;
     });
     //清空本地用來渲染的資料
     setMyCart([]);
     //清掉localStorage
     localStorage.removeItem("cart");
+
   }
   //fetchPost方法
   const fetchPostApi = async () => {
@@ -152,17 +143,21 @@ function Cart({ setCartUpdate, isLogin }) {
   };
   //如果有start order改變就fetchPost
   useEffect(() => {
-    if(start){
+    if (start) {
       fetchPostApi();
-      setReceiver("")
-      setPhone("")
-      setAddress("")
-      setAgree(false)
+      setReceiver("");
+      setPhone("");
+      setAddress("");
+      setAgree(false);
+      successAdd();
+      props.history.push("/orderlist")
     }
   }, [order, start]);
   //checkbox設定
   const [agree, setAgree] = useState(false);
-
+  const [transport, setTransport] = useState("150");
+  const orderPrice = +transport+(+totalPrice())
+ 
   return (
     <>
       <MultiLevelBreadcrumb />
@@ -206,34 +201,65 @@ function Cart({ setCartUpdate, isLogin }) {
                   />
                 );
               })}
-              {/* <Item/> */}
             </tbody>
-            <tfoot>
-              <td>總金額</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>${totalPrice()}</td>
-            </tfoot>
           </table>
+          <div className="d-flex justify-content-between align-items-center">
+            <section id="radio">
+              <h3>選擇運送方式</h3>
+              <input
+                type="radio"
+                value="150"
+                checked={transport === "150"}
+                onChange={(e) => {
+                  setTransport(e.target.value);
+                }}
+              />
+              <label>黑貓宅急便</label>
+              <input
+                type="radio"
+                value="100"
+                checked={transport === "100"}
+                onChange={(e) => {
+                  setTransport(e.target.value);
+                }}
+              />
+              <label>7-11超商取貨</label>
+            </section>
+            <div>
+              <p className="fs-4">運費</p>
+              <div className="text-center">{transport}</div>
+
+            </div>
+            <i class="fas fa-plus"></i>
+            <div>
+              <p className="fs-4">商品總價</p>
+              <div className="text-center">${totalPrice()}</div>
+            </div>
+            <i class="fas fa-equals"></i>
+            <div>
+              <p className="fs-4">總價</p>
+              <div className="text-center">${orderPrice}</div>
+            </div>
+          </div>
           {isLogin.islogin ? (
             <>
-              <section id="checkbox">
-                <input
-                  type="checkbox"
-                  checked={agree}
-                  onChange={(event) => {
-                    setAgree(event.target.checked);
-                    setReceiver(userData.name);
-                    setPhone(userData.phone);
-                    setAddress(userData.address);
-                  }}
-                />
-                <lable>一鍵輸入</lable>
-              </section>
+              <div className="d-flex justify-content-center align-items-center">
+                <h3 className="text-center pe-5">訂購人資訊</h3>
+                <section id="checkbox">
+                  <input
+                    type="checkbox"
+                    checked={agree}
+                    onChange={(event) => {
+                      setAgree(event.target.checked);
+                      setReceiver(userData.name);
+                      setPhone(userData.phone);
+                      setAddress(userData.address);
+                    }}
+                  />
+                  <lable>一鍵輸入</lable>
+                </section>
+              </div>
 
-              <h3 className="text-center">訂購人資訊</h3>
               <div class="container">
                 <div class="row mb-3">
                   <label for="receiverName" class="col-sm-2 col-form-label">
@@ -295,7 +321,7 @@ function Cart({ setCartUpdate, isLogin }) {
           ) : (
             <div className="d-flex justify-content-center">
               <Link to="/memberlogin">
-                <button>請先登入</button>
+                <button className="btn">請先登入</button>
               </Link>
             </div>
           )}
