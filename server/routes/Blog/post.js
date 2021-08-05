@@ -5,9 +5,17 @@ const connection = require("../../utilities/db");
 // 新增文章
 router.post("/", async (req, res) => {
 	const newPost = await connection.queryAsync(
-		"INSERT INTO article (title, category, content, author, status) VALUES (?);",[[
-			req.body.title, req.body.category, req.body.content, req.body.author, req.body.status
-		]]
+		"INSERT INTO article (title, category, content, author, status,valid) VALUES (?);",
+		[
+			[
+				req.body.title,
+				req.body.category,
+				req.body.content,
+				req.body.author,
+				req.body.status,
+				0
+			],
+		]
 	);
 	
     res.json(newPost)
@@ -25,14 +33,15 @@ router.put("/:id", async (req, res) => {
         if(post[0].author === req.body.author){
              try{
                  const updatedPost = await connection.queryAsync(
-										"UPDATE article SET title= ?,category= ?, content= ?,author= ?, status= ? WHERE id=?",
+										"UPDATE article SET title= ?,category= ?, content= ?,author= ?, status= ?,valid=? WHERE id=?",
 										[
 											req.body.title,
 											req.body.category,
 											req.body.content,
 											req.body.author,
-											req.body.status,	
+											req.body.status,
 											req.params.id,
+											0
 										]
 									);
 				res.status(200).json(updatedPost);
