@@ -29,9 +29,6 @@ function BlogPage() {
   const { search } = useLocation();
   console.log(search.slice(1, search.length));
 
-  useEffect(() => {
-    setTimeout(() => setDataLoading(false), 1500);
-  }, []);
 
   // const serverUrl = "http://localhost:5000/api"
   useEffect(() => {
@@ -45,7 +42,9 @@ function BlogPage() {
       console.log(res.data);
       setPosts(res.data);
       setHotArticle(res.data.slice(0, 5));
+
 	  setDataLoading(true)
+	   setTimeout(() => setDataLoading(false), 1500);
     };
 
     fetchPosts();

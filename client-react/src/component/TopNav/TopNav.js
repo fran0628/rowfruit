@@ -206,7 +206,7 @@ import axios from 'axios';
 								</NavDropdown>
 										 :
 										 "" } */}
-								<LinkContainer to="cart">
+								<LinkContainer to="/cart">
 									<Nav.Link>
 										<div className="position-relative">
 											{cartLength > 0 && (

@@ -27,7 +27,7 @@ const convertCategoryToText = (v) => {
 				return str;
 			}
 		
-		 console.log(post.creat_time)
+			
 			return (
 				<>
 					<div className="col-12 col-md-6">
