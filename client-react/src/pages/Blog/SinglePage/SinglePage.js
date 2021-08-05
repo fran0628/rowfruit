@@ -42,7 +42,7 @@ import MultiLevelBreadcrumb from '../../../component/BreadCrumb/MultiLevelBreadc
 				setId(post.id)
 
 				setDataLoading(true);
-				setTimeout(() => setDataLoading(false), 1500);
+				setTimeout(() => setDataLoading(false), 1000);
                 
 			};
             

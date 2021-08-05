@@ -41,7 +41,7 @@ export default function FarmerLogin() {
 						confirmButtonText: "關閉",
 					}).then(function () {
 						// window.location.replace("/");
-						history.push("/");
+						
 					});
 				}
 				sweetAlert();

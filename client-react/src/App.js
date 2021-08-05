@@ -197,7 +197,7 @@ function App() {
 							{farmeruser ? <FarmerUserDashboard /> : <FarmerLogin />}
 						</Route>
 						<Route exact path="/farmerlogin">
-							{farmeruser ? <Home /> : <FarmerLogin />}
+							{farmeruser ? <Blog /> : <FarmerLogin />}
 						</Route>
 						<Route exact path="/farmerregister">
 							{farmeruser ? <Home /> : <FarmerRegister />}

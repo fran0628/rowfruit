@@ -3,6 +3,13 @@ import './Framer.css'
 import {Link} from 'react-router-dom'
 import ReactStars from "react-rating-stars-component";
 
+function defaultImgSrc(str) {
+	if (str === null || str === "") {
+		return "null.png";
+	}
+	return str;
+}
+
 function Farmer(props) {
 	 const {farmer}=props
 	 const PF = "http://localhost:5000/images/";
@@ -20,7 +27,11 @@ function Farmer(props) {
 									</div>
 								</div>
 								<div className="avatar">
-									<img className="object-fit" src={PF + farmer.avatar} alt="" />
+									<img
+										className="object-fit"
+										src={PF + defaultImgSrc(farmer.avatar)}
+										alt=""
+									/>
 								</div>
 							</div>
 						</div>
