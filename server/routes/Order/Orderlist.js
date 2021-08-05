@@ -12,8 +12,8 @@ router.get("/", async (req, res) => {
     order_list.create_time,
     order_list.total_price,
     order_list_detail.product_id,
-    order_list_detail.qty,
-    order_list_detail.amount,
+    order_list_detail.count,
+    order_list_detail.price,
     order_list_detail.content,
     product.product_name,
     
