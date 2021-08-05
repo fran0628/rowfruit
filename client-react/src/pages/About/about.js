@@ -270,53 +270,7 @@ function About() {
           </div>
         </div>
       </section>
-      <section className="form3 cid-sB0egkXkd5" id="form3-13">
-
-    
-
-    
-    
-    <div className="container">
-        <div className="row justify-content-center">
-            <div className="col-lg-7 col-12">
-                <div className="image-wrapper">
-                    <img className="w-100" src="/About/FARMERBAN.png" alt="ROWFRUIT"/>
-                </div>
-            </div>
-            <div className="col-lg-3 offset-lg-1 mbr-form" data-form-type="formoid">
-                <form action="" method="POST" className="mbr-form form-with-styler" data-form-title="Form Name"><input type="hidden" name="email" data-form-email="true" value="acJ5geYuGjVJ+NOc5QuQom6uFHsAPiQHjR3ikqyj+9ZIrum3j7R91j8Hm+oxcx3NmyZhoXNM5bWvhvFWquME/QdQE7adfHlRKk7lyJoQUUzDX8KS/Td4OiYs8k2ajUA7"/>
-                    <div className="">
-                        <div hidden="hidden" data-form-alert="" className="alert alert-success col-12">感謝您填寫表格</div>
-                        <div hidden="hidden" data-form-alert-danger="" className="alert alert-danger col-12">填寫不完整請仔填寫一遍</div>
-                    </div>
-                    <div className="dragArea row">
-                        
-                        <div className="col-lg-12 col-md-12 col-sm-12">
-                            <p className="mbr-text mbr-fonts-style mb-4 display-7">請填寫表格資料，我們會盡快回復您</p>
-                        </div>
-                        <div className="col-12 col-sm-12 form-group" data-for="name">
-                            <input type="text" name="name" placeholder="姓名" data-form-field="name" className="form-control" value="" id="name-form5-15"/>
-                        </div>
-                        <div className="col-12 col-sm-12 form-group" data-for="name">
-                            <input type="text" name="name" placeholder="Name" data-form-field="name" className="form-control" value="" id="name-form5-15"/>
-                        </div>
-                        
-                        <div className="col-12 form-group" data-for="email">
-                            <input type="email" name="email" placeholder="電子郵箱"  data-form-field="url" className="form-control" value="" id="email-form5-15"/>
-                        </div>
-                        <div className="col-12 form-group" data-for="textarea">
-                            <textarea name="textarea" placeholder="留言" data-form-field="textarea" className="form-control" id="textarea-form5-15"></textarea>
-                        </div>
-                        <div className="col-lg-12 col-md-12 col-sm-12 align-center mbr-section-btn">
-                            <button type="submit" className="btn display-4 COLOR">提交</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div className="offset-lg-1"></div>
-        </div>
-    </div>
-</section>
+      
     </>
   );
 }
