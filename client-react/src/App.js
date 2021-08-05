@@ -176,7 +176,7 @@ function App() {
 
 	useEffect(()=>{
 		if(showData){
-			console.log('AAAs')
+			// console.log('AAAs')
 			fetchSetData()
 		}else{
 			setShowdata(false)

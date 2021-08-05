@@ -35,7 +35,7 @@ function MemberLogin(props) {
       newData.password = password;
       return newData;
     });
-    console.log("loginSubmit :", loginSubmit)
+    // console.log("loginSubmit :", loginSubmit)
   }
 
   return (
