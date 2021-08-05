@@ -68,7 +68,7 @@ function Cart({ setCartUpdate, isLogin }) {
       getUserDetail();
     }
   }, []);
-  // console.log(userData)
+  //設定sweetalert
   function successAdd() {
     Swal.fire({
       title: "感謝您的購買",
@@ -78,12 +78,13 @@ function Cart({ setCartUpdate, isLogin }) {
       showCloseButton: true,
     });
   }
+  //加成功跳出sweetalert
   useEffect(() => {
     if (start) {
       successAdd();
     }
   }, [myCart, start]);
-
+  //綁定input能夠取得值
   const [receiver, setReceiver] = useState("");
   function nameChange(e) {
     setReceiver(e.target.value);
@@ -104,10 +105,13 @@ function Cart({ setCartUpdate, isLogin }) {
     }
     return sum;
   };
-
+  //送出會發生的事情
   function setOrderAndSubmit() {
+    //TopNav的開關
     setCartUpdate(true);
+    //useEffect  fetchPost開關
     setStart(true);
+    //更新order資料
     setOrder((prev) => {
       const newOrder = { ...prev };
       newOrder.receiver = receiver;
@@ -117,10 +121,12 @@ function Cart({ setCartUpdate, isLogin }) {
       newOrder.totalPrice = totalPrice();
       return newOrder;
     });
+    //清空本地用來渲染的資料
     setMyCart([]);
+    //清掉localStorage
     localStorage.removeItem("cart");
   }
-
+  //fetchPost方法
   const fetchPostApi = async () => {
     await fetch("http://localhost:5000/api/Orderlist", {
       method: "POST",
@@ -130,12 +136,13 @@ function Cart({ setCartUpdate, isLogin }) {
       }),
     });
   };
+  //如果有start order改變就fetchPost
   useEffect(() => {
     if(start){
       fetchPostApi();
     }
   }, [order, start]);
-
+  //checkbox設定
   const [agree, setAgree] = useState(false);
 
   return (
