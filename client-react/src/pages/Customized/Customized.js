@@ -149,7 +149,7 @@ function Customized(props) {
         <div className="container">
           <div className="row">
             {/* 左側邊 */}
-            <LeftAside cartData={cartData} />
+            <LeftAside totalWight={totalWight()} />
             {/* 商品區塊 */}
             <Middle
               data={products}

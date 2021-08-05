@@ -1,5 +1,5 @@
 import React from 'react'
-import './userdashboard.scss'
+import './Fuserdashboard.scss'
 import { useContext, useState } from "react";
 import { Context } from "../../context/Context";
 import axios from "axios";
@@ -74,7 +74,7 @@ function FarmerUserDashboard() {
 						animation: true,
 						confirmButtonText: "關閉",
 					}).then(function () {
-						window.location.replace("/");
+						window.location.replace("/farmerlist");
 					});
 				}
 				sweetAlert();
@@ -105,7 +105,7 @@ function FarmerUserDashboard() {
 									/>
 								</div>
 							) : (
-								<i className="settingsPPIcon fas fa-user"></i>
+								<i className="settingsFPIcon fas fa-user"></i>
 							)}
 							{/* <i className="settingsPPIcon fas fa-user"></i>
 							<img
@@ -158,7 +158,7 @@ function FarmerUserDashboard() {
 					</div>
 					<div className="col-md-6">
 						<label for="inputPassword" className="form-label">
-							密碼
+							<span className="text-danger">*</span>密碼
 						</label>
 						<input
 							type="password"
@@ -170,7 +170,7 @@ function FarmerUserDashboard() {
 					</div>
 					<div className="col-md-6">
 						<label for="inputPassword2" className="form-label">
-							再次確認密碼
+							<span className="text-danger">*</span>再次確認密碼
 						</label>
 						<input
 							type="password"
@@ -234,7 +234,7 @@ function FarmerUserDashboard() {
 					</div>
 					<div className="col-12">
 						<label for="inputEmail" className="form-label">
-							電子信箱
+							<span className="text-danger">*</span>電子信箱
 						</label>
 						<input
 							type="email"
