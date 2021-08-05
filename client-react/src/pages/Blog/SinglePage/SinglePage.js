@@ -116,7 +116,7 @@ import MultiLevelBreadcrumb from '../../../component/BreadCrumb/MultiLevelBreadc
 									<p>
 										- 作者 {author}·{new Date(time).toLocaleDateString()}
 									</p>
-									{author === farmeruser.name ? (
+									{author === farmeruser?.name ? (
 										<div>
 											<i
 												class="far fa-trash-alt k-delete me-2"
@@ -132,13 +132,13 @@ import MultiLevelBreadcrumb from '../../../component/BreadCrumb/MultiLevelBreadc
 								</div>
 
 								<div
-									class="article-content overflow-hidden"
+									class="article-content overflow-hidden border-bottom"
 									dangerouslySetInnerHTML={{
 										__html: content,
 									}}
 								></div>
 							</div>
-							<div class="row mt-5 border-top border-bottom">
+							{/* <div class="row mt-5 border-top border-bottom">
 								<div class="col-6 border-end d-flex flex-column justify-content-center">
 									<div class="mt-4 mb-3">
 										<span class="hit-block live">
@@ -172,7 +172,7 @@ import MultiLevelBreadcrumb from '../../../component/BreadCrumb/MultiLevelBreadc
 										</h5>
 									</div>
 								</div>
-							</div>
+							</div> */}
 							<FacebookComment id={id} />
 						</div>
 						<PostAside />
