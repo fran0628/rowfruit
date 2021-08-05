@@ -27,8 +27,8 @@ import axios from 'axios';
 
 		}function defaultImgSrc(str) {
 			
-			if (str === null || str ==="") {
-				return "null.png";
+			if (str === null || str === "") {
+				return "apple.png";
 			}
 			return str;
 		}
@@ -99,6 +99,9 @@ import axios from 'axios';
 									<LinkContainer to="/Main">
 										<NavDropdown.Item>主打水果盒選單</NavDropdown.Item>
 									</LinkContainer>
+									<LinkContainer to="/subscribecart">
+										<NavDropdown.Item>訂閱制選單</NavDropdown.Item>
+									</LinkContainer>
 									<NavDropdown.Divider />
 									<LinkContainer to="/MainProduct/1">
 										<NavDropdown.Item>美白水果盒</NavDropdown.Item>
@@ -135,7 +138,7 @@ import axios from 'axios';
 									<NavDropdown
 										title={
 											<img
-												className="farmerIcon"
+												className="memberIcon"
 												src={PF + defaultImgSrc(avatar)}
 												alt=""
 											/>
