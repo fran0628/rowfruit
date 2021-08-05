@@ -7,7 +7,7 @@ import $ from "jquery";
 function IndexMain() {
 	useEffect(() => {
 		let fullPageScrollTop = $(".mainproduct").offset().top;
-    console.log(fullPageScrollTop)
+    // console.log(fullPageScrollTop)
 
     $(window).scroll(function(){
         let scrollTop = $(this).scrollTop();

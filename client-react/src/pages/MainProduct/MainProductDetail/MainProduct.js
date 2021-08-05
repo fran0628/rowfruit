@@ -106,11 +106,7 @@ return (
 							</li>
 							<li className="mb-4">
 								<i className="far fa-check-circle fa-2x"></i>
-								<h5
-									className="h4
-                m-2"
-									style={{ display: "inline" }}
-								>
+								<h5 className="h4 m-2" style={{ display: "inline" }}>
 									通過有機認證
 								</h5>
 							</li>

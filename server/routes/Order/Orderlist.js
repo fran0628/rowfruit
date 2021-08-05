@@ -16,7 +16,7 @@ router.get("/", async (req, res) => {
     order_list_detail.price,
     order_list_detail.content,
     product.product_name,
-    
+    product.images,
     member_list.name
     FROM order_list_detail
     LEFT JOIN order_list ON order_list.id = order_list_detail.po_id
