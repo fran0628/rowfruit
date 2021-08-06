@@ -77,3 +77,10 @@ button:focus {
 .dropdown-item.active, .dropdown-item:active {
 	background-color: #b4d1be;
 }
+.memberIcon{
+	width: 40px;
+	height: 40px;
+	overflow: hidden;
+	border-radius: 50%;
+	object-fit: cover;
+}

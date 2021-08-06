@@ -127,7 +127,7 @@ function defaultImgSrc(str) {
 								})}
 							</ul>
 							<div className="hit-small mt-5 d-none d-xl-block">
-								<h5 className="mb-4">熱門文章</h5>
+								<h5 className="mb-4">精選文章</h5>
 								{hotArticle &&
 									hotArticle.map((post) => {
 										return (

@@ -44,7 +44,7 @@ function BlogPage() {
       setHotArticle(res.data.slice(0, 5));
 
 	  setDataLoading(true)
-	   setTimeout(() => setDataLoading(false), 1500);
+	   setTimeout(() => setDataLoading(false), 1000);
     };
 
     fetchPosts();
