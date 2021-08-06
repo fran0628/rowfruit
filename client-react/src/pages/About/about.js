@@ -81,7 +81,7 @@ function About() {
             </h1>
           </div>
           <div className="row justify-content-center">
-            <div className="col-12 col-md-8 col-lg-8">
+            <div className="col-12 col-md-10 col-lg-10">
               <div
                 className="carousel slide carousel-fade"
                 id="sB56BtHjBK"
