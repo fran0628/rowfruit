@@ -9,7 +9,6 @@ import Main from "./pages/MainProduct/MainSelector/Main";
 import Home from "./pages/Home";
 import FarmList from "./pages/Blog/FarmList/FarmList";
 import TopNav from "./component/TopNav/TopNav";
-import MultiLevelBreadcrumb from "./component/BreadCrumb/MultiLevelBreadcrumb";
 import Footer from "./component/Footer/Footer";
 import MemberLogin from "./pages/Login/MemberLogin";
 import FruitMapMain from "./pages/Map/FruitMapMain";
@@ -19,6 +18,7 @@ import UserDashboard from "./pages/UserDashboard/UserDashboard";
 import OrderList from "./pages/OrderList/OrderList";
 import About from "./pages/About/about";
 import Cart from "./pages/Cart/Cart"
+import CartTest from "./pages/Cart/CartTest.js";
 import Blog from "./pages/Blog/BlogPage/BlogPage";
 import FarmerRegister from "./pages/FarmerRegister/FarmerRegister";
 import FarmerLogin from "./pages/FarmerLogin/FarmerLogin";
@@ -35,16 +35,7 @@ function App() {
 	const { farmeruser } = useContext(Context);
 
 	const[cartUpdate,setCartUpdate]=useState(false)
-	const [cart,setCart]=useState([{
-		productId: 1,
-		productName: "美白水果盒",
-		count:1,
-		amount: "不知道要說什麼反正美白水果盒很好吃",
-		price: 500,
-		imageUrl:""
-	  }])
-	// console.log(cart)
-	// console.log(cart)
+	
 	const username = localStorage.getItem('name');
 	const [islogin,setIslogin]=useState({
 		islogin:username?true:false,
@@ -218,7 +209,10 @@ function App() {
 							<EditPage />
 						</Route>
 						<Route path="/cart">
-							<Cart cart={cart} setCartUpdate={setCartUpdate} isLogin={islogin} />
+							<Cart isLogin={islogin} />
+						</Route>
+						<Route path="/carttest">
+							<CartTest isLogin={islogin} />
 						</Route>
 						<Route path="/subpay">
 							<SubPay />
@@ -261,7 +255,6 @@ function App() {
 						</Route>
 						<Route path="/customized">
 							<Customized
-								setTotalCart={setCart}
 								setCartUpdate={setCartUpdate}
 							/>
 						</Route>
