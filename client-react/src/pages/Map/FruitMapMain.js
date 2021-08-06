@@ -47,7 +47,7 @@ function FruitMapMain(props) {
   function fruitClick(fruit) {
     console.log("fruitClick", fruit);
     let result = sample.filter((map) => {
-      return map.fruit.indexOf(fruit) >= 0;
+      return map.fruit?.indexOf(fruit) >= 0;
     });
     // console.log(result);
     setFarmerMap(result);
