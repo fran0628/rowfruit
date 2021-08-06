@@ -12,7 +12,7 @@ function SelectBox(props) {
         localStorage.setItem("subData", JSON.stringify(subData));
     }
     return (
-        <>
+    <>
         <div class="col-3">
             <div class="selectbox card">
                 <img src={images} class="card-img-top" alt="..." />

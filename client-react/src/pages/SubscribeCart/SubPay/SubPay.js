@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import './SubPay.scss';
 import SubItem from './SubItem';
-import SubCheck from './SubCheck'
+import SubCheck from './SubCheck';
+import { withRouter, Link } from "react-router-dom";
+import axios from "axios";
 
 function SubPay() {
     const [subCart, setSubCart] = useState([]);
@@ -12,6 +14,44 @@ function SubPay() {
     useEffect(() => {
         getCartFromLocalStorage();
     }, []);
+
+    // 會員
+    const [userData, setUserData]=useState({
+        id:"",
+        account:"",
+        name:"",
+        password:"",
+        confirmPassword:"",
+        email:"",
+        phone:"",
+        address:"",
+        avatar:"",
+        password_has_error:false,
+        file:null
+      })
+    function getUserDetail(){
+    const token = localStorage.getItem('token').split(" ")[1];
+    
+    let payload = JSON.parse(atob(token.split(".")[1]));
+    axios.get('http://localhost:5000/api/member/'+payload.id)
+    
+    .then((res) => {
+        console.log(res.data[0]);
+        const data = res.data[0];
+        setUserData({
+        id:data.id,
+        account:data.account,
+        name:data.name,
+        password:data.password,
+        confirmPassword:data.password,
+        email:data.email,
+        phone:data.phone,
+        address:data.address,
+        file:data.file,
+        avatar:data.avatar
+    })
+    })
+    }
       
     return (
         <>
@@ -94,38 +134,14 @@ function SubPay() {
                         />
                         );
                     })}       
-                    {/* <div class="checkoutdetail p-3">
-                        <span class="subpaydetail">訂單摘要</span>
-                        <hr />
-                        <div class="d-flex justify-content-between">
-                        <span class="subpayinfodetail">商品總額</span>
-                        <span>$2000</span>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                        <div class="my-3">
-                            <span class="subpayinfodetail">運費</span>
-                        </div>
-                        <div class="my-3">
-                            <span>$150</span>
-                        </div>
-                        </div>
-                        <hr />
-                        <div class="d-flex justify-content-between">
-                        <span class="subpayinfodetail">訂單總額</span>
-                        <span class="text-danger">$2150</span>
-                        </div>
-                        <div class="submit text-end">
-                        <button class="subpaybuy-btn mt-3">立即付款</button>
-                        </div>
-                    </div> */}
                 </div>
                 </div>
                 <div class="container back">
-                <button class="btn btn-light mt-5">返回</button>
+                <Link to="/subscribecart"><button class="btn normalback-btn mt-5"><i class="fas fa-arrow-left me-2"></i>返回</button></Link>
                 </div>
             </div>
         </>
     );
 }
 
-export default SubPay
+export default withRouter(SubPay)

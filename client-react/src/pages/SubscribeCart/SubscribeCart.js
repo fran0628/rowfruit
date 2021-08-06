@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import "./SubscribeCart.scss"
 import CheckBox from './CheckBox'
 import SelectBox from './SelectBox'
@@ -67,6 +68,7 @@ function SubscribeCart() {
         <div class="subbackground">
           <div class="container">
               <div class="subcard row m-5">
+              <Link to="/Main"><button class="btn normalback-btn"><i class="fas fa-arrow-left me-2"></i>返回</button></Link>
                   <div class="pricesheet col-3 text-center mt-4">
                       <h4>水果盒價目表</h4>
                       <h5 class="account">選擇水果盒</h5> 
