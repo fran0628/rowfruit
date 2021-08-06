@@ -9,7 +9,7 @@ function IndexMain() {
 		let fullPageScrollTop = $(".mainproduct").offset().top;
     // console.log(fullPageScrollTop)
 
-    $(window).scroll(function(){
+    	$(window).scroll(function(){
         let scrollTop = $(this).scrollTop();
         let translateX = Number(-scrollTop +2437)
         // console.log(translateX)
