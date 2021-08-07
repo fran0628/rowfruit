@@ -1,5 +1,7 @@
 
 import React , { Component } from 'react'
+import UserDashboardAside from '../../component/UserDashboardAside.js/UserDashboardAside';
+import MultiLevelBreadcrumb from '../../component/BreadCrumb/MultiLevelBreadcrumb';
 import './userdashboard.scss'
 import axios from 'axios';
 import Swal from "sweetalert2";
@@ -183,61 +185,72 @@ class UserDashboard extends Component {
 		
 		return (
 			<>
-			   <div>
-				<div className="container mb-5 mt-3 p-5 mx-auto">
-					<h3 className="text-center mb-4">修改會員資料</h3>
+				<div className="container-fluid">
+					<div className="row">
+						<div className="col-3 col-lg-2 position-relative p-0 abjust-mb">
+							<UserDashboardAside />
+						</div>
+						<div className="col-9 col-lg-10">
+							<div className="container mb-5 mx-auto">
+								<MultiLevelBreadcrumb />
+								<h3 className="text-center mb-4">修改會員資料</h3>
 
-					<div className="row g-4 mx-auto px-5">
-						<div className="col-12 text-center">
-							<label htmlFor="fileInput">
-						
-							{ this.state.file || this.state.avatar ? (
-								<div className="farmeravatar">
-									<img
-										src={
-											this.state.file  ? window.URL.createObjectURL(datas.file)  : "http://localhost:5000/images/" + datas.avatar
-										}
-										alt=""
-										className="object-fit"
-									/>
-								</div>
-							) : (
-								<i className="settingsPPIcon fas fa-user"></i>
-							)}
-							<button className="btn btn-success mt-3">更換頭貼</button>
-							</label>
-							<input
-								type="file"
-								name=""
-								id="fileInput"								
-								hidden
-								onChange={(event) => this.setFile(event)}
-							/>
-						</div>
-						<div className="col-md-6">
-							<img src="" alt="" />
-							<label for="inputUser" className="form-label">
-								帳號
-							</label>
-							<input
-								type="text"
-								className="form-control form-control-plaintext"
-								id="inputUser"
-								name="account"
-								defaultValue={this.state.account}
-								readOnly
-							/>
-						</div>
-						<div className="col-md-6">
-							<label for="inputPassword4" className="form-label">
-								姓名
-							</label>
-							<input type="text" className="form-control" id="inputPassword4" name="name"
-								defaultValue={datas.name}
-								onChange={(event) => this.setText(event)}
-							/>
-						</div>
-						{/* <div className="col-md-6">
+								<div className="row g-4 mx-auto px-5">
+									<div className="col-12 text-center">
+										<label htmlFor="fileInput">
+											{this.state.file || this.state.avatar ? (
+												<div className="farmeravatar">
+													<img
+														src={
+															this.state.file
+																? window.URL.createObjectURL(datas.file)
+																: "http://localhost:5000/images/" + datas.avatar
+														}
+														alt=""
+														className="object-fit"
+													/>
+												</div>
+											) : (
+												<i className="settingsPPIcon fas fa-user"></i>
+											)}
+											<button className="btn btn-success mt-3">更換頭貼</button>
+										</label>
+										<input
+											type="file"
+											name=""
+											id="fileInput"
+											hidden
+											onChange={(event) => this.setFile(event)}
+										/>
+									</div>
+									<div className="col-md-6">
+										<img src="" alt="" />
+										<label for="inputUser" className="form-label">
+											帳號
+										</label>
+										<input
+											type="text"
+											className="form-control form-control-plaintext"
+											id="inputUser"
+											name="account"
+											defaultValue={this.state.account}
+											readOnly
+										/>
+									</div>
+									<div className="col-md-6">
+										<label for="inputPassword4" className="form-label">
+											姓名
+										</label>
+										<input
+											type="text"
+											className="form-control"
+											id="inputPassword4"
+											name="name"
+											defaultValue={datas.name}
+											onChange={(event) => this.setText(event)}
+										/>
+									</div>
+									{/* <div className="col-md-6">
 							<label for="inputPassword" className="form-label">
 								密碼
 							</label>
@@ -263,45 +276,59 @@ class UserDashboard extends Component {
 								onChange={(event) => this.setText(event)}
 							/>
 						</div> */}
-						<div className="col-4">
-							<label for="inputPhone" className="form-label">
-								電話
-							</label>
-							<input type="tel" className="form-control" id="inputPhone"   name="phone"
-								defaultValue={this.state.phone}
-								onChange={(event) => this.setText(event)}
-							/>
-						</div>
-						<div className="col-8">
-							<label for="inputEmail" className="form-label">
-								信箱
-							</label>
-							<input type="email" className="form-control" id="inputEmail"   name="email"
-								defaultValue={this.state.email}
-								onChange={(event) => this.setText(event)}
-							/>
-						</div>
-						<div className="col-12">
-							<label for="inputAddress" className="form-label">
-								地址
-							</label>
-							<input type="text" className="form-control" id="inputAddress" name="address"
-								defaultValue={this.state.address}
-								onChange={(event) => this.setText(event)}
-							/>
-						</div>
+									<div className="col-4">
+										<label for="inputPhone" className="form-label">
+											電話
+										</label>
+										<input
+											type="tel"
+											className="form-control"
+											id="inputPhone"
+											name="phone"
+											defaultValue={this.state.phone}
+											onChange={(event) => this.setText(event)}
+										/>
+									</div>
+									<div className="col-8">
+										<label for="inputEmail" className="form-label">
+											信箱
+										</label>
+										<input
+											type="email"
+											className="form-control"
+											id="inputEmail"
+											name="email"
+											defaultValue={this.state.email}
+											onChange={(event) => this.setText(event)}
+										/>
+									</div>
+									<div className="col-12">
+										<label for="inputAddress" className="form-label">
+											地址
+										</label>
+										<input
+											type="text"
+											className="form-control"
+											id="inputAddress"
+											name="address"
+											defaultValue={this.state.address}
+											onChange={(event) => this.setText(event)}
+										/>
+									</div>
 
-						<div className="col-12">
-							<button  className="DSnormal-btn"
-							onClick={this.putUserDetail}
-							>
-								送出
-							</button>
+									<div className="col-12">
+										<button
+											className="DSnormal-btn"
+											onClick={this.putUserDetail}
+										>
+											送出
+										</button>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
-			  </div>
-			  
 			</>
 		);
     }
