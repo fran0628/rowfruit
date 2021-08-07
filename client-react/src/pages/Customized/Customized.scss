@@ -189,7 +189,7 @@
 
 
 .customizedProduct {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.6);
   position: relative;
   height: 700px;
   margin-bottom: 5px;
@@ -281,6 +281,7 @@
   justify-content: center;
   align-items: center;
   background: #ccc;
+  // background: url("https://images.pexels.com/photos/3082731/pexels-photo-3082731.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
   border-radius: 10px;
   margin: 10px;
   transition: .4s;
@@ -355,12 +356,25 @@
 }
 .addCart{
   margin: 0;
-  box-shadow:2px 2px 5px #000;
-  transition: .4s;
+  border-radius: 50%;
+  box-shadow:  4px 4px 9px #afafaf,
+             -4px -4px 9px #ffffff;
 }
 .addCart:hover{
-  box-shadow:inset 1px 1px 3px  #000
+  box-shadow: inset 4px 4px 9px #afafaf,
+            inset -4px -4px 9px #ffffff;
 }
+.addCart:hover .fa-plus{
+  transform: scale(0.9)translateX(-1px)translateY(1px);
+}
+// .addCart{
+//   margin: 0;
+//   box-shadow:2px 2px 5px #000;
+//   transition: .4s;
+// }
+// .addCart:hover{
+//   box-shadow:inset 1px 1px 3px  #000
+// }
 
 .price{
   color: #E9AFAF;
@@ -400,7 +414,8 @@
 .cartLIstContainer {
   max-height: 230px;
   overflow-y: scroll;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.7);
+  // background: url("https://images.pexels.com/photos/2317922/pexels-photo-2317922.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
 }
 .customerCartList{
   margin-top: 0px;
@@ -524,6 +539,7 @@
 .p-offset{
   padding-top: 3em;
 }
+
 
 
 .activeClass{
