@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
 function SubCheck(props) {
-  const {productId, subscribe_way} = props;
+  const {setStep, productId, subscribe_way, setBtnStep} = props;
   // 訂閱制時間
   var subboxTime
   var subboxPriceTime
@@ -41,6 +41,7 @@ function SubCheck(props) {
   // 訂單總額
   var totalPrice = subboxPrice + 150
 
+  
   return (
     <>
         <div class="checkoutdetail p-3">
@@ -64,8 +65,10 @@ function SubCheck(props) {
             <span class="text-danger">${totalPrice}</span>
             </div>
             <div class="submit text-end">
-            <button class="subpaybuy-btn mt-3">立即付款</button>
-            </div>
+              <button class="subpaybuy-btn mt-3" onClick={()=>{
+                setStep(2)
+              }}>立即付款</button>
+            </div>   
         </div>
     </>
   );

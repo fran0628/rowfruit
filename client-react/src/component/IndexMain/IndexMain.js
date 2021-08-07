@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Link } from 'react-router-dom'
 import "./IndexMain.scss"
 import $ from "jquery";
@@ -12,13 +12,11 @@ function IndexMain() {
     	$(window).scroll(function(){
         let scrollTop = $(this).scrollTop();
         let translateX = Number(-scrollTop +2437)
-        console.log(translateX)
+        // console.log(translateX)
         if(scrollTop>fullPageScrollTop){
         $(".fullBox").css("transform",`translateX(${translateX}px)translateY(150px)`)
         }
-    }) 
-
-		
+    }) 	
 });
 
     return (
