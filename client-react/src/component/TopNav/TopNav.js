@@ -58,7 +58,6 @@ function TopNav(props) {
     setCartUpdate(false);
     setCartData(JSON.parse(cart));
   }, [cartLength, cartUpdate]);
-  console.log(cartData);
 
   function getuserDetail() {
     const token = localStorage.getItem("token").split(" ")[1];
@@ -215,7 +214,7 @@ function TopNav(props) {
                     <Tooltip id='tooltip-bottom'>
                      {cartData.map((item,index)=>{
 						 const {productName,imageUrl,count}=item
-						 return <div className="row">
+						 return <div className="row p-1">
 							 <div className="col-5">
 								 <img className="imageFit" src={imageUrl} alt="" />
 							 </div>
