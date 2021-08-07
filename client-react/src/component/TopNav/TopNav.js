@@ -82,7 +82,7 @@ import axios from 'axios';
     return (
 			<>
 				<Navbar className="myNavbar"></Navbar>
-				<Navbar fixed="top" className="myNavbar">
+				<Navbar fixed="top" className="myNavbar shadow-sm">
 					<Container expand="lg">
 						<LinkContainer to="/">
 							<Navbar.Brand>
