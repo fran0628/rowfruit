@@ -29,6 +29,7 @@ import WritePage from "./pages/Blog/WritePage/WritePage.js";
 import EditPage from "./pages/Blog/EditPage/EditPage";
 import ChangePassword from "./pages/ChangePassword/ChangePassword"
 import SubPay from './pages/SubscribeCart/SubPay/SubPay'
+import PostList from "./pages/FarmerUserDashboard/PostList/PostList.js";
 
 function App() {
 	const { farmeruser } = useContext(Context);
@@ -185,6 +186,9 @@ function App() {
 					{/* <MultiLevelBreadcrumb /> */}
 
 					<Switch>
+						<Route exact path="/postlist">
+							{farmeruser ? <PostList /> : <FarmerLogin />}
+						</Route>
 						<Route exact path="/farmeruserdashboard">
 							{farmeruser ? <FarmerUserDashboard /> : <FarmerLogin />}
 						</Route>
@@ -203,7 +207,7 @@ function App() {
 						<Route exact path="/post/:postId">
 							<SinglePage />
 						</Route>
-						
+
 						<Route exact path="/edit/:editId">
 							<EditPage />
 						</Route>
@@ -223,9 +227,7 @@ function App() {
 							<UserDashboard />
 						</Route>
 						<Route path="/changepassword">
-							<ChangePassword 
-								checkLogin={islogin}
-							/>
+							<ChangePassword checkLogin={islogin} />
 						</Route>
 						<Route path="/memberlogin">
 							<MemberLogin
@@ -250,9 +252,7 @@ function App() {
 							<Main />
 						</Route>
 						<Route path="/customized">
-							<Customized
-								setCartUpdate={setCartUpdate}
-							/>
+							<Customized setCartUpdate={setCartUpdate} />
 						</Route>
 						<Route path="/About">
 							<About />

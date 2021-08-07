@@ -99,6 +99,15 @@ router.get("/", async (req, res) => {
 
 	res.json(articles);
 });
+// 個作者
+router.get("/author/:name", async (req, res) => {
+	const aticleCat = await connection.queryAsync(
+		"SELECT * FROM article WHERE author = ?;",
+		req.params.name
+	);
+
+	res.json(aticleCat);
+});
 
 // 各類別
 router.get("/cat/:cat", async (req, res) => {

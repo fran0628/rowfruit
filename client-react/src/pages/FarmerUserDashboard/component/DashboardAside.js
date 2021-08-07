@@ -30,8 +30,10 @@ function DashboardAside() {
 								</Link>
 							</li>
 							<li>
-								<Link>
-									<h5>文章管理</h5>
+								<Link to="/postlist">
+									<h5 className={path === "postlist" ? "active" : ""}>
+										文章管理
+									</h5>
 								</Link>
 							</li>
 						</ul>

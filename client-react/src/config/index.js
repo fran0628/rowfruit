@@ -35,6 +35,7 @@ export const pathnameList = [
 	"/post",
 	"/changepassword",
 	"/orderlist",
+	"/postlist"
 ];
 
 export const pathnameTextList = [
@@ -57,6 +58,7 @@ export const pathnameTextList = [
     "/購物車",
 	"/小農部落/文章內頁",
 	"/修改密碼",
-	"/訂單資訊"
+	"/訂單資訊",
+	"/文章列表"
 
 ];

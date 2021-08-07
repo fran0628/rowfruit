@@ -29,7 +29,7 @@ function WritePage() {
 						const res = await axios.get("/post/" + path);
 						const post = res.data[0];
 						console.log(post);
-						setTitle(post.title);
+						setTitle(post?.title);
 						setAuthor(post.author);	
                         setCategory(post.category)	
                         setStatus(post.status)				
