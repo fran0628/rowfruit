@@ -73,7 +73,7 @@ function SubOne(props) {
                             setAddress(userData.address);
                             }}
                         />
-                        <lable>輸入會員資料</lable>
+                        <lable class="m-2">輸入會員資料</lable>
                         </section>
                         <div class="subinfoway"><span>選擇配送方式</span></div>
                         <select class="form-select" aria-label="Default select example">

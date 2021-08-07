@@ -61,7 +61,7 @@ function SubPay(props) {
                 <div class="cartlist">03 購物完成</div>
             </div>
             {step===1 && <SubOne setStep={setStep} subCart={subCart} userData={userData}/>}
-            {step===2 && <SubTwo setStep={setStep} subCart={subCart}/>}
+            {step===2 && <SubTwo setStep={setStep} subCart={subCart} userData={userData}/>}
             {step===4 && <SubFour setStep={setStep} subCart={subCart}/>}
         </div>
         </>
