@@ -9,6 +9,7 @@ import './postlist.scss'
 function PostList() {
      const { farmeruser, dispatch } = useContext(Context);
      const [posts, setPosts] = useState([]);
+     const [reload,setReload]=useState(false)
 
       useEffect(() => {
 				const fetchPosts = async () => {
@@ -18,13 +19,13 @@ function PostList() {
 					);
 					
                     
-					console.log(res.data);
+					// console.log(res.data);
                     setPosts(res.data)
 					
 				};
 
 				fetchPosts();
-			}, []);
+			}, [reload]);
     return (
 			<>
 				<div className="container-fluid ">
@@ -51,7 +52,14 @@ function PostList() {
 									<tbody className="k-tbody">
 										{posts &&
 											posts.map((p, i) => {
-												return <PostListItem post={p} key={i} />;
+												return (
+													<PostListItem
+														post={p}
+														key={i}
+														reload={reload}
+														setReload={setReload}
+													/>
+												);
 											})}
 									</tbody>
 								</table>

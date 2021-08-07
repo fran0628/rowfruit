@@ -1,5 +1,5 @@
 import React,{useContext} from 'react'
-import { Link } from 'react-router-dom';
+import { Link,useHistory } from 'react-router-dom';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { Context } from '../../../../context/Context';
@@ -19,6 +19,7 @@ const convertStatusToText = (v) => {
 	return theStatusText[index];
 };
 
+
  function deleteHtmlTag(str) {
 		str = str.replace(/<[^>]+>|&[^>]+;/g, "").trim();
 		return str;
@@ -27,14 +28,15 @@ const convertStatusToText = (v) => {
  function PostListItem(props) {
      const { farmeruser, dispatch } = useContext(Context);
 
-     const {post,key}=props
-     console.log(key)
+     const {post,reload,setReload}=props
+    
      console.log(post)
+     const history=useHistory();
      const handleDelete = async () => {
 				try {
-					await axios.delete(`/post/${post.id}`, {
-						data: { author: farmeruser.name },
-					});
+					// await axios.delete(`/post/${post.id}`, {
+					// 	data: { author: farmeruser.name },
+					// });
 					function sweetAlert() {
 						Swal.fire({
 							title: "您確定要刪除此文章嗎",
@@ -48,10 +50,24 @@ const convertStatusToText = (v) => {
 							if (result.isConfirmed) {
                                 
 								Swal.fire("已刪除!", "您已刪除此篇文章", "success");
+                                axios
+																	.delete(`/post/${post.id}`, {
+																		data: { author: farmeruser.name },
+																	})
+																	.then(function (response) {
+																		console.log(response);
+																	})
+																	.catch(function (error) {
+																		console.log(error);
+																	});
+                                
 							}							
-						});
+						}).then((result)=>{
+                           setReload(true)
+                        });
 					}
 					sweetAlert();
+                    
 
 				
 				} catch (err) {}
@@ -61,18 +77,18 @@ const convertStatusToText = (v) => {
     return (
 			<>
 				<tr className="k-tr">
-					<td>{post.id}</td>
-					<td>{post.title}</td>
-					<td className="tx-bk">{deleteHtmlTag(post.content)}</td>
-					<td>{convertCategoryToText(post.category)}</td>
-					<td>{new Date(post.created_time).toLocaleDateString()}</td>
-					<td>{convertStatusToText(post.status)}</td>
+					<td>{post?.id}</td>
+					<td>{post?.title}</td>
+					<td className="tx-bk">{deleteHtmlTag(post?.content)}</td>
+					<td>{convertCategoryToText(post?.category)}</td>
+					<td>{new Date(post?.created_time).toLocaleDateString()}</td>
+					<td>{convertStatusToText(post?.status)}</td>
 					<td>
 						<i
 							class="far fa-trash-alt k-delete me-2"
 							onClick={handleDelete}
 						></i>
-						<Link to={`/edit/${post && post.id}`}>
+						<Link to={`/edit/${post?.id}`}>
 							<i class="far fa-edit  k-edit"></i>
 						</Link>
 					</td>
