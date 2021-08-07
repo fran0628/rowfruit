@@ -157,7 +157,7 @@ function Cart(props) {
           setMyCart={setMyCart}
           setCartUpdate={setCartUpdate}
         />
-      ) : <div className="d-flex w-100 justify-content-center align-items-center"><button onClick={()=>{props.history.push('/memberLogin')}} className="btn">請先登入</button></div>}
+      ) : <div className="cartLogin" ><button onClick={()=>{props.history.push('/memberLogin')}} className="normal-btn">點此登入</button></div>}
       {/* {step === 1 && (
         <CartStepOne
           setStep={setStep}

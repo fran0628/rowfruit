@@ -22,7 +22,6 @@ function SubPay(props) {
           }
     }, []);
 
-
     // 會員
     //初始化會員資料
     const [userData, setUserData] = useState({
@@ -50,7 +49,6 @@ function SubPay(props) {
 
     //初始化在第一步驟
     const [step, setStep] = useState(1);
-  
       
     return (
         <>

@@ -6,7 +6,6 @@ function CartStepOne(props) {
   useEffect(()=>{
     window.scrollTo(0, 0)
   },[])
-  console.log(myCart.length)
   return (
     <>
       <ProductTable myCart={myCart} setMyCart={setMyCart} setCartUpdate={setCartUpdate} />

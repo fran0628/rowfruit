@@ -27,6 +27,7 @@
     "multiparty": "^4.2.2",
     "mysql": "^2.18.1",
     "nodemon": "^2.0.10",
-    "react-rating-stars-component": "^2.2.0"
+    "react-rating-stars-component": "^2.2.0",
+    "react-star-ratings": "^2.3.0"
   }
 }
