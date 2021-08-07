@@ -1,7 +1,9 @@
 import React from 'react'
-import StepOneContent from './ProductContent'
+import ProductContent from './ProductContent'
+import { v4 } from "uuid";
 
-function ProductTable() {
+
+function ProductTable({myCart}) {
     return (
         <>
         <table className="border border-2 w-100">
@@ -13,9 +15,31 @@ function ProductTable() {
           <td>商品數量</td>
           <td> </td>
         </thead>
-        <StepOneContent />
-        <StepOneContent />
-        <StepOneContent />
+        {myCart.map((item,index)=>{
+          const {
+                  productId,
+                  productName,
+                  count,
+                  content,
+                  price,
+                  imageUrl,
+                } = item;
+                return (
+                  <ProductContent
+                    key={v4()}
+                    productId={productId}
+                    productName={productName}
+                    count={count}
+                    content={content}
+                    price={price}
+                    imageUrl={imageUrl}
+                    myCart={myCart}
+                   
+                  />
+                );
+        })}
+
+       
       </table>
         </>
     )

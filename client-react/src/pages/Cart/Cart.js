@@ -66,9 +66,9 @@ function Cart(props) {
       },
     ],
   });
-  console.log("order", order);
-  console.log("userData.id", userData.id);
-  console.log("order.memberId", order.memberId);
+  // console.log("order", order);
+  // console.log("userData.id", userData.id);
+  // console.log("order.memberId", order.memberId);
   //拿到localStorage資料放進mycart
   function getCartFromLocalStorage() {
     const newCart = localStorage.getItem("cart") || "[]";
@@ -255,7 +255,7 @@ function Cart(props) {
                       setAddress(userData.address);
                     }}
                   />
-                  <lable>一鍵輸入</lable>
+                  <label>一鍵輸入</label>
                 </section>
               </div>
 

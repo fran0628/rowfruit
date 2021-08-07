@@ -209,10 +209,10 @@ function App() {
 							<EditPage />
 						</Route>
 						<Route path="/cart">
-							<Cart isLogin={islogin} />
+							<Cart isLogin={islogin} setCartUpdate={setCartUpdate} />
 						</Route>
 						<Route path="/carttest">
-							<CartTest isLogin={islogin} />
+							<CartTest isLogin={islogin} setCartUpdate={setCartUpdate} />
 						</Route>
 						<Route path="/subpay">
 							<SubPay />
