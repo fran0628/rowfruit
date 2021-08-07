@@ -230,13 +230,13 @@ function TopNav(props) {
                   }
                 >
                   <Nav.Link>
-                    <div className="position-relative">
+                    <div onClick={()=>{ props.history.push("/cart");}} className="position-relative">
                       {cartLength > 0 && (
                         <div className="text-warning d-flex align-items-center justify-content-center position-absolute">
                           {cartLength}
                         </div>
                       )}
-                      <i onClick={()=>{ props.history.push("/cart");}} class="fas fa-shopping-cart fa-lg nav-icon" />
+                      <i  class="fas fa-shopping-cart fa-lg nav-icon" />
                     </div>
                   </Nav.Link>
                 </OverlayTrigger>
