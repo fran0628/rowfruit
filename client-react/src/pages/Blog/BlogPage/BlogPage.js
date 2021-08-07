@@ -41,7 +41,7 @@ function BlogPage() {
 
       console.log(res.data);
       setPosts(res.data);
-      setHotArticle(res.data.slice(0, 5));
+      setHotArticle(res.data.slice(0, 4));
 
 	  setDataLoading(true)
 	   setTimeout(() => setDataLoading(false), 1000);
