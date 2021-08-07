@@ -4,12 +4,13 @@ import './singlepage.scss'
 import { useLocation, Link,useHistory } from "react-router-dom";
 import { useEffect, useState, useContext,useRef } from "react";
 import FacebookComment from '../../../component/FacebookComment/FacebookComment';
-import FacebookShare from '../../../component/FacebookShare/FacebookShare';
+// import FacebookShare from '../../../component/FacebookShare/FacebookShare';
 import axios from "axios";
 import { Context } from "../../../context/Context";
 import Swal from 'sweetalert2';
 import MultiLevelBreadcrumb from '../../../component/BreadCrumb/MultiLevelBreadcrumb';
- 
+import ShareButtons from '../../../component/ShareButton/ShareButtons';
+
  function SinglePage() {
 	 const history = useHistory()
 	 const { farmeruser, dispatch } = useContext(Context);
@@ -84,18 +85,7 @@ import MultiLevelBreadcrumb from '../../../component/BreadCrumb/MultiLevelBreadc
     return (
 			<>
 				<MultiLevelBreadcrumb />
-				<div class="">
-					<div class="share">分享</div>
-					<div class="link p-2">
-						<a class=""></a>
-						<a class="d-block">
-							<i class="fab fa-twitter"></i>
-						</a>
-						<a class="d-block">
-							<i class="fas fa-paperclip"></i>
-						</a>
-					</div>
-				</div>
+
 				<div class="container ">
 					<div class="row">
 						<div class="col-xl-8">
@@ -132,12 +122,11 @@ import MultiLevelBreadcrumb from '../../../component/BreadCrumb/MultiLevelBreadc
 									></div>
 								)}
 							</div>
-							<div>
-								<FacebookShare id={id} />
+							<div className="d-flex  justify-content-around pt-3">
+								{/* <FacebookShare id={id} /> */}
+								<ShareButtons id={id} title={title} />
 							</div>
-							
-								<FacebookComment id={id} />
-							
+							<FacebookComment id={id} />
 						</div>
 
 						<PostAside />
