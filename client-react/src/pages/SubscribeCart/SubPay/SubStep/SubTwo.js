@@ -1,17 +1,12 @@
-import React from "react";
-import './SubCredit.scss';
+import React ,{ useState } from "react";
+import SubCheck from '../SubCheck';
 
-function SubCredit() {      
-    return (
+function SubTwo(props) {
+  const{setStep, subCart}=props
+
+  return (
     <>
     <div class="container">
-      <div class="container mt-5 d-flex justify-content-center">
-        <div class="cartlist">01 確認明細及選擇配送方式</div>
-        <div class="d-flex align-items-center"><i class="fas fa-arrow-right"></i></div>
-        <div class="cartlist">02 選擇付款方式</div>
-        <div class="d-flex align-items-center"><i class="fas fa-arrow-right"></i></div>
-        <div class="cartlist">03 購物完成</div>
-      </div>
       <div class="container row mt-5">
         <div class="col-md-7 me-5">
           <div class="d-flex flex-column">
@@ -37,38 +32,31 @@ function SubCredit() {
                 <label class="form-check-label" for="flexCheckChecked">
                   開立發票
                 </label>
-                <span>（本公司只提供電子發票</span>
+                <span>（本公司只提供電子發票）</span>
               </div>
           </div>
         </div>
         <div class="col-md-4 ms-2">
-            <div class="checkoutdetail p-3">
-              <span>訂單摘要</span>
-              <hr />
-              <div class="d-flex justify-content-between">
-                <span>商品總額</span>
-                <span>$2000</span>
-              </div>
-              <div class="d-flex justify-content-between">
-                <div class="my-3">
-                  <span>運費</span>
-                </div>
-                <div class="my-3">
-                  <span>$150</span>
-                </div>
-              </div>
-              <hr />
-              <div class="d-flex justify-content-between">
-                <span>訂單總額</span>
-                <span>$2150</span>
-              </div>
-            </div>
+            {subCart.map((item, index) => {
+                const {
+                product_id,
+                subscribe_way,
+                } = item;
+                return (
+                <SubCheck
+                    key={product_id}
+                    productId={product_id}
+                    subscribe_way={subscribe_way}
+                />
+                );
+            })}       
+        </div>
+        <div class="container back">
+          <button class="btn normalback-btn mt-5" onClick={()=>{setStep(1)}}><i class="fas fa-arrow-left me-2"></i>返回</button>
         </div>
       </div>
-        
     </div>
     </>
-    );
+  );
 }
-
-export default SubCredit
+export default SubTwo;
