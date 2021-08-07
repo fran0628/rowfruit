@@ -1,4 +1,4 @@
-import React ,{ useState } from "react";
+import React from "react";
 import SubCheck from '../SubCheck';
 
 function SubTwo(props) {
@@ -37,19 +37,19 @@ function SubTwo(props) {
           </div>
         </div>
         <div class="col-md-4 ms-2">
-            {subCart.map((item, index) => {
-                const {
-                product_id,
-                subscribe_way,
-                } = item;
-                return (
-                <SubCheck
-                    key={product_id}
-                    productId={product_id}
-                    subscribe_way={subscribe_way}
-                />
-                );
-            })}       
+          {subCart.map((item, index) => {
+              const {
+              product_id,
+              subscribe_way,
+              } = item;
+              return (
+              <SubCheck
+                key={product_id}
+                productId={product_id}
+                subscribe_way={subscribe_way}
+              />
+            );
+          })}       
         </div>
         <div class="container back">
           <button class="btn normalback-btn mt-5" onClick={()=>{setStep(1)}}><i class="fas fa-arrow-left me-2"></i>返回</button>

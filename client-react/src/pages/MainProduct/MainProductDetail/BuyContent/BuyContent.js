@@ -53,9 +53,9 @@ function BuyContent(props) {
   const mainProduct = {
     productId: id,
     productName: productName,
-    count: 1,
+    count: total,
     content: fruitamount,
-    price: boxprice,
+    price: price,
     imageUrl: images,
   };
   
