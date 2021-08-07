@@ -8,7 +8,7 @@ import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 function Cart(props) {
-  const { setCartUpdate, isLogin }=props
+  const { setCartUpdate, isLogin } = props;
   //初始化會員資料
   const [userData, setUserData] = useState({
     id: "",
@@ -66,9 +66,9 @@ function Cart(props) {
       },
     ],
   });
-  console.log("order", order);
-  console.log("userData.id", userData.id);
-  console.log("order.memberId", order.memberId);
+  // console.log("order", order);
+  // console.log("userData.id", userData.id);
+  // console.log("order.memberId", order.memberId);
   //拿到localStorage資料放進mycart
   function getCartFromLocalStorage() {
     const newCart = localStorage.getItem("cart") || "[]";
@@ -85,8 +85,8 @@ function Cart(props) {
   function successAdd() {
     Swal.fire({
       title: "感謝您的購買",
-      confirmButtonText: '<i class="fa fa-thumbs-up"></i> Great!' ,
-      timer: 1500
+      confirmButtonText: '<i class="fa fa-thumbs-up"></i> Great!',
+      timer: 1500,
     });
   }
   const [receiver, setReceiver] = useState("");
@@ -129,7 +129,6 @@ function Cart(props) {
     setMyCart([]);
     //清掉localStorage
     localStorage.removeItem("cart");
-
   }
   //fetchPost方法
   const fetchPostApi = async () => {
@@ -150,14 +149,14 @@ function Cart(props) {
       setAddress("");
       setAgree(false);
       successAdd();
-      props.history.push("/orderlist")
+      props.history.push("/orderlist");
     }
   }, [order, start]);
   //checkbox設定
   const [agree, setAgree] = useState(false);
   const [transport, setTransport] = useState("150");
-  const orderPrice = +transport+(+totalPrice())
- 
+  const orderPrice = +transport + +totalPrice();
+
   return (
     <>
       <MultiLevelBreadcrumb />
@@ -203,46 +202,46 @@ function Cart(props) {
               })}
             </tbody>
           </table>
-          <div className="d-flex justify-content-between align-items-center">
-            <section id="radio">
-              <h3>選擇運送方式</h3>
-              <input
-                type="radio"
-                value="150"
-                checked={transport === "150"}
-                onChange={(e) => {
-                  setTransport(e.target.value);
-                }}
-              />
-              <label>黑貓宅急便</label>
-              <input
-                type="radio"
-                value="100"
-                checked={transport === "100"}
-                onChange={(e) => {
-                  setTransport(e.target.value);
-                }}
-              />
-              <label>7-11超商取貨</label>
-            </section>
-            <div>
-              <p className="fs-4">運費</p>
-              <div className="text-center">{transport}</div>
 
-            </div>
-            <i class="fas fa-plus"></i>
-            <div>
-              <p className="fs-4">商品總價</p>
-              <div className="text-center">${totalPrice()}</div>
-            </div>
-            <i class="fas fa-equals"></i>
-            <div>
-              <p className="fs-4">總價</p>
-              <div className="text-center">${orderPrice}</div>
-            </div>
-          </div>
           {isLogin.islogin ? (
             <>
+              <div className="d-flex justify-content-between align-items-center">
+                <section id="radio">
+                  <h3>選擇運送方式</h3>
+                  <input
+                    type="radio"
+                    value="150"
+                    checked={transport === "150"}
+                    onChange={(e) => {
+                      setTransport(e.target.value);
+                    }}
+                  />
+                  <label>黑貓宅急便</label>
+                  <input
+                    type="radio"
+                    value="100"
+                    checked={transport === "100"}
+                    onChange={(e) => {
+                      setTransport(e.target.value);
+                    }}
+                  />
+                  <label>7-11超商取貨</label>
+                </section>
+                <div>
+                  <p className="fs-4">運費</p>
+                  <div className="text-center">{transport}</div>
+                </div>
+                <i class="fas fa-plus"></i>
+                <div>
+                  <p className="fs-4">商品總價</p>
+                  <div className="text-center">${totalPrice()}</div>
+                </div>
+                <i class="fas fa-equals"></i>
+                <div>
+                  <p className="fs-4">總價</p>
+                  <div className="text-center">${orderPrice}</div>
+                </div>
+              </div>
               <div className="d-flex justify-content-center align-items-center">
                 <h3 className="text-center pe-5">訂購人資訊</h3>
                 <section id="checkbox">
@@ -256,7 +255,7 @@ function Cart(props) {
                       setAddress(userData.address);
                     }}
                   />
-                  <lable>一鍵輸入</lable>
+                  <label>一鍵輸入</label>
                 </section>
               </div>
 
