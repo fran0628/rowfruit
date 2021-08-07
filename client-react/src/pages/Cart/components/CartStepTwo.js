@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import ProductTable from "./ProductTable";
-function CartStepTwo({setStep}) {
-  const [transport, setTransport] = useState("150");
+function CartStepTwo(props) {
+  const{setStep,myCart,totalPrice,transport,setTransport}=props
+  // const [transport, setTransport] = useState("150");
   const [pay, setPay] = useState("貨到付款");
 
   return (
     <>
       <div className="row">
         <div className="col-9">
-          <ProductTable />
+          <ProductTable myCart={myCart} />
         </div>
         <div className="col-3 text-center d-flex flex-column align-items-center">
           <section>
@@ -57,16 +58,17 @@ function CartStepTwo({setStep}) {
             <h4 className="mb-0">價錢計算</h4>
             <div className="d-flex justify-content-between">
               <p className="m-0 text-end">金額</p>
-              <p className="m-0">$1000</p>
+              <p className="m-0">${totalPrice
+              }</p>
             </div>
             <div className="d-flex justify-content-between">
               <p className="m-0 text-end">運費</p>
-              <p className="m-0">$200</p>
+              <p className="m-0">${transport}</p>
             </div>
             <hr />
             <div className="d-flex justify-content-between">
               <p className="m-0 text-end">總金額</p>
-              <p className="m-0">$1200</p>
+              <p className="m-0">${(+transport)+(+totalPrice)}</p>
             </div>
           </div>
         </div>
@@ -74,7 +76,7 @@ function CartStepTwo({setStep}) {
       <div className="d-flex justify-content-between" style={{width:"75%"}}>
           <div  className="d-flex align-items-center">
               <h2 className="mt-1">商品金額</h2>
-              <p className="ps-4 h3">$1200</p>
+              <p className="ps-4 h3">${totalPrice}</p>
           </div>
           <div className="d-flex">
           <span onClick={()=>{setStep(1)}} class="btn normal-btn mx-4 my-3">上一步</span>
