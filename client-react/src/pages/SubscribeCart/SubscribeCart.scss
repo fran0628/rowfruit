@@ -1,3 +1,22 @@
+.normalback-btn{
+    display: inline-block;
+    width: 90px;
+    max-width: 100%;
+    padding: 10px 10px;
+    background-color: #fcfdf5;
+    color: #e79737;
+    border: 2px solid #838080;
+    border-radius: 5px;
+    font-size: 1.1em;
+    box-shadow: 1px 1px 2px rgba(59, 59, 59, 0.16);
+    text-align: center;
+    margin: auto;
+}
+.normalback-btn:hover{
+    background-color: #fcfdea;
+    box-shadow: 0px 1px 2px rgba(59, 59, 59, 0.16);
+    transition: transform 0.2s;
+  }
 .subbackground {
     background-image: url(./subbg/subbybg.png);
     background-repeat: no-repeat;

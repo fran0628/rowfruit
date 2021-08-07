@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import ProductTable from "./ProductTable";
 function CartStepTwo(props) {
-  const{setStep,myCart,totalPrice,transport,setTransport}=props
+  const{setStep,myCart,totalPrice,transport,setTransport,pay,setPay,setMyCart,setCartUpdate}=props
+  useEffect(()=>{
+    window.scrollTo(0, 0)
+  },[])
   // const [transport, setTransport] = useState("150");
-  const [pay, setPay] = useState("貨到付款");
+  // const [pay, setPay] = useState("貨到付款");
 
   return (
     <>
       <div className="row">
         <div className="col-9">
-          <ProductTable myCart={myCart} />
+          <ProductTable myCart={myCart} setMyCart={setMyCart} setCartUpdate={setCartUpdate} />
         </div>
         <div className="col-3 text-center d-flex flex-column align-items-center">
           <section>

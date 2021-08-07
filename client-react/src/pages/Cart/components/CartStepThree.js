@@ -1,13 +1,20 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import ProductTable from "./ProductTable";
+import Swal from "sweetalert2";
+
 function CartStepThree(props) {
-  const { setStep, myCart, totalPrice, transport } = props;
+  const { setStep, myCart, totalPrice, transport,userData,pay,setOrder,setCartUpdate,setMyCart,order } = props;
+
+  const [send,setSend]=useState(false)
   const [agree, setAgree] = useState(false);
   const [receiver, setReceiver] = useState("");
+  useEffect(()=>{
+    window.scrollTo(0, 0)
+  },[])
   function nameChange(e) {
     setReceiver(e.target.value);
   }
-  const [phone, setPhone] = useState();
+  const [phone, setPhone] = useState("");
   function phoneChange(e) {
     setPhone(e.target.value);
   }
@@ -15,9 +22,77 @@ function CartStepThree(props) {
   function addressChange(e) {
     setAddress(e.target.value);
   }
+  function setOrderAndSubmit (){
+     if(receiver===""){
+      Swal.fire({
+        title: "收件人未填入",
+        timer: 1500,
+      })
+     }else if(phone===""){
+      Swal.fire({
+        title: "電話未填入",
+        timer: 1500,
+      })
+     }else if(address===""){
+      Swal.fire({
+        title: "地址未填入",
+        timer: 1500,
+      })
+     }else{
+      setCartUpdate(true)
+    setSend(true)
+    setOrder((prev) => {
+      const newOrder = { ...prev };
+      newOrder.receiver = receiver;
+      newOrder.phone = phone;
+      newOrder.address = address;
+      newOrder.items = myCart;
+      newOrder.totalPrice = (+totalPrice)+(+transport)
+      return newOrder;
+    })
+     //清空本地用來渲染的資料
+     setMyCart([]);
+     //清掉localStorage
+     localStorage.removeItem("cart");
+     }
+
+
+    
+  }
+  //設定sweetalert
+  function successAdd() {
+    Swal.fire({
+      title: "感謝您的購買",
+      confirmButtonText: '<i class="fa fa-thumbs-up"></i> Great!',
+      timer: 1500,
+    });
+  }
+  //fetchPost方法
+  const fetchPostApi = async () => {
+    await fetch("http://localhost:5000/api/Orderlist", {
+      method: "POST",
+      body: JSON.stringify(order),
+      headers: new Headers({
+        "Content-Type": "application/json",
+      }),
+    });
+  };
+  useEffect(() => {
+    if (send) {
+      fetchPostApi();
+      successAdd();
+      setReceiver("");
+      setPhone("");
+      setAddress("");
+      setTimeout(() => {
+        setStep(4)
+      }, 2000);
+    }
+  }, [order, send]);
+
   return (
     <>
-      <ProductTable myCart={myCart} />
+      <ProductTable myCart={myCart} setMyCart={setMyCart} setCartUpdate={setCartUpdate} />
       <div className="d-flex justify-content-around">
         <div className="d-flex">
           <p className="pe-3">運費</p>
@@ -35,7 +110,7 @@ function CartStepThree(props) {
         <div>
           <div className="d-flex">
             <p className="pe-4 h5">付款方式</p>
-            <p className="h5">貨到付款</p>
+            <p className="h5">{pay}</p>
           </div>
           <div className="d-flex">
             <p className="pe-4 h5">應付金額</p>
@@ -49,7 +124,7 @@ function CartStepThree(props) {
             <div>帳號</div>
           </div>
           <div className="col-7">
-            <p className="m-0">王阿明</p>
+            <p className="m-0">{userData.account}</p>
           </div>
         </div>
         <div className="row py-2">
@@ -72,9 +147,9 @@ function CartStepThree(props) {
               checked={agree}
               onChange={(event) => {
                 setAgree(event.target.checked);
-                // setReceiver(userData.name);
-                // setPhone(userData.phone);
-                // setAddress(userData.address);
+                setReceiver(userData.name);
+                setPhone(userData.phone);
+                setAddress(userData.address);
               }}
             />
           </div>
@@ -141,9 +216,7 @@ function CartStepThree(props) {
           上一步
         </span>
         <span
-          onClick={() => {
-            setStep(4);
-          }}
+          onClick={setOrderAndSubmit}
           class="btn normal-btn mx-4 my-3"
         >
           送出

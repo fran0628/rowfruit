@@ -3,7 +3,8 @@ import ProductContent from './ProductContent'
 import { v4 } from "uuid";
 
 
-function ProductTable({myCart}) {
+function ProductTable(props) {
+  const {myCart,setMyCart,setCartUpdate}=props
     return (
         <>
         <table className="border border-2 w-100">
@@ -34,6 +35,8 @@ function ProductTable({myCart}) {
                     price={price}
                     imageUrl={imageUrl}
                     myCart={myCart}
+                    setMyCart={setMyCart}
+                    setCartUpdate={setCartUpdate}
                    
                   />
                 );
