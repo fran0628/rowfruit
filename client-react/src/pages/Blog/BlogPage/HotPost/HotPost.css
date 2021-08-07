@@ -6,3 +6,9 @@
 	-webkit-line-clamp: 2;
 	
 }
+.k-text{
+	color: #fff;
+}
+.k-text:hover{
+	color: var(--other);
+}

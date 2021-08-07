@@ -46,7 +46,7 @@ const convertCategoryToText = (v) => {
 							/>
 							<div className="card-body card-body-offset">
 								<h5 className="card-title">
-									<Link to={`/post/${post.id}`} className="stretched-link">
+									<Link to={`/post/${post.id}`} className="stretched-link k-title-color">
 										{post.title}
 									</Link>
 								</h5>

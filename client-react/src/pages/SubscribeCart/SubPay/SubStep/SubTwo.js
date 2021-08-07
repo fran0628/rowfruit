@@ -1,8 +1,9 @@
-import React from "react";
-import SubCheck from '../SubCheck';
+import React ,{ useState } from "react";
+import SubDetail from '../SubDetail';
 
 function SubTwo(props) {
-  const{setStep, subCart}=props
+  const{setStep, subCart, userData}=props
+
 
   return (
     <>
@@ -37,19 +38,21 @@ function SubTwo(props) {
           </div>
         </div>
         <div class="col-md-4 ms-2">
-          {subCart.map((item, index) => {
+        {subCart.map((item, index) => {
               const {
               product_id,
               subscribe_way,
               } = item;
               return (
-              <SubCheck
+              <SubDetail
                 key={product_id}
                 productId={product_id}
                 subscribe_way={subscribe_way}
+                setStep={setStep}
+                userData={userData}
               />
-            );
-          })}       
+              );
+          })} 
         </div>
         <div class="container back">
           <button class="btn normalback-btn mt-5" onClick={()=>{setStep(1)}}><i class="fas fa-arrow-left me-2"></i>返回</button>

@@ -34,7 +34,10 @@ const convertCategoryToText = (v) => {
 						</div>
 
 						<span className="d-block sub-title text-white  text-bk">
-							<Link to={`/post/${post.id}`} className="stretched-link">
+							<Link
+								to={`/post/${post.id}`}
+								className="stretched-link text-white"
+							>
 								{post.title}
 							</Link>
 						</span>

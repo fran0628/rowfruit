@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-function SubCheck(props) {
-  const {setStep, productId, subscribe_way} = props;
+function SubDetail(props) {
+  const {setStep, productId, subscribe_way, userData} = props;
   // 訂閱制時間
   var subboxTime
   var subboxPriceTime
@@ -42,34 +42,32 @@ function SubCheck(props) {
   var totalPrice = subboxPrice + 150
 
   
-  
   return (
     <>
         <div class="checkoutdetail p-3">
-            <span class="subpaydetail">訂單摘要</span>
+            <span class="subpaydetail">訂單明細</span>
             <hr />
             <div class="d-flex justify-content-between">
-            <span class="subpayinfodetail">商品總額</span>
-            <span>${subboxPrice}</span>
+            <span class="subpayinfodetail">訂購人</span>
+            <span>{userData.name}</span>
             </div>
             <div class="d-flex justify-content-between">
             <div class="my-3">
-                <span class="subpayinfodetail">運費</span>
+                <span class="subpayinfodetail">寄送方式</span>
             </div>
             <div class="my-3">
-                <span>$150</span>
+                <span>黑貓宅急便</span>
             </div>
             </div>
-            <hr />
             <div class="d-flex justify-content-between">
             <span class="subpayinfodetail">訂單總額</span>
             <span class="text-danger">${totalPrice}</span>
             </div>
             <div class="submit text-end">
-              <button class="subpaybuy-btn mt-3" onClick={()=>{setStep(2)}}>立即付款</button>
+              <button class="subpaybuy-btn mt-3" onClick={()=>{setStep(4)}}>送出訂單</button>
             </div>   
         </div>
     </>
   );
 }
-export default SubCheck;
+export default SubDetail;

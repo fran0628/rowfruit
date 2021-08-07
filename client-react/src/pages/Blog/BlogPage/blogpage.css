@@ -60,6 +60,9 @@ p {
 .Live {
 	background-color: var(--live);
 }
+.k-title-color{
+	color: var(--title-color);
+}
 .section-hero {
 	background-image: url(./lime-2481346_1920.jpg);
 	display: flex;
