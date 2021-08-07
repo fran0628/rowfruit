@@ -1,6 +1,7 @@
 footer {
 	background: #66816e;
 	padding: 50px;
+	z-index: 3;
 }
 footer .h5,
 footer a {

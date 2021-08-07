@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import "./ChangePassword.scss";
 import axios from "axios";
 import Swal from "sweetalert2";
-
+import UserDashboardAside from "../../component/UserDashboardAside.js/UserDashboardAside";
+import MultiLevelBreadcrumb from "../../component/BreadCrumb/MultiLevelBreadcrumb";
 
 
 function ChangePassword (props) {
@@ -157,62 +158,67 @@ function ChangePassword (props) {
 
 		return (
 			<>
-			   <div>
-				<div className="container mb-5 mt-3 p-5 mx-auto">
-					<h3 className="text-center mb-4">修改會員密碼</h3>
+				<div className="container-fluid">
+					<div className="row">
+						<div className="col-3 col-lg-2 position-relative p-0 abjust-mb">
+							<UserDashboardAside />
+						</div>
+						<div className="col-9 col-lg-10">
+							<div className="container mb-5 mx-auto">
+								<MultiLevelBreadcrumb />
+								<h3 className="text-center mb-4">修改會員密碼</h3>
 
-					<div className="row g-4 mx-auto px-5 d-flex  justify-content-center">
-				
-						<div className="col-md-7">
-							<label for="inputPassword" className="form-label">
-								目前密碼
-							</label>
-							<input
-								type="password"
-								className="form-control"
-								id="inputPassword"
-								name="password"
-								Value={oldPassword}
-								onChange={oldPasswordChange}
-							/>
-						</div>
-						<div className="col-md-7">
-							<label for="password" className="form-label">
-								新密碼
-							</label>
-							<input
-								type="password"
-								className="form-control"
-								id="password"
-								name="password"
-                                value={newPassword}
-								onChange={setNewPasswordChange}
-							/>
-						</div>
-						<div className="col-md-7">
-							<label for="reNewPassword" className="form-label">
-								確認新密碼
-							</label>
-							<input
-								type="password"
-								className="form-control"
-								id="reNewPassword"
-								name="reNewPassword"
-								Value={reNewPassword}
-								onChange={reNewPasswordChange}
-							/>
-						</div>
+								<div className="row g-4 mx-auto px-5 d-flex  justify-content-center">
+									<div className="col-md-7">
+										<label for="inputPassword" className="form-label">
+											目前密碼
+										</label>
+										<input
+											type="password"
+											className="form-control"
+											id="inputPassword"
+											name="password"
+											Value={oldPassword}
+											onChange={oldPasswordChange}
+										/>
+									</div>
+									<div className="col-md-7">
+										<label for="password" className="form-label">
+											新密碼
+										</label>
+										<input
+											type="password"
+											className="form-control"
+											id="password"
+											name="password"
+											value={newPassword}
+											onChange={setNewPasswordChange}
+										/>
+									</div>
+									<div className="col-md-7">
+										<label for="reNewPassword" className="form-label">
+											確認新密碼
+										</label>
+										<input
+											type="password"
+											className="form-control"
+											id="reNewPassword"
+											name="reNewPassword"
+											Value={reNewPassword}
+											onChange={reNewPasswordChange}
+										/>
+									</div>
 
-						<div className="col-12">
-							<button  className="DSnormal-btn"
-							onClick={putUserDetail}
-							>
-								送出
-							</button>
+									<div className="col-12">
+										<button className="DSnormal-btn" onClick={putUserDetail}>
+											送出
+										</button>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
-			  </div>
 			</>
 		);
     

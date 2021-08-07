@@ -1,0 +1,51 @@
+  .main-menu{
+          background: #f5f5f5;
+          top: 0;
+          bottom: 0;
+          padding-top: 30px;
+      }
+      .main-menu h5{
+       
+          padding: 16px;
+          text-decoration: none;
+          color: var(--title);
+		  cursor: pointer;
+		  position: relative;
+      }
+	       .main-menu h5.active{       
+		  position: relative;
+		  color: #7b9c85;
+          background:#eee ;
+      }
+	   .main-menu h5.active::after{
+		   content: '';
+		   position: absolute;
+		   top:calc(50% - 10px);
+		   right: -10px;
+		   width: 0;
+			height: 0;
+			border-width: 10px 0 10px 10px;
+			border-style: solid;
+			border-color: transparent transparent transparent #eee;
+		}
+
+      .main-menu h5:hover{
+          color: #7b9c85;
+          background:#eee ;
+      }
+	   .sub-titile{
+          padding: 6px 16px;
+        //   font-size: 14px;
+		position: relative;
+      }
+	  .sub-titile::after{
+		  content: '';
+		  position: absolute;
+		  background: #7b9c85;
+		  left: 10%;
+		  right: 10%;
+		  bottom: 0;		  
+		  height: 2px;
+		//   width: 80%;
+
+	  }

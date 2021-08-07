@@ -45,7 +45,7 @@ function IndexFarmer() {
 	};
 	return (
 		<>
-			<div className="overflow-hidden">
+			<div className="overflow-hidden mb-5">
 				<div className="container-fluild fr-list">
 					<h1 class="text-center mb-3">小農部落</h1>
 					<div className="card-track">

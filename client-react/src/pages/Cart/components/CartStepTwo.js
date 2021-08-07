@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import ProductTable from "./ProductTable";
 function CartStepTwo(props) {
-  const{setStep,myCart,totalPrice,transport,setTransport}=props
+  const{setStep,myCart,totalPrice,transport,setTransport,pay,setPay}=props
   // const [transport, setTransport] = useState("150");
-  const [pay, setPay] = useState("貨到付款");
+  // const [pay, setPay] = useState("貨到付款");
 
   return (
     <>
