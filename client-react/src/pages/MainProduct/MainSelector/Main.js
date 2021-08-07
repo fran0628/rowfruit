@@ -22,7 +22,7 @@ const filterdata = data.filter(function(item, index, array){
   return item.id < 10 ;
 });
 
-console.log(filterdata)
+// console.log(filterdata)
   
 
   return (

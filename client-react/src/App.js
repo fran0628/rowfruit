@@ -30,6 +30,7 @@ import WritePage from "./pages/Blog/WritePage/WritePage.js";
 import EditPage from "./pages/Blog/EditPage/EditPage";
 import ChangePassword from "./pages/ChangePassword/ChangePassword"
 import SubPay from './pages/SubscribeCart/SubPay/SubPay'
+import SubCredit from './pages/SubscribeCart/SubPay/SubCredit'
 
 function App() {
 	const { farmeruser } = useContext(Context);
@@ -221,7 +222,10 @@ function App() {
 							<Cart cart={cart} setCartUpdate={setCartUpdate} isLogin={islogin} />
 						</Route>
 						<Route path="/subpay">
-							<SubPay />
+							<SubPay isLogin={islogin}/>
+						</Route>
+						<Route path="/subcredit">
+							<SubCredit />
 						</Route>
 						<Route path="/subscribecart">
 							<SubscribeCart />
