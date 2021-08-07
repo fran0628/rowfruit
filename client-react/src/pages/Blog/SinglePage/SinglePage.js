@@ -4,6 +4,7 @@ import './singlepage.scss'
 import { useLocation, Link,useHistory } from "react-router-dom";
 import { useEffect, useState, useContext,useRef } from "react";
 import FacebookComment from '../../../component/FacebookComment/FacebookComment';
+import FacebookShare from '../../../component/FacebookShare/FacebookShare';
 import axios from "axios";
 import { Context } from "../../../context/Context";
 import Swal from 'sweetalert2';
@@ -32,14 +33,14 @@ import MultiLevelBreadcrumb from '../../../component/BreadCrumb/MultiLevelBreadc
 				const res = await axios.get("/post/" + path);
 				const post = res.data[0]
                 console.log(post)
-                setTitle(post.title);
-                setAuthor(post.author)
-                setTime(post.created_time);
-                setContent(post.content.replace(
+                setTitle(post?.title);
+                setAuthor(post?.author)
+                setTime(post?.created_time);
+                setContent(post?.content.replace(
 											'src=',
 											`class="object-fit" src=`
 										));
-				setId(post.id)
+				setId(post?.id)
 
 				setDataLoading(true);
 				setTimeout(() => setDataLoading(false), 1000);
@@ -69,11 +70,11 @@ import MultiLevelBreadcrumb from '../../../component/BreadCrumb/MultiLevelBreadc
 						if (result.isConfirmed) {
 							Swal.fire("已刪除!", "您已刪除此篇文章", "success");
 						}
-						history.push("/blog");
+						
 					});
 				}
 				sweetAlert();
-				
+				window.location.reload("/");
 				
 				// window.location.replace("/");
 			} catch (err) {}
@@ -83,12 +84,10 @@ import MultiLevelBreadcrumb from '../../../component/BreadCrumb/MultiLevelBreadc
     return (
 			<>
 				<MultiLevelBreadcrumb />
-				<div class="share-link position-fixed">
+				<div class="">
 					<div class="share">分享</div>
 					<div class="link p-2">
-						<a class="d-block">
-							<i class="fab fa-facebook"></i>
-						</a>
+						<a class=""></a>
 						<a class="d-block">
 							<i class="fab fa-twitter"></i>
 						</a>
@@ -133,13 +132,14 @@ import MultiLevelBreadcrumb from '../../../component/BreadCrumb/MultiLevelBreadc
 									></div>
 								)}
 							</div>
-							{dataLoading ? (<div className="d-flex justify-content-center align-items-center h-100">
-										<div className="spinner-border" role="status">
-											<span className="sr-only">Loading...</span>
-										</div>
-									</div>) : (<FacebookComment id={id} />) }
+							<div>
+								<FacebookShare id={id} />
+							</div>
+							
+								<FacebookComment id={id} />
 							
 						</div>
+
 						<PostAside />
 					</div>
 				</div>
