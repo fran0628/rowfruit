@@ -1,11 +1,17 @@
 import React from "react";
 
 function ProductContent(props) {
-  const {imageUrl,productName,price,content,count}=props
+  const {imageUrl,productName,price,content,count,myCart,setMyCart,setCartUpdate}=props
+
+  function deleteItem(){
+    localStorage.setItem('cart',JSON.stringify(myCart.filter((item)=>item.content !== content)))
+    setMyCart(myCart.filter((item)=>item.content !== content))
+    setCartUpdate(true)
+   }
   return (
     <>
     <tbody>
-      <td style={{ width: "10%" }}>
+      <td style={{ width: "10%",height:"100px" }}>
         <img
           className="imageStyle"
           src={imageUrl}
@@ -19,7 +25,7 @@ function ProductContent(props) {
       <td>${price}</td>
       <td>{count}</td>
       <td>
-        <i className="pe-2 fas fa-trash-alt "></i>
+        <i onClick={deleteItem} className="pe-2 fas fa-trash-alt "></i>
       </td>
       </tbody>
     </>

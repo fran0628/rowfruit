@@ -8,10 +8,13 @@ function CartStepThree(props) {
   const [send,setSend]=useState(false)
   const [agree, setAgree] = useState(false);
   const [receiver, setReceiver] = useState("");
+  useEffect(()=>{
+    window.scrollTo(0, 0)
+  },[])
   function nameChange(e) {
     setReceiver(e.target.value);
   }
-  const [phone, setPhone] = useState();
+  const [phone, setPhone] = useState("");
   function phoneChange(e) {
     setPhone(e.target.value);
   }
@@ -20,8 +23,23 @@ function CartStepThree(props) {
     setAddress(e.target.value);
   }
   function setOrderAndSubmit (){
-    // setStep(4)
-    setCartUpdate(true)
+     if(receiver===""){
+      Swal.fire({
+        title: "收件人未填入",
+        timer: 1500,
+      })
+     }else if(phone===""){
+      Swal.fire({
+        title: "電話未填入",
+        timer: 1500,
+      })
+     }else if(address===""){
+      Swal.fire({
+        title: "地址未填入",
+        timer: 1500,
+      })
+     }else{
+      setCartUpdate(true)
     setSend(true)
     setOrder((prev) => {
       const newOrder = { ...prev };
@@ -36,6 +54,10 @@ function CartStepThree(props) {
      setMyCart([]);
      //清掉localStorage
      localStorage.removeItem("cart");
+     }
+
+
+    
   }
   //設定sweetalert
   function successAdd() {
@@ -70,7 +92,7 @@ function CartStepThree(props) {
 
   return (
     <>
-      <ProductTable myCart={myCart} />
+      <ProductTable myCart={myCart} setMyCart={setMyCart} setCartUpdate={setCartUpdate} />
       <div className="d-flex justify-content-around">
         <div className="d-flex">
           <p className="pe-3">運費</p>

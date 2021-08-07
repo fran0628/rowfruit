@@ -18,7 +18,6 @@ import UserDashboard from "./pages/UserDashboard/UserDashboard";
 import OrderList from "./pages/OrderList/OrderList";
 import About from "./pages/About/about";
 import Cart from "./pages/Cart/Cart"
-import CartTest from "./pages/Cart/CartTest.js";
 import Blog from "./pages/Blog/BlogPage/BlogPage";
 import FarmerRegister from "./pages/FarmerRegister/FarmerRegister";
 import FarmerLogin from "./pages/FarmerLogin/FarmerLogin";
@@ -175,7 +174,7 @@ function App() {
 	},[data])
 
   return (
-		<Router>
+	  <Router>
 			<>
 				<ScrollToTop>
 					<TopNav
@@ -210,9 +209,6 @@ function App() {
 						</Route>
 						<Route path="/cart">
 							<Cart isLogin={islogin} setCartUpdate={setCartUpdate} />
-						</Route>
-						<Route path="/carttest">
-							<CartTest isLogin={islogin} setCartUpdate={setCartUpdate} />
 						</Route>
 						<Route path="/subpay">
 							<SubPay isLogin={islogin}/>
