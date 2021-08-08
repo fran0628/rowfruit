@@ -193,7 +193,7 @@ function Cart(props) {
           order={order}
         />
       )}
-      {step === 4 && <CartStepFour setStep={setStep} myCart={myCart} />}
+      {step === 4 && <CartStepFour setStep={setStep} myCart={myCart}/>}
     </div>
     </>
   );

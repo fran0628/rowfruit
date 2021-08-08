@@ -149,6 +149,10 @@ let orderlistRouter = require("./routes/Order/Orderlist");
 const { error } = require("console");
 app.use("/api/orderlist", orderlistRouter);
 
+let MailRouter = require("./routes/Mail/Mail");
+app.use("/api/Mail", MailRouter);
+
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
 	console.log(req.url);

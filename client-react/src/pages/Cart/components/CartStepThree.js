@@ -58,9 +58,6 @@ function CartStepThree(props) {
      //清掉localStorage
      localStorage.removeItem("cart");
      }
-
-
-    
   }
   //設定sweetalert
   function successAdd() {
@@ -80,6 +77,7 @@ function CartStepThree(props) {
       }),
     });
   };
+  console.log(order)
   useEffect(() => {
     if (send) {
       fetchPostApi();
