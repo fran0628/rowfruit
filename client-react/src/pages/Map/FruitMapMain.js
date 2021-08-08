@@ -57,7 +57,7 @@ function FruitMapMain(props) {
     <>
       <MultiLevelBreadcrumb />
 
-      <div className="container-fluid">
+      <div className="container-fluid row">
         <FruitBall
           fruitClick={fruitClick}
           fruits={fruits}

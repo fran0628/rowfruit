@@ -18,10 +18,10 @@ function OrderDetailtop(props) {
           </thead>
           <tbody>
             <tr>
-              <td> NO{id}</td>
+              <th> NO{id}</th>
               {/* <td> {create_time}</td> */}
-              <td> ${total_price}</td>
-              <td> {receiver}</td>
+              <th> ${total_price}</th>
+              <th> {receiver}</th>
             </tr>
             <tr>
               <td colspan="4" className="p-0 mb-0">
@@ -29,7 +29,7 @@ function OrderDetailtop(props) {
                   <Accordion.Item eventKey="0">
                     <Accordion.Header>訂單明細</Accordion.Header>
                     <Accordion.Body className="p-0 ">
-                      <table class="table table-success table-striped">
+                      <table class="table  table-striped">
                         <thead>
                           <tr>
                             <th></th>
