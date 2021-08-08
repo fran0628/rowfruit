@@ -36,8 +36,8 @@ router.post("/", async (req, res) => {
   const mailOptions2 = {
     from: "rowfruit@gmail.com",
     to: "rowfruitrowfruit@gmail.com",
-    subject: `${name}傳訊息給你`,
-    text: `${name}傳訊息給你，內容為${desc}`,
+    subject: `客人${name}傳訊息給你`,
+    text: `客人${name}傳訊息給你，內容為${desc}`,
   };
 
   transporter.sendMail(mailOptions2, function (error, info) {
