@@ -14,7 +14,7 @@ function Progress({className,chineseName,width}) {
          {width}%
         </div>
       </div>
-      <p className="text-center my-0">{chineseName}</p>
+      <p className="text-center my-0 text-dark">{chineseName}</p>
     </>
   );
 }

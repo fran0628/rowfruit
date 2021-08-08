@@ -28,16 +28,19 @@ function CartStepThree(props) {
         title: "收件人未填入",
         timer: 1500,
       })
+      document.getElementById("receiver").focus()
      }else if(phone===""){
       Swal.fire({
         title: "電話未填入",
         timer: 1500,
       })
+      document.getElementById("phone").focus()
      }else if(address===""){
       Swal.fire({
         title: "地址未填入",
         timer: 1500,
       })
+      document.getElementById("address").focus()
      }else{
       setCartUpdate(true)
     setSend(true)

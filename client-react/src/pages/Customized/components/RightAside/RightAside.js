@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import CartListContent from "./CartListContent";
 import Swal from "sweetalert2";
 import { withRouter } from "react-router-dom";
@@ -31,7 +31,7 @@ function RightAside(props) {
       confirmButtonText: "關閉",
     });
   }
-
+  
   const customizedProduct = {
     productId: 99,
     productName: "客製化水果盒",
@@ -99,12 +99,16 @@ function RightAside(props) {
     { className: "Potassium", chineseName: "鉀", width: Potassium },
   ];
 
+
   return (
     <>
       <aside
         className="col-md-4 d-none d-lg-block position-relative rightAside"
         style={{ height: "700px" }}
       >
+      {cartData.length !==0 && <div className="rightBackground" style={{backgroundImage:`url("http://localhost:3000/images/CustomizedPhotos/${cartData[0].imageFront}/${cartData[0].images}")`}} >
+      </div> }
+      
         <h2 className="text-center customerCartList">客製化列表</h2>
         {cartData.length === 0 && (
           <p className="text-center unSelected">尚未選取商品</p>
@@ -119,7 +123,8 @@ function RightAside(props) {
               imageFront,
               images,
               price,
-              wight,
+              wight
+              ,
               nutrients,
             } = item;
             return (
@@ -161,7 +166,7 @@ function RightAside(props) {
         <div className="row rightAsideMiddle">
           <div className="col-7">
           <div className="progressgroup">
-          <p className="h4 text-center">每周營養所需</p>
+          <p className="h4 text-center text-dark">每周營養所需</p>
           {nutrients.map((item, index) => {
             const { className, chineseName, width } = item;
             return (

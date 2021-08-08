@@ -64,22 +64,20 @@
    margin-bottom: -230px;
   //  z-index:-1
 }
-.customizedTitle::after {
-  content: "";
-  background: #c6d1c9;
-  // background: url("https://images.pexels.com/photos/6373664/pexels-photo-6373664.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-  background-size: cover;
-  opacity: 0.7;
-  filter: blur(7px);
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: -1;
-
-  ;
-}
+// .customizedTitle::after {
+//   content: "";
+//   // background: url("https://images.pexels.com/photos/6373664/pexels-photo-6373664.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+//   background-size: cover;
+//   opacity: 0.7;
+//   filter: blur(7px);
+//   top: 0;
+//   left: 0;
+//   bottom: 0;
+//   right: 0;
+//   position: absolute;
+//   z-index: -1;
+//   ;
+// }
 
 .productImage {
   width: 100%;
@@ -412,11 +410,45 @@
 }
 
 .cartLIstContainer {
-  max-height: 230px;
+  position: relative;
+  max-height: 260px;
   overflow-y: scroll;
   background: rgba(255, 255, 255, 0.7);
   // background: url("https://images.pexels.com/photos/2317922/pexels-photo-2317922.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
 }
+
+.rightBackground {
+  height: 100%;
+  // background: url("https://images.pexels.com/photos/2317922/pexels-photo-2317922.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  content: "";
+  background-size: cover;
+  opacity: 0.7;
+  filter: blur(7px);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+  ;
+}
+.rightBackground::after{
+  content:"";
+  background: white;
+  background-size:cover;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+  transition: 1s;
+  
+}
+
+
+
 .customerCartList{
   margin-top: 0px;
   margin-bottom: 0px;
@@ -467,7 +499,7 @@
   display: block;
   width: 150px;
   max-width: 100%;
-  padding: 20px 10px;
+  padding: 10px 5px;
   background-color: #FFA20D;
   color: #fff;
   border: 2px solid #838080;
@@ -496,7 +528,7 @@
   display: block;
   width: 150px;
   max-width: 100%;
-  padding: 20px 10px;
+  padding: 10px 5px;
   background-color: #A5A59E;
   color: #fff;
   border: 2px solid #838080;
@@ -548,7 +580,7 @@
 .rightAsideMiddle{
   position: absolute;
   width: 100%;
-  top: 50%;
+  top: 53%;
 }
 .rowFruitImage{
   position: absolute;
