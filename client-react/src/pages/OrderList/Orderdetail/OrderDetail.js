@@ -10,10 +10,10 @@ function OrderDetailtop(props) {
         <table class="table table-success table-striped table-hover ">
           <thead>
             <tr>
-              <th>訂單編號</th>
+              <th><strong>訂單編號</strong></th>
               {/* <th>建立日期</th> */}
-              <th>總金額</th>
-              <th>購買人</th>
+              <th><strong>總金額</strong></th>
+              <th><strong>購買人</strong></th>
             </tr>
           </thead>
           <tbody>
@@ -27,9 +27,9 @@ function OrderDetailtop(props) {
               <td colspan="4" className="p-0 mb-0">
                 <Accordion defaultActiveKey="0" flush>
                   <Accordion.Item eventKey="0">
-                    <Accordion.Header>訂單明細</Accordion.Header>
+                    <Accordion.Header><strong>訂單明細</strong></Accordion.Header>
                     <Accordion.Body className="p-0 ">
-                      <table class="table  table-striped">
+                      <table class="table  table-success table-striped">
                         <thead>
                           <tr>
                             <th></th>
