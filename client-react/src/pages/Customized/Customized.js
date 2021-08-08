@@ -151,6 +151,7 @@ function Customized(props) {
             {/* 左側邊 */}
             <LeftAside totalWight={totalWight()} />
             {/* 商品區塊 */}
+            
             <Middle
               data={products}
               cartData={cartData}

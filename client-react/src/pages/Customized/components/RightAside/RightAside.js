@@ -106,9 +106,9 @@ function RightAside(props) {
         className="col-md-4 d-none d-lg-block position-relative rightAside"
         style={{ height: "700px" }}
       >
-      {cartData.length !==0 && <div className="rightBackground" style={{backgroundImage:`url("http://localhost:3000/images/CustomizedPhotos/${cartData[0].imageFront}/${cartData[0].images}")`}} >
+      {/* {cartData.length !==0 && <div className="rightBackground" style={{backgroundImage:`url("http://localhost:3000/images/CustomizedPhotos/${cartData[0].imageFront}/${cartData[0].images}")`}} >
       </div> }
-      
+       */}
         <h2 className="text-center customerCartList">客製化列表</h2>
         {cartData.length === 0 && (
           <p className="text-center unSelected">尚未選取商品</p>

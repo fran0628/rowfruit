@@ -278,13 +278,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #ccc;
+  background: rgb(170, 167, 167);
   // background: url("https://images.pexels.com/photos/3082731/pexels-photo-3082731.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
   border-radius: 10px;
   margin: 10px;
   transition: .4s;
 }
-
+.fruitMenu :hover{
+  transform: scale(0.9);
+}
 
 
 .shadow {

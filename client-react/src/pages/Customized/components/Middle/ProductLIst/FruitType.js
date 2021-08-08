@@ -13,7 +13,7 @@ function FruitType(props) {
     <>
       <article>
         <div>
-          <div className="fruitMenu shadow">
+          <div className="fruitMenu shadow" >
             <div className="smallImageBox">
               <img className="productImage" src={imageUrl} alt="" />
             </div>
