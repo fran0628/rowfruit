@@ -96,6 +96,9 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
 	
 });
 
+let mailRouter = require("./routes/Mail/Mail");
+app.use("/api/mail", mailRouter);
+
 let farmerRouter = require("./routes/Blog/farmerUser");
 app.use("/api/farmer", farmerRouter);
 
