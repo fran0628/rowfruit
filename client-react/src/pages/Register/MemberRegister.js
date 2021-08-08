@@ -224,17 +224,22 @@ function registerData(datas){
 												placeholder="電話"
 											/>
 										</div>
-										<div className="d-none d-sm-flex justify-content-center  my-4">
+										<div className="d-none d-sm-flex justify-content-center  mt-4">
 											<button className="btn normal-btn" onClick={formData}>
 												送出
 											</button>
 										</div>
-										<div className=" d-sm-none my-4">
+										<div className=" d-sm-none mt-4">
 											<button className="btn rwd-btn">送出</button>
 										</div>
-										<div className="d-flex justify-content-center mb-3">
+										<div className="d-flex justify-content-center">
 											<a className="back-login" href="memberlogin">
 												<h5 className="back-login">已經有帳號了? 登入</h5>
+											</a>
+										</div>
+										<div className="d-flex justify-content-center">
+											<a className="back-login" href="farmerregister">
+												<h5 className="back-login">前往小農註冊頁面</h5>
 											</a>
 										</div>
 									</div>
