@@ -11,18 +11,29 @@ import Swal from 'sweetalert2';
 import MultiLevelBreadcrumb from '../../../component/BreadCrumb/MultiLevelBreadcrumb';
 import ShareButtons from '../../../component/ShareButton/ShareButtons';
 
+const category = ["Fruit", "History", "Knowledge", "Live", "Other"];
+
+const categoryText = ["水果", "歷史", "知識", "生活", "其他"];
+const convertCategoryToText = (v) => {
+	const index = category.indexOf(v);
+
+	return categoryText[index];
+};
+
+
  function SinglePage() {
 	 const history = useHistory()
 	 const { farmeruser, dispatch } = useContext(Context);
     const location = useLocation();
-    console.log(location)
+    // console.log(location)
     const path = location.pathname.split("/")[2];
-	console.log(path)
+	// console.log(path)
     const [title, setTitle] = useState("");
 	const [author, setAuthor] = useState("");
     const [time, setTime] = useState("");
 	const [id, setId] = useState("");
     const [content,setContent]=useState(null)
+	const [category,setCategory]=useState("")
 	const [dataLoading, setDataLoading] = useState(false);
 	
 
@@ -33,7 +44,7 @@ import ShareButtons from '../../../component/ShareButton/ShareButtons';
 			const getPost = async () => {
 				const res = await axios.get("/post/" + path);
 				const post = res.data[0]
-                console.log(post)
+                // console.log(post)
                 setTitle(post?.title);
                 setAuthor(post?.author)
                 setTime(post?.created_time);
@@ -42,6 +53,7 @@ import ShareButtons from '../../../component/ShareButton/ShareButtons';
 											`class="object-fit" src=`
 										));
 				setId(post?.id)
+				setCategory(post?.category)
 
 				setDataLoading(true);
 				setTimeout(() => setDataLoading(false), 1000);
@@ -124,7 +136,11 @@ import ShareButtons from '../../../component/ShareButton/ShareButtons';
 							</div>
 							<div className="d-flex  justify-content-around pt-3">
 								{/* <FacebookShare id={id} /> */}
-								<ShareButtons id={id} title={title} />
+								<ShareButtons
+									id={id}
+									title={title}
+									category={convertCategoryToText(category)}
+								/>
 							</div>
 							<FacebookComment id={id} />
 						</div>

@@ -9,12 +9,13 @@ import {
 } from "react-share";
 
 const ShareButtons = (props) => {
-	const {id,title}=props
+	const {id,title,category}=props
 	return (
 		<>
 			<FacebookShareButton
 				url={`https://127.0.0.1:3000/post/${id}`}
-				title={title}
+				quote={title}
+				hashtag={category}
 				className="share-btn"
 			>
 				<FacebookIcon size={40} round={true} />
@@ -22,6 +23,7 @@ const ShareButtons = (props) => {
 			<TwitterShareButton
 				url={`https://127.0.0.1:3000/post/${id}`}
 				title={title}
+				hashtags={[category, "rowfruit","驚喜水果盒"]}
 				className="share-btn"
 			>
 				<TwitterIcon size={40} round={true} />

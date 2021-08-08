@@ -27,7 +27,7 @@ function BlogPage() {
   const [dataLoading, setDataLoading] = useState(false);
 
   const { search } = useLocation();
-  console.log(search.slice(1, search.length));
+//   console.log(search.slice(1, search.length));
 
 
   // const serverUrl = "http://localhost:5000/api"
@@ -37,9 +37,9 @@ function BlogPage() {
       const res = await axios.get(
         "/post/" + (search ? `cat/${search.slice(1, search.length)}` : "")
       );
-      console.log(res);
+    //   console.log(res);
 
-      console.log(res.data);
+    //   console.log(res.data);
       setPosts(res.data);
       setHotArticle(res.data.slice(0, 4));
 

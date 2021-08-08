@@ -37,7 +37,7 @@ const convertCategoryToText = (v) => {
 function CardItem(props) {
 	const {farmer}=props
 	 const PF = "http://localhost:5000/images/";
-	console.log(farmer)
+	// console.log(farmer)
     return (
 			<>
 				<div className="card border-0 rounded-0 farm-card me-5 fr-card">
