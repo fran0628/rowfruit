@@ -4,25 +4,19 @@ import SubCheck from '../SubCheck';
 import { Link } from "react-router-dom";
 
 function SubOne(props) {
-  const{setStep, subCart, userData}=props
+  const{setStep, subCart, userData, transport, setTransport, receiver, setReceiver, phone, setPhone, address, setAddress, subOrder, setSubOrder}=props
 
-  // 設定輸入會員資料
-  const [receiver, setReceiver] = useState("");
   function nameChange(e) {
-      setReceiver(e.target.value);
+    setReceiver(e.target.value);
   }
-  const [phone, setPhone] = useState();
   function phoneChange(e) {
-      setPhone(e.target.value);
+    setPhone(e.target.value);
   }
-  const [address, setAddress] = useState("");
   function addressChange(e) {
-      setAddress(e.target.value);
+    setAddress(e.target.value);
   }
   const [inputData, setInputData] = useState(false)
   
-
-
   return (
     <>
       <div class="container row mt-5">
@@ -76,21 +70,26 @@ function SubOne(props) {
                         <lable class="m-2">輸入會員資料</lable>
                         </section>
                         <div class="subinfoway"><span>選擇配送方式</span></div>
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>黑貓宅急便</option>
-                            <option value="1">7-11取貨</option>
+                        <select class="form-select" 
+                        aria-label="Default select example" 
+                        value={transport}
+                        onChange={(event) => {
+                            setTransport(event.target.value)
+                        }}>
+                        <option value="150,黑貓宅急便" selected>黑貓宅急便</option>
+                        <option value="100,711取貨">7-11取貨</option>
                         </select>
                         <div class="my-2">
                             <label for="exampleFormControlInput1" class="form-label"><span>收貨人</span></label>
-                            <input type="text" class="form-control" placeholder="請輸入名字" onChange={nameChange} value={receiver} required/>
+                            <input type="text" class="form-control" placeholder="請輸入名字" onChange={nameChange} value={receiver}/>
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label"><span>手機號碼</span></label>
-                            <input type="tel" class="form-control" placeholder="請輸入手機號碼" onChange={phoneChange} value={phone} required/>
+                            <input type="tel" class="form-control" placeholder="請輸入手機號碼" onChange={phoneChange} value={phone}/>
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">地址</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="請輸入寄送地址" onChange={addressChange} value={address} required/>
+                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="請輸入寄送地址" onChange={addressChange} value={address}/>
                         </div>
                     </div>
                     </div>
@@ -107,6 +106,12 @@ function SubOne(props) {
                             productId={product_id}
                             subscribe_way={subscribe_way}
                             setStep={setStep}
+                            transport={transport}
+                            receiver={receiver}
+                            phone={phone}
+                            address={address}
+                            subOrder={subOrder}
+                            setSubOrder={setSubOrder}
                         />
                         );
                     })} 

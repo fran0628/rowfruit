@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 
 function SubDetail(props) {
-  const {setStep, productId, subscribe_way, userData} = props;
+  const {setStep, productId, subscribe_way, transport, receiver, subOrder} = props;
   // 訂閱制時間
   var subboxTime
   var subboxPriceTime
@@ -36,10 +36,34 @@ function SubDetail(props) {
     default:
       fruitboxPrice = 0;
   }
+
   // 訂閱制價格
   var subboxPrice = subboxPriceTime * fruitboxPrice
+
   // 訂單總額
-  var totalPrice = subboxPrice + 150
+  var totalPrice = subboxPrice + parseInt(transport)
+
+  // 寄送方式
+  const transway = transport.split(",")
+
+
+  // 送出訂單
+  function submitOrder() {
+    fetchPostApi();
+    setStep(4);
+  }
+  console.log(subOrder)
+
+  //fetchPost
+  const fetchPostApi = async () => {
+    await fetch("http://localhost:5000/api/suborderlist", {
+      method: "POST",
+      body: JSON.stringify(subOrder),
+      headers: new Headers({
+        "Content-Type": "application/json",
+      }),
+    });
+  };
 
   
   return (
@@ -49,14 +73,14 @@ function SubDetail(props) {
             <hr />
             <div class="d-flex justify-content-between">
             <span class="subpayinfodetail">訂購人</span>
-            <span>{userData.name}</span>
+            <span>{receiver}</span>
             </div>
             <div class="d-flex justify-content-between">
             <div class="my-3">
                 <span class="subpayinfodetail">寄送方式</span>
             </div>
             <div class="my-3">
-                <span>黑貓宅急便</span>
+                <span>{transway[1]}</span>
             </div>
             </div>
             <div class="d-flex justify-content-between">
@@ -64,7 +88,7 @@ function SubDetail(props) {
             <span class="text-danger">${totalPrice}</span>
             </div>
             <div class="submit text-end">
-              <button class="subpaybuy-btn mt-3" onClick={()=>{setStep(4)}}>送出訂單</button>
+              <button class="subpaybuy-btn mt-3" onClick={submitOrder}>送出訂單</button>
             </div>   
         </div>
     </>

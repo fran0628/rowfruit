@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
+import Swal from "sweetalert2";
 
 function SubCheck(props) {
-  const {setStep, productId, subscribe_way} = props;
+  const {setStep, productId, subscribe_way, transport, receiver, phone, address , subOrder, setSubOrder} = props;
+
   // 訂閱制時間
   var subboxTime
   var subboxPriceTime
@@ -39,9 +41,40 @@ function SubCheck(props) {
   // 訂閱制價格
   var subboxPrice = subboxPriceTime * fruitboxPrice
   // 訂單總額
-  var totalPrice = subboxPrice + 150
+  var totalPrice = subboxPrice + parseInt(transport)
 
-  
+  const transway = transport.split(",")
+
+  function pay () {
+    if(receiver === ""){
+      Swal.fire({
+        title: "請填寫收貨人名字",
+        timer: 1500,
+      })
+    }else if(phone === ""){
+      Swal.fire({
+        title: "請填寫手機號碼",
+        timer: 1500,
+      })
+    }else if(address === ""){
+      Swal.fire({
+        title: "請填寫地址",
+        timer: 1500,
+      })
+    }else{
+      setSubOrder((prev) => {
+        const newOrder = { ...prev };
+        newOrder.product_id = productId;
+        newOrder.subscribe_way = subscribe_way;
+        newOrder.receiver = receiver;
+        newOrder.phone = phone;
+        newOrder.address = address;
+        return newOrder;
+      })
+      setStep(2) 
+    }
+  }
+
   
   return (
     <>
@@ -57,7 +90,7 @@ function SubCheck(props) {
                 <span class="subpayinfodetail">運費</span>
             </div>
             <div class="my-3">
-                <span>$150</span>
+                <span>${transway[0]}</span>
             </div>
             </div>
             <hr />
@@ -66,7 +99,7 @@ function SubCheck(props) {
             <span class="text-danger">${totalPrice}</span>
             </div>
             <div class="submit text-end">
-              <button class="subpaybuy-btn mt-3" onClick={()=>{setStep(2)}}>立即付款</button>
+              <button class="subpaybuy-btn mt-3" onClick={pay}>立即付款</button>
             </div>   
         </div>
     </>

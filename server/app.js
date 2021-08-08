@@ -96,6 +96,9 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
 	
 });
 
+let mailRouter = require("./routes/Mail/Mail");
+app.use("/api/mail", mailRouter);
+
 let farmerRouter = require("./routes/Blog/farmerUser");
 app.use("/api/farmer", farmerRouter);
 
@@ -139,9 +142,16 @@ app.use("/api/mainproduct", mainRouter);
 let mainitemRouter = require("./routes/MainProduct/MainProductitem");
 app.use("/api/mainitem", mainitemRouter);
 
+let suborderlistRouter = require("./routes/Suborder/Suborderlist");
+app.use("/api/suborderlist", suborderlistRouter);
+
 let orderlistRouter = require("./routes/Order/Orderlist");
 const { error } = require("console");
 app.use("/api/orderlist", orderlistRouter);
+
+let MailRouter = require("./routes/Mail/Mail");
+app.use("/api/Mail", MailRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

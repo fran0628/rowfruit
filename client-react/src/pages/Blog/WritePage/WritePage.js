@@ -61,7 +61,7 @@ function WritePage() {
 						<div className="col-3 col-lg-2 p-0 position-relative abjust-mb">
 							<DashboardAside />
 						</div>
-						<div className="col-9 col-lg-10">
+						<div className="col-9 col-lg-10 bg-add">
 							<MultiLevelBreadcrumb />
 							<div className="container">
 								<form className="writeForm" onSubmit={handleSubmit}>

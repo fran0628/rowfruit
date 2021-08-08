@@ -1,27 +1,14 @@
-// header {
-//   background: #b1b19d;
-//   opacity: 0.9;
-//   max-height: 70px;
-// }
-@media screen and (max-width: 800px) {
-  .head_nav {
-    display: none;
-  }
-  .transition {
-    transition: 0.4s;
-  }
+@media screen and (max-width: 576px) {
   .fruit_ball {
     display: none;
-  }
-  .farmer {
-    background: #fafcec;
-    width: 500px;
-    height: auto;
-    border-radius: 5px;
   }
   .map {
     width: 100%;
     height: 100%;
+    margin-left: 10px;
+  }
+  .farmer {
+    display: none;
   }
 }
 .fruit_ball {
@@ -51,6 +38,7 @@
   border-radius: 50%;
 }
 .farmer {
+  display: flex;
   background: #fafcec;
   width: 500px;
   height: auto;
@@ -65,53 +53,59 @@
   margin-top: 5px;
   margin-bottom: 5px;
 }
-.knowfarmbtn {
-  display: block;
-  width: 150px;
-  /* height: 40px; */
-  max-width: 100%;
-  padding: 20px 10px;
-  background: #fcfdf5;
-  font-size: 1.125em;
-  color: #e79737;
-  border: none;
-  margin: 10px;
-  padding: 8px 16px;
-  border: 2px solid #838080;
-  border-radius: 5px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
-}
-.knowfarmbtn:hover {
-  display: block;
-  width: 150px;
-  // height: 40px;
-  background-color: #fcfdea;
-  color: #e79737;
-  border: 2px solid #838080;
-  border-radius: 5px;
-  margin: 10px;
-  padding: 8px 16px;
-}
-// .offcanvasbtn {
+// .knowfarmbtn {
+//   display: block;
+//   width: 150px;
+//   /* height: 40px; */
+//   max-width: 100%;
+//   padding: 20px 10px;
+//   background: #fcfdf5;
+//   font-size: 1.125em;
+//   color: #e79737;
+//   border: none;
+//   margin: 10px;
+//   padding: 8px 16px;
+//   border: 2px solid #838080;
 //   border-radius: 5px;
-//   padding: 10px 15px;
-//   border: 0;
-//   background: #f5f5f5;
+//   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
 // }
-// .navbox {
-//   height: 90px;
+// .knowfarmbtn:hover {
+//   display: block;
+//   width: 150px;
+//   // height: 40px;
+//   background-color: #fcfdea;
+//   color: #e79737;
+//   border: 2px solid #838080;
+//   border-radius: 5px;
+//   margin: 10px;
+//   padding: 8px 16px;
 // }
-// .navbar {
-//   background: #f5f5f5;
-//   height: 90px;
-//   margin-bottom: 30px;
+
+// @media screen and (max-width: 992px) {
+//   .navbar ul {
+//     display: none;
+//   }
 // }
-@media screen and (max-width: 992px) {
-  .navbar ul {
-    display: none;
-  }
-}
 .map {
+  display: flex;
   width: 100%;
   height: 100%;
+  margin-left: 10px;
+}
+
+// scrollBar樣式
+//捲軸底色
+#style-3::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+
+  background-color: #f0f5f0;
+}
+//捲軸寬度
+#style-3::-webkit-scrollbar {
+  width: 6px;
+  background-color: black;
+}
+//捲軸本體顏色
+#style-3::-webkit-scrollbar-thumb {
+  background-color: #66816e;
 }

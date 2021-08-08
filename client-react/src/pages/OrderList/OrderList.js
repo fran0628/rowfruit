@@ -67,7 +67,7 @@ function OrderList() {
 					</div>
 					<div className="col-9 col-lg-10">
             <MultiLevelBreadcrumb/>
-						<h3 className="text-center">訂單資訊</h3>
+						<h3 className="text-center"><strong>訂單資訊</strong></h3>
 						<div className="container">
 							<div className="row">
 								{order.map((item) => {
