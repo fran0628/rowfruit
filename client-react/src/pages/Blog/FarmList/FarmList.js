@@ -14,7 +14,7 @@ function FarmList() {
   useEffect(() => {
     const fetchFarmers = async () => {
       const res = await axios.get("/farmer");
-      console.log(res);
+      // console.log(res);
       setFarmers(res.data);
       // console.log(res.data)
     };
