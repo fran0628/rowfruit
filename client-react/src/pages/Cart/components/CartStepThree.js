@@ -164,6 +164,7 @@ function CartStepThree(props) {
           </div>
           <div className="col-7">
             <input
+              className="inputStyle"
               id="receiver"
               placeholder="輸入您的收件人姓名"
               onChange={nameChange}
@@ -177,6 +178,7 @@ function CartStepThree(props) {
           </div>
           <div className="col-7">
             <input
+              className="inputStyle"
               id="phone"
               placeholder="輸入收件人電話"
               onChange={phoneChange}
@@ -190,6 +192,7 @@ function CartStepThree(props) {
           </div>
           <div className="col-7">
             <input
+              className="inputStyle"
               style={{ width: "500px" }}
               id="address"
               placeholder="輸入收件人地址"
@@ -203,7 +206,7 @@ function CartStepThree(props) {
             <label for="remark">備註</label>
           </div>
           <div className="col-7">
-            <textarea style={{ width: "500px" }} id="remark" placeholder="有任何想告訴我們的東西" />
+            <textarea className="inputStyle" style={{ width: "500px" }} id="remark" placeholder="有任何想告訴我們的東西" />
           </div>
         </div>
       </div>

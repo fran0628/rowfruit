@@ -78,7 +78,7 @@ function Middle(props) {
   return (
     <>
       <main
-        className="col-12 col-lg-6 customizedProduct"
+        className="col-12 col-lg-7 customizedProduct"
         id="customizedProduct"
       >
         <TitleTag

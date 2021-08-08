@@ -151,7 +151,9 @@ function Customized(props) {
             {/* 左側邊 */}
             <LeftAside totalWight={totalWight()} />
             {/* 商品區塊 */}
-            
+            <div className="col-10 row position-relative">
+            {cartData.length !==0 && <div className="middleAndRightAside" style={{backgroundImage:`url("http://localhost:3000/images/CustomizedPhotos/${cartData[0].imageFront}/${cartData[0].images}")`}} >
+      </div> }
             <Middle
               data={products}
               cartData={cartData}
@@ -173,6 +175,8 @@ function Customized(props) {
               setTotalCart={setTotalCart}
               setCartUpdate={setCartUpdate}
             />
+            </div>
+            
           </div>
         </div>
       </div>
