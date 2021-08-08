@@ -59,7 +59,7 @@ function WritePage() {
 				<div className="container-fluid">
 					<div className="row">
 						<div className="col-3 col-lg-2 p-0 position-relative abjust-mb">
-							<DashboardAside className="" />
+							<DashboardAside />
 						</div>
 						<div className="col-9 col-lg-10">
 							<MultiLevelBreadcrumb />
