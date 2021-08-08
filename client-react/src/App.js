@@ -175,7 +175,7 @@ function App() {
 	},[data])
 
   return (
-	  <Router>
+		<Router>
 			<>
 				<ScrollToTop>
 					<TopNav
@@ -199,7 +199,7 @@ function App() {
 							{farmeruser ? <Home /> : <FarmerRegister />}
 						</Route>
 						<Route exact path="/writepage">
-							<WritePage />
+							{farmeruser ? <WritePage /> : <FarmerLogin />}
 						</Route>
 						<Route exact path="/blog">
 							<Blog />
@@ -207,15 +207,14 @@ function App() {
 						<Route exact path="/post/:postId">
 							<SinglePage />
 						</Route>
-
 						<Route exact path="/edit/:editId">
-							<EditPage />
+							{farmeruser ? <EditPage /> : <FarmerLogin />}
 						</Route>
 						<Route path="/cart">
 							<Cart isLogin={islogin} setCartUpdate={setCartUpdate} />
 						</Route>
 						<Route path="/subpay">
-							<SubPay isLogin={islogin}/>
+							<SubPay isLogin={islogin} />
 						</Route>
 						<Route path="/subscribecart">
 							<SubscribeCart />
