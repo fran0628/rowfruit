@@ -1,9 +1,8 @@
-import React ,{ useState } from "react";
+import React from "react";
 import SubDetail from '../SubDetail';
 
 function SubTwo(props) {
-  const{setStep, subCart, userData}=props
-
+  const{setStep, subCart, userData, transport, receiver, phone, address, subOrder, setSubOrder}=props
 
   return (
     <>
@@ -50,6 +49,12 @@ function SubTwo(props) {
                 subscribe_way={subscribe_way}
                 setStep={setStep}
                 userData={userData}
+                transport={transport}
+                receiver={receiver}
+                phone={phone}
+                address={address}
+                subOrder={subOrder}
+                setSubOrder={setSubOrder}
               />
               );
           })} 
