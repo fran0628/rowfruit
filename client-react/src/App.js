@@ -16,7 +16,7 @@ import Customized from "./pages/Customized/Customized";
 import MemberRegister from "./pages/Register/MemberRegister";
 import UserDashboard from "./pages/UserDashboard/UserDashboard";
 import OrderList from "./pages/OrderList/OrderList";
-import About from "./pages/About/about";
+import About from "./pages/About/About";
 import Cart from "./pages/Cart/Cart"
 import Blog from "./pages/Blog/BlogPage/BlogPage";
 import FarmerRegister from "./pages/FarmerRegister/FarmerRegister";
