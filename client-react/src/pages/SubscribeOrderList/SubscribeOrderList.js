@@ -43,25 +43,25 @@ function SubscribeOrderList() {
         phone,
         address,
         name,
-        total_price,
+        
         price,
         subscribe_way,
         user_id,
         discount,
-        product_name,
         way,
-        fruit_item,
-        images,
+        
+        
+        
         orderDetails: [],
       };
 
       tmp[id].orderDetails.push({
-		images,
+        price,
+		    images,
         product_name,
         product_id,
-        content,
-        count,
-        price,
+        fruit_item,
+        way,
       });
     }
     setOrder(Object.values(tmp));
@@ -91,10 +91,7 @@ function SubscribeOrderList() {
 										start_time,
 										price,
 										receiver,
-                    images,
 										orderDetails,
-                    product_name,
-                    subscribe_way,
                     discount,
                     way,
                     fruit_item,
@@ -106,9 +103,6 @@ function SubscribeOrderList() {
 											price={price}
 											address={address}
 											receiver={receiver}
-                      images={images}
-                      product_name={product_name}
-                      subscribe_way={subscribe_way}
                       discount={discount}
                       way={way}
                       fruit_item={fruit_item}

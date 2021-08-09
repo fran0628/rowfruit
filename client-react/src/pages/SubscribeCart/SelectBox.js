@@ -9,12 +9,12 @@ function SelectBox(props) {
     
     
     function checkOut() {
-        if(subscribe_way===""){
+        if (subscribe_way===""){
             Swal.fire({
                 title: "您還沒選擇商品",
                 confirmButtonText: "關閉",
               });
-        }else{
+        }else {
             const subData = [{product_id: id, product_name: product_name, images: images, subscribe_way: subscribe_way}]
             // const SubCart = JSON.parse(localStorage.getItem("Subcart")) || [];
             // SubCart.push(subData);
@@ -23,7 +23,6 @@ function SelectBox(props) {
     }
     
         
-
     return (
     <>
         <div class="col-3">
