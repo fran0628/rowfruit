@@ -7,7 +7,7 @@ export default function SubscribeOrderDetail(props) {
     price,
     receiver,
     orderDetails,
-    images,
+    
     product_name,
     subscribe_way,
     discount,
@@ -59,22 +59,33 @@ export default function SubscribeOrderDetail(props) {
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td>
-                              <div className="figure">
-                                <img
-                                  style={{ width: "100px" }}
-                                  src={images}
-                                  className="card-img-top"
-                                  alt="..."
-                                />
-                              </div>
-                            </td>
-                            <td>{product_name}水果盒</td>
-                            <td>{way}</td>
-                            <td>${price}</td>
-                            <td>{fruit_item}</td>
-                          </tr>
+                          {orderDetails.map(
+                            ({
+                              images,
+                              product_name,
+                              way,
+                              product_id,
+                              price,
+                              fruit_item,
+                            }) => (
+                              <tr>
+                                <td>
+                                  <div className="figure">
+                                    <img
+                                      style={{ width: "100px" }}
+                                      src={images}
+                                      className="card-img-top"
+                                      alt="..."
+                                    />
+                                  </div>
+                                </td>
+                                <td>{product_name}水果盒</td>
+                                <td>{way}</td>
+                                <td>${price}</td>
+                                <td>{fruit_item}</td>
+                              </tr>
+                            )
+                          )}
                         </tbody>
                       </table>
                     </Accordion.Body>
