@@ -16,7 +16,7 @@ import Customized from "./pages/Customized/Customized";
 import MemberRegister from "./pages/Register/MemberRegister";
 import UserDashboard from "./pages/UserDashboard/UserDashboard";
 import OrderList from "./pages/OrderList/OrderList";
-import About from "./pages/About/About.js";
+import About from "./pages/About/About";
 import Cart from "./pages/Cart/Cart"
 import Blog from "./pages/Blog/BlogPage/BlogPage";
 import FarmerRegister from "./pages/FarmerRegister/FarmerRegister";
@@ -30,7 +30,7 @@ import EditPage from "./pages/Blog/EditPage/EditPage";
 import ChangePassword from "./pages/ChangePassword/ChangePassword"
 import SubPay from './pages/SubscribeCart/SubPay/SubPay'
 import PostList from "./pages/FarmerUserDashboard/PostList/PostList.js";
-
+import SubscribeOrderList from "./pages/SubscribeOrderList/SubscribeOrderList";
 function App() {
 	const { farmeruser } = useContext(Context);
 
@@ -255,6 +255,9 @@ function App() {
 						</Route>
 						<Route path="/About">
 							<About />
+						</Route>
+						<Route path="/SubscribeOrderList">
+							<SubscribeOrderList />
 						</Route>
 						<Route exact path="/">
 							<Home />

@@ -11,9 +11,9 @@ export default function IndexAbout() {
     <div className="container-fluid section">
           <h1 >了解我們</h1>
           <div class="at-item1"></div>
-<CardGroup>
+<CardGroup> 
   <Card>
-    <Card.Img variant="top" src="holder.js/100px160" />
+    <Card.Img variant="top" src="/About/farmer.png" width="320" height="160" />
     <Card.Body>
       <Card.Title>關於我們</Card.Title>
       <Card.Text>
