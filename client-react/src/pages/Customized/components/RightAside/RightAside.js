@@ -3,6 +3,7 @@ import CartListContent from "./CartListContent";
 import Swal from "sweetalert2";
 import { withRouter } from "react-router-dom";
 import Progress from "../RightAside/Progress";
+import {useTransition,animated} from 'react-spring'
 
 function RightAside(props) {
   const {
@@ -15,6 +16,12 @@ function RightAside(props) {
     setCounts,
     setCartUpdate,
   } = props;
+
+  // const transition = useTransition(cartData,cartData=>cartData?.id,{
+  //   from:{opacity:0,marginLeft:-100,marginRight:100 },
+  //   enter:{opacity:1,marginLeft:0,marginRight:0}
+  // });
+
 
   function successAdd() {
     if (customizedProduct) {
@@ -202,7 +209,7 @@ function RightAside(props) {
           </button>
         </div>
         <button onClick={removeData} className="btn removeFruit">
-          清除購物車列表
+          清除客製化列表
         </button>
         <div className="fruitbox"></div>
       </aside>
