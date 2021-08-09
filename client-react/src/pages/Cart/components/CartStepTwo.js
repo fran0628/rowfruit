@@ -45,7 +45,7 @@ function CartStepTwo(props) {
             }}
             className="h-100 d-flex justify-content-center align-items-end"
           >
-            <span className="display-2">付款成功</span>
+            <span className="display-2">信用卡資訊加入成功</span>
           </div>
         ) : (
           <>

@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from "react";
 import "./orderlist.scss";
-import OrderDetail from "./Orderdetail/OrderDetail";
-import './orderlist.scss'
+import SubscribeOrderDetail from "./SubscribeOrderdetail/SubscribeOrderdetail";
+
 import axios from "axios";
 import UserDashboardAside from "../../component/UserDashboardAside.js/UserDashboardAside";
 import MultiLevelBreadcrumb from "../../component/BreadCrumb/MultiLevelBreadcrumb";
 
-function OrderList() {
+function SubscribeOrderList() {
   const [order, setOrder] = useState([]);
 
   const Fetchdata = async () => {
     const token = localStorage.getItem("token").split(" ")[1];
     const { id: memberId } = JSON.parse(atob(token.split(".")[1]));
 
-    const res = await axios.get("http://localhost:5000/api/orderlist");
+    const res = await axios.get("http://localhost:5000/api/SuscribeOrderlist");
     const tmp = {};
     for (const {
       id,
       receiver,
       price,
-      create_time,
+      start_time,
       content,
       phone,
       name,
@@ -28,18 +28,30 @@ function OrderList() {
       address,
 	    images,
       product_name,
-      member_id,
+      subscribe_way,
+      user_id,
+      discount,
       count,
+      way,
+      fruit_item,
     } of res.data) {
-      if (member_id !== memberId) continue;
+      if (user_id !== memberId) continue;
       tmp[id] = tmp[id] || {
         id,
         receiver,
-        create_time,
+        start_time,
         phone,
         address,
         name,
         total_price,
+        price,
+        subscribe_way,
+        user_id,
+        discount,
+        product_name,
+        way,
+        fruit_item,
+        images,
         orderDetails: [],
       };
 
@@ -69,25 +81,38 @@ function OrderList() {
 					</div>
 					<div className="col-9 col-lg-10">
             <MultiLevelBreadcrumb/>
-						<h3 className="text-center"><strong>一般訂單資訊</strong></h3>
+						<h3 className="text-center"><strong>訂閱制訂單資訊</strong></h3>
 						<div className="container">
 							<div className="row">
 								{order.map((item) => {
 									const {
 										id,
                     address,
-										create_time,
-										total_price,
+										start_time,
+										price,
 										receiver,
+                    images,
 										orderDetails,
+                    product_name,
+                    subscribe_way,
+                    discount,
+                    way,
+                    fruit_item,
 									} = item;
 									return (
-										<OrderDetail
+										<SubscribeOrderDetail
 											id={id}
-											create_time={create_time}
-											total_price={total_price}
+											start_time={start_time}
+											price={price}
 											address={address}
 											receiver={receiver}
+                      images={images}
+                      product_name={product_name}
+                      subscribe_way={subscribe_way}
+                      discount={discount}
+                      way={way}
+                      fruit_item={fruit_item}
+
 											orderDetails={orderDetails}
 										/>
 									);
@@ -100,4 +125,4 @@ function OrderList() {
 		</>
 	);
 }
-export default OrderList;
+export default SubscribeOrderList;

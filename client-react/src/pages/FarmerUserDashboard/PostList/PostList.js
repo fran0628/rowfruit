@@ -42,7 +42,7 @@ function PostList() {
 										<tr className="text-center">
 											<th scope="col">文章編號</th>
 											<th scope="col">文章標題</th>
-											<th scope="col">文章內容</th>
+											<th scope="col" className="k-th">文章內容</th>
 											<th scope="col">文章類別</th>
 											<th scope="col">發布時間</th>
 											<th scope="col">狀態</th>

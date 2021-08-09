@@ -30,3 +30,19 @@ th {
 .k-table .k-tbody .k-tr:last-child td:last-child {
   border-radius: 0 0 5px 0;
 }
+.tx-bk {
+	display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  width: 400px;
+}
+// .tx-bk{
+//   overflow: hidden;
+//         text-overflow: ellipsis;
+//         white-space: nowrap;
+//         width: 100px;
+// }
+.k-th{
+  width: 400px;
+}
