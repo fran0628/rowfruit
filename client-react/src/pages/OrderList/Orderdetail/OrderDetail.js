@@ -7,7 +7,7 @@ function OrderDetailtop(props) {
   return (
     <>
       <div className="col-8 mx-auto mt-3">
-        <table class="table table-success table-striped table-hover ">
+        <table class="table table-secondary table-striped table-hover ">
           <thead>
             <tr>
               <th><strong>訂單編號</strong></th>
@@ -29,7 +29,7 @@ function OrderDetailtop(props) {
                   <Accordion.Item eventKey="0">
                     <Accordion.Header><strong>訂單明細</strong></Accordion.Header>
                     <Accordion.Body className="p-0 ">
-                      <table class="table  table-success table-striped">
+                      <table class="table  table-secondary table-striped">
                         <thead>
                           <tr>
                             <th></th>
