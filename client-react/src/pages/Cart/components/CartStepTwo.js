@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import ProductTable from "./ProductTable";
 import CreditCard from "./CreditCard";
 import Modal from "../../Customized/components/Modal/Modal";
@@ -20,23 +20,52 @@ function CartStepTwo(props) {
   // const [transport, setTransport] = useState("150");
   // const [pay, setPay] = useState("貨到付款");
   const modalRef = useRef();
+  const [dataLoading, setDataLoading] = useState(false);
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    setTimeout(() => {
+      setDataLoading(false)
+      // setShow(false)
+    }, 2000);
+  }, [show]);
+
   return (
     <>
       <Modal className="d-flex justify-content-center" ref={modalRef}>
-        <CreditCard />
-        <div
-          className="d-flex justify-content-center"
-          style={{ width: "100%" }}
-        >
-          <button
-            className="btn normal-btn mx-4 my-3"
+        {dataLoading ? (
+          <div className="d-flex justify-content-center align-items-center h-100">
+            <div className="spinner-border" role="status">
+              <span className="sr-only">Loading...</span>
+            </div>
+          </div>
+        ) : show ? (
+          <div
             onClick={() => {
               modalRef.current.close();
             }}
+            className="h-100 d-flex justify-content-center align-items-end"
           >
-            送出
-          </button>
-        </div>
+            <span className="display-2">付款成功</span>
+          </div>
+        ) : (
+          <>
+            <CreditCard />
+            <div
+              className="d-flex justify-content-center"
+              style={{ width: "100%" }}
+            >
+              <button
+                className="btn normal-btn mx-4 my-3"
+                onClick={() => {
+                  setShow(true);
+                  setDataLoading(true);
+                }}
+              >
+                送出
+              </button>
+            </div>
+          </>
+        )}
       </Modal>
       <div className="row">
         <div className="col-9">

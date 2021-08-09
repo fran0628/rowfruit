@@ -104,8 +104,8 @@ function Customized(props) {
               "https://images.pexels.com/photos/1414130/pexels-photo-1414130.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
               "https://images.pexels.com/photos/65256/pomegranate-open-cores-fruit-fruit-logistica-65256.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
             ]}
-            duration={6}
-            transition={2}
+            duration={4}
+            transition={1}
           />
             <h1 className="mt-0 d-flex justify-content-center">
               {modalData.fruitName}

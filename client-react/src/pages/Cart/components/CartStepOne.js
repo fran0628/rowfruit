@@ -11,7 +11,7 @@ function CartStepOne(props) {
       <ProductTable myCart={myCart} setMyCart={setMyCart} setCartUpdate={setCartUpdate} />
       <div className="d-flex justify-content-center pt-3">
         {myCart.length !==0 ?  <>
-        <span onClick={()=>{props.history.push("./Main")}} className="btn normal-btn mx-4 my-3">繼續購物</span>
+        <span onClick={()=>{props.history.goBack()}} className="btn normal-btn mx-4 my-3">繼續購物</span>
         <span onClick={()=>{setStep(2)}} className="btn normal-btn mx-4 my-3">下一步</span>
         </> : <h1>請先購買水果</h1> }
         {/* <>
