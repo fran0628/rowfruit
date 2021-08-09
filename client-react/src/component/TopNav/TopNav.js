@@ -20,9 +20,9 @@ import { withRouter } from "react-router";
 
 function TopNav(props) {
   function catchImgSrc(str) {
-    if (str === null) {
-      return "null.png";
-    }
+    if (str === null || str === "undefined") {
+			return "null.png";
+		}
     return str;
   }
   function defaultImgSrc(str) {
@@ -79,7 +79,7 @@ function TopNav(props) {
   return (
 		<>
 			<Navbar className="myNavbar"></Navbar>
-			<Navbar fixed="top" className="myNavbar">
+			<Navbar fixed="top" className="myNavbar shadow-sm">
 				<Container expand="lg">
 					<LinkContainer to="/">
 						<Navbar.Brand>

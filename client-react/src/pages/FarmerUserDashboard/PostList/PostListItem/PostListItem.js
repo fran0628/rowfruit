@@ -78,8 +78,8 @@ const convertStatusToText = (v) => {
 			<>
 				<tr className="k-tr">
 					<td>{post?.id}</td>
-					<td>{post?.title}</td>
-					<td className="tx-bk">{deleteHtmlTag(post?.content)}</td>
+					<td><Link to={`/post/${post?.id}`}>{post?.title}</Link></td>
+					<td className="tx-bk pb-0">{deleteHtmlTag(post?.content)}</td>
 					<td>{convertCategoryToText(post?.category)}</td>
 					<td>{new Date(post?.created_time).toLocaleDateString()}</td>
 					<td>{convertStatusToText(post?.status)}</td>
