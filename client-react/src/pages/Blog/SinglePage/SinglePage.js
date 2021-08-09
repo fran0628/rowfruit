@@ -2,7 +2,7 @@ import React from 'react'
 import PostAside from '../BlogPage/PostAside/PostAside'
 import './singlepage.scss'
 import { useLocation, Link,useHistory } from "react-router-dom";
-import { useEffect, useState, useContext,useRef } from "react";
+import { useEffect, useState, useContext } from "react";
 import FacebookComment from '../../../component/FacebookComment/FacebookComment';
 // import FacebookShare from '../../../component/FacebookShare/FacebookShare';
 import axios from "axios";
@@ -35,6 +35,8 @@ const convertCategoryToText = (v) => {
     const [content,setContent]=useState(null)
 	const [category,setCategory]=useState("")
 	const [dataLoading, setDataLoading] = useState(false);
+     const [reload, setReload] = useState(false);
+
 	
 
     
@@ -66,31 +68,41 @@ const convertCategoryToText = (v) => {
         
 		const handleDelete = async () => {		
 
-			try {
-				await axios.delete(`/post/${id}`, {
-					data: { author: farmeruser.name },
-				});
-				function sweetAlert() {
-					Swal.fire({
-						title: "您確定要刪除此文章嗎",
-						text: "將無法回復此篇文章",
-						icon: "warning",
-						showCancelButton: true,
-						confirmButtonColor: "#7367f0",
-						cancelButtonColor: "#d33",
-						confirmButtonText: "確認",
-					}).then((result) => {
+		try {
+			// await axios.delete(`/post/${post.id}`, {
+			// 	data: { author: farmeruser.name },
+			// });
+			function sweetAlert() {
+				Swal.fire({
+					title: "您確定要刪除此文章嗎",
+					text: "將無法回復此篇文章",
+					icon: "warning",
+					showCancelButton: true,
+					confirmButtonColor: "#7367f0",
+					cancelButtonColor: "#d33",
+					confirmButtonText: "確認",
+				})
+					.then((result) => {
 						if (result.isConfirmed) {
 							Swal.fire("已刪除!", "您已刪除此篇文章", "success");
+							axios
+								.delete(`/post/${id}`, {
+									data: { author: farmeruser.name },
+								})
+								.then(function (response) {
+									history.push('/blog')
+								})
+								.catch(function (error) {
+									console.log(error);
+								});
 						}
-						
+					})
+					.then((result) => {
+						setReload(true);
 					});
-				}
-				sweetAlert();
-				window.location.reload("/");
-				
-				// window.location.replace("/");
-			} catch (err) {}
+			}
+			sweetAlert();
+		} catch (err) {}
 		};
    
 
