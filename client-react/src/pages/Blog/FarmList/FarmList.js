@@ -36,7 +36,7 @@ function FarmList() {
         <>
           <MultiLevelBreadcrumb />
           <div className="container">
-            <h1 className="text-center mt-0 mb-0">小農部落</h1>
+            <h1 className="text-center mt-0 mb-0">小農總覽</h1>
             <div className="row g-5 mt-0" id="cards">
               {farmers.map((f, i) => {
                 return <Farmer farmer={f} key={i} />;
