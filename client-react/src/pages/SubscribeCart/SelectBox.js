@@ -1,16 +1,29 @@
 import React , { useState } from 'react'
 import { Link } from 'react-router-dom'
+import Swal from "sweetalert2";
 
 function SelectBox(props) {
     const {id, product_name, images} = props
     const [subscribe_way, setSubscribe_way] = useState(0);
     const urlsub = "/subpay"
+    
+    
     function checkOut() {
-        const subData = [{product_id: id, product_name: product_name, images: images, subscribe_way: subscribe_way}]
-        // const SubCart = JSON.parse(localStorage.getItem("Subcart")) || [];
-        // SubCart.push(subData);
-        localStorage.setItem("subData", JSON.stringify(subData));
+        if(subscribe_way===""){
+            Swal.fire({
+                title: "您還沒選擇商品",
+                confirmButtonText: "關閉",
+              });
+        }else{
+            const subData = [{product_id: id, product_name: product_name, images: images, subscribe_way: subscribe_way}]
+            // const SubCart = JSON.parse(localStorage.getItem("Subcart")) || [];
+            // SubCart.push(subData);
+            localStorage.setItem("subData", JSON.stringify(subData));
+        }
     }
+    
+        
+
     return (
     <>
         <div class="col-3">

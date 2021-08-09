@@ -104,5 +104,55 @@
 }
 
 .addsubcart-btn.active{
-    border: 1px solid #ffa20d;
+    border: 2px solid #ffa20d;
+}
+
+@media screen and (max-width: 1400px) {
+    .selectbox {
+        margin: 50px;
+        border-radius: 2px;
+        width: 250px;
+    }
+    
+    .selectbox img {
+        width: 100%;
+        height: 250px;
+        border-radius: 2px;
+    }
+}
+@media screen and (max-width: 1200px) {
+    .selectbox {
+        margin: 50px;
+        border-radius: 2px;
+        width: 200px;
+    }
+    
+    .selectbox img {
+        width: 100%;
+        height: 180px;
+        border-radius: 2px;
+    }
+    .subscribe-btn {
+        width: 70px;				
+        font-size: 13px;
+    }
+    .addsubcart-btn {
+        display: inline-block;
+        width: 75px;				
+        max-width: 100%;
+        padding: 5px 5px;
+        background-color: #fafafa;
+        color: #000000;
+        border: 1px solid #888686;
+        border-radius: 2px;
+        font-size: 12px;
+        text-align: center;
+        margin-left: 5px;
+        margin-bottom: 3px;
+    }
+    h5{
+        // font-size: 20px;
+        margin-top: 3px;
+    }
+    
 }

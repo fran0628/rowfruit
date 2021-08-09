@@ -22,6 +22,34 @@ function SubscribeCart() {
   const timeList = ['月訂閱製','季訂閱製','年訂閱製']
   var subboxPrice;
   var subboxTime; 
+  
+  switch (boxOption) {
+    case '美白水果盒':
+      subboxPrice = 400;
+      break;
+    case '健身水果盒':
+      subboxPrice = 500;
+      break;
+    case '多纖輕盈水果盒':
+      subboxPrice = 600;
+      break;
+    default:
+      subboxPrice = 0;
+  }
+
+  switch (timeOption) {
+    case '月訂閱製':
+      subboxTime = subboxPrice * 4;
+      break;
+    case '季訂閱製':
+      subboxTime = subboxPrice * 4 * 0.9;
+      break;
+    case '年訂閱製':
+      subboxTime = subboxPrice * 4 * 0.8;
+      break;
+    default:
+      subboxTime = 0;
+  }
 
   //引入資料
   const [data, setData] = useState([]);
@@ -33,7 +61,7 @@ function SubscribeCart() {
     return item.id < 10 ;
   });
   
-  
+  // console.log(filterdata)
   
     return (
       <>  
