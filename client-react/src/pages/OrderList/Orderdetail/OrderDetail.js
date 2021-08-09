@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Accordion } from "react-bootstrap";
 
-function OrderDetailtop(props) {
+function OrderDetail(props) {
   const { id, create_time, total_price, receiver, orderDetails } = props;
 
   return (
@@ -71,4 +71,4 @@ function OrderDetailtop(props) {
     </>
   );
 }
-export default OrderDetailtop;
+export default OrderDetail;
