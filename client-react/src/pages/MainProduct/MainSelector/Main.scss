@@ -168,8 +168,8 @@ li {
 /* 側欄 */
 
 .sliderword img{
-  width: 250px;
-  height: 250px;
+  max-width: 250px;
+  max-height: 250px;
   margin: 30px 30px 20px 20px; 
 }
 
@@ -206,8 +206,12 @@ li {
     margin-top: 30px;
   }
 }
-
 @media screen and (max-width: 992px) {
+  .sliderword img{
+    max-width: 100px;
+    max-height: 100px;
+    margin: 0; 
+  }
   .rwd_slider_container_wrapper {
     max-width: 100%;
     padding: 20px;
@@ -245,11 +249,27 @@ li {
     text-overflow: ellipsis;
     overflow: hidden;
   }
+  .orange{
+    width: 100px;
+    height: 100px;
+    transform: skew(0deg, 0deg);
+  }
 }
 @media screen and (max-width: 576px) {
+  .orange{
+    display: none;
+   }
   .normal-buy-btn {
     width: 120px;
     padding: 15px 10px;
     font-size: 13px;
   }
+
+@media screen and (max-width: 375px) {
+  .sliderword img{
+    width: 150px;
+    height: 150px;
+  }
+  
+}
 }
