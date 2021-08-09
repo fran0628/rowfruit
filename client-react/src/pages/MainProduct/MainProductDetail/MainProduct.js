@@ -7,6 +7,8 @@ import Buy from './BuyContent/Buy'
 import Images from './ProductImages/Images'
 import { withRouter } from 'react-router-dom'
 import MultiLevelBreadcrumb from "../../../component/BreadCrumb/MultiLevelBreadcrumb";
+import { Link } from 'react-router-dom'
+import ScrollToTop from "react-scroll-to-top";
 
 
 function MainProduct(props) {
@@ -34,7 +36,7 @@ useEffect(() => {
     })();
   }, [props.match.params.id]); 
 
-// console.log(data)
+console.log(data)
 useEffect(() => {
   (async function productsData() {
     const res = await fetch(apiMain)
@@ -48,7 +50,6 @@ useEffect(() => {
     })();
 }, [props.match.params.id]);
 // console.log(asidedata)
-
 
 return (
 	<>
@@ -142,44 +143,43 @@ return (
 							<div className="panel" id="one-panel">
 								<div className="d-flex">
 									<img src="/Mainphotos/31.png" alt="" />
-									<ul className="m-5">
-										<li>砂糖橘柑橘約3-5份</li>
-										<li>珍珠芭樂約2-3份</li>
-										<li>秀女番茄7-8顆裝</li>
-										<li>綠色奇異果約2-3顆</li>
+									<ul className="m-5 text-center">
+										<li class="mt-5">{data.product_name}水果盒</li>
+										<li >享受一次水果配送服務</li>
+										<li>約 1 - 2 周時間寄出</li>
 									</ul>
 								</div>
 							</div>
 							<div className="panel" id="two-panel">
 								<div className="d-flex">
 									<img src="/Mainphotos/32.png" alt="" />
-									<ul className="m-5">
-										<li>砂糖橘柑橘約3-5份</li>
-										<li>珍珠芭樂約2-3份</li>
-										<li>秀女番茄7-8顆裝</li>
-										<li>綠色奇異果約2-3顆</li>
+									<ul className="m-5 text-center">
+										<li class="mt-5">{data.product_name}水果盒</li>
+										<li>享受４週水果配送服務</li>
+										<li>週一至週四間配送</li>
+										<Link to="/subscribecart"><button className="smallsub-btnbuy">選擇訂閱方案</button></Link>
 									</ul>
 								</div>
 							</div>
 							<div className="panel" id="three-panel">
 								<div className="d-flex">
 									<img src="/Mainphotos/32.png" alt="" />
-									<ul className="m-5">
-										<li>砂糖橘柑橘約3-5份</li>
-										<li>珍珠芭樂約2-3份</li>
-										<li>秀女番茄7-8顆裝</li>
-										<li>綠色奇異果約2-3顆</li>
+									<ul className="m-5 text-center">
+										<li class="mt-5">{data.product_name}水果盒</li>
+										<li>享受１２週水果配送服務</li>
+										<li>週一至週四間配送</li>
+										<Link to="/subscribecart"><button className="smallsub-btnbuy">選擇訂閱方案</button></Link>
 									</ul>
 								</div>
 							</div>
 							<div className="panel" id="four-panel">
 								<div className="d-flex">
 									<img src="/Mainphotos/32.png" alt="" />
-									<ul className="m-5">
-										<li>砂糖橘柑橘約3-5份</li>
-										<li>珍珠芭樂約2-3份</li>
-										<li>秀女番茄7-8顆裝</li>
-										<li>綠色奇異果約2-3顆</li>
+									<ul className="m-5 text-center">
+									<li class="mt-5">{data.product_name}水果盒</li>
+										<li>享受半年水果配送服務</li>
+										<li>週一至週四間配送</li>
+										<Link to="/subscribecart"><button className="smallsub-btnbuy">選擇訂閱方案</button></Link>
 									</ul>
 								</div>
 							</div>
@@ -361,12 +361,14 @@ return (
 								</div>
 							</div>
 							<div className="phone-btn"></div>
+							<ScrollToTop smooth component={<i class="fas fa-arrow-up"></i>}/>
 						</div>
 					</div>
 					<div className="top col-2">
-						<button onclick="topFunction()" id="topBtn">
+						{/* <button onclick={ScrollToTop}>
 							<i className="fas fa-angle-up fa-3x"></i>
-						</button>
+						</button> */}
+						
 					</div>
 				</div>
 			</div>
