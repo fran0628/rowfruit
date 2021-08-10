@@ -24,9 +24,6 @@ function ProductImages(props) {
   </div>;
 
     return (
-      
-
-
         <>  
             <div className="col-xl-5 col-lg-6 mt-2">
               <div className="mainpic">

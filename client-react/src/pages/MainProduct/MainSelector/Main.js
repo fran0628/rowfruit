@@ -14,16 +14,25 @@ async function productData(setData) {
 function Main() {
 
 const [data, setData] = useState([]);
+const [dataLoading, setDataLoading] = useState(false);
 useEffect(() => {
+  setDataLoading(true)
+  setTimeout(() => setDataLoading(false), 500);
   productData(setData)
 }, []) 
 
 const filterdata = data.filter(function(item, index, array){
   return item.id < 10 ;
 });
+if (dataLoading)
+    return <div className="d-flex justify-content-center align-items-center vh-100 vw-100">
+    <div className="spinner-border" role="status">
+      <span className="sr-only">Loading...</span>
+    </div>
+  </div>;
 
 // console.log(filterdata)
-  
+
 
   return (
 		<>
