@@ -4,6 +4,7 @@ import './Main.scss'
 import MainFruitbox from './MainFruitbox/MainFruitbox'
 import Subscribe from './Subscribe/Subscribe'
 import MultiLevelBreadcrumb from '../../../component/BreadCrumb/MultiLevelBreadcrumb';
+import ScrollToTop from "react-scroll-to-top";
 
 async function productData(setData) {
   const res = await fetch(apiMain)
@@ -91,6 +92,7 @@ if (dataLoading)
 				<MainFruitbox data={filterdata} />
 				{/*訂閱方案介紹*/}
 				<Subscribe data={filterdata} />
+				<ScrollToTop smooth component={<i class="fas fa-arrow-up"></i>}/>
 			</main>
 		</>
 	); 
