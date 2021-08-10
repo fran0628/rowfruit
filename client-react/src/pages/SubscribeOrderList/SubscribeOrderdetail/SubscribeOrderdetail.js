@@ -7,14 +7,14 @@ export default function SubscribeOrderDetail(props) {
     price,
     receiver,
     orderDetails,
-    
+
     product_name,
     subscribe_way,
     discount,
     way,
     fruit_item,
   } = props;
-
+  
   return (
     <>
       <div className="col-8 mx-auto mt-3">
@@ -22,7 +22,7 @@ export default function SubscribeOrderDetail(props) {
           <thead>
             <tr>
               <th>
-                <strong>訂閱方案</strong>
+                <strong>訂單編號</strong>
               </th>
               <th>開始日期</th>
               <th>
@@ -35,9 +35,9 @@ export default function SubscribeOrderDetail(props) {
           </thead>
           <tbody>
             <tr>
-              <th> {way}</th>
-              <th> {start_time}</th>
-              <th> ${price / discount}</th>
+              <th> qr1473{id}</th>
+              <th > {start_time.split(".000Z")}</th>
+              <th> ${((price * discount) / 10) * 4}</th>
               <th> {receiver}</th>
             </tr>
             <tr>
@@ -52,6 +52,7 @@ export default function SubscribeOrderDetail(props) {
                         <thead>
                           <tr>
                             <th></th>
+
                             <th>商品名稱</th>
                             <th>訂閱方案</th>
                             <th>商品金額</th>
@@ -61,6 +62,7 @@ export default function SubscribeOrderDetail(props) {
                         <tbody>
                           {orderDetails.map(
                             ({
+                              id,
                               images,
                               product_name,
                               way,
@@ -79,6 +81,7 @@ export default function SubscribeOrderDetail(props) {
                                     />
                                   </div>
                                 </td>
+
                                 <td>{product_name}水果盒</td>
                                 <td>{way}</td>
                                 <td>${price}</td>
