@@ -8,12 +8,25 @@ function ProductImages(props) {
     const [image,setImage] = useState('');
     // console.log(Imageurl[0])
     // console.log(typeof(Imageurl[0]))
- 
+    const [dataLoading, setDataLoading] = useState(false);
     useEffect(()=>{
+      setDataLoading(true)
       setImage(Images.split(' ')[0])
+      setTimeout(() => setDataLoading(false), 500);
     },[Images])
+  
     
+    if (dataLoading)
+    return <div className="d-flex justify-content-center align-items-center vh-100 vw-100">
+    <div className="spinner-border" role="status">
+      <span className="sr-only">Loading...</span>
+    </div>
+  </div>;
+
     return (
+      
+
+
         <>  
             <div className="col-xl-5 col-lg-6 mt-2">
               <div className="mainpic">

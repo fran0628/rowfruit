@@ -82,7 +82,7 @@ function MemberLogin(props) {
 												value={password}
 												onChange={passwordChange}
 												minLength="6"
-												maxLength="8"
+												maxLength="12"
 												required
 											/>
 										</div>
