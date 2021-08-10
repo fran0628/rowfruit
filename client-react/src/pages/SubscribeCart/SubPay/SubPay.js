@@ -78,11 +78,11 @@ function SubPay(props) {
         <>
         <div class="container">
             <div class="container mt-5 d-flex justify-content-center">
-                <div class="cartlist">01 確認明細及選擇配送方式</div>
+            {step === 1 ? (<div class="cartlist" style={{ background: "#dde4df" ,border:"3px solid #ccc" }}>01 確認明細及選擇配送方式</div>) :(<div class="cartlist">01 確認明細及選擇配送方式</div>)}
                 <div class="d-flex align-items-center"><i class="fas fa-arrow-right"></i></div>
-                <div class="cartlist">02 選擇付款方式</div>
+                {step === 2 ? (<div class="cartlist" style={{ background: "#dde4df" ,border:"3px solid #ccc" }}>02 選擇付款方式</div>):(<div class="cartlist">02 選擇付款方式</div>)}
                 <div class="d-flex align-items-center"><i class="fas fa-arrow-right"></i></div>
-                <div class="cartlist">03 購物完成</div>
+                {step === 4 ? (<div class="cartlist" style={{ background: "#dde4df" ,border:"3px solid #ccc" }}>03 購物完成</div>):(<div class="cartlist">03 購物完成</div>)}
             </div>
             {step===1 && <SubOne setStep={setStep} subCart={subCart} userData={userData} transport={transport} setTransport={setTransport} receiver={receiver} setReceiver={setReceiver} phone={phone} setPhone={setPhone} address={address} setAddress={setAddress} subOrder={subOrder} setSubOrder={setSubOrder}
             />}

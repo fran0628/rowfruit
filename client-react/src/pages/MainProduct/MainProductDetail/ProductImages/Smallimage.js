@@ -8,7 +8,7 @@ export default function Smallimage(props) {
     }
     return (
         <>
-            <img onClick={changeImage} src={data} alt=""/>
+            <img className="choseimg" onClick={changeImage} src={data} alt=""/>
         </>
     )
 }

@@ -1,7 +1,7 @@
 import React ,{ useState } from "react";
 import SubItem from '../SubItem';
 import SubCheck from '../SubCheck';
-import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 function SubOne(props) {
   const{setStep, subCart, userData, transport, setTransport, receiver, setReceiver, phone, setPhone, address, setAddress, subOrder, setSubOrder}=props
@@ -118,9 +118,9 @@ function SubOne(props) {
                 </div>
                 </div>
                 <div class="container back">
-                <Link to="/subscribecart"><button class="btn normalback-btn mt-5"><i class="fas fa-arrow-left me-2"></i>返回</button></Link>
+                <button class="btn normalback-btn mt-5" onClick={() => {props.history.goBack()}}><i class="fas fa-arrow-left me-2"></i>返回</button>
                 </div>
     </>
   );
 }
-export default SubOne;
+export default withRouter(SubOne);

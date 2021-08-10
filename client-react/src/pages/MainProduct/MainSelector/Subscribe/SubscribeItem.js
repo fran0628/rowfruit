@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 
 function SubscribeItem(props) {
-    const { id, product_name, fruit_item, price } = props
+    const { id, product_name, fruit_item, price} = props
     // 訂閱制價格
     const monthprice = price * 4 
     const seasonprice = (price * 4)* 0.9
@@ -16,14 +16,17 @@ function SubscribeItem(props) {
     const urlid = String(id)
     const url = "/Mainproduct/"+ urlid
     const urlsub = "/subscribecart"
+
+    // const changeimg = ["/Mainphotos/test1.png", "/Mainphotos/test2.png", "/Mainphotos/test3.png"]
     return (
         <>
             <div className="col-lg-12 g-2 mb-3">
                 <div className="row">
                     <div className="subleftimg col-xl-6 g-3">
-                        <div className="figure"><a href="#/"><img src="/Mainphotos/2.png" className="card-img-top" alt="..." /></a></div>
+                        <div className="figure">
+                            <img src="/Mainphotos/2.png" className="card-img-top" alt="..." />
+                        </div>
                         <div className="card-body">
-                            {/* <h3 className="card-title fs-6">{fruit_item}</h3> */}
                         </div> 
                     </div>
                     <div className="col-xl-5 ms-lg-5 mt-5">

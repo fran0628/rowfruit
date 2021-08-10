@@ -91,7 +91,7 @@ if (dataLoading)
 				{/*水果盒*/}
 				<MainFruitbox data={filterdata} />
 				{/*訂閱方案介紹*/}
-				<Subscribe data={filterdata} />
+				<Subscribe data={filterdata}/>
 				<ScrollToTop smooth component={<i class="fas fa-arrow-up"></i>}/>
 			</main>
 		</>
