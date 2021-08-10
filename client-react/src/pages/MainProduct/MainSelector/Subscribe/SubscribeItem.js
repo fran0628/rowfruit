@@ -19,7 +19,7 @@ function SubscribeItem(props) {
 
     // const changeimg = ["/Mainphotos/test1.png", "/Mainphotos/test2.png", "/Mainphotos/test3.png"]
     return (
-        <>
+        <>  
             <div className="col-lg-12 g-2 mb-3">
                 <div className="row">
                     <div className="subleftimg col-xl-6 g-3">
