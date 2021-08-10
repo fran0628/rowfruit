@@ -258,7 +258,7 @@ return (
 							<div className="cellphonescreen">
 								<div className="m-4">
 									<h2 style={{ display: "inline" }}>評價</h2>
-									<h5 style={{ display: "inline" }}>(21則評論)</h5>
+									<h5 style={{ display: "inline" }}>(5則評論)</h5>
 									{/* <button id="screenbtn" className="phonescreen-btn">
 										我要留言
 									</button> */}

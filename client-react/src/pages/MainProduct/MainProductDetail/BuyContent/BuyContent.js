@@ -103,7 +103,7 @@ function BuyContent(props) {
               <span> &nbsp; </span>
               <span>4.8 / 5</span>
               <span> &nbsp; </span>
-              <a href="#/">30則評論</a>
+              <a href="#/">5則評論</a>
 
               <h5>商品內容</h5>
               <ul>
